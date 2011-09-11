@@ -1,0 +1,16 @@
+<!--
+     Names of FreeBSD newsgroups
+
+     $FreeBSD: doc/hu_HU.ISO8859-2/share/sgml/newsgroups.ent,v 1.2 2008/06/25 11:28:10 gabor Exp $
+-->
+
+<!-- The FreeBSD Hungarian Documentation Project
+     Translated by: Gabor Kovesdan <gabor@FreeBSD.org>
+     %SOURCE%	en_US.ISO8859-1/share/sgml/newsgroups.ent
+     %SRCID%	1.1
+-->
+
+<!ENTITY ng.misc "the
+ <ulink url='news:comp.unix.bsd.freebsd.misc'>comp.unix.bsd.freebsd.misc</ulink>
+ h&iacute;rcsoport">
+

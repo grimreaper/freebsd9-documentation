@@ -1,0 +1,10 @@
+// $FreeBSD: doc/mn_MN.UTF-8/books/handbook/install/example-dir5.dot,v 1.1 2007/04/11 10:51:17 keramida Exp $
+// Original revision: 1.1
+
+digraph directory {
+	root [label="Root\n/"];
+	root -> "A1/" -> "C1/";
+	"A1/" -> "C2/";
+	root -> "A2/" -> "B1/";
+	"A2/" -> "B2/";
+}

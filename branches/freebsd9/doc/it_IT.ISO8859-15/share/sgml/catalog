@@ -1,0 +1,35 @@
+  -- ...................................................................... --
+  -- FreeBSD SGML Public Identifiers ...................................... --
+
+  -- ...................................................................... --
+  -- Italian specific ..................................................... --
+
+  -- $FreeBSD: doc/it_IT.ISO8859-15/share/sgml/catalog,v 1.7 2004/08/25 09:30:32 ale Exp $
+  --
+
+PUBLIC "-//FreeBSD//DOCUMENT DocBook Stylesheet//EN"
+	"freebsd.dsl"
+
+PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Articles Entity Set//EN"
+	"articles.ent"
+
+PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Books Entity Set//EN"
+	"books.ent"
+
+PUBLIC "-//FreeBSD//ENTITIES DocBook Language Specific Entities//EN"
+	"l10n.ent"
+
+PUBLIC "-//FreeBSD//ENTITIES DocBook Mailing List Entities//IT"
+	"mailing-lists.ent"
+
+PUBLIC "-//FreeBSD//ENTITIES DocBook BookInfo Entities//IT"
+	"bookinfo.ent"
+
+PUBLIC "-//FreeBSD//DOCUMENT DocBook Stylesheet//IT"
+	"freebsd.dsl"
+
+PUBLIC "-//FreeBSD//ENTITIES DocBook Translator Entities//IT"
+	"translators.ent"
+
+PUBLIC "-//FreeBSD//ENTITIES DocBook Trademark Entities//IT"
+	"trademarks.ent"

@@ -1,0 +1,14 @@
+<!--
+     Referencer til andre filer der kan inkludres i et DocBook
+     BookInfo element.
+
+     Entitetsnavne har formen "bookinfo.<element>", hvor <element> er
+     navnet på det yderste element i entiteten.  Eksempler ville være
+     "bookinfo.legalnotice", og "bookinfo.preface".
+
+     $FreeBSD: doc/da_DK.ISO8859-1/share/sgml/bookinfo.ent,v 1.1 2003/03/09 21:25:19 blackend Exp $
+-->
+
+<!ENTITY bookinfo.legalnotice SYSTEM "legalnotice.sgml">
+<!ENTITY bookinfo.license SYSTEM "license.sgml">
+<!ENTITY bookinfo.disclaimer SYSTEM "disclaimer.sgml">

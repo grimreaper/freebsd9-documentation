@@ -1,0 +1,4 @@
+<!-- $FreeBSD: doc/sr_YU.ISO8859-2/share/sgml/l10n.ent,v 1.1 2004/11/07 16:26:09 hrs Exp $ -->
+
+<!-- charset for HTML output -->
+<!ENTITY doc.html.charset "iso-8859-2">

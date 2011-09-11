@@ -1,0 +1,15 @@
+<!--
+     Nombre de grupos de noticias de FreeBSD.
+
+     The FreeBSD Spanish Documentation Project
+     %SOURCE% en_US.ISO8859-1/books/handbook/newsgroups.ent
+     %SRCID%    0.0
+
+
+     $FreeBSD: doc/es_ES.ISO8859-1/books/handbook/newsgroups.ent,v 1.2 2008/11/03 02:19:20 carvay Exp $
+-->
+
+<!ENTITY ng.misc "the
+ <ulink url='news:comp.unix.bsd.freebsd.misc'>comp.unix.bsd.freebsd.misc</ulink>
+ newsgroup">
+

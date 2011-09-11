@@ -1,0 +1,14 @@
+<!-- 
+     The FreeBSD Documentation Project
+     The FreeBSD Danish Documentation Project
+
+     $FreeBSD: doc/da_DK.ISO8859-1/share/sgml/legalnotice.sgml,v 1.1 2003/03/09 21:25:19 blackend Exp $
+     Original revision: N/A
+-->
+
+<legalnotice>
+  &bookinfo.license;
+  <important>
+    &bookinfo.disclaimer;
+  </important>
+</legalnotice>

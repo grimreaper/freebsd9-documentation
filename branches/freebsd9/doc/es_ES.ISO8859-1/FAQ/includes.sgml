@@ -1,0 +1,7 @@
+<!-- $FreeBSD: doc/es_ES.ISO8859-1/FAQ/includes.sgml,v 1.5 1999/09/06 06:53:14 peter Exp $ -->
+<!-- The FreeBSD Documentation Spanish Project -->
+
+<!-- book stores -->
+<!ENTITY isbn.amazon 'http://www.amazon.com/exec/obidos/ASIN'>
+
+
