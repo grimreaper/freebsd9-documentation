@@ -7,7 +7,4 @@ This wiki page should contain SVN commit revisions that affect a particular sect
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+*r11* - books/handbook/firewalls/chapter.sgml - document PF in 9.x is the same as OpenBSD 4.5
