@@ -1,0 +1,23 @@
+/* $FreeBSD: www/ja/events/events.css,v 1.1 2010/01/20 15:51:38 ryusuke Exp $ */
+
+/*
+ * The FreeBSD Japanese Documentation Project
+ * Original revision: 1.2
+ */
+
+div.topic {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+div.discussion {
+	margin-left: 1cm;
+}
+
+strong.speaker {
+	color: #660000;
+}
+
+strong.action {
+	color: red;
+}

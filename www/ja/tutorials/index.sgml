@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//FreeBSD//DTD HTML 4.01 Transitional-Based Extension//EN" [
+<!ENTITY base CDATA "..">
+<!ENTITY date "$FreeBSD: www/ja/tutorials/index.sgml,v 1.17 2011/05/20 12:17:59 ryusuke Exp $">
+<!ENTITY title "FreeBSD Tutorials">
+<!ENTITY % navinclude.docs "INCLUDE">
+]>
+<!-- The FreeBSD Japanese Documentation Project -->
+<!-- Original revision: 1.25 -->
+
+<html>
+&header;
+
+    <p>FreeBSD 関連文書のリストは <a href="../docs.html">../docs.html</a>
+      にあります。詳しくは、そちらをご覧ください。</p>
+
+&footer;
+</body>
+</html>
