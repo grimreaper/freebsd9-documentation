@@ -1,0 +1,19 @@
+<!--
+     The FreeBSD Italian Documentation Project
+
+     Riferimenti ad altri files che possono essere inclusi all'interno di un
+     elemento DocBook BookInfo.
+
+     I nomi delle entità prendono la forma "bookinfo.<element>", dove <element>
+     è il nome dell'elemento più esterno nell'entità. Esempi possono essere
+     "bookinfo.legalnotice", e "bookinfo.preface".
+
+     $FreeBSD: doc/it_IT.ISO8859-15/share/sgml/bookinfo.ent,v 1.4 2004/01/26 18:20:06 ale Exp $
+     Original revision: 1.4
+-->
+
+<!ENTITY bookinfo.legalnotice SYSTEM "legalnotice.sgml">
+
+<!ENTITY bookinfo.trademarks SYSTEM "trademarks.sgml">
+
+<!ENTITY bookinfo.freebsd-glossary SYSTEM "glossary/freebsd-glossary.sgml">

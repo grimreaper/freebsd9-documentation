@@ -1,0 +1,32 @@
+  -- ...................................................................... --
+  -- FreeBSD SGML Public Identifiers ...................................... --
+  
+  -- $FreeBSD: doc/ja_JP.eucJP/share/sgml/catalog,v 1.8 2004/12/23 17:13:33 rushani Exp $
+  --
+
+PUBLIC "-//FreeBSD//DOCUMENT DocBook Stylesheet//EN"
+	"freebsd.dsl"
+
+PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Articles Entity Set//EN" 
+       "articles.ent"
+
+PUBLIC "-//FreeBSD//ENTITIES DocBook FreeBSD Books Entity Set//EN" 
+       "books.ent"
+
+PUBLIC "-//FreeBSD//ENTITIES DocBook Mailing List Entities//JA"
+	"mailing-lists.ent"
+
+PUBLIC "-//FreeBSD//ENTITIES DocBook Newsgroup Entities//JA"
+	"newsgroups.ent"
+
+PUBLIC "-//FreeBSD//ENTITIES DocBook Language Specific Entities//EN"
+	"l10n.ent"
+
+PUBLIC  "-//FreeBSD//ENTITIES DocBook Author Entities//JA"
+        "authors.ent"
+
+PUBLIC  "-//FreeBSD//ENTITIES DocBook Team Entities//JA"
+        "teams.ent"
+
+PUBLIC "-//FreeBSD//ENTITIES DocBook Trademark Entities//JA"
+	"trademarks.ent"

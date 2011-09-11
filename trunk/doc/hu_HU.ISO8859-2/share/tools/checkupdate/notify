@@ -1,0 +1,5 @@
+# $FreeBSD: doc/hu_HU.ISO8859-2/share/tools/checkupdate/notify,v 1.3 2010/11/28 19:23:08 pgj Exp $
+#
+# Add your address (relative to FreeBSD.org) here if you want to receive
+# periodic translation checks for this language
+gabor

@@ -1,0 +1,20 @@
+<!--
+     The FreeBSD Documentation Project
+
+     $FreeBSD: doc/share/pgpkeys/pgpkeys-officers.sgml,v 1.1 2006/01/07 23:43:35 remko Exp $
+-->
+
+    <sect2 id="pgpkey-security-officer">
+      <title>&a.security-officer;</title>
+      &pgpkey.security-officer;
+    </sect2>
+
+    <sect2 id="pgpkey-core-secretary">
+      <title>&a.core-secretary;</title>
+      &pgpkey.core-secretary;
+    </sect2>
+
+    <sect2 id="pgpkey-portmgr-secretary">
+      <title>&a.portmgr-secretary;</title>
+      &pgpkey.portmgr-secretary;
+    </sect2>

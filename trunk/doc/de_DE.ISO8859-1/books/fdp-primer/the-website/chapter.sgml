@@ -1,0 +1,461 @@
+<!-- Copyright (c) 1998, 1999 Nik Clayton, All rights reserved.
+
+     Redistribution and use in source (SGML DocBook) and 'compiled' forms
+     (SGML HTML, PDF, PostScript, RTF and so forth) with or without
+     modification, are permitted provided that the following conditions
+     are met:
+
+      1. Redistributions of source code (SGML DocBook) must retain the above
+         copyright notice, this list of conditions and the following
+         disclaimer as the first lines of this file unmodified.
+
+      2. Redistributions in compiled form (transformed to other DTDs,
+         converted to PDF, PostScript, RTF and other formats) must reproduce
+         the above copyright notice, this list of conditions and the
+         following disclaimer in the documentation and/or other materials
+         provided with the distribution.
+
+     THIS DOCUMENTATION IS PROVIDED BY NIK CLAYTON "AS IS" AND ANY EXPRESS OR
+     IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+     OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+     DISCLAIMED. IN NO EVENT SHALL NIK CLAYTON BE LIABLE FOR ANY DIRECT,
+     INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+     (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+     SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+     HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+     STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+     ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF ADVISED OF THE
+     POSSIBILITY OF SUCH DAMAGE.
+
+     $FreeBSD: doc/de_DE.ISO8859-1/books/fdp-primer/the-website/chapter.sgml,v 1.9 2009/02/21 17:03:11 jkois Exp $
+     $FreeBSDde: de-docproj/books/fdp-primer/the-website/chapter.sgml,v 1.9 2009/02/07 23:44:17 jkois Exp $
+     basiert auf: 1.27
+-->
+
+<chapter id="the-website">
+  <chapterinfo>
+    <authorgroup>
+      <author>
+	<firstname>Johann</firstname>
+	<surname>Kois</surname>
+	<contrib>&Uuml;bersetzt von </contrib>
+      </author>
+    </authorgroup>
+  </chapterinfo>
+
+  <title>Die Webseite</title>
+
+  <sect1 id="the-website-prep">
+    <title>Vorbereitung</title>
+
+    <para>Sorgen Sie f&uuml;r gen&uuml;gend Plattenplatz (zwischen
+      200 und 500&nbsp;MB).  Der genaue Wert h&auml;ngt davon ab,
+      welche Methode Sie zum Bau der Webseiten verwenden.  Dieser
+      Platz wird von den SGML-Werkzeugen, den ben&ouml;tigten Teilen
+      des CVS-Baums, f&uuml;r tempor&auml;ren Speicher zum Bau der
+      Seiten sowie f&uuml;r die Installation der Webseiten
+      ben&ouml;tigt.</para>
+
+    <note>
+      <para>Stellen Sie sicher, dass Ihre Dokumentationsports aktuell
+	sind.  Wenn Sie sich nicht sicher sind, entfernen Sie die alten
+	Ports mit &man.pkg.delete.1;, bevor Sie die neue Version
+	installieren.  Derzeit wird unter anderem jade-1.2 vorausgesetzt.
+	Haben Sie beispielsweise jade-1.1 installiert, deinstallieren Sie
+	es mit:</para>
+
+      <screen>&prompt.root; <userinput><command>pkg_delete</command> jade-1.1</userinput></screen>
+    </note>
+
+    <para>Sie haben zwei M&ouml;glichkeiten, an die f&uuml;r den Bau
+      der Webseiten n&ouml;tigen Dateien zu gelangen:</para>
+
+    <itemizedlist>
+      <listitem>
+	<para>Sie k&ouml;nnen <command>csup</command> verwenden, um eine
+	  lokale Kopie der Dateien von einem
+	  <application>CVSup</application>-Server herunterzuladen.  Dies
+	  ist die einfachste Methode, da Sie keine zus&auml;tzlichen
+	  Programme installieren m&uuml;ssen.  Das im n&auml;chsten
+	  Abschnitt beschriebene <filename>supfile</filename> l&auml;dt
+	  jeweils die aktuellste Version der ben&ouml;tigten Dateien
+	  herunter.  Diese Methode ist ausreichend, wenn Sie die
+	  Webseiten nur lokal bauen wollen, aber keine Ver&auml;nderungen
+	  committen wollen.</para>
+
+	<note>
+	  <para>Seit &os;&nbsp;6.2-RELEASE ist &man.csup.1; Teil des
+	    &os;-Basissystems.  Verwenden Sie eine &auml;ltere
+	    &os;-Version, m&uuml;ssen Sie <filename
+	    role="package">net/csup</filename> &uuml;ber die
+	    Ports-Sammlung installieren.</para>
+	</note>
+      </listitem>
+
+      <listitem>
+	<para>Alternativ verwenden Sie <command>cvsup</command> im
+	  <quote>cvs</quote>-Modus, um ein lokales
+	  <application>CVS</application>-Repository zu erzeugen und
+	  zu verwalten.  Dazu m&uuml;ssen Sie zwar ein zus&auml;tzliches
+	  Programm (<filename
+	  role="package">net/cvsup-without-gui</filename>) installieren,
+	  haben aber zus&auml;tzliche M&ouml;glichkeiten, etwa die
+	  Verwaltung verschiedener Revisionen der doc/www-Dateien und
+	  deren Historie.  Au&szlig;erdem erlaubt es diese Methode Ihnen,
+	  Ver&auml;nderungen in das zentrale
+	  &os;-<application>CVS</application>-Repository zu
+	  committen.</para>
+      </listitem>
+    </itemizedlist>
+
+    <sect2 id="the-website-csup">
+      <title>Die einfache Methode: <command>csup</command>
+	verwenden</title>
+
+      <para><command>csup</command> ist Teil des &os;-Basissystems
+	und wird inzwischen von den meisten Benutzern zur
+	Aktualisierung der Ports-Sammlung verwendet.  Das folgende
+	<filename>supfile</filename> kann dazu verwendet werden, um
+	die zum Bau der Webseiten ben&ouml;tigten Dateien
+	auszuchecken:</para>
+
+      <programlisting>#
+# This file checks out all collections required to rebuild
+# the FreeBSD website
+#
+# Use the nearest CVSup mirror
+# listed at http://www.freebsd.org/doc/handbook/mirrors.html.
+
+*default host=<replaceable>cvsup10.FreeBSD.org</replaceable>
+*default base=/var/db
+*default prefix=<replaceable>/usr/build</replaceable>
+*default release=cvs tag=.
+*default delete use-rel-suffix
+*default compress
+
+# This will retrieve the entire doc branch of the FreeBSD repository.
+
+doc-all
+
+# This will retrieve the files required for the website
+
+www
+
+# This will retrieve some basic ports info required for the build
+
+ports-base</programlisting>
+
+      <para>&Auml;ndern Sie den Eintrag <literal>default host</literal>
+	in einen <application>CVSup</application>-Spiegelserver in
+	Ihrer N&auml;he, bevor Sie mit dem Checkout beginnen.
+	Au&szlig;erdem sollten Sie den Eintrag
+	<literal>default prefix</literal> &auml;ndern, wenn Sie die
+	ausgecheckten Dateien an einem anderen Ort speichern wollen.
+	Danach speichern Sie die Datei beispielsweise als
+	<filename><replaceable>doc-www-supfile</replaceable></filename>
+	ab und f&uuml;hren den folgenden Befehl aus:</para>
+
+      <screen>&prompt.root; <userinput><command>csup</command> <option>-g</option> <option>-L2</option> <replaceable>doc-www-supfile</replaceable></userinput></screen>
+
+      <para>Nachdem dieser Befehl ausgef&uuml;hrt wurde, finden Sie
+	drei neue Verzeichnisse,
+	<filename class="directory">doc/</filename>,
+	<filename class="directory">www/</filename> sowie
+	<filename class="directory">ports/</filename> im Verzeichnis,
+	das Sie durch den Eintrag <literal>default prefix</literal>
+	(in unserem Beispiel <filename
+	class="directory"><replaceable>/usr/build</replaceable></filename>)
+	festgelegt haben.  Wir werden das gleiche Verzeichnis f&uuml;r
+	den Bau der Webseiten verwenden, achten Sie daher unbedingt
+	darauf, dass Sie &uuml;ber gen&uuml;gend Plattenplatz auf dieser
+	Partition verf&uuml;gen.</para>
+
+      <para>Das ist alles.  Sie k&ouml;nnen nun mit dem
+	<link linkend="the-website-build">Bau der Webseiten</link>
+	beginnen.</para>
+    </sect2>
+
+    <sect2 id="the-website-cvsup">
+      <title>Die flexible Methode:  Ein lokales
+	doc/www-<application>CVS</application>-Repository verwenden</title>
+
+      <para>Diese Methode bietet Ihnen (wie bereits erw&auml;hnt), mehr
+	Flexibilit&auml;t, Sie m&uuml;ssen aber den Port oder das Paket
+	<filename role="package">net/cvsup-without-gui</filename>
+	installieren.</para>
+
+      <note>
+	<para>Um <filename role="package">net/cvsup-without-gui</filename>
+	  &uuml;ber die Ports-Sammlung zu installieren, muss
+	  zus&auml;tzlich der Port <filename
+	  role="package">lang/ezm3</filename> (ein Modula&nbsp;3-Compiler)
+	  installiert werden.  Die Installation dieses Ports ist sehr
+	  zeitintensiv, daher ist es in der Regel am einfachsten,
+	  <application>CVSup</application> als Paket (Package) zu
+	  installieren.</para>
+      </note>
+
+      <para><application>CVSup</application> besitzt einen speziellen
+	<quote>cvs</quote>-Modus, mit dem Sie <quote>,v</quote>-Dateien
+	(aus denen ein <application>CVS</application>-Repository
+	besteht) auschecken k&ouml;nnen.  Dies ist mit
+	<application>csup</application> derzeit noch nicht m&ouml;glich.
+	Weiterf&uuml;hrende Informationen zu
+	<application>CVSup</application> finden Sie im Abschnitt <ulink
+	url="&url.books.handbook;/synching.html#CVSUP">Synchronisation
+	der Quellen</ulink> des &os;-Handbuchs.</para>
+
+      <para>Das <filename>supfile</filename> im folgenden Beispiel
+	checkt alle cvs-Sammlungen aus, die Sie f&uuml;r den Bau der
+	Webseiten ben&ouml;tigen und speichert Sie in einem lokalen
+	<application>CVS</application>-Repository:</para>
+
+      <programlisting>#
+# This file will create a local CVS repository
+# with the collections required for a complete
+# FreeBSD website rebuild. It should be used with
+# cvsup *only* (csup will not work)
+
+*default host=<replaceable>cvsup10.FreeBSD.org</replaceable>
+*default base=/var/db
+*default prefix=<replaceable>/usr/dcvs</replaceable>
+*default release=cvs
+*default delete use-rel-suffix
+*default compress
+
+# The following collections are needed
+# for the website build
+
+ports-base
+doc-all
+www
+
+# These collections are needed
+# for CVS functionality
+
+cvsroot-common
+cvsroot-ports
+cvsroot-doc</programlisting>
+
+      <para>&Auml;ndern Sie den Eintrag <literal>default host</literal>
+	in einen <application>CVSup</application>-Spiegelserver in
+	Ihrer N&auml;he, bevor Sie mit dem Checkout beginnen.
+	Au&szlig;erdem sollten Sie den Eintrag
+	<literal>default prefix</literal> &auml;ndern, wenn Sie die
+	ausgecheckten Dateien an einem anderen Ort speichern wollen.
+	Danach speichern Sie die Datei beispielsweise als
+	<filename><replaceable>doc-www-cvsfile</replaceable></filename>
+	ab und f&uuml;hren den folgenden Befehl aus:</para>
+
+      <screen>&prompt.root; <userinput><command>cvsup</command> <option>-g</option> <option>-L2</option> <replaceable>doc-www-cvsfile</replaceable></userinput></screen>
+
+      <para>Zus&auml;tzlich sollten Sie die Umgebungsvariable
+	<envar>CVSROOT</envar> in den Startdateien Ihrer Shell
+	setzen.  Dazu nehmen Sie beispielsweise den folgenden
+	Eintrag in die Datei <filename>~/.cshrc</filename> auf
+	(wenn Sie die <application>csh</application> einsetzen):</para>
+
+      <programlisting>setenv <envar>CVSROOT</envar> <replaceable>/usr/dcvs</replaceable></programlisting>
+
+      <para>Wenn Sie diese Variable gesetzt haben, k&ouml;nnen Sie die
+	Option <option>-d</option> (siehe weiter unten) weglassen, wenn
+	Sie <command>cvs</command>-Operationen im Repository
+	ausf&uuml;hren:</para>
+
+      <para>Derzeit ben&ouml;tigen Sie f&uuml;r ein Repository, das
+	nur die zum Bau der Webseiten n&ouml;tigen Dateien enth&auml;lt,
+	mehr als 400&nbsp;MB freien Plattenplatz.  Der Bau der Webseiten
+	erfordert tempor&auml;r weitere 200&nbsp;MB.
+	Nachdem <command>cvsup</command> seine Arbeit beendet hat,
+	k&ouml;nnen Sie die Dateien in das Verzeichnis, in dem Sie die
+	Webseiten bauen wollen, auschecken:</para>
+
+      <screen>&prompt.root; <userinput><command>mkdir</command> <replaceable>/usr/build</replaceable></userinput>
+&prompt.root; <userinput><command>cd</command> <replaceable>/usr/build</replaceable></userinput>
+&prompt.root; <userinput><command>cvs</command> <option>-d</option> <replaceable>/usr/dcvs</replaceable> <option>-R</option> co <option>-AP</option> doc www ports</userinput></screen>
+
+      <para>Der letzte Befehl entspricht dem Auschecken der Dateien
+	von einem <application>CVSup</application>-Server mit
+	<application>csup</application>.  Danach haben Sie ein
+	Bau-Verzeichis analog zur
+	<application>csup</application>-Methode.</para>
+
+      <para><command>cvsup</command> erlaubt es Ihnen auch, Ihr
+	<application>CVS</application>-Repository regelm&auml;&szlig;ig
+	zu aktualisieren.  Im Gegensatz zum ersten Aufruf dauern diese
+	Aktualisierungen in der Regel nur wenige Minuten.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="the-website-build">
+    <title>Die Webseiten bauen</title>
+
+    <para>Nachdem Sie eine der beiden Methoden erfolgreich
+      ausgef&uuml;hrt haben, k&ouml;nnen Sie mit dem Bau der Webseiten
+      beginnen.  In unserem Beispiel erfolgt der Bau im Verzeichnis
+      <filename
+      class="directory"><replaceable>/usr/build</replaceable></filename>,
+      in dem sich bereits alle ben&ouml;tigten Dateien befinden.</para>
+
+    <procedure>
+      <step>
+	<para>Wechseln Sie in das Bau-Verzeichis.</para>
+
+	<screen>&prompt.root; <userinput><command>cd</command> <replaceable>/usr/build</replaceable></userinput></screen>
+      </step>
+
+      <step>
+	<para>Sie starten den Bau der Webseiten, indem Sie in das
+	  Unterverzeichnis <filename class="directory">www/en</filename>
+	  wechseln und dort den Befehl
+	  &man.make.1; <maketarget>all</maketarget> ausf&uuml;hren.</para>
+
+	<screen>&prompt.root; <userinput><command>cd</command> www/en</userinput>
+&prompt.root; <userinput><command>make</command> <maketarget>all</maketarget></userinput></screen>
+      </step>
+    </procedure>
+  </sect1>
+
+  <sect1 id="the-website-install">
+    <title>Installieren der Webseiten auf Ihrem Server</title>
+
+    <procedure>
+      <step>
+	<para>Wechseln Sie wieder in das Verzeichnis
+	  <filename class="directory">en</filename>, falls Sie dieses
+	  inzwischen verlassen haben.</para>
+
+	  <screen>&prompt.root; <userinput><command>cd</command> <replaceable>/usr/build/www/en</replaceable></userinput></screen>
+      </step>
+
+      <step>
+	<para>F&uuml;hren Sie &man.make.1; <maketarget>install</maketarget>
+	 aus und setzen Sie die Variable <makevar>DESTDIR</makevar> auf
+	 das Verzeichnis, in das Sie die Webseiten installieren
+	 wollen.</para>
+
+	<screen>&prompt.root; <userinput><command>env</command> <makevar>DESTDIR</makevar>=<replaceable>/usr/local/www</replaceable> <command>make</command> <maketarget>install</maketarget></userinput></screen>
+      </step>
+
+      <step>
+	<para>Wenn Sie die Webseiten bereits fr&uuml;her in dieses
+	  Verzeichnis installiert haben, wurden w&auml;hrend der
+	  Installation keine veralteten Seiten entfernt.  Wenn
+	  Sie die Webseiten beispielsweise t&auml;glich neu bauen
+	  und installieren, findet und entfernt der folgende Befehl
+	  alle Dateien, die in den letzten drei Tagen nicht aktualisiert
+	  wurden:</para>
+
+	<screen>&prompt.root; <userinput><command>find</command> <replaceable>/usr/local/www</replaceable> <option>-ctime</option> 3 <option>-print0</option> | <command>xargs</command> <option>-0</option> <command>rm</command></userinput></screen>
+      </step>
+    </procedure>
+  </sect1>
+
+  <sect1 id="the-website-env">
+    <title>Umgebungsvariablen</title>
+
+    <variablelist>
+      <varlistentry>
+	<term><envar>CVSROOT</envar></term>
+
+	<listitem>
+	  <para>Der Ort des CVS-Baums.  Sie sollten diese Variable
+	    setzen, wenn Sie die
+	    <application>CVSup</application>-Methode verwenden.</para>
+
+	  <screen><userinput>&prompt.root; <makevar>CVSROOT</makevar>=<replaceable>/usr/dcvs</replaceable>; <command>export</command> <makevar>CVSROOT</makevar></userinput></screen>
+
+	  <para><envar>CVSROOT</envar> ist eine Umgebungsvariable.  Sie
+	    m&uuml;ssen sie daher auf der Kommandozeile oder in Ihren
+	    .dot-Dateien (beispielsweise in
+	    <filename>~/.profile</filename>) setzen.  Die genaue
+	    Syntax h&auml;ngt von der von Ihnen eingesetzten Shell
+	    (das letzte Beispiel gilt nur f&uuml;r die
+	    <application>bash</application> und bash-&auml;hnliche
+	    Shells) ab.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><makevar>ENGLISH_ONLY</makevar></term>
+
+	<listitem>
+	  <para>Ist diese Variable gesetzt und nicht leer, bauen und
+	    installieren die Makefiles ausschlie&szlig;lich die
+	    englischen Dokumente.  S&auml;mtliche &Uuml;bersetzungen
+	    werden dabei ignoriert.  Dazu ein Beispiel:</para>
+
+	  <screen>&prompt.root; <userinput><command>make</command> <makevar>ENGLISH_ONLY=YES</makevar> <maketarget>all</maketarget> <maketarget>install</maketarget></userinput></screen>
+
+	  <para>Wenn Sie die Variable <makevar>ENGLISH_ONLY</makevar>
+	    deaktivieren und alle Webseiten inklusive aller
+	    &Uuml;bersetzungen bauen wollen, setzen Sie die Variable
+	    <makevar>ENGLISH_ONLY</makevar> auf einen leeren Wert:</para>
+
+	  <screen>&prompt.root; <userinput><command>make</command> <makevar>ENGLISH_ONLY=""</makevar> <maketarget>all</maketarget> <maketarget>install</maketarget> <maketarget>clean</maketarget></userinput></screen>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><makevar>WEB_ONLY</makevar></term>
+
+	<listitem>
+	  <para>Ist diese Variable gesetzt und nicht leer, bauen und
+	    installieren die Makefiles nur die HTML-Seiten des
+	    Verzeichnisses <filename class="directory">www</filename>.
+	    Alle Dokumente des
+	    <filename class="directory">doc</filename>-Verzeichnisses
+	    (Handbuch, FAQ, Artikel) werden dabei ignoriert:</para>
+
+	  <screen>&prompt.root; <userinput><command>make</command> <makevar>WEB_ONLY=YES</makevar> <maketarget>all</maketarget> <maketarget>install</maketarget></userinput></screen>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><makevar>WEB_LANG</makevar></term>
+
+	<listitem>
+	  <para>Ist diese Variable gesetzt, wird die Dokumentation nur
+	    f&uuml;r die durch diese Variable festgelegten Sprachen
+	    gebaut und im Verzeichnis
+	    <filename class="directory">www</filename> installiert.
+	    Alle weiteren Sprachen (ausgenommen Englisch) werden
+	    ignoriert. Dazu ein Beispiel:</para>
+
+	  <screen>&prompt.root; <userinput>make WEB_LANG="el es hu nl" all install</userinput></screen>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><makevar>NOPORTSCVS</makevar></term>
+
+	<listitem>
+	  <para>Ist diese Variable gesetzt, checken die Makefiles keine
+	    Dateien aus dem Ports-CVS-Repository aus.  Stattdessen werden
+	    die Dateien aus dem Verzeichnis
+	    <filename class="directory">/usr/ports</filename>
+	   (oder aus dem Verzeichnis, auf das die Variable
+	   <envar>PORTSBASE</envar> zeigt) verwendet.</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para><makevar>WEB_ONLY</makevar>, <makevar>ENGLISH_ONLY</makevar>,
+      <makevar>WEB_LANG</makevar> und <makevar>NOPORTSCVS</makevar>
+      sind Variablen f&uuml;r Makefiles.
+      Diese werden entweder in <filename>/etc/make.conf</filename>, in
+      <filename>Makefile.inc</filename> oder als Umgebungsvariablen auf
+      der Kommandozeile oder in Ihrer Konfigurationsdatei gesetzt.</para>
+  </sect1>
+</chapter>
+
+<!--
+     Local Variables:
+     mode: sgml
+     sgml-declaration: "../chapter.decl"
+     sgml-indent-data: t
+     sgml-omittag: nil
+     sgml-always-quote-attributes: t
+     sgml-parent-document: ("../book.sgml" "part" "chapter")
+     End:
+-->

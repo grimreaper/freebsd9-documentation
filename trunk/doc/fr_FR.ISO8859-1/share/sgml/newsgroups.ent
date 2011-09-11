@@ -1,0 +1,13 @@
+<!--
+     The FreeBSD Documentation Project
+     The FreeBSD French Documentation Project
+
+     Original revision: 1.1
+     Names of FreeBSD newsgroups
+
+     $FreeBSD: doc/fr_FR.ISO8859-1/share/sgml/newsgroups.ent,v 1.2 2002/07/07 19:23:14 blackend Exp $
+-->
+
+<!ENTITY ng.misc "groupe de discussion
+ <ulink url='news:comp.unix.bsd.freebsd.misc'>comp.unix.bsd.freebsd.misc</ulink> ">
+
