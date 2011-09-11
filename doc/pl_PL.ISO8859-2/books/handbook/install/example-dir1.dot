@@ -1,0 +1,7 @@
+// $FreeBSD: doc/pl_PL.ISO8859-2/books/handbook/install/example-dir1.dot,v 1.1 2006/09/24 18:59:03 hrs Exp $
+
+digraph directory {
+	root [label="Root\n/"];
+	root -> "A1/";
+	root -> "A2/";
+}

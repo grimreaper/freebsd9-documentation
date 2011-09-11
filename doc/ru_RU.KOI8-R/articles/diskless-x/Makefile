@@ -1,0 +1,21 @@
+# 
+# The FreeBSD Russian Documentation Project
+# 
+# $FreeBSD: doc/ru_RU.KOI8-R/articles/diskless-x/Makefile,v 1.3 2005/06/14 06:40:34 andy Exp $
+# $FreeBSDru: frdp/doc/ru_RU.KOI8-R/articles/diskless-x/Makefile,v 1.4 2005/06/12 07:19:45 gad Exp $
+#
+# Original revision: 1.8
+#
+# Article: Diskless X Server: a how to guide
+
+DOC?= article
+
+FORMATS?= html
+
+INSTALL_COMPRESSED?=gz
+INSTALL_ONLY_COMPRESSED?=
+
+SRCS=  article.sgml
+
+DOC_PREFIX?= ${.CURDIR}/../../..
+.include "${DOC_PREFIX}/share/mk/doc.project.mk"

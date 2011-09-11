@@ -1,0 +1,14 @@
+// $FreeBSD: doc/el_GR.ISO8859-7/books/handbook/install/example-dir5.dot,v 1.2 2008/01/14 14:19:45 keramida Exp $
+//
+// The FreeBSD Greek Documentation Project
+//
+// %SOURCE%	en_US.ISO8859-1/books/handbook/install/example-dir5.dot
+// %SRCID%	1.1
+
+digraph directory {
+	root [label="Root\n/"];
+	root -> "A1/" -> "C1/";
+	"A1/" -> "C2/";
+	root -> "A2/" -> "B1/";
+	"A2/" -> "B2/";
+}

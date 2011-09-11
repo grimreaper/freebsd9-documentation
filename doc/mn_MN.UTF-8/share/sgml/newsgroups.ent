@@ -1,0 +1,13 @@
+<!--
+     The FreeBSD Mongolian Documentation Project
+
+     Original revision 1.1
+
+     $FreeBSD: doc/mn_MN.UTF-8/share/sgml/newsgroups.ent,v 1.1 2007/04/11 10:51:20 keramida Exp $
+
+     Names of FreeBSD newsgroups
+-->
+
+<!ENTITY ng.misc "Мэдээний бүлэг
+ <ulink url='news:comp.unix.bsd.freebsd.misc'>comp.unix.bsd.freebsd.misc</ulink>">
+

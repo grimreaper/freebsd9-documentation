@@ -1,0 +1,6 @@
+# $FreeBSD: doc/es_ES.ISO8859-1/share/tools/checkupdate/notify,v 1.1 2008/11/07 13:40:04 pgj Exp $
+#
+# Add your address (relative to FreeBSD.org) here if you want to receive
+# periodic translation checks for this language
+carvay
+gabor

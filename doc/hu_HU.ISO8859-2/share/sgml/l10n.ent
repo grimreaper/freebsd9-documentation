@@ -1,0 +1,17 @@
+<!-- -*- sgml -*-
+     DocBook Language Specific Entities for Localization (hu).
+
+     $FreeBSD: doc/hu_HU.ISO8859-2/share/sgml/l10n.ent,v 1.3 2008/06/25 11:28:10 gabor Exp $
+-->
+
+<!-- The FreeBSD Hungarian Documentation Project
+     %SOURCE%	en_US.ISO8859-1/share/sgml/l10n.ent
+     %SRCID%	1.2
+-->
+
+<!ENTITY docnavi.single-html "Teljes dokumentum">
+<!ENTITY docnavi.split-html  "Fejezetekre darabolt dokumentum">
+
+<!ENTITY doc.langcode.en	"en_US.ISO8859-1">
+<!ENTITY doc.langcode		"hu_HU.ISO8859-2">
+<!ENTITY doc.html.charset	"iso-8859-2">
