@@ -1,0 +1,19 @@
+# $FreeBSD: www/ja/ports/Makefile.inc0,v 1.3 2000/11/07 11:37:57 kuriyama Exp $
+# The FreeBSD Japanese Documentation Project
+# Original revision: 1.4
+
+.if exists(../Makefile.conf)
+.include "../Makefile.conf"
+.endif
+.if exists(../Makefile.inc)
+.include "../Makefile.inc"
+.endif
+.if exists(../../en/ports/Makefile.inc)
+.include "../../en/ports/Makefile.inc"
+.endif
+
+.if exists(Makefile.gen)
+.include "Makefile.gen"
+.endif
+
+.include "${WEB_PREFIX}/share/mk/web.site.mk"
