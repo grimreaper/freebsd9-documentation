@@ -1082,131 +1082,44 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
   </sect1>
 
   <sect1 id="using-bsdinstall">
-    <title>Introducing Sysinstall</title>
-<!-- XXXGA done to here -->
-    <para>The <application>sysinstall</application> utility is the installation
+    <title>Introducing BSDinstall</title>
+    <para>The <application>bsdinstall</application> utility is the installation
       application provided by the FreeBSD Project.  It is console based and is
       divided into a number of menus and screens that you can use to
       configure and control the installation process.</para>
 
-    <para>The <application>sysinstall</application> menu system is controlled
+    <para>The <application>bsdinstall</application> menu system is controlled
       by the arrow keys, <keycap>Enter</keycap>, <keycap>Tab</keycap>, <keycap>Space</keycap>, and
-      other keys.  A detailed description of these keys and what they do is
-      contained in <application>sysinstall</application>'s usage 
-      information.</para>
-
-    <para>To review this information, ensure that the
-      <guimenuitem>Usage</guimenuitem> entry is highlighted and that the
-      <guibutton>[Select]</guibutton> button is selected, as shown in <xref
-      linkend="sysinstall-main3">, then press <keycap>Enter</keycap>.</para>
-
-    <para>The instructions for using the menu system will be displayed.  After
-      reviewing them, press <keycap>Enter</keycap> to return to the Main
-      Menu.</para>
-
-    <figure id="bsdinstall-config-keymap">
-      <title>Selecting Keyboard Menu</title>
-<!-- XXXGA Need picture -->
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="install/config-keymap" format="PNG">
-        </imageobject>
-      </mediaobject>
-    </figure>
-
-    <para>After the country selecting, the <application>bsdinstall</application>
-      main menu will display.</para>
-
-    <figure id="sysinstall-main3">
-      <title>Selecting Usage from Sysinstall Main Menu</title>
-
-      <mediaobject>
-	<imageobject>
-	  <imagedata fileref="install/main1" format="PNG">
-	</imageobject>
-      </mediaobject>
-    </figure>
-
-    <sect2 id="select-doc">
-      <title>Selecting the Documentation Menu</title>
-
-      <para>From the Main Menu, select <guimenuitem>Doc</guimenuitem> with
-	the arrow keys and
-	press <keycap>Enter</keycap>.</para>
-
-      <figure id="main-doc">
-	<title>Selecting Documentation Menu</title>
-
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="install/main-doc" format="PNG">
-	  </imageobject>
-	</mediaobject>
-      </figure>
-
-      <para>This will display the Documentation Menu.</para>
-
-      <figure id="docmenu1">
-	<title>Sysinstall Documentation Menu</title>
-
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="install/docmenu1" format="PNG">
-	  </imageobject>
-	</mediaobject>
-      </figure>
-
-      <para>It is important to read the documents provided.</para>
-
-      <para>To view a document, select it with the arrow keys and
-	press <keycap>Enter</keycap>.  When finished reading a document,
-	pressing <keycap>Enter</keycap> will return to the Documentation
-	Menu.</para>
-
-      <para>To return to the Main Installation Menu, select
-	<guimenuitem>Exit</guimenuitem> with the 
-	arrow keys and press <keycap>Enter</keycap>.</para>
-    </sect2>
+      other keys.</para>
 
     <sect2 id="keymap">
       <title>Selecting the Keymap Menu</title>
 
-      <para>To change the keyboard mapping, use the arrow keys to select
-	<guimenuitem>Keymap</guimenuitem> from the menu and press
-	<keycap>Enter</keycap>.  This is only required if you are
-	using a non-standard or non-US keyboard.</para>
+      <para>Depending on the system console being used, <application>bsdinstall</application> may initially
+        prompt to select syoura keyboard layout.  
 
-      <figure id="sysinstall-keymap">
-	<title>Sysinstall Main Menu</title>
-
+      <figure id="bsdinstall-config-keymap">
+	<title>Selecting Keyboard Menu</title>
+<!-- XXXGA Need picture -->
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="install/main-keymap" format="PNG">
+	    <imagedata fileref="install/config-keymap" format="PNG">
 	  </imageobject>
 	</mediaobject>
       </figure>
 
-      <para>A different keyboard mapping may be chosen by selecting the
-	menu item using up/down arrow keys and pressing <keycap>Space</keycap>.
-	Pressing <keycap>Space</keycap> again will unselect the item.
-	When finished, choose the &gui.ok; using the arrow keys and press
-	<keycap>Enter</keycap>.</para>
+      <para>Select the keymap that most closely represents the mapping of the
+        keyboard attached to the system, using the up/down arrow keys and pressing
+        <keycap>Enter</keycap>.
 
-      <para>Only a partial list is shown in this screen representation.
-	Selecting &gui.cancel; by pressing <keycap>Tab</keycap> will use the default
-	keymap and return to the Main Install Menu.</para>
-
-      <figure id="sysinstall-keymap-menu">
-	<title>Sysinstall Keymap Menu</title>
-
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="install/keymap" format="PNG">
-	  </imageobject>
-	</mediaobject>
-      </figure>
-
+      <note>
+	<para>If you are unsure of which keyboard mapping to select, the
+	  <guimenuitem>United States of America ISO-8859-1</guimenuitem> keymap is
+	  usually a good choice.</para>
+      </note>
     </sect2>
+
+<!-- XXXGA done to here. -->
 
     <sect2 id="viewsetoptions">
       <title>Installation Options Screen</title>
