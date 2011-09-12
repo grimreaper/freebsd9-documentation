@@ -1096,7 +1096,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       <title>Selecting the Keymap Menu</title>
 
       <para>Depending on the system console being used, <application>bsdinstall</application> may initially
-        prompt to select syoura keyboard layout.  
+        prompt to select your keyboard layout.</para>
 
       <figure id="bsdinstall-config-keymap">
 	<title>Selecting Keyboard Menu</title>
@@ -1110,7 +1110,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
       <para>Select the keymap that most closely represents the mapping of the
         keyboard attached to the system, using the up/down arrow keys and pressing
-        <keycap>Enter</keycap>.
+        <keycap>Enter</keycap>.</para>
 
       <note>
 	<para>If you are unsure of which keyboard mapping to select, the
@@ -1118,74 +1118,14 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	  usually a good choice.</para>
       </note>
     </sect2>
-
 <!-- XXXGA done to here. -->
 
-    <sect2 id="viewsetoptions">
-      <title>Installation Options Screen</title>
-
-    <para>Select <guimenuitem>Options</guimenuitem> and press
-	<keycap>Enter</keycap>.</para>
-
-    <figure id="sysinstall-options">
-      <title>Sysinstall Main Menu</title>
-
-      <mediaobject>
-        <imageobject>
-	  <imagedata fileref="install/main-options" format="PNG">
-	</imageobject>
-      </mediaobject>
-    </figure>
-
-      <figure id="options">
-	<title>Sysinstall Options</title>
-
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="install/options" format="PNG">
-	  </imageobject>
-	</mediaobject>
-      </figure>
-
-      <para>The default values are usually fine for most users and do
-	not need to be changed.  The release name will vary according
-	to the version being installed.</para>
-
-      <para>The description of the selected item will appear at the
-	bottom of the screen highlighted in blue.  Notice that one of the
-	options is <guimenuitem>Use Defaults</guimenuitem> to reset all
-	values to startup defaults.</para>
-
-      <para>Press <keycap>F1</keycap> to read the help screen about the
-	various options.</para>
-
-      <para>Pressing <keycap>Q</keycap> will return to the Main Install
-	menu.</para>
-    </sect2>
-
-    <sect2 id="start-install">
-      <title>Begin a Standard Installation</title>
-
-      <para>The <guimenuitem>Standard</guimenuitem> installation is the
-	option recommended for those new to &unix; or FreeBSD.  Use the arrow
-	keys to select <guimenuitem>Standard</guimenuitem> and
-	then press <keycap>Enter</keycap> to start the installation.</para>
-
-      <figure id="sysinstall-standard">
-	<title>Begin Standard Installation</title>
-
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="install/main-std" format="PNG">
-	  </imageobject>
-	</mediaobject>
-      </figure>
-    </sect2>
+<!-- hostname -->
   </sect1>
 
   <sect1 id="install-steps">
     <title>Allocating Disk Space</title>
-
+<!-- gcooper hopefully writing this section -->
     <para>Your first task is to allocate disk space for FreeBSD, and label
       that space so that <application>sysinstall</application> can prepare
       it.  In order to do this you need to know how FreeBSD expects to find
