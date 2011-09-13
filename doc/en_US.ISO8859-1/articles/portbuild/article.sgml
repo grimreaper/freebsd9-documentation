@@ -11,7 +11,7 @@
       <corpauthor>The &os; Ports Management Team</corpauthor>
     </authorgroup>
 
-    <pubdate>$FreeBSD: doc/en_US.ISO8859-1/articles/portbuild/article.sgml,v 1.73 2011/06/01 02:59:06 linimon Exp $</pubdate>
+    <pubdate>$FreeBSD: doc/en_US.ISO8859-1/articles/portbuild/article.sgml,v 1.74 2011/09/13 01:34:48 linimon Exp $</pubdate>
 
     <copyright>
       <year>2003</year>
@@ -1482,6 +1482,13 @@ options         ALT_BREAK_TO_DEBUGGER</screen>
 	    that supports Linux emulation, you will need to add:<screen>
 options         COMPAT_LINUX
 options         LINPROCFS</screen>
+	  </para>
+
+	  <para>Also for <literal>PAE</literal>, as of 20110912 you need
+	    the following.  This needs to be investigated:<screen>
+nooption        NFSD                    # New Network Filesystem Server
+options         NFSCLIENT               # Network Filesystem Client
+options         NFSSERVER               # Network Filesystem Server</screen>
 	  </para>
 	</step>
 
