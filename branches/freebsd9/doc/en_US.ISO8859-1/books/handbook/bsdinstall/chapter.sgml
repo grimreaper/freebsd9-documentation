@@ -103,7 +103,7 @@
 	Depending on the method you choose to install &os;, you may
 	also need a supported CDROM drive, and in some
 	case a network adapter.  This will be covered by the <xref
-	linkend="install-boot-media">.</para>
+	linkend="bsdinstall-boot-media">.</para>
 
       <sect3>
 	<title>&os;/&arch.i386; and &os;/&arch.pc98;</title>
@@ -551,6 +551,7 @@
 
       <note>
 	<para>Installation from floppy disks is no longer supported.</para>
+      </note>
 
       <para>You are now ready to start installing &os;.</para>
     </sect2>
@@ -660,7 +661,7 @@ Loading /boot/defaults/loader.conf
 <!-- XXXGA picture needs updating -->
 	    <mediaobject>
 	      <imageobject>
-		<imagedata fileref="install/boot-loader-menu" format="PNG">
+		<imagedata fileref="bsdinstall/boot-loader-menu" format="PNG">
 	      </imageobject>
 	    </mediaobject>
 	  </figure>
@@ -916,7 +917,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 <!-- XXXGA Need picture -->
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="install/config-country" format="PNG">
+	    <imagedata fileref="bsdinstall/config-country" format="PNG">
 	  </imageobject>
 	</mediaobject>
       </figure>
@@ -936,7 +937,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       by the arrow keys, <keycap>Enter</keycap>, <keycap>Tab</keycap>, <keycap>Space</keycap>, and
       other keys.</para>
 
-    <sect2 id="keymap">
+    <sect2 id="bsdinstall-keymap">
       <title>Selecting the Keymap Menu</title>
 
       <para>Depending on the system console being used, <application>bsdinstall</application> may initially
@@ -947,7 +948,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 <!-- XXXGA Need picture -->
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="install/config-keymap" format="PNG">
+	    <imagedata fileref="bsdinstall/config-keymap" format="PNG">
 	  </imageobject>
 	</mediaobject>
       </figure>
@@ -962,10 +963,99 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	  usually a good choice.</para>
       </note>
     </sect2>
-<!-- XXXGA done to here. -->
 
-<!-- hostname -->
+    <sect2 id="bsdinstall-hostname">
+      <title>Setting the Hostname</title>
+
+      <para>Next, <application>bsdinstall</application> will prompt for the
+	hostname to be given to the newly installed system.</para>
+
+      <figure id="bsdinstall-config-hostname">
+	<title>Setting the Hostname</title>
+<!-- XXXGA Need picture -->
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/config-hostname" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>The entered hostname should be a fully-qualified hostname, such as
+	<hostid role="fqdn">machine3.example.com</hostid>.</para>
+    </sect2>
+
+    <sect2 id="bsdinstall-components">
+      <title>Selecting Components To Install</title>
+
+      <para>Next, <application>bsdinstall</application> will prompt to select
+	optional components to install.</para>
+
+      <figure id="bsdinstall-config-components">
+	<title>Selecting Components To Install</title>
+<!-- XXXGA Need picture -->
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/config-components" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <itemizedlist>
+	<title>Optional Components include:</title>
+<!-- XXXGA needs better formatting? -->
+	<listitem>
+	  <para>doc - Install additional documentation, mostly of historical
+	    interest.  Documentation provided by the &os; Documentation Project
+	    may be installed later.</para>
+	</listitem>
+
+	<listitem>
+	  <para>games - Install several traditional BSD games, including
+	    <application>fortune</application>, <application>rot13</application> etc.</para>
+	</listitem>
+
+	<listitem>
+	  <para>ports - Install the &os; Ports Collection</para>
+
+	  <para>The ports
+	    collection is an easy and convenient way to install software.
+	    The Ports Collection does not contain the source code necessary
+	    to compile the software.  Instead, it is a collection of files which
+	    automates the downloading, compiling and installation
+	    of third-party software packages.
+	    <xref linkend="ports"> discusses how to use the ports
+	    collection.</para>
+
+	  <warning>
+	    <para>The installation program does not check to see if you have
+	      adequate space.  Select this option only if you have
+	      adequate hard disk space. As of FreeBSD &rel.current;, the FreeBSD
+	      Ports Collection takes up about &ports.size; of disk space.
+	      You can safely assume a larger value for more recent versions
+	      of FreeBSD.</para>
+	  </warning>
+	</listitem>
+
+	<listitem>
+	  <para>src - Install system source code</para>
+
+	  <para>&os; comes with full source code for both the kernel and the
+	    userland.  Although not required for the majority of applicatoons,
+	    it may be necessary in order to build certain software supplied as
+	    source (for example, device drivers, etc), or for developing &os;
+	    itself.</para>
+
+	  <para>The full source tree requires 1&nbsp;GB of disk space, and
+	    recompiling the entire &os; system requires a further 5&nbsp;GB of
+	    space.</para>
+	</listitem>
+
+      </itemizedlist>
+
+    </sect2>
   </sect1>
+
+<!-- XXXGA done to here. -->
 
   <sect1 id="install-steps">
     <title>Allocating Disk Space</title>
@@ -1682,9 +1772,10 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
     </sect2>
+<!-- XXXGA gcooper hopefully rewriting above -->
   </sect1>
 
-  <sect1 id="install-choosing">
+  <sect1 id="bsdinstall-choosing">
     <title>Choosing What to Install</title>
 
     <sect2 id="distset">
@@ -1738,22 +1829,6 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
     <sect2 id="portscol">
       <title>Installing the Ports Collection</title>
 
-      <para>After selecting the desired distribution, an opportunity to
-	install the FreeBSD Ports Collection is presented.  The ports
-	collection is an easy and convenient way to install software.
-	The Ports Collection does not contain the source code necessary
-	to compile the software.  Instead, it is a collection of files which
-	automates the downloading, compiling and installation
-	of third-party software packages.
-	<xref linkend="ports"> discusses how to use the ports
-	collection.</para>
-
-      <para>The installation program does not check to see if you have
-	adequate space.  Select this option only if you have
-	adequate hard disk space. As of FreeBSD &rel.current;, the FreeBSD
-	Ports Collection takes up about &ports.size; of disk space.
-	You can safely assume a larger value for more recent versions
-	of FreeBSD.</para>
 
 <screen>                         User Confirmation Requested
  Would you like to install the FreeBSD ports collection? 
@@ -2157,22 +2232,6 @@ installation menus to retry whichever operations have failed.
 	the machine up on the network and be ready for use.  However,
 	this does not accomplish much during installation, since
 	the machine still needs to be rebooted.</para>
-    </sect2>
-
-    <sect2 id="gateway">
-      <title>Configure Gateway</title>
-
-      <screen>                       User Confirmation Requested 
-       Do you want this machine to function as a network gateway?
-
-                              [ Yes ]    No</screen>
-
-      <para>If the machine will be acting as the gateway for a local area
-	network and forwarding packets between other machines then select
-	&gui.yes; and press <keycap>Enter</keycap>.
-	If the machine is a node on a network then 
-	select &gui.no; and press
-	<keycap>Enter</keycap> to continue.</para>
     </sect2>
 
     <sect2 id="inetd-services">
@@ -3633,53 +3692,6 @@ Please press any key to reboot.</screen>
     </sect2>
     
     <sect2>
-      <title>Using &ms-dos; and &windows; File Systems</title>
-
-      <para>At this time, &os; does not support file systems compressed with the
-	<application>Double Space&trade;</application> application.  Therefore the file
-	system will need to be uncompressed before &os; can access the data.  This
-	can be done by running the <application>Compression Agent</application>
-	located in the <guimenuitem>Start</guimenuitem>&gt; <guimenuitem>Programs</guimenuitem> &gt;
-	<guimenuitem>System Tools</guimenuitem> menu.</para>
-
-      <para>&os; can support &ms-dos; file systems (sometimes called
-	FAT file systems).  The &man.mount.msdosfs.8; command grafts such file
-	systems onto the existing directory hierarchy, allowing the file
-	system's contents to be accessed. The &man.mount.msdosfs.8; program is not usually
-	invoked directly; instead, it is called by the system through a line
-	in <filename>/etc/fstab</filename> or by a call to the &man.mount.8;
-	utility with the appropriate parameters.</para>
-
-      <para>A typical line in <filename>/etc/fstab</filename> is:</para>
-
-      <programlisting>/dev/ad0sN  /dos  msdosfs rw  0	0</programlisting>
-
-      <note><para>The <filename>/dos</filename> directory must already
-	  exist for this to work.  For details about the format of
-	  <filename>/etc/fstab</filename>, see &man.fstab.5;.</para></note>
-
-      <para>A typicall call to &man.mount.8; for a &ms-dos; file system
-	looks like:</para>
-
-      <screen>&prompt.root; <userinput>mount -t msdosfs /dev/ad0s1 /mnt</userinput></screen>
-
-      <para>In this example, the &ms-dos; file system is located on the first partition of
-	the primary hard disk.  Your situation may be different, check the output from
-	the <command>dmesg</command>, and <command>mount</command> commands.  They should
-	produce enough information to give an idea of the partition layout.</para>
-
-      <note><para>&os; may number disk slices (that is, &ms-dos; partitions)
-	  differently than other operating systems.  In particular, extended
-	  &ms-dos; partitions are usually given higher slice numbers than
-	  primary &ms-dos; partitions.  The &man.fdisk.8; utility can help
-	  determine which slices belong to &os; and which belong to other
-	  operating systems.</para></note>
-
-      <para>NTFS partitions can also be mounted in a similar manner
-	using the &man.mount.ntfs.8; command.</para>
-    </sect2>
-
-    <sect2>
       <title>Troubleshooting Questions and Answers</title>
 
       <qandaset>
@@ -3708,164 +3720,6 @@ Please press any key to reboot.</screen>
 	      <filename>/boot/loader.conf</filename>.  More
 	      information about the boot loader can be found
 	      in <xref linkend="boot-synopsis">.</para>
-	  </answer>
-	</qandaentry>
-	<qandaentry>
-	  <question>
-	    <para>I go to boot from the hard disk for the first time
-	      after installing &os;, the kernel loads and probes my
-	      hardware, but stops with messages like:</para>
-
-	    <screen>changing root device to ad1s1a panic: cannot mount root</screen>
-
-	    <para>What is wrong?  What can I do?</para>
-
-	    <para>What is this
-	      <literal>bios_drive:interface(unit,partition)kernel_name</literal>
-	      thing that is displayed with the boot help?</para>
-	  </question>
-	  <answer>
-	    <para>There is a longstanding problem in the case where
-	      the boot disk is not the first disk in the system.  The
-	      BIOS uses a different numbering scheme to &os;, and
-	      working out which numbers correspond to which is
-	      difficult to get right.</para>
-
-	    <para>In the case where the boot disk is not the first
-	      disk in the system, &os; can need some help finding it.
-	      There are two common situations here, and in both of
-	      these cases, you need to tell &os; where the root
-	      filesystem is.  You do this by specifying the BIOS disk
-	      number, the disk type and the &os; disk number for that
-	      type.</para>
-
-	    <para>The first situation is where you have two IDE disks,
-	      each configured as the master on their respective IDE
-	      busses, and wish to boot &os; from the second disk.  The
-	      BIOS sees these as disk 0 and disk 1, while &os; sees
-	      them as <devicename>ad0</devicename> and
-	      <devicename>ad2</devicename>.</para>
-
-	    <para>&os; is on BIOS disk 1, of type
-	      <literal>ad</literal> and the &os; disk number is 2, so
-	      you would say:</para>
-
-	    <screen><userinput>1:ad(2,a)kernel</userinput></screen>
-
-	    <para>Note that if you have a slave on the primary bus,
-	      the above is not necessary (and is effectively
-	      wrong).</para>
-
-	    <para>The second situation involves booting from a SCSI
-	      disk when you have one or more IDE disks in the system.
-	      In this case, the &os; disk number is lower than the
-	      BIOS disk number.  If you have two IDE disks as well as
-	      the SCSI disk, the SCSI disk is BIOS disk 2,
-	      type <literal>da</literal> and &os; disk number 0, so
-	      you would say:</para>
-
-	    <screen><userinput>2:da(0,a)kernel</userinput></screen>
-
-	    <para>To tell &os; that you want to boot from BIOS disk 2,
-	      which is the first SCSI disk in the system.  If you only
-	      had one IDE disk, you would use <literal>1:</literal> instead.</para>
-
-	    <para>Once you have determined the correct values to use,
-	      you can put the command exactly as you would have typed
-	      it in the <filename>/boot.config</filename> file using a
-	      standard text editor.  Unless instructed otherwise, &os;
-	      will use the contents of this file as the default
-	      response to the <literal>boot:</literal> prompt.</para>
-	  </answer>
-	</qandaentry>
-	<qandaentry>
-	  <question>
-	    <para>I go to boot from the hard disk for the first time
-	      after installing &os;, but the Boot Manager prompt just
-	      prints <literal>F?</literal> at the boot menu each time
-	      but the boot will not go any further.</para>
-	  </question>
-	  <answer>
-	    <para>The hard disk geometry was set incorrectly in the
-	      partition editor when you installed &os;.  Go back into
-	      the partition editor and specify the actual geometry of
-	      your hard disk.  You must reinstall &os; again from the
-	      beginning with the correct geometry.</para>
-
-	    <para>If you are failing entirely in figuring out the
-	      correct geometry for your machine, here is a tip: Install
-	      a small DOS partition at the beginning of the disk and
-	      install &os; after that.  The install program will see
-	      the DOS partition and try to infer the correct geometry
-	      from it, which usually works.</para>
-
-	    <para>The following tip is no longer recommended, but is
-	      left here for reference:</para>
-
-	    <blockquote>
-	      <para>If you are setting up a truly dedicated &os;
-		server or workstation where you do not care for
-		(future) compatibility with DOS, Linux or another
-		operating system, you also have got the option to use
-		the entire disk (<guimenuitem>A</guimenuitem> in the partition editor),
-		selecting the non-standard option where &os; occupies
-		the entire disk from the very first to the very last
-		sector.  This will leave all geometry considerations
-		aside, but is somewhat limiting unless you're never
-		going to run anything other than &os; on a
-		disk.</para>
-	    </blockquote>
-	  </answer>
-	</qandaentry>
-	<qandaentry>
-	  <question>
-	    <para>The system finds my &man.ed.4; network card, but I
-	      keep getting device timeout errors.</para>
-	  </question>
-	  <answer>
-	    <para>Your card is probably on a different IRQ from what
-	      is specified in
-	      the <filename>/boot/device.hints</filename> file.  The
-	      &man.ed.4; driver does not use the <quote>soft</quote> configuration by
-	      default (values entered using EZSETUP in DOS), but it
-	      will use the software configuration if you
-	      specify <literal>-1</literal> in the hints for the
-	      interface.</para>
-
-	    <para>Either move the jumper on the card to a hard
-	      configuration setting (altering the kernel settings if
-	      necessary), or specify the IRQ as <literal>-1</literal>
-	      by setting the hint <literal>hint.ed.0.irq="-1"</literal>.
-	      This will tell the kernel to use the soft
-	      configuration.</para>
-
-	    <para>Another possibility is that your card is at IRQ 9,
-	      which is shared by IRQ 2 and frequently a cause of
-	      problems (especially when you have a VGA card using IRQ
-	      2!).  You should not use IRQ 2 or 9 if at all
-	      possible.</para>
-	  </answer>
-	</qandaentry>
-
-	<qandaentry>
-
-	  <indexterm>
-	    <primary>color</primary>
-	    <secondary>contrast</secondary>
-	  </indexterm>
-	  <question>
-	    <para>When <application>sysinstall</application> is used
-	      in an X11 terminal, the yellow font is difficult to read
-	      against the light gray background.  Is there a way to
-	      provide higher contrast for this application?</para>
-	  </question>
-	  <answer>
-	    <para>If you already have X11 installed and the default
-	      colors chosen by <application>sysinstall</application>
-	      make text illegible while using &man.xterm.1; or &man.rxvt.1;, add the
-	      following to your <filename>~/.Xdefaults</filename> to
-	      get a darker background gray: <literal>XTerm*color7:
-	      #c0c0c0</literal></para>
 	  </answer>
 	</qandaentry>
       </qandaset>
