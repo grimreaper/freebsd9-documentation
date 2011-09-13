@@ -1000,6 +1000,11 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
+      <para>Deciding which components to install will depend largely
+	on the intended use of the system and the amount of disk space
+	available.  The &os; Kernel and userland (collectively the
+	<quote>base system</quote>) are always installed.</para>
+
       <itemizedlist>
 	<title>Optional Components include:</title>
 <!-- XXXGA needs better formatting? -->
@@ -1773,103 +1778,6 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       </figure>
     </sect2>
 <!-- XXXGA gcooper hopefully rewriting above -->
-  </sect1>
-
-  <sect1 id="bsdinstall-choosing">
-    <title>Choosing What to Install</title>
-
-    <sect2 id="distset">
-      <title>Select the Distribution Set</title>
-
-      <para>Deciding which distribution set to install will depend largely
-	on the intended use of the system and the amount of disk space
-	available.  The predefined options range from installing the
-	smallest possible configuration to everything.  Those who are
-	new to &unix; and/or FreeBSD should almost certainly select one
-	of these canned options.  Customizing a distribution set is
-	typically for the more experienced user.</para>
-
-      <para>Press <keycap>F1</keycap> for more information on the 
-	distribution set options and what they contain.  When finished
-	reviewing the help, pressing <keycap>Enter</keycap> will return
-	to the Select Distributions Menu.</para>
-
-      <para>If a graphical user interface is desired then the
-	configuration of the X server and selection of a default
-	desktop must be done after the installation of &os;.  More
-	information regarding the installation and configuration of a X server can be
-	found in <xref linkend="x11">.</para>
-
-      <para>If compiling a custom kernel is anticipated, select an option
-	which includes the source code.  For more information on why a
-	custom kernel should be built or how to build a custom kernel, see
-	<xref linkend="kernelconfig">.</para>
-
-      <para>Obviously, the most versatile system is one that includes
-	everything.  If there is adequate disk space, select 
-	<guimenuitem>All</guimenuitem> as shown in
-	<xref linkend="distribution-set1"> by using the arrow keys and
-	press <keycap>Enter</keycap>.  If there is a concern about disk
-	space consider using an option that is more suitable for the
-	situation.
-	Do not fret over the perfect choice, as other distributions can be
-	added after installation.</para>
-
-      <figure id="distribution-set1">
-	<title>Choose Distributions</title>
-
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="install/dist-set" format="PNG">
-	  </imageobject>
-	</mediaobject>
-      </figure>
-    </sect2>
-
-    <sect2 id="portscol">
-      <title>Installing the Ports Collection</title>
-
-
-<screen>                         User Confirmation Requested
- Would you like to install the FreeBSD ports collection? 
-
- This will give you ready access to over &os.numports; ported software packages,
- at a cost of around &ports.size; of disk space when "clean" and possibly much
- more than that if a lot of the distribution tarballs are loaded
- (unless you have the extra CDs from a FreeBSD CD/DVD distribution
- available and can mount it on /cdrom, in which case this is far less
- of a problem). 
-
- The Ports Collection is a very valuable resource and well worth having
- on your /usr partition, so it is advisable to say Yes to this option. 
-
- For more information on the Ports Collection &amp; the latest ports,
- visit: 
-     http://www.FreeBSD.org/ports  
-
-                              [ Yes ]     No</screen>
-
-      <para>Select &gui.yes; with the arrow keys to
-	install the Ports Collection or &gui.no; to
-	skip this option.  Press <keycap>Enter</keycap> to continue.
-	The Choose Distributions menu will redisplay.</para>
-
-      <figure id="distribution-set2">
-	<title>Confirm Distributions</title>
-
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="install/dist-set2" format="PNG">
-	  </imageobject>
-	</mediaobject>
-      </figure>
-
-      <para>If satisfied with the options, select
-	<guimenuitem>Exit</guimenuitem> with the arrow keys, ensure that
-	&gui.ok; is highlighted, and pressing
-	<keycap>Enter</keycap> to continue.</para>
-
-    </sect2>
   </sect1>
 
   <sect1 id="install-media">
