@@ -27,7 +27,7 @@
      ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF ADVISED OF THE
      POSSIBILITY OF SUCH DAMAGE.
 
-     $FreeBSD: doc/en_US.ISO8859-1/books/fdp-primer/sgml-primer/chapter.sgml,v 1.50 2010/08/10 11:48:17 pgj Exp $
+     $FreeBSD: doc/en_US.ISO8859-1/books/fdp-primer/sgml-primer/chapter.sgml,v 1.51 2011/09/14 09:07:42 danger Exp $
 -->
 
 <chapter id="sgml-primer">
@@ -39,7 +39,7 @@
     tricks you will see used in the documentation.</para>
 
   <para>Portions of this section were inspired by Mark Galassi's <ulink
-      url="http://nis-www.lanl.gov/~rosalia/mydocs/docbook-intro/docbook-intro.html">Get Going With DocBook</ulink>.</para>
+      url="http://www.galassi.org/mark/mydocs/docbook-intro/docbook-intro.html">Get Going With DocBook</ulink>.</para>
   
   <sect1 id="sgml-primer-overview">
     <title>Overview</title>
