@@ -1,4 +1,4 @@
-<!-- $FreeBSD: doc/en_US.ISO8859-1/articles/contributors/contrib.additional.sgml,v 1.1019 2011/09/12 14:05:40 ehaupt Exp $ -->
+<!-- $FreeBSD: doc/en_US.ISO8859-1/articles/contributors/contrib.additional.sgml,v 1.1020 2011/09/14 01:37:15 cs Exp $ -->
 <!--
 	NOTE TO COMMITTERS: Contributors lists are sorted in alphabetical
 	order by first name.
@@ -1469,11 +1469,6 @@
     <listitem>
       <para>Carl Schmidt
 	<email>carl@perlpimp.codersluts.net</email></para>
-    </listitem>
-
-    <listitem>
-      <para>Carlo Strub
-	<email>c-s@c-s.li</email></para>
     </listitem>
 
     <listitem>
