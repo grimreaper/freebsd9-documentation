@@ -1,4 +1,4 @@
-<!-- $FreeBSD: doc/en_US.ISO8859-1/articles/contributors/contrib.committers.sgml,v 1.333 2011/09/14 01:37:15 cs Exp $ -->
+<!-- $FreeBSD: doc/en_US.ISO8859-1/articles/contributors/contrib.committers.sgml,v 1.334 2011/09/15 01:31:28 wblock Exp $ -->
 <!--
 	NOTE TO NEW COMMITTERS: Core and committers lists are sorted in
 	alphabetical order by last name. Please keep in mind that fact while
@@ -140,6 +140,10 @@
 
     <listitem>
       <para>&a.mbr;</para>
+    </listitem>
+
+    <listitem>
+      <para>&a.wblock;</para>
     </listitem>
 
     <listitem>
