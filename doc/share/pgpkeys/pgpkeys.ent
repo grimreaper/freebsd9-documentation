@@ -1,5 +1,5 @@
 
-<!-- $FreeBSD: doc/share/pgpkeys/pgpkeys.ent,v 1.247 2011/08/28 17:58:28 rakuco Exp $ -->
+<!-- $FreeBSD: doc/share/pgpkeys/pgpkeys.ent,v 1.248 2011/09/15 01:31:28 wblock Exp $ -->
 <!-- PGP keyblocks -->
 <!ENTITY pgpkey.aaron SYSTEM "aaron.key">
 <!ENTITY pgpkey.ache SYSTEM "ache.key">
@@ -349,6 +349,7 @@
 <!ENTITY pgpkey.vkashyap SYSTEM "vkashyap.key">
 <!ENTITY pgpkey.vs SYSTEM "vs.key">
 <!ENTITY pgpkey.vsevolod SYSTEM "vsevolod.key">
+<!ENTITY pgpkey.wblock SYSTEM "wblock.key">
 <!ENTITY pgpkey.weongyo SYSTEM "weongyo.key">
 <!ENTITY pgpkey.wes SYSTEM "wes.key">
 <!ENTITY pgpkey.wilko SYSTEM "wilko.key">
