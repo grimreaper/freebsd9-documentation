@@ -658,7 +658,6 @@ Loading /boot/defaults/loader.conf
 
 	  <figure id="bsdinstall-boot-loader-menu">
 	    <title>&os; Boot Loader Menu</title>
-<!-- XXXGA picture needs updating -->
 	    <mediaobject>
 	      <imageobject>
 		<imagedata fileref="bsdinstall/boot-loader-menu" format="PNG">
@@ -914,10 +913,9 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
       <figure id="bsdinstall-choose-mode">
 	<title>Selecting Installation Media Mode</title>
-<!-- XXXGA Need picture -->
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="bsdinstall/config-country" format="PNG">
+	    <imagedata fileref="bsdinstall/choose-mode" format="PNG">
 	  </imageobject>
 	</mediaobject>
       </figure>
@@ -945,7 +943,6 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
       <figure id="bsdinstall-config-keymap">
 	<title>Selecting Keyboard Menu</title>
-<!-- XXXGA Need picture -->
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="bsdinstall/config-keymap" format="PNG">
@@ -972,7 +969,6 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
       <figure id="bsdinstall-config-hostname">
 	<title>Setting the Hostname</title>
-<!-- XXXGA Need picture -->
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="bsdinstall/config-hostname" format="PNG">
@@ -992,7 +988,6 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
       <figure id="bsdinstall-config-components">
 	<title>Selecting Components To Install</title>
-<!-- XXXGA Need picture -->
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="bsdinstall/config-components" format="PNG">
