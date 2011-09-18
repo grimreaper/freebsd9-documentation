@@ -102,7 +102,7 @@
       <para>A summary of this information is given in the following sections.
 	Depending on the method you choose to install &os;, you may
 	also need a supported CDROM drive, and in some
-	case a network adapter.  This will be covered by the <xref
+	case a network adapter.  This will be covered by <xref
 	linkend="bsdinstall-boot-media">.</para>
 
       <sect3>
@@ -1059,7 +1059,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
   <sect1 id="bsdinstall-steps">
     <title>Allocating Disk Space</title>
-<!-- gcooper hopefully writing this section -->
+<!-- XXXGA gcooper hopefully writing this section -->
     <para>Your first task is to allocate disk space for FreeBSD, and label
       that space so that <application>sysinstall</application> can prepare
       it.  In order to do this you need to know how FreeBSD expects to find
@@ -1775,6 +1775,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 <!-- XXXGA gcooper hopefully rewriting above -->
   </sect1>
 
+<!-- XXXGA Not done from here down. -->
   <sect1 id="install-media">
     <title>Choosing Your Installation Media</title>
 
@@ -1890,80 +1891,118 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	installation requests them).</para>
     </note>
   </sect1>
+<!-- XXXGA Not done previous chapter. -->
 
-  <sect1 id="install-final-warning">
+  <sect1 id="bsdinstall-final-warning">
     <title>Committing to the Installation</title>
 
     <para>The installation can now proceed if desired.  This is also
       the last chance for aborting the installation to prevent changes
       to the hard drive.</para>
 
-    <screen>                       User Confirmation Requested
- Last Chance! Are you SURE you want to continue the installation? 
+    <figure id="bsdinstall-final-confirmation">
+      <title>Final Confirmation</title>
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="bsdinstall/final-confirmation" format="PNG">
+	</imageobject>
+      </mediaobject>
+    </figure>
 
- If you're running this on a disk with data you wish to save then WE
- STRONGLY ENCOURAGE YOU TO MAKE PROPER BACKUPS before proceeding! 
+    <para>Select <guibutton>[&nbsp;Commit&nbsp;]</guibutton>" and press 
+      <keycap>Enter</keycap> to proceed.  iAlternatively, if changes
+      need to be made, <guibutton>[&nbsp;Back&nbsp;]</guibutton> will
+      return to the partition editor.  <guibutton>[&nbsp;Revert &amp; Exit&nbsp;]</guibutton>
+      will offer the chance to exit the installer, with no changes
+      being made to the hard drive.</para>
 
- We can take no responsibility for lost disk contents!  
-
-                             [ Yes ]    No</screen>
-
-    <para>Select &gui.yes; and press 
-      <keycap>Enter</keycap> to proceed.</para>
-
-    <para>The installation time will vary according to the distribution
+    <para>The installation time will vary according to the distributions
       chosen, installation media, and the speed of the computer.
       There will be a series of
-      messages displayed indicating the status.</para>
-    
-    <para>The installation is complete when the following message is
-      displayed:</para>
+      messages displayed indicating installation progress.</para>
 
-    <screen>                               Message 
+    <para>Firstly, the installer will write the partitions to the
+      disk, and perform a <command>newfs</command> to initialise the
+      partitions.</para>
 
-Congratulations! You now have FreeBSD installed on your system. 
+    <para>If doing a network install, <application>bsdinstall</application>
+      will then proceed to download the required distribution files.</para>
+<!-- XXXGA: What does it do if fetch fails? -->
 
-We will now move on to the final configuration questions. 
-For any option you do not wish to configure, simply select No. 
+    <figure id="bsdinstall-distfile-fetch">
+      <title>Fetching Distribution Files</title>
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="bsdinstall/fetching" format="PNG">
+	</imageobject>
+      </mediaobject>
+    </figure>
 
-If you wish to re-enter this utility after the system is up, you may
-do so by typing: /usr/sbin/sysinstall.  
+    <para>Next, the integrity of the distribution files is verified, to
+      ensure they have not been corrupted during download or misread
+      from the installation media.</para>
 
-                                 [ OK ] 
+    <figure id="bsdinstall-distfile-verify">
+      <title>Verifying Distribution files</title>
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="bsdinstall/verifying" format="PNG">
+	</imageobject>
+      </mediaobject>
+    </figure>
 
-                      [  Press enter or space  ]</screen>
+    <para>Finally, the verified distribution files are extracted to
+      the disk.</para>
 
-    <para>Press <keycap>Enter</keycap> to proceed with post-installation
-      configurations.</para>
+    <figure id="bsdinstall-distfile-extract">
+      <title>Extracting Distribution files</title>
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="bsdinstall/extracting" format="PNG">
+	</imageobject>
+      </mediaobject>
+    </figure>
 
-    <para>Selecting &gui.no; and pressing
-      <keycap>Enter</keycap> will abort
-      the installation so no changes will be made to your system.  The
-      following message will appear:</para>
-
-    <screen>                                Message
-Installation complete with some errors.  You may wish to scroll
-through the debugging messages on VTY1 with the scroll-lock feature. 
-You can also choose "No" at the next prompt and go back into the
-installation menus to retry whichever operations have failed. 
-
-                                 [ OK ]</screen>
-
-    <para>This message is generated because nothing was installed.
-      Pressing <keycap>Enter</keycap> will return to the
-      Main Installation Menu to exit the installation.</para>
+    <para>Once all requested distribution files have been extracted,
+      <application>bsdinstall</application> will then drop straight
+	into the post-installation configuration tasks
+	(see <xref linkend="bsdinstall-post">).</para>
   </sect1>
 
-  <sect1 id="install-post">
+  <sect1 id="bsdinstall-post">
     <title>Post-installation</title>
 
     <para>Configuration of various options follows the successful 
       installation.    An option can be configured by re-entering the
-      configuration options before booting the new FreeBSD
-      system or after installation using
-      <command>sysinstall</command>
-      and selecting
-      <guimenuitem>Configure</guimenuitem>.</para>
+      configuration options from the final menu before booting the
+      new FreeBSD install.</para>
+
+    <sect2 id="bsdinstall-post-root">
+      <title>Setting The <username>root</username> Account Password</title>
+
+      <para>The installer will now prompt for the <username>root</username>
+	password to be set.</para>
+
+      <para>The password will need to be typed in twice correctly.  Needless to
+	say, make sure you have a way of finding the password if you
+	forget.  Notice that the password you type in is not echoed, nor
+	are asterisks displayed.</para>
+
+      <screen>FreeBSD Installer
+
+========================
+
+Please select a password for the system management account (root):
+Changing local passord for root
+New Password:
+Retype new password :</screen>
+
+      <para>The installation will continue after the password is
+	successfully entered.</para>
+    </sect2>
+<!-- Config network, if not done earlier -->
+<!-- Config timezone -->
+<!-- XXXGA Done to here -->
 
     <sect2 id="inst-network-dev">
       <title>Network Device Configuration</title>
@@ -2203,6 +2242,76 @@ use the current settings.
 	will display a menu which will allow exiting and saving 
 	the changes.</para>
 
+    </sect2>
+
+    <sect2 id="timezone">
+      <title>Setting the Time Zone</title>
+
+      <para>Setting the time zone for your machine will allow it to
+	automatically correct for any regional time changes and perform
+	other time zone related functions properly.</para>
+
+      <para>The example shown is for a machine located in the Eastern
+	time zone of the United States.  Your selections will vary according
+	to your geographical location.</para>
+
+      <screen>                       User Confirmation Requested
+ Is this machine's CMOS clock set to UTC? If it is set to local time
+ or you don't know, please choose NO here! 
+
+                              Yes   [ No ]</screen>
+
+      <para>Select &gui.yes; 
+	or &gui.no; according to how the machine's
+	clock is configured and press <keycap>Enter</keycap>.</para>
+
+      <figure id="set-timezone-region">
+	<title>Select Your Region</title>
+
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/timezone-region" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>The appropriate region is selected using the arrow keys
+	and then pressing <keycap>Enter</keycap>.</para>
+
+      <figure id="set-timezone-country">
+	<title>Select Your Country</title>
+
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/timezone-region-london" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>Select the appropriate country using the arrow keys
+	and press <keycap>Enter</keycap>.</para>
+
+      <figure id="set-timezone-locality">
+	<title>Select Your Time Zone</title>
+<!-- XXXGA Fix: some selections present a third page. Need to change preceding images -->
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="install/timezone3" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>The appropriate time zone is selected using the arrow
+	keys and pressing <keycap>Enter</keycap>.</para>
+
+      <screen>                            Confirmation 
+            Does the abbreviation 'EDT' look reasonable?
+
+                            [ Yes ]   No</screen>
+
+      <para>Confirm the abbreviation for the time zone is correct.
+	If it looks okay, press <keycap>Enter</keycap> to continue with
+	the post-installation configuration.</para>
     </sect2>
 
     <sect2 id="ssh-login">
@@ -2529,109 +2638,6 @@ Press [Enter] now to invoke an editor on /etc/exports
       <para>Selecting <guimenuitem>Exit</guimenuitem> and pressing
 	<keycap>Enter</keycap> will continue with the post-installation
 	configurations.</para>
-    </sect2>
-
-    <sect2 id="timezone">
-      <title>Setting the Time Zone</title>
-
-      <para>Setting the time zone for your machine will allow it to
-	automatically correct for any regional time changes and perform
-	other time zone related functions properly.</para>
-
-      <para>The example shown is for a machine located in the Eastern
-	time zone of the United States.  Your selections will vary according
-	to your geographical location.</para>
-
-      <screen>                      User Confirmation Requested 
-          Would you like to set this machine's time zone now?
-
-                            [ Yes ]   No</screen>
-
-      <para>Select &gui.yes; and press
-	<keycap>Enter</keycap> to set the time zone.</para>
-
-      <screen>                       User Confirmation Requested
- Is this machine's CMOS clock set to UTC? If it is set to local time
- or you don't know, please choose NO here! 
-
-                              Yes   [ No ]</screen>
-
-      <para>Select &gui.yes; 
-	or &gui.no; according to how the machine's
-	clock is configured and press <keycap>Enter</keycap>.</para>
-
-      <figure id="set-timezone-region">
-	<title>Select Your Region</title>
-
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="install/timezone1" format="PNG">
-	  </imageobject>
-	</mediaobject>
-      </figure>
-
-      <para>The appropriate region is selected using the arrow keys
-	and then pressing <keycap>Enter</keycap>.</para>
-
-      <figure id="set-timezone-country">
-	<title>Select Your Country</title>
-
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="install/timezone2" format="PNG">
-	  </imageobject>
-	</mediaobject>
-      </figure>
-
-      <para>Select the appropriate country using the arrow keys
-	and press <keycap>Enter</keycap>.</para>
-
-      <figure id="set-timezone-locality">
-	<title>Select Your Time Zone</title>
-
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="install/timezone3" format="PNG">
-	  </imageobject>
-	</mediaobject>
-      </figure>
-
-      <para>The appropriate time zone is selected using the arrow
-	keys and pressing <keycap>Enter</keycap>.</para>
-
-      <screen>                            Confirmation 
-            Does the abbreviation 'EDT' look reasonable?
-
-                            [ Yes ]   No</screen>
-
-      <para>Confirm the abbreviation for the time zone is correct.
-	If it looks okay, press <keycap>Enter</keycap> to continue with
-	the post-installation configuration.</para>
-    </sect2>
-
-    <sect2 id="linuxcomp">
-      <title>Linux Compatibility</title>
-
-      <note>
-	<para>This part only applies to &os;&nbsp;7.<replaceable>X</replaceable> installation, if
-	  you install &os;&nbsp;8.<replaceable>X</replaceable> this screen will not be
-	  proposed.</para>
-      </note>
-
-      <screen>                      User Confirmation Requested 
-          Would you like to enable Linux binary compatibility?
-
-                            [ Yes ]   No</screen>
-
-      <para>Selecting &gui.yes; and pressing
-	<keycap>Enter</keycap> will allow
-	running Linux software on FreeBSD.  The install will add
-	the appropriate packages for Linux compatibility.</para>
-
-      <para>If installing by FTP, the machine will need to be connected to
-	the Internet.  Sometimes a remote ftp site will not have all the
-	distributions like the Linux binary compatibility.  This can
-	be installed later if necessary.</para>
     </sect2>
 
     <sect2 id="mouse">
@@ -3002,32 +3008,6 @@ Press [Enter] now to invoke an editor on /etc/exports
       <para>When you are finished adding users, select 
 	<guimenuitem>Exit</guimenuitem> with the arrow keys and press
 	<keycap>Enter</keycap> to continue the installation.</para>
-    </sect2>
-
-    <sect2 id="rootpass">
-      <title>Set the <username>root</username> Password</title>
-
-      <screen>                        Message
- Now you must set the system manager's password.  
- This is the password you'll use to log in as "root". 
-
-                         [ OK ] 
-
-               [ Press enter or space ]</screen>
-
-      <para>Press <keycap>Enter</keycap> to set the <username>root</username>
-	password.</para>
-
-      <para>The password will need to be typed in twice correctly.  Needless to
-	say, make sure you have a way of finding the password if you
-	forget.  Notice that the password you type in is not echoed, nor
-	are asterisks displayed.</para>
-
-      <screen>New password:
-Retype new password :</screen>
-
-      <para>The installation will continue after the password is
-	successfully entered.</para>
     </sect2>
 
     <sect2 id="exit-inst">
