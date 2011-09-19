@@ -1,7 +1,7 @@
 <!--
      The FreeBSD Documentation Project
 
-     $FreeBSD: doc/share/pgpkeys/pgpkeys-developers.sgml,v 1.159 2011/09/15 01:31:28 wblock Exp $
+     $FreeBSD: doc/share/pgpkeys/pgpkeys-developers.sgml,v 1.161 2011/09/18 19:17:15 rmh Exp $
 -->
 
     <sect2 id="pgpkey-ariff">
@@ -1001,6 +1001,11 @@
       &pgpkey.sanpei;
     </sect2>
 
+    <sect2 id="pgpkey-rmh">
+      <title>&a.rmh;</title>
+      &pgpkey.rmh;
+    </sect2>
+
     <sect2 id="pgpkey-stephen">
       <title>&a.stephen;</title>
       &pgpkey.stephen;
@@ -1489,6 +1494,11 @@
     <sect2 id="pgpkey-marius">
       <title>&a.marius;</title>
       &pgpkey.marius;
+    </sect2>
+
+    <sect2 id="pgpkey-cs">
+      <title>&a.cs;</title>
+      &pgpkey.cs;
     </sect2>
 
     <sect2 id="pgpkey-clsung">

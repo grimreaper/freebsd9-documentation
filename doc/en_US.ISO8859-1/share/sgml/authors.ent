@@ -13,7 +13,7 @@
                  builds for the other languages, and we will poke fun of you
                  in public.
 
-     $FreeBSD: doc/en_US.ISO8859-1/share/sgml/authors.ent,v 1.547 2011/09/15 01:26:00 wblock Exp $
+     $FreeBSD: doc/en_US.ISO8859-1/share/sgml/authors.ent,v 1.548 2011/09/18 13:43:40 rmh Exp $
 -->
 
 <!ENTITY a.aaron "Aaron Dalton <email>aaron@FreeBSD.org</email>">
@@ -995,6 +995,8 @@
 <!ENTITY a.rink "Rink Springer <email>rink@FreeBSD.org</email>">
 
 <!ENTITY a.rmacklem "Rick Macklem <email>rmacklem@FreeBSD.org</email>">
+
+<!ENTITY a.rmh "Robert Millan <email>rmh@FreeBSD.org</email>">
 
 <!ENTITY a.rnoland "Robert Noland <email>rnoland@FreeBSD.org</email>">
 
