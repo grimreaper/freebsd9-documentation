@@ -1,5 +1,5 @@
 
-<!-- $FreeBSD: doc/share/pgpkeys/pgpkeys.ent,v 1.248 2011/09/15 01:31:28 wblock Exp $ -->
+<!-- $FreeBSD: doc/share/pgpkeys/pgpkeys.ent,v 1.250 2011/09/18 19:17:15 rmh Exp $ -->
 <!-- PGP keyblocks -->
 <!ENTITY pgpkey.aaron SYSTEM "aaron.key">
 <!ENTITY pgpkey.ache SYSTEM "ache.key">
@@ -70,6 +70,7 @@
 <!ENTITY pgpkey.core-secretary SYSTEM "core-secretary.key">
 <!ENTITY pgpkey.cperciva SYSTEM "cperciva.key">
 <!ENTITY pgpkey.crees SYSTEM "crees.key">
+<!ENTITY pgpkey.cs SYSTEM "cs.key">
 <!ENTITY pgpkey.cshumway SYSTEM "cshumway.key">
 <!ENTITY pgpkey.csjp SYSTEM "csjp.key">
 <!ENTITY pgpkey.culot SYSTEM "culot.key">
@@ -279,6 +280,7 @@
 <!ENTITY pgpkey.rik SYSTEM "rik.key">
 <!ENTITY pgpkey.rink SYSTEM "rink.key">
 <!ENTITY pgpkey.rmacklem SYSTEM "rmacklem.key">
+<!ENTITY pgpkey.rmh SYSTEM "rmh.key">
 <!ENTITY pgpkey.rnoland SYSTEM "rnoland.key">
 <!ENTITY pgpkey.roam SYSTEM "roam.key">
 <!ENTITY pgpkey.roberto SYSTEM "roberto.key">
