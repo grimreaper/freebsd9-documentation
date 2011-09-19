@@ -2244,7 +2244,7 @@ use the current settings.
 
     </sect2>
 
-    <sect2 id="timezone">
+    <sect2 id="bsdinstall-timezone">
       <title>Setting the Time Zone</title>
 
       <para>Setting the time zone for your machine will allow it to
@@ -2255,6 +2255,7 @@ use the current settings.
 	time zone of the United States.  Your selections will vary according
 	to your geographical location.</para>
 
+<!-- XXXGA: Use the picture here? -->
       <screen>                       User Confirmation Requested
  Is this machine's CMOS clock set to UTC? If it is set to local time
  or you don't know, please choose NO here! 
@@ -2265,9 +2266,8 @@ use the current settings.
 	or &gui.no; according to how the machine's
 	clock is configured and press <keycap>Enter</keycap>.</para>
 
-      <figure id="set-timezone-region">
+      <figure id="bsdinstall-timezone-region">
 	<title>Select Your Region</title>
-
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="bsdinstall/timezone-region" format="PNG">
@@ -2278,12 +2278,11 @@ use the current settings.
       <para>The appropriate region is selected using the arrow keys
 	and then pressing <keycap>Enter</keycap>.</para>
 
-      <figure id="set-timezone-country">
+      <figure id="bsdinstall-timezone-country">
 	<title>Select Your Country</title>
-
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="bsdinstall/timezone-region-london" format="PNG">
+	    <imagedata fileref="bsdinstall/timezone-country" format="PNG">
 	  </imageobject>
 	</mediaobject>
       </figure>
@@ -2291,12 +2290,11 @@ use the current settings.
       <para>Select the appropriate country using the arrow keys
 	and press <keycap>Enter</keycap>.</para>
 
-      <figure id="set-timezone-locality">
+      <figure id="bsdinstall-timezone-locality">
 	<title>Select Your Time Zone</title>
-<!-- XXXGA Fix: some selections present a third page. Need to change preceding images -->
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="install/timezone3" format="PNG">
+	    <imagedata fileref="bsdinstall/timezone-zone" format="PNG">
 	  </imageobject>
 	</mediaobject>
       </figure>
@@ -2304,6 +2302,7 @@ use the current settings.
       <para>The appropriate time zone is selected using the arrow
 	keys and pressing <keycap>Enter</keycap>.</para>
 
+<!-- XXXGA: Use the picture here? -->
       <screen>                            Confirmation 
             Does the abbreviation 'EDT' look reasonable?
 
