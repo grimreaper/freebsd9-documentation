@@ -81,11 +81,10 @@
       <para>In general, these installation instructions are written
         for &i386; (<quote>PC compatible</quote>) architecture
         computers.  Where applicable, instructions specific to other
-        platforms will be listed.  Although this
-	guide is kept as up to date as possible, you may find minor
-	differences between the installer and what is shown here.  It is
-	suggested that you use this chapter as a general guide rather 
-	than a literal installation manual.</para>
+        platforms will be listed.  There may be minor differences
+        between the installer and what is shown here, so use this
+        chapter as a general guide rather than a literal
+        installation manual.</para>
     </note>
 
   </sect1>
@@ -102,7 +101,7 @@
       <para>A summary of this information is given in the following sections.
 	Depending on the method you choose to install &os;, you may
 	also need a supported CDROM drive, and in some
-	case a network adapter.  This will be covered by <xref
+	cases a network adapter.  This will be covered by <xref
 	linkend="bsdinstall-boot-media">.</para>
 
       <sect3>
@@ -114,8 +113,8 @@
 	  most minimal installation.</para>
 
 	<note>
-	  <para>In case of old configurations, most of time, getting
-	    more RAM and more hard drive space is more important than
+	  <para>On old computers, getting more RAM and hard drive space
+	    is usually more important than
 	    getting a faster processor.</para>
 	</note>
       </sect3>
@@ -141,8 +140,8 @@
 	  Pro-150, you <emphasis>must</emphasis> use the BIOS setup to
 	  disable the IO APIC.  If you do not have an option to do
 	  this, you will likely have to disable ACPI instead.  There
-	  are bugs in the Pro-150 chipset that we have not found a
-	  workaround for yet.</para>
+	  are bugs in the Pro-150 chipset for which we have not yet
+	  found a workaround.</para>
       </sect3>
 
       <sect3>
@@ -152,7 +151,7 @@
 	  platform (see <xref
 	  linkend="bsdinstall-hardware-supported">).</para>
 
-	<para>You will need a dedicated disk for &os;/&arch.sparc64;.  It
+	<para>A dedicated disk is required for &os;/&arch.sparc64;.  It
 	  is not possible to share a disk with another operating
 	  system at this time.</para>
       </sect3>
@@ -208,8 +207,8 @@
 	can become confusing very quickly, therefore these
 	disk chunks are referred to as disk slices or simply slices
 	in &os; itself.  For example, the &os; utility
-	<command>fdisk</command> which operates on the PC disk partitions,
-	refers to slices instead of partitions.  By design, the PC only
+	<command>fdisk</command>, which operates on PC disk partitions,
+	refers to them as slices.  By design, the PC only
 	supports four partitions per disk.  These partitions are called
 	<firstterm>primary partitions</firstterm>.  To work around this
 	limitation and allow more than four partitions, a new partition type
@@ -228,7 +227,7 @@
       <para>&os; must be installed into a primary partition.  &os; can
 	keep all its data, including any files that you create, on this one
 	partition.  However, if you have multiple disks, then you can create a
-	&os; partition on all, or some, of them.  When you install &os;,
+	&os; partition on any or all of them.  When you install &os;,
 	you must have one partition available.  This might be a blank
 	partition that you have prepared, or it might be an existing partition
 	that contains data that you no longer care about.</para>
@@ -249,15 +248,16 @@
 	want a graphical user interface.  If you intend to install a lot of
 	third-party software as well, then you will need more space.</para>
 
-      <para>You can use a commercial tool such as <application>&partitionmagic;</application>,
-	or a free tool such as <application>GParted</application>,
-	to resize your partitions and make space for &os;.  Both
+      <para>Commercial tools like <application>&partitionmagic;</application>
+	or free tools like <application>GParted</application> are available
+	to resize partitions and make space for &os;.  Both
 	<application>&partitionmagic;</application> and
 	<application>GParted</application> are known to work on
-	<acronym>NTFS</acronym>.  <application>GParted</application>
-	is available on a number of Live CD Linux distributions, such as 
-	<ulink url="http://www.sysresccd.org/">SystemRescueCD</ulink>.</para>
-
+	<acronym>NTFS</acronym>.
+	<ulink url="http://gparted.sourceforge.net/livecd.php">GParted Live</ulink>
+	is a complete Live CD, and GParted is included with many other
+	Linux Live CD distributions.</para>
+	
       <para>Problems have been reported resizing &microsoft; Vista
 	partitions.  Having a Vista installation CDROM handy when
 	attempting such an operation is recommended.  As with all
@@ -327,9 +327,8 @@
       <sect3>
 	<title>Connecting to an Ethernet Network or Cable/DSL Modem</title>
 
-	<para>If you connect to an Ethernet network, or you have an Internet
-	  connection using an Ethernet adapter via cable or DSL, then you will need the following
-	  information:</para>
+	<para>To connect to an Ethernet network or cable or DSL modem with
+	  an Ethernet interface, some network information is needed.</para>
 
 	<orderedlist>
 	  <listitem>
@@ -353,10 +352,9 @@
 	  </listitem>
 	</orderedlist>
 
-	<para>If you do not know this information, then ask your system
-	  administrator or service provider.  They may say that this
-	  information is assigned automatically, using
-	  <firstterm>DHCP</firstterm>.  If so, make a note of this.</para>
+	<para>Often this information is provided automatically by
+	  <firstterm>DHCP</firstterm>.  Otherwise, it must be obtained
+	  from the network administrator or service provider.</para>
       </sect3>
     </sect2>
     <sect2>
@@ -620,7 +618,10 @@ commit your changes?</literallayout>
 
 	    <listitem>
 	      <para>Your particular BIOS does not support booting from
-		the desired media.</para>
+		the desired media.  The
+		<ulink url="http://www.plop.at/en/bootmanager.html">Plop
+		Boot Manager</ulink> can be used to boot older computers
+		from CD or USB media.</para>
 	    </listitem>
 	  </orderedlist>
 	</step>
@@ -3455,16 +3456,16 @@ Please press any key to reboot.</screen>
       <note>
         <para>Some installation problems can be avoided or alleviated
           by updating the firmware on various hardware components, most notably
-          the motherboard.  The motherboard firmware may also be referred to
-          as <acronym>BIOS</acronym> and most of the motherboard or computer
-          manufactures have a website where the upgrades and upgrade information
-          may be located.</para>
+          the motherboard.  Motherboard firmware is usually referred to
+          as the <acronym>BIOS</acronym>.  Most motherboard and computer
+          manufacturers have a website for upgrades and upgrade
+          information.</para>
 
-        <para>Most manufacturers strongly advise against upgrading the motherboard
-          <acronym>BIOS</acronym> unless there is a good reason for doing so, which
-          could possibly be a critical update of sorts.  The upgrade process
-          <emphasis>can</emphasis> go wrong, causing permanent damage to the
-          <acronym>BIOS</acronym> chip.</para>
+        <para>Manufacturers generally advise against upgrading the motherboard
+          <acronym>BIOS</acronym> unless there is a good reason for doing so,
+          like a critical update.  The upgrade process
+          <emphasis>can</emphasis> go wrong, leaving the <acronym>BIOS</acronym>
+          incomplete and the computer inoperative.</para>
         </note>
     </sect2>
     
@@ -3480,11 +3481,11 @@ Please press any key to reboot.</screen>
 	  </question>
 	  <answer>
 	    <para>&os; makes extensive use of the system
-	      ACPI service on the i386, amd64 and ia64 platforms to
+	      ACPI service on the i386, amd64, and ia64 platforms to
 	      aid in system configuration if it is detected during
 	      boot.  Unfortunately, some bugs still exist in both the
-	      ACPI driver and within system motherboards and BIOS.
-	      The use of ACPI can be disabled by setting
+	      ACPI driver and within system motherboards and BIOS
+	      firmware.  ACPI can be disabled by setting
 	      the <literal>hint.acpi.0.disabled</literal> hint in the
 	      third stage boot loader:</para>
 
