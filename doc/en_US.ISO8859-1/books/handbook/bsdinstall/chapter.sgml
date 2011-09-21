@@ -177,7 +177,7 @@
     <title>Pre-installation Tasks</title>
 
     <sect2>
-      <title>Backup Your Data</title>
+      <title>Back Up Your Data</title>
       
       <para>If the computer you will be installing &os; on contains
 	valuable data, then ensure you have it backed up, and that you have
@@ -190,113 +190,109 @@
     <sect2 id="bsdinstall-where">
       <title>Decide Where to Install &os;</title>
 
-      <para>If you want &os; to use your entire hard disk, then there is nothing
-	more to concern yourself with at this point &mdash; you can skip this
+      <para>If &os; will be the only operating system installed, and will
+        be allowed to use the entire hard disk, then you can skip this
 	section.</para>
 
-      <para>However, if you need &os; to co-exist with other operating
-	systems then you need to have a rough understanding of how data is
-	laid out on the disk, and how this affects you.</para>
+      <para>If &os; must share the hard disk with other operating systems,
+        a basic understanding of disk layout is useful.</para>
 
       <sect3 id="bsdinstall-where-i386">
 	<title>Disk Layouts for &os;/&arch.i386; and &os;/&arch.amd64;</title>
 
-      <para>A PC disk can be divided into discrete chunks.  These chunks are
-	called <firstterm>partitions</firstterm>. Since
-	&os; internally also has partitions, the naming
-	can become confusing very quickly, therefore these
-	disk chunks are referred to as disk slices or simply slices
-	in &os; itself.  For example, the &os; utility
-	<command>fdisk</command>, which operates on PC disk partitions,
-	refers to them as slices.  By design, the PC only
-	supports four partitions per disk.  These partitions are called
-	<firstterm>primary partitions</firstterm>.  To work around this
-	limitation and allow more than four partitions, a new partition type
-	was created, the <firstterm>extended partition</firstterm>.  A disk
-	may contain only one extended partition.  Special partitions, called
-	<firstterm>logical partitions</firstterm>, can be created inside this
-	extended partition.</para>
-<!-- This probably also needs an update for GPT -->
+      <para>PC hard disks can be divided into discrete chunks.  These chunks
+        are called <firstterm>partitions</firstterm>.</para>
 
-      <para>In general, each operating system that you use will identify
-	partitions in a particular way.  For example, DOS, and its
-	descendants, like &windows;, assign each primary and logical partition a
-	<firstterm>drive letter</firstterm>, starting with
-	<devicename>C:</devicename>.</para>
+      <para>There are two ways of dividing a PC disk into partitions.
+        A traditional <firstterm>Master Boot Record</firstterm> (MBR) 
+        holds a partition table defining up to four <firstterm>primary 
+        partitions</firstterm>.  (For historical reasons, &os; calls 
+        these partitions <firstterm>slices</firstterm>.)  Only four 
+        partitions was found to be limiting, and a so one of the primary 
+        partitions was allowed to be made into an <firstterm>extended 
+        partition</firstterm>.  <firstterm>Logical 
+        partitions</firstterm> could then be created inside the extended 
+        partition.
 
-      <para>&os; must be installed into a primary partition.  &os; can
-	keep all its data, including any files that you create, on this one
-	partition.  However, if you have multiple disks, then you can create a
-	&os; partition on any or all of them.  When you install &os;,
-	you must have one partition available.  This might be a blank
-	partition that you have prepared, or it might be an existing partition
-	that contains data that you no longer care about.</para>
+      <para>The <firstterm>GUID Partition Table</firstterm> (GPT) is a 
+        newer method of partitioning a disk.  GPT is far more versatile 
+        than the traditional MBR partition table.  Common implementations 
+        allow up to 128 partitions per disk, eliminating the need for 
+        workarounds like logical partitions.</para>
+      
+      <warning>
+	<para>Older operating system, like &windows; XP, may not be 
+	  compatible with GPT partitioning.  If &os; needs to share a 
+	  disk with such an operating system, MBR partition tables are
+	  required.</para>
+      </warning>
 
-      <para>If you are already using all the partitions on all your disks, then
-	you will have to free one of them for &os; using the tools
-	provided by the other operating systems you use (e.g.,
-	<command>fdisk</command> on DOS or &windows;).</para>
+      <para>Operating systems have varying ways of referring to
+        partitions.  For example, DOS and its descendants, like 
+        &windows;, call each primary and logical partition by a
+        <firstterm>drive letter</firstterm>.  The first partition is
+	<devicename>C:</devicename>, the second is 
+	<devicename>D:</devicename, and so on.</para>
 
-      <para>If you have a spare partition then you can use that.  However, you
-	may need to shrink one or more of your existing partitions
-	first.</para>
+      <para>&os; must be installed into a primary or GPT partition. If
+        all the partitions on your disks are already in use, then
+	one must be freed for &os;.</para>
 
-      <para>A minimal installation of &os; takes as little as 1&nbsp;GB of disk
-	space.  However, that is a <emphasis>very</emphasis> minimal install,
-	leaving almost no space for your own files.  A more realistic minimum
-	is 3&nbsp;GB without a graphical environment, and 5&nbsp;GB or more if you
-	want a graphical user interface.  If you intend to install a lot of
-	third-party software as well, then you will need more space.</para>
+      <para>A minimal installation of &os; takes as little as 1&nbsp;GB
+        of disk space.  However, that is a <emphasis>very</emphasis> 
+        minimal install, leaving almost no free space.  A more realistic 
+        minimum is 3&nbsp;GB without a graphical environment, and 
+        8&nbsp;GB or more if a graphical user interface will be used.  
+        Third-party software requires more space.</para>
 
       <para>Commercial tools like <application>&partitionmagic;</application>
 	or free tools like <application>GParted</application> are available
 	to resize partitions and make space for &os;.  Both
 	<application>&partitionmagic;</application> and
-	<application>GParted</application> are known to work on
-	<acronym>NTFS</acronym>.
+	<application>GParted</application> work with
+	<acronym>NTFS</acronym> and other common file systems.
 	<ulink url="http://gparted.sourceforge.net/livecd.php">GParted Live</ulink>
 	is a complete Live CD, and GParted is included with many other
 	Linux Live CD distributions.</para>
 	
-      <para>Problems have been reported resizing &microsoft; Vista
-	partitions.  Having a Vista installation CDROM handy when
-	attempting such an operation is recommended.  As with all
-	such disk maintenance tasks, a current set of backups is
-	also strongly advised.</para>
+      <para>Resizing &microsoft; Vista partitions can be difficult.  
+        Having a Vista installation CDROM handy when attempting such an 
+        operation is recommended.  As with all such disk maintenance tasks,
+        make a full backup before attempting to resize or reorganize 
+        partitions.</para>
 
       <warning>
-	<para>Incorrect use of these tools can delete the data on your disk.
-	  Be sure that you have recent, working backups before using
-	  them.</para>
+	<para>Incorrect use of disk resizing tools can delete the data 
+	  on your disk.  Make a full backup and verify its integrity 
+	  before using these or any disk partition resizing tools.</para>
       </warning>
 
       <example>
-	<title>Using an Existing Partition Unchanged</title>
+	<title>Using an Existing Partition</title>
 
-	<para>Suppose that you have a computer with a single 40&nbsp;GB disk that
-	  already has a version of &windows; installed, and you have split the
-	  disk into two drive letters, <devicename>C:</devicename> and
-	  <devicename>D:</devicename>, each of which is 20&nbsp;GB in size.  You have
-	  10&nbsp;GB of data on <devicename>C:</devicename>, and 5&nbsp;GB of data on
-	  <devicename>D:</devicename>.</para>
+	<para>A &windows computer has a single 40&nbsp;GB disk that has
+	  been split into two 20&nbsp;GB partitions.  &windows calls them
+	  <devicename>C:</devicename> and <devicename>D:</devicename>.
+	  The <devicename>C:</devicename> partition contains 10&nbsp;GB
+	  of data, and the <devicename>D:</devicename> partition contains
+	  5&nbsp;GB of data.</para>
 
-	<para>This means that your disk has two partitions on it, one per
-	  drive letter.  You can copy all your existing data from
-	  <devicename>D:</devicename> to <devicename>C:</devicename>, which
-	  will free up the second partition, ready for &os;.</para>
+	<para>Moving the data from <devicename>D:</devicename> to
+	  <devicename>C:</devicename> frees up the second partition to
+	  be used for &os;.</para>
       </example>
 
       <example>
 	<title>Shrinking an Existing Partition</title>
 
-	<para>Suppose that you have a computer with a single 40&nbsp;GB disk that
-	  already has a version of &windows; installed.  When you installed
-	  &windows; you created one large partition, giving you a
-	  <devicename>C:</devicename> drive that is 40&nbsp;GB in size.  You are
-	  currently using 15&nbsp;GB of space, and want &os; to have 20&nbsp;GB of
-	  space.</para>
+	<para>A &windows computer has a single 40&nbsp;GB disk and one 
+	  large partition using the whole disk.  &windows shows this
+	  40&nbsp;GB partition as a single <devicename>C:</devicename>.
+	  15&nbsp;GB of space is being used.  The goal is to end up with 
+	  &windows; in a 20&nbsp;GB partition, and have another 
+	  20&nbsp;GB partition for &os;.
 
-	<para>In order to install &os; you will need to either:</para>
+	<para>There are two ways to do this.</para>
 
 	<orderedlist>
 	  <listitem>
@@ -305,9 +301,9 @@
 	  </listitem>
 
 	  <listitem>
-	    <para>Use one of the tools such as <application>&partitionmagic;</application>,
-	      described above, to shrink your &windows;
-		partition.</para>
+	    <para>Use one of the tools such as
+	      <application>&partitionmagic;</application>, described above,
+	      to shrink your &windows; partition.</para>
 	  </listitem>
 	</orderedlist>
       </example>
