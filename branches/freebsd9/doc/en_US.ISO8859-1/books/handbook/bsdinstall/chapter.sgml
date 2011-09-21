@@ -245,15 +245,13 @@
         8&nbsp;GB or more if a graphical user interface will be used.  
         Third-party software requires more space.</para>
 
-      <para>Commercial tools like <application>&partitionmagic;</application>
-	or free tools like <application>GParted</application> are available
-	to resize partitions and make space for &os;.  Both
-	<application>&partitionmagic;</application> and
-	<application>GParted</application> work with
-	<acronym>NTFS</acronym> and other common file systems.
-	<ulink url="http://gparted.sourceforge.net/livecd.php">GParted Live</ulink>
-	is a complete Live CD, and GParted is included with many other
-	Linux Live CD distributions.</para>
+      <para>A variety of free and commerical partition resizing tools 
+        are available.  <ulink url="http://gparted.sourceforge.net/livecd.php">\
+        GParted Live</ulink> is a complete Live CD including the GParted
+        partition editor.  GParted is also included with many other
+        Linux Live CD distributions, too.  See <ulink
+        url="http://en.wikipedia.org/wiki/List_of_disk_partitioning_software">
+        for a more complete list of partition resizing software.</para>
 	
       <para>Resizing &microsoft; Vista partitions can be difficult.  
         Having a Vista installation CDROM handy when attempting such an 
@@ -262,7 +260,7 @@
         partitions.</para>
 
       <warning>
-	<para>Incorrect use of disk resizing tools can delete the data 
+	<para>Incorrect use of disk resizing tools can destroy the data 
 	  on your disk.  Make a full backup and verify its integrity 
 	  before using these or any disk partition resizing tools.</para>
       </warning>
@@ -301,9 +299,9 @@
 	  </listitem>
 
 	  <listitem>
-	    <para>Use one of the tools such as
-	      <application>&partitionmagic;</application>, described above,
-	      to shrink your &windows; partition.</para>
+	    <para>Use a partition resizing tool like
+	      <application>GParted</application>, described above,
+	      to shrink the &windows; partition.</para>
 	  </listitem>
 	</orderedlist>
       </example>
@@ -312,7 +310,7 @@
     </sect2>
 
     <sect2>
-      <title>Collect Your Network Configuration Details</title>
+      <title>Collect Network Configuration Details</title>
 
       <para>If you intend to connect to a network as part of your &os;
 	installation (for example, if you will be installing from an FTP
