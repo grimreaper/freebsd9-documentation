@@ -216,9 +216,9 @@
 
       <para>The <firstterm>GUID Partition Table</firstterm> (GPT) is a 
         newer method of partitioning a disk.  GPT is far more versatile 
-        than the traditional MBR partition table.  Common implementations 
-        allow up to 128 partitions per disk, eliminating the need for 
-        workarounds like logical partitions.</para>
+        than the traditional MBR partition table.  Common GPT
+        implementations allow up to 128 partitions per disk, eliminating
+        the need for workarounds like logical partitions.</para>
       
       <warning>
 	<para>Older operating system, like &windows; XP, may not be 
@@ -305,6 +305,12 @@
 	  </listitem>
 	</orderedlist>
       </example>
+      
+      <para>Disk partitions with different operating systems makes it 
+        possible to run any one of those operating systems at a time.  
+        An alternative method that allows running multiple operating 
+        systems at the same time is covered in
+        <xref linkend="virtualization">.</para>
 
       </sect3>
     </sect2>
