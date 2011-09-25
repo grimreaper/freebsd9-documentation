@@ -3,7 +3,7 @@
      The FreeBSD Japanese Documentation Project
 
      Original revision: 1.207
-     $FreeBSD: doc/ja_JP.eucJP/books/handbook/x11/chapter.sgml,v 1.40 2011/07/30 02:20:56 ryusuke Exp $
+     $FreeBSD: doc/ja_JP.eucJP/books/handbook/x11/chapter.sgml,v 1.41 2011/09/22 13:40:39 ryusuke Exp $
 -->
 
 <chapter id="x11">
@@ -1697,17 +1697,17 @@ DisplayManager.requestPort:     0</screen>
 	  <secondary>ディスプレイマネージャ</secondary></indexterm>
 
 	<para>マルチユーザシステムの管理者であれば、
-	  ユーザを迎えるにあたってグラフィカルなログインスクリーンが欲しいと思うかもしれません。
-	  <link linkend="x-xdm">XDM</link>
-	  は上で述べたようにそのために使えます。
-	  しかしながら、<application>KDE</application>
+	  ユーザを迎えるにあたってグラフィカルなログイン画面が欲しいと思うかもしれません。
+	  前の章で述べたように
+	  <link linkend="x-xdm">XDM</link> はそのために使えますが、
+	  <application>KDE</application>
 	  にはその代わりになる <application>kdm</application>
-	  が付いており、より魅力的な見た目で、
-	  ログイン時のオプションもたくさんあります。特に、
-	  (メニューを使って) ログイン後にどのデスクトップ環境
+	  が付いています。
+	  見た目がより魅力的で、ログイン時のオプションもたくさんあります。
+	  特に (メニューを使って) ログイン後に使うデスクトップ環境
 	  (<application>KDE</application> や
 	  <application>GNOME</application> など)
-	  を動かすかを簡単に選ぶこともできます。</para>
+	  を簡単に選ぶことができます。</para>
 
 	<para><application>kdm</application>
 	  を有効にするには、ファイルを編集する必要がありますが、
