@@ -4,10 +4,10 @@
 
   The FreeBSD Greek Documentation Project
 
-  $FreeBSD: doc/el_GR.ISO8859-7/books/handbook/firewalls/chapter.sgml,v 1.9 2010/12/31 16:37:02 manolis Exp $
+  $FreeBSD: doc/el_GR.ISO8859-7/books/handbook/firewalls/chapter.sgml,v 1.10 2011/09/25 14:18:25 manolis Exp $
 
   %SOURCE%	en_US.ISO8859-1/books/handbook/firewalls/chapter.sgml
-  %SRCID%	1.95
+  %SRCID%	1.96
 
 -->
 
@@ -2587,8 +2587,8 @@ ipfw add deny out</programlisting>
 	<sect4>
 	  <title>RULE_NUMBER</title>
 
-	  <para>Κάθε κανόνας πρέπει να διαθέτει ένα αριθμό που να τον
-	    χαρακτηρίζει.</para>
+	  <para>Κάθε κανόνας σχετίζεται με ένα αριθμό κανόνα (rule_number)
+	    στην περιοχή 1..65535.</para>
 	</sect4>
 
 	<sect4>
