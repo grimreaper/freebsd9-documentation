@@ -294,19 +294,21 @@
 
 	<orderedlist>
 	  <listitem>
-	    <para>Backup your &windows; data, and then reinstall &windows;,
-	      asking for a 20&nbsp;GB partition at install time.</para>
+	    <para>Back up your &windows; data.  Then reinstall
+	      &windows;, creating a 20&nbsp;GB partition during the
+	      install.</para>
 	  </listitem>
 
 	  <listitem>
 	    <para>Use a partition resizing tool like
-	      <application>GParted</application>, described above,
-	      to shrink the &windows; partition.</para>
+	      <application>GParted</application> to shrink the &windows;
+	      partition and create a new partition in the freed space
+	      for &os;.</para>
 	  </listitem>
 	</orderedlist>
       </example>
 
-      <para>Disk partitions with different operating systems makes it
+      <para>Disk partitions with different operating systems make it
 	possible to run any one of those operating systems at a time.
 	An alternative method that allows running multiple operating
 	systems at the same time is covered in
