@@ -178,7 +178,7 @@
 
     <sect2>
       <title>Back Up Your Data</title>
-      
+
       <para>If the computer you will be installing &os; on contains
 	valuable data, then ensure you have it backed up, and that you have
 	tested the backups before installing &os;.  The &os;
@@ -191,77 +191,77 @@
       <title>Decide Where to Install &os;</title>
 
       <para>If &os; will be the only operating system installed, and will
-        be allowed to use the entire hard disk, then you can skip this
+	be allowed to use the entire hard disk, then you can skip this
 	section.</para>
 
       <para>If &os; must share the hard disk with other operating systems,
-        a basic understanding of disk layout is useful.</para>
+	a basic understanding of disk layout is useful.</para>
 
       <sect3 id="bsdinstall-where-i386">
 	<title>Disk Layouts for &os;/&arch.i386; and &os;/&arch.amd64;</title>
 
       <para>PC hard disks can be divided into discrete chunks.  These chunks
-        are called <firstterm>partitions</firstterm>.</para>
+	are called <firstterm>partitions</firstterm>.</para>
 
       <para>There are two ways of dividing a PC disk into partitions.
-        A traditional <firstterm>Master Boot Record</firstterm> (MBR) 
-        holds a partition table defining up to four <firstterm>primary 
-        partitions</firstterm>.  (For historical reasons, &os; calls 
-        these partitions <firstterm>slices</firstterm>.)  Only four 
-        partitions was found to be limiting, and a so one of the primary 
-        partitions was allowed to be made into an <firstterm>extended 
-        partition</firstterm>.  <firstterm>Logical 
-        partitions</firstterm> could then be created inside the extended 
-        partition.
+	A traditional <firstterm>Master Boot Record</firstterm> (MBR)
+	holds a partition table defining up to four <firstterm>primary
+	partitions</firstterm>.  (For historical reasons, &os; calls
+	these partitions <firstterm>slices</firstterm>.)  Only four
+	partitions was found to be limiting, and a so one of the primary
+	partitions was allowed to be made into an <firstterm>extended
+	partition</firstterm>.  <firstterm>Logical
+	partitions</firstterm> could then be created inside the extended
+	partition.
 
-      <para>The <firstterm>GUID Partition Table</firstterm> (GPT) is a 
-        newer method of partitioning a disk.  GPT is far more versatile 
-        than the traditional MBR partition table.  Common GPT
-        implementations allow up to 128 partitions per disk, eliminating
-        the need for workarounds like logical partitions.</para>
-      
+      <para>The <firstterm>GUID Partition Table</firstterm> (GPT) is a
+	newer method of partitioning a disk.  GPT is far more versatile
+	than the traditional MBR partition table.  Common GPT
+	implementations allow up to 128 partitions per disk, eliminating
+	the need for workarounds like logical partitions.</para>
+
       <warning>
-	<para>Older operating system, like &windows; XP, may not be 
-	  compatible with GPT partitioning.  If &os; needs to share a 
+	<para>Older operating system, like &windows; XP, may not be
+	  compatible with GPT partitioning.  If &os; needs to share a
 	  disk with such an operating system, MBR partition tables are
 	  required.</para>
       </warning>
 
       <para>Operating systems have varying ways of referring to
-        partitions.  For example, DOS and its descendants, like 
-        &windows;, call each primary and logical partition by a
-        <firstterm>drive letter</firstterm>.  The first partition is
-	<devicename>C:</devicename>, the second is 
+	partitions.  For example, DOS and its descendants, like
+	&windows;, call each primary and logical partition by a
+	<firstterm>drive letter</firstterm>.  The first partition is
+	<devicename>C:</devicename>, the second is
 	<devicename>D:</devicename, and so on.</para>
 
       <para>&os; must be installed into a primary or GPT partition. If
-        all the partitions on your disks are already in use, then
+	all the partitions on your disks are already in use, then
 	one must be freed for &os;.</para>
 
       <para>A minimal installation of &os; takes as little as 1&nbsp;GB
-        of disk space.  However, that is a <emphasis>very</emphasis> 
-        minimal install, leaving almost no free space.  A more realistic 
-        minimum is 3&nbsp;GB without a graphical environment, and 
-        8&nbsp;GB or more if a graphical user interface will be used.  
-        Third-party software requires more space.</para>
+	of disk space.  However, that is a <emphasis>very</emphasis>
+	minimal install, leaving almost no free space.  A more realistic
+	minimum is 3&nbsp;GB without a graphical environment, and
+	8&nbsp;GB or more if a graphical user interface will be used.
+	Third-party software requires more space.</para>
 
-      <para>A variety of free and commerical partition resizing tools 
-        are available.  <ulink url="http://gparted.sourceforge.net/livecd.php">\
-        GParted Live</ulink> is a complete Live CD including the GParted
-        partition editor.  GParted is also included with many other
-        Linux Live CD distributions, too.  See <ulink
-        url="http://en.wikipedia.org/wiki/List_of_disk_partitioning_software">
-        for a more complete list of partition resizing software.</para>
-	
-      <para>Resizing &microsoft; Vista partitions can be difficult.  
-        Having a Vista installation CDROM handy when attempting such an 
-        operation is recommended.  As with all such disk maintenance tasks,
-        make a full backup before attempting to resize or reorganize 
-        partitions.</para>
+      <para>A variety of free and commerical partition resizing tools
+	are available.  <ulink url="http://gparted.sourceforge.net/livecd.php">\
+	GParted Live</ulink> is a complete Live CD including the GParted
+	partition editor.  GParted is also included with many other
+	Linux Live CD distributions, too.  See <ulink
+	url="http://en.wikipedia.org/wiki/List_of_disk_partitioning_software">
+	for a more complete list of partition resizing software.</para>
+
+      <para>Resizing &microsoft; Vista partitions can be difficult.
+	Having a Vista installation CDROM handy when attempting such an
+	operation is recommended.  As with all such disk maintenance tasks,
+	make a full backup before attempting to resize or reorganize
+	partitions.</para>
 
       <warning>
-	<para>Incorrect use of disk resizing tools can destroy the data 
-	  on your disk.  Make a full backup and verify its integrity 
+	<para>Incorrect use of disk resizing tools can destroy the data
+	  on your disk.  Make a full backup and verify its integrity
 	  before using these or any disk partition resizing tools.</para>
       </warning>
 
@@ -283,11 +283,11 @@
       <example>
 	<title>Shrinking an Existing Partition</title>
 
-	<para>A &windows computer has a single 40&nbsp;GB disk and one 
+	<para>A &windows computer has a single 40&nbsp;GB disk and one
 	  large partition using the whole disk.  &windows shows this
 	  40&nbsp;GB partition as a single <devicename>C:</devicename>.
-	  15&nbsp;GB of space is being used.  The goal is to end up with 
-	  &windows; in a 20&nbsp;GB partition, and have another 
+	  15&nbsp;GB of space is being used.  The goal is to end up with
+	  &windows; in a 20&nbsp;GB partition, and have another
 	  20&nbsp;GB partition for &os;.
 
 	<para>There are two ways to do this.</para>
@@ -305,12 +305,12 @@
 	  </listitem>
 	</orderedlist>
       </example>
-      
-      <para>Disk partitions with different operating systems makes it 
-        possible to run any one of those operating systems at a time.  
-        An alternative method that allows running multiple operating 
-        systems at the same time is covered in
-        <xref linkend="virtualization">.</para>
+
+      <para>Disk partitions with different operating systems makes it
+	possible to run any one of those operating systems at a time.
+	An alternative method that allows running multiple operating
+	systems at the same time is covered in
+	<xref linkend="virtualization">.</para>
 
       </sect3>
     </sect2>
