@@ -316,46 +316,39 @@
     </sect2>
 
     <sect2>
-      <title>Collect Network Configuration Details</title>
+      <title>Collect Network Information</title>
 
-      <para>If you intend to connect to a network as part of your &os;
-	installation (for example, if you will be installing from an FTP
-	site), then you need to know your network configuration.  You
-	will be prompted for this information during the installation so that
-	&os; can connect to the network to complete the install.</para>
+      <para>Some &os; installation methods need a network connection to
+	download files.  To connect to an Ethernet network (or cable or
+	DSL modem with an Ethernet interface), the installer will request
+	some information about the network.</para>
 
-      <sect3>
-	<title>Connecting to an Ethernet Network or Cable/DSL Modem</title>
+      <para><firstterm>DHCP</firstterm> is commonly used to provide
+	automatic network configuration.  If DHCP is not available, this
+	network information must be obtained from the local network
+	administrator or service provider:</para>
 
-	<para>To connect to an Ethernet network or cable or DSL modem with
-	  an Ethernet interface, some network information is needed.</para>
+      <orderedlist>
+	<listitem>
+	  <para>IP address</para>
+	</listitem>
 
-	<orderedlist>
-	  <listitem>
-	    <para>IP address</para>
-	  </listitem>
+	<listitem>
+	  <para>IP address of the default gateway</para>
+	</listitem>
 
-	  <listitem>
-	    <para>IP address of the default gateway</para>
-	  </listitem>
+	<listitem>
+	  <para>Hostname</para>
+	</listitem>
 
-	  <listitem>
-	    <para>Hostname</para>
-	  </listitem>
+	<listitem>
+	  <para>DNS server IP addresses</para>
+	</listitem>
 
-	  <listitem>
-	    <para>DNS server IP addresses</para>
-	  </listitem>
-
-	  <listitem>
-	    <para>Subnet Mask</para>
-	  </listitem>
-	</orderedlist>
-
-	<para>Often this information is provided automatically by
-	  <firstterm>DHCP</firstterm>.  Otherwise, it must be obtained
-	  from the network administrator or service provider.</para>
-      </sect3>
+	<listitem>
+	  <para>Subnet Mask</para>
+	</listitem>
+      </orderedlist>
     </sect2>
     <sect2>
       <title>Check for &os; Errata</title>
