@@ -11,7 +11,7 @@
       <corpauthor>The &os; Ports Management Team</corpauthor>
     </authorgroup>
 
-    <pubdate>$FreeBSD: doc/en_US.ISO8859-1/articles/portbuild/article.sgml,v 1.74 2011/09/13 01:34:48 linimon Exp $</pubdate>
+    <pubdate>$FreeBSD: doc/en_US.ISO8859-1/articles/portbuild/article.sgml,v 1.75 2011/09/27 08:33:46 erwin Exp $</pubdate>
 
     <copyright>
       <year>2003</year>
@@ -2079,7 +2079,7 @@ ssh_cmd="/usr/local/bin/ssh"
 
       <listitem>
 	<para>Checkout a <literal>src</literal> tree in the new filesystem:
-	  <screen>cvs -Rq -d /r/ncvs co -r RELENG-<replaceable>branch</replaceable></screen>
+	  <screen>cvs -Rq -d /r/ncvs co -d src-<replaceable>branch</replaceable>-r RELENG_<replaceable>branch</replaceable></screen>
 	</para>
       </listitem>
 
