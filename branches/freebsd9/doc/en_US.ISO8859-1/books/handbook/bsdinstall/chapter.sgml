@@ -232,7 +232,7 @@
 	&windows;, call each primary and logical partition by a
 	<firstterm>drive letter</firstterm>.  The first partition is
 	<devicename>C:</devicename>, the second is
-	<devicename>D:</devicename, and so on.</para>
+	<devicename>D:</devicename>, and so on.</para>
 
       <para>&os; must be installed into a primary or GPT partition. If
 	all the partitions on your disks are already in use, then
@@ -245,13 +245,14 @@
 	8&nbsp;GB or more if a graphical user interface will be used.
 	Third-party software requires more space.</para>
 
-      <para>A variety of free and commerical partition resizing tools
-	are available.  <ulink url="http://gparted.sourceforge.net/livecd.php">\
+      <para>A variety of free and commercial partition resizing tools
+	are available.  <ulink url="http://gparted.sourceforge.net/livecd.php">
 	GParted Live</ulink> is a complete Live CD including the GParted
 	partition editor.  GParted is also included with many other
 	Linux Live CD distributions, too.  See <ulink
 	url="http://en.wikipedia.org/wiki/List_of_disk_partitioning_software">
-	for a more complete list of partition resizing software.</para>
+	the Wikipedia entry on partition resizing software</ulink>
+	for a more complete list.</para>
 
       <para>Resizing &microsoft; Vista partitions can be difficult.
 	Having a Vista installation CDROM handy when attempting such an
