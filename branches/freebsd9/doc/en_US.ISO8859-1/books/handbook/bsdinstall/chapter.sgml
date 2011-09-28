@@ -352,15 +352,15 @@
     <sect2>
       <title>Check for &os; Errata</title>
 
-      <para>Although the &os; project strives to ensure that each release
-	of &os; is as stable as possible, bugs do occasionally creep into
-	the process.  On very rare occasions those bugs affect the
-	installation process.  As these problems are discovered and fixed, they
-	are noted in the <ulink
-	url="http://www.FreeBSD.org/releases/&rel.current;R/errata.html">FreeBSD Errata</ulink>,
-	which is found on the &os; web site.  You should check the errata before
-	installing to make sure that there are no late-breaking problems
-	which you should be aware of.</para>
+      <para>Although the &os; project strives to ensure that each
+	release	of &os; is as stable as possible, bugs occasionally creep
+	into the process.  On very rare occasions those bugs affect the
+	installation process.  As these problems are discovered and
+	fixed, they are noted in the <ulink
+	url="http://www.FreeBSD.org/releases/&rel.current;R/errata.html">
+	FreeBSD Errata</ulink> on the &os; web site.  Check the errata
+	before installing to make sure that there are no late-breaking
+	problems.</para>
 
       <para>Information about all the releases, including the errata for each
 	release, can be found on the 
