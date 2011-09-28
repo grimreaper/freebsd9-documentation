@@ -1,12 +1,12 @@
 <!DOCTYPE HTML PUBLIC "-//FreeBSD//DTD HTML 4.01 Transitional-Based Extension//EN" [
-<!ENTITY date "$FreeBSD: www/nl/applications.sgml,v 1.1 2009/06/01 20:02:31 rene Exp $">
+<!ENTITY date "$FreeBSD: www/nl/applications.sgml,v 1.2 2011/09/27 20:16:46 rene Exp $">
 <!ENTITY title "Over applicaties voor &os;">
 <!ENTITY % navinclude.about "INCLUDE">
 ]>
 <!--
      Vertaald door: Rene Ladan
      %SOURCE%	en/applications.sgml
-     %SRCID%	1.34
+     %SRCID%	1.35
  -->
 <html>
     &header;
@@ -90,7 +90,7 @@
 
 	<li><b>Netsurfen. </b> Een echt UNIX werkstation is een prachtige
 	  surfplank voor Internet.  Versies voor &os; van <a
-	    href="http://www.mozilla.org/products/firefox/">Firefox</a>
+	    href="http://www.mozilla.org/firefox/">Firefox</a>
 	  en <a href="http://www.opera.com/">Opera</a> zijn beschikbaar
 	  voor serieuze webgebruikers.  Surf op het web, publiceer uw
 	  eigen webpagina's, lees Usenet nieuws, en verzend en ontvang
