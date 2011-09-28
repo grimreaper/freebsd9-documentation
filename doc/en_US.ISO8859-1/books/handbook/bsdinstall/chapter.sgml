@@ -224,14 +224,7 @@
 	  required.</para>
       </warning>
 
-      <para>Operating systems have varying ways of referring to
-	partitions.  For example, DOS and its descendants, like
-	&windows;, call each primary and logical partition by a
-	<firstterm>drive letter</firstterm>.  The first partition is
-	<devicename>C:</devicename>, the second is
-	<devicename>D:</devicename>, and so on.</para>
-
-      <para>The standard &os; boot loader requires either a primary
+      <para>&os;'s standard boot loader requires either a primary
 	or GPT partition.  (See <xref linkend="boot"> for more
 	information about the &os; booting process.)  If all of the
 	primary or GPT partitions are already in use, one must be freed
@@ -253,9 +246,9 @@
 	other Linux Live CD distributions.</para>
 
       <warning>
-	<para>Incorrect use of disk partition applications can destroy
-	  data.  Make a full backup and verify its integrity before
-	  modifying disk partitions.</para>
+	<para>Disk partition applications can destroy data.  Make a
+	  full backup and verify its integrity before modifying disk
+	  partitions.</para>
       </warning>
 
       <para>Resizing &microsoft;&nbsp;Vista partitions can be difficult.
@@ -362,24 +355,21 @@
 	before installing to make sure that there are no late-breaking
 	problems.</para>
 
-      <para>Information about all the releases, including the errata for each
-	release, can be found on the 
-	<ulink
-	url="&url.base;/releases/index.html">release
-	information</ulink> section of the 
-	<ulink
-	  url="&url.base;/index.html">&os; web site</ulink>.</para>
+      <para>Information and errata for all the releases can be found on
+	the <ulink url="&url.base;/releases/index.html">release
+	information</ulink> section of the <ulink
+	url="&url.base;/index.html">&os; web site</ulink>.</para>
     </sect2>
 
     <sect2>
       <title>Obtain the &os; Installation Files</title>
 
-      <para>The &os; installation process can install &os; from files
-	located in any of the following places:</para>
+      <para>The &os; installation process can install from files
+	located on:</para>
 
       <itemizedlist>
 	<title>Local Media</title>
-	
+
 	<listitem>
 	  <para>A CDROM or DVD</para>
 	</listitem>
@@ -394,7 +384,7 @@
 	<title>Network</title>
 
 	<listitem>
-	  <para>An FTP site, going through a firewall, or using an HTTP proxy,
+	  <para>An FTP site, going through a firewall or using an HTTP proxy,
 	    as necessary</para>
 	</listitem>
 
@@ -404,37 +394,32 @@
 
       </itemizedlist>
 
-      <para>If you have purchased &os; on CD or DVD then you already have
-	everything you need, and should proceed to 
+      <para>If you have a copy of &os; on CD, DVD, or USB memory stick,
+	then you already have everything you need, and should proceed to
 	(<xref linkend="bsdinstall-start">).</para>
 
-      <para>If you have not obtained the &os; installation files you should
-	skip ahead to <xref linkend="bsdinstall-diff-media"> which explains how
-	to prepare to install &os; from any of the above.  After reading
-	that section, you should come back here, and read on to 
+      <para>If you have not obtained the &os; installation files, see
+	<xref linkend="bsdinstall-diff-media">, which explains how
+	to prepare to install &os; from the different media types.
+	After following that section, come back here and continue with
 	<xref linkend="bsdinstall-boot-media">.</para>
     </sect2>
 
     <sect2 id="bsdinstall-boot-media">
       <title>Prepare the Boot Media</title>
-      
-      <para>The &os; installation process is started by booting your
-	computer into the &os; installer&mdash;it is not a program you run
-	within another operating system.  Your computer normally boots using
-	the operating system installed on your hard disk, but it can also be
-	configured to use a <quote>bootable</quote> CDROM.
-	Many modern computers can also
-	boot from a USB disk.</para>
+
+      <para>The &os; installation process is started by booting the
+	computer into the &os; installer&mdash;it is not a program run
+	from within another operating system.  A computer normally boots
+	using the operating system installed on the hard disk, but most
+	can also be booted from a CDROM or other removable devices like
+	a USB disk or memory stick.</para>
 
       <tip>
-	<para>If you have &os; on CDROM or DVD (either one you purchased
-	  or you prepared yourself), and your computer allows you to boot from
-	  the CDROM or DVD (typically a BIOS option called <quote>Boot
-	  Order</quote> or similar), then you can skip this section.  The
-	  &os; CDROM and DVD images are bootable and can be used to install
-	  &os; without any other special preparation.</para>
+	<para>If you already have a copy of &os; on CDROM, DVD, or USB
+	  memory stick, this section can be skipped.</para>
       </tip>
-    
+
       <para>To create a bootable memory stick, follow these
 	steps:</para>
 
@@ -458,15 +443,14 @@
 	  <para>The memory stick image has a <filename>.img</filename>
 	    extension.  The <filename
 	    class="directory">ISO-IMAGES/</filename> directory
-	    contains a number of different images, and the one you
-	    will need to use will depend on the version of &os; you
-	    are installing, and in some cases, the hardware you are
-	    installing to.</para>
+	    contains a number of different images, and the one needed
+	    depends on the version of &os; being installed, and in some
+	    cases, the target hardware.</para>
 
 	  <important>
 	    <para>Before proceeding, <emphasis>back up</emphasis> the
-	      data you currently have on your USB stick, as this
-	      procedure will <emphasis>erase</emphasis> it.</para>
+	      data on the USB stick, as this procedure will
+	      <emphasis>erase</emphasis> it.</para>
 	  </important>
 	</step>
 
@@ -477,11 +461,11 @@
 	    <title>Using &os; To Write the Image</title>
 
 	    <warning>
-	      <para>The example below
-		lists <filename class="devicefile">/dev/da0</filename> as the
-		target device where the image will be written. Be very careful
-		that you have the correct device as the output target, or you
-		may destroy your existing data.</para>
+	      <para>The example below shows <filename
+	        class="devicefile">/dev/da0</filename> as the target
+	        device where the image will be written.  Be very careful
+		that the correct device is used as the output target, or
+		you may destroy existing data.</para>
 	    </warning>
 
 	    <step>
@@ -494,11 +478,11 @@
 	      <screen><userinput>&prompt.root; sysctl kern.geom.debugflags=16</userinput></screen>
 
 	      <para>The <filename>.img</filename> file
-		is <emphasis>not</emphasis> a regular file you copy to the
-		memory stick.  It is an image of the complete contents of the
-		disk.  This means that you <emphasis>cannot</emphasis> simply
-		copy files from one disk to another.  Instead, you must use
-		&man.dd.1; to write the image directly to the disk:</para>
+		is <emphasis>not</emphasis> a regular file.  It is an
+		<emphasis>image</emphasis> of the complete contents of
+		the memory stick.  It <emphasis>cannot</emphasis> simply
+		be copied like a regular file, but must be written
+		directly to the target device with &man.dd.1;:</para>
 
 	      <screen>&prompt.root; <userinput>dd if=&os;-&rel.current;-RELEASE-&arch.i386;-memstick.img of=/dev/<replaceable>da0</replaceable> bs=64k</userinput></screen>
 	    </step>
@@ -508,8 +492,9 @@
 	    <title>Using &windows; To Write the Image</title>
 
 	    <warning>
-	      <para>Make sure you use the correct drive letter as the output
-		target, or you may overwrite and destroy existing data.</para>
+	      <para>Be sure to give the correct drive letter as the
+		output target, or you may overwrite and destroy
+		existing data.</para>
 	    </warning>
 
 	    <step>
@@ -525,17 +510,17 @@
 	    <step>
 	      <title>Writing The Image with Image Writer</title>
 
-	      <para>Double-click
-	        the <application>Win32DiskImager</application> icon to start
-	        the program.  Verify that the drive letter shown
-	        under <computeroutput>Device</computeroutput> is the drive
-	        with the memory stick.  Click the folder icon and select the
-	        image to be written to the memory stick.
-	        Click <guibutton>Save</guibutton> to accept the image file
-	        name.  Verify that everything is correct, and that no folders
-	        on the memory stick are open in other windows.  Finally,
-	        click <guibutton>Write</guibutton> to write the image file to
-	        the drive.</para>
+	      <para>Double-click the
+		<application>Win32DiskImager</application> icon to start
+		the program.  Verify that the drive letter shown under
+		<computeroutput>Device</computeroutput> is the drive
+		with the memory stick.  Click the folder icon and select
+		the image to be written to the memory stick. Click
+		<guibutton>Save</guibutton> to accept the image file
+		name.  Verify that everything is correct, and that no
+		folders on the memory stick are open in other windows.
+		Finally, click <guibutton>Write</guibutton> to write the
+		image file to the memory stick.</para>
 	    </step>
 	  </procedure>
 	</step>
