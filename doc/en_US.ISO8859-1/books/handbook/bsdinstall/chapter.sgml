@@ -148,9 +148,9 @@
       <sect3>
 	<title>&os;/&arch.sparc64;</title>
 
-	<para>To install &os;/&arch.sparc64;, you will need a supported
-	  platform (see <xref
-	  linkend="bsdinstall-hardware-supported">).</para>
+	<para>Platforms supported by &os;/&arch.sparc64; are listed at
+	  the <ulink http="http://www.freebsd.org/platforms/sparc.html">
+	  FreeBSD/sparc64</ulink> Project.
 
 	<para>A dedicated disk is required for &os;/&arch.sparc64;.  It
 	  is not possible to share a disk with another operating
