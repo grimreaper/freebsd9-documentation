@@ -31,7 +31,7 @@
     </authorgroup>
   </chapterinfo>
 
-  <title>Installing &os;</title>
+  <title>Installing &os;&nbsp;9.<replaceable>x</replaceable> and Later</title>
 
   <sect1 id="bsdinstall-synopsis">
     <title>Synopsis</title>
