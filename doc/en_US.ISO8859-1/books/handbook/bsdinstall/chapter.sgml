@@ -39,7 +39,7 @@
     <indexterm><primary>installation</primary></indexterm>
 
     <para>&os; is provided with a text-based, easy to use installation
-      program.  &os; 9.0-RELASE and later use the installation program
+      program.  &os; 9.0-RELEASE and later use the installation program
       known as <application>bsdinstall</application>, with releases prior
       to 9.0-RELEASE using <application>sysinstall</application> for
       installation.  This chapter describes the use of <application>bsdinstall</application>
@@ -50,11 +50,12 @@
 
     <itemizedlist>
       <listitem>
-	<para>How to create the &os; installation disks.</para>
+	<para>How to create the &os; installation media.</para>
       </listitem>
       
       <listitem>
-	<para>How &os; refers to, and subdivides, your hard disks.</para>
+	<--! WB: verify this, including GPT partition notation (ada0p2) ->>
+	<para>How &os; subdivides and refers to hard disks.</para>
       </listitem>
 
       <listitem>
