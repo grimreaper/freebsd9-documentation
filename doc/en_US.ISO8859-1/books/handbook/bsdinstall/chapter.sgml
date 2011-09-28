@@ -39,9 +39,9 @@
     <indexterm><primary>installation</primary></indexterm>
 
     <para>&os; is provided with a text-based, easy to use installation
-      program.  &os; 9.0-RELEASE and later use the installation program
+      program.  &os;&nbsp;9.0-RELEASE and later use the installation program
       known as <application>bsdinstall</application>, with releases prior
-      to 9.0-RELEASE using <application>sysinstall</application> for
+      to &os;&nbsp;9.0-RELEASE using <application>sysinstall</application> for
       installation.  This chapter describes the use of <application>bsdinstall</application>
       to install &os;.  The use of <application>sysinstall</application>
       is covered in <xref linkend="install">.</para>
@@ -130,7 +130,7 @@
 	  processors.</para>
 
 	<para>The second class of processors that can use
-	  &os;/&arch.amd64; includes those using the &intel; EM64T
+	  &os;/&arch.amd64; includes those using the &intel;&nbsp;EM64T
 	  architecture.  Examples of these processors include the
 	  &intel;&nbsp;&core;&nbsp;2 Duo, Quad, Extreme processor
 	  families, the &intel;&nbsp;&xeon; 3000, 5000, and 7000
@@ -222,7 +222,7 @@
 	the need for workarounds like logical partitions.</para>
 
       <warning>
-	<para>Older operating system, like &windows; XP, may not be
+	<para>Older operating system, like &windows;&nbsp;XP, may not be
 	  compatible with GPT partitioning.  If &os; needs to share a
 	  disk with such an operating system, MBR partition tables are
 	  required.</para>
@@ -255,7 +255,7 @@
 	the Wikipedia entry on partition resizing software</ulink>
 	for a more complete list.</para>
 
-      <para>Resizing &microsoft; Vista partitions can be difficult.
+      <para>Resizing &microsoft;&nbsp;Vista partitions can be difficult.
 	Having a Vista installation CDROM handy when attempting such an
 	operation is recommended.  As with all such disk maintenance tasks,
 	make a full backup before attempting to resize or reorganize
