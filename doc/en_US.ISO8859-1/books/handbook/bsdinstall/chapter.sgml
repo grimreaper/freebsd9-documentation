@@ -148,7 +148,7 @@
       <sect3>
 	<title>&os;/&arch.sparc64;</title>
 
-	<para>Platforms supported by &os;/&arch.sparc64; are listed at
+	<para>Systems supported by &os;/&arch.sparc64; are listed at
 	  the <ulink url="http://www.freebsd.org/platforms/sparc.html">
 	  FreeBSD/sparc64</ulink> Project.
 
