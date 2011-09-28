@@ -54,7 +54,7 @@
       </listitem>
       
       <listitem>
-	<--! WB: verify this, including GPT partition notation (ada0p2) ->>
+	<!-- WB: verify this, including GPT partition notation (ada0p2) -->
 	<para>How &os; subdivides and refers to hard disks.</para>
       </listitem>
 
@@ -149,7 +149,7 @@
 	<title>&os;/&arch.sparc64;</title>
 
 	<para>Platforms supported by &os;/&arch.sparc64; are listed at
-	  the <ulink http="http://www.freebsd.org/platforms/sparc.html">
+	  the <ulink url="http://www.freebsd.org/platforms/sparc.html">
 	  FreeBSD/sparc64</ulink> Project.
 
 	<para>A dedicated disk is required for &os;/&arch.sparc64;.  It
