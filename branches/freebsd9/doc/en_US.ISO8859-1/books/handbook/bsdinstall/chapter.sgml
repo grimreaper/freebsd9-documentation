@@ -161,16 +161,13 @@
     <sect2 id="bsdinstall-hardware-supported">
       <title>Supported Hardware</title>
 
-      <para>A list of supported hardware is provided with each &os;
-	release in the &os; Hardware Notes.  This document can usually
-	be found in a file named <filename>HARDWARE.TXT</filename>, in
-	the top-level directory of a CDROM or FTP distribution
-	It lists, for a given architecture, what hardware devices are
-	known to be supported by each release of &os;.  Copies of the
-	supported hardware list for various releases and architectures
-	can also be found on the <ulink
+      <para>Hardware architectures and devices supported by a &os;
+	release are listed in the Hardware Notes file.  Usually named
+	<filename>HARDWARE.TXT</filename>, the file is located in the
+	root directory of the release media.  Copies of the supported
+	hardware list are also available on the <ulink
 	url="http://www.FreeBSD.org/releases/index.html">Release
-	Information</ulink> page of the &os; Web site.</para>
+	Information</ulink> page of the &os; web site.</para>
     </sect2>
   </sect1>
 
