@@ -177,51 +177,52 @@
     <sect2>
       <title>Back Up Your Data</title>
 
-      <para>If the computer you will be installing &os; on contains
-	valuable data, then ensure you have it backed up, and that you have
-	tested the backups before installing &os;.  The &os;
-	installation routine will prompt you before making any changes
-	to your disk, but once that process has started it cannot be
+      <para>Back up all important data present on the target computer
+	where &os; will be installed.  Test the backups before
+	continuing.  The &os; installer will ask before making changes
+	to the disk, but once the process has started it cannot be
 	undone.</para>
     </sect2>
 
     <sect2 id="bsdinstall-where">
       <title>Decide Where to Install &os;</title>
 
-      <para>If &os; will be the only operating system installed, and will
-	be allowed to use the entire hard disk, then you can skip this
-	section.</para>
+      <para>If &os; will be the only operating system installed, and
+	will be allowed to use the entire hard disk, the rest of
+	this section can be skipped.</para>
 
-      <para>If &os; must share the hard disk with other operating systems,
-	a basic understanding of disk layout is useful.</para>
+      <para>If &os; will share the hard disk with other operating
+	systems, an understanding of disk layout is helpful when
+	deciding how to use available disk space.</para>
 
       <sect3 id="bsdinstall-where-i386">
 	<title>Disk Layouts for &os;/&arch.i386; and &os;/&arch.amd64;</title>
 
-      <para>PC hard disks can be divided into discrete chunks.  These chunks
-	are called <firstterm>partitions</firstterm>.</para>
+      <para>Hard disks can be divided into multiple sections.  These
+	sections are called <firstterm>partitions</firstterm>.</para>
 
-      <para>There are two ways of dividing a PC disk into partitions.
+      <para>There are two ways of dividing a disk into partitions.
 	A traditional <firstterm>Master Boot Record</firstterm> (MBR)
 	holds a partition table defining up to four <firstterm>primary
 	partitions</firstterm>.  (For historical reasons, &os; calls
-	these partitions <firstterm>slices</firstterm>.)  Only four
-	partitions was found to be limiting, and a so one of the primary
-	partitions was allowed to be made into an <firstterm>extended
-	partition</firstterm>.  <firstterm>Logical
-	partitions</firstterm> could then be created inside the extended
-	partition.
+	primary partitions <firstterm>slices</firstterm>.)  A limit of
+	only four partitions was restrictive for large disks, so one of
+	these primary partitions can be made into an <firstterm>extended
+	partition</firstterm>.  Multiple <firstterm>logical
+	partitions</firstterm> may then be created inside the extended
+	partition.  This may sound a little unwieldy, and it is.
 
       <para>The <firstterm>GUID Partition Table</firstterm> (GPT) is a
-	newer method of partitioning a disk.  GPT is far more versatile
-	than the traditional MBR partition table.  Common GPT
-	implementations allow up to 128 partitions per disk, eliminating
-	the need for workarounds like logical partitions.</para>
+	newer and simpler method of partitioning a disk.  GPT is far
+	more versatile than the traditional MBR partition table.
+	Common GPT implementations allow up to 128 partitions per disk,
+	eliminating the need for inconvenient workarounds like logical
+	partitions.</para>
 
       <warning>
-	<para>Older operating system, like &windows;&nbsp;XP, may not be
-	  compatible with GPT partitioning.  If &os; needs to share a
-	  disk with such an operating system, MBR partition tables are
+	<para>Some older operating systems like &windows;&nbsp;XP are
+	  not compatible with GPT partitioning.  If &os; will be sharing
+	  a disk with such an operating system, MBR partitioning is
 	  required.</para>
       </warning>
 
