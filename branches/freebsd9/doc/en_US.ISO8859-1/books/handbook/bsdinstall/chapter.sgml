@@ -189,11 +189,9 @@
 
       <para>If &os; will be the only operating system installed, and
 	will be allowed to use the entire hard disk, the rest of
-	this section can be skipped.</para>
-
-      <para>If &os; will share the hard disk with other operating
-	systems, an understanding of disk layout is helpful when
-	deciding how to use available disk space.</para>
+	this section can be skipped.  But if &os; will share the disk
+	with other operating systems, an understanding of disk
+	layout is useful during the installation.</para>
 
       <sect3 id="bsdinstall-where-i386">
 	<title>Disk Layouts for &os;/&arch.i386; and &os;/&arch.amd64;</title>
@@ -233,37 +231,36 @@
 	<devicename>C:</devicename>, the second is
 	<devicename>D:</devicename>, and so on.</para>
 
-      <para>&os; must be installed into a primary or GPT partition. If
-	all the partitions on your disks are already in use, then
-	one must be freed for &os;.</para>
+      <para>The standard &os; boot loader requires either a primary
+	or GPT partition.  (See <xref linkend="boot"> for more
+	information about the &os; booting process.)  If all of the
+	primary or GPT partitions are already in use, one must be freed
+	for &os;.</para>
 
       <para>A minimal installation of &os; takes as little as 1&nbsp;GB
 	of disk space.  However, that is a <emphasis>very</emphasis>
 	minimal install, leaving almost no free space.  A more realistic
 	minimum is 3&nbsp;GB without a graphical environment, and
-	8&nbsp;GB or more if a graphical user interface will be used.
-	Third-party software requires more space.</para>
+	5&nbsp;GB or more if a graphical user interface will be used.
+	Third-party application software requires more space.</para>
 
-      <para>A variety of free and commercial partition resizing tools
-	are available.  <ulink url="http://gparted.sourceforge.net/livecd.php">
-	GParted Live</ulink> is a complete Live CD including the GParted
-	partition editor.  GParted is also included with many other
-	Linux Live CD distributions, too.  See <ulink
+      <para>A variety of <ulink
 	url="http://en.wikipedia.org/wiki/List_of_disk_partitioning_software">
-	the Wikipedia entry on partition resizing software</ulink>
-	for a more complete list.</para>
-
-      <para>Resizing &microsoft;&nbsp;Vista partitions can be difficult.
-	Having a Vista installation CDROM handy when attempting such an
-	operation is recommended.  As with all such disk maintenance tasks,
-	make a full backup before attempting to resize or reorganize
-	partitions.</para>
+	free and commercial partition resizing tools</ulink> are
+	available.  <ulink url="http://gparted.sourceforge.net/livecd.php">
+	GParted Live</ulink> is a free Live CD which includes the
+	GParted	partition editor.  GParted is also included with many
+	other Linux Live CD distributions.</para>
 
       <warning>
-	<para>Incorrect use of disk resizing tools can destroy the data
-	  on your disk.  Make a full backup and verify its integrity
-	  before using these or any disk partition resizing tools.</para>
+	<para>Incorrect use of disk partition applications can destroy
+	  data.  Make a full backup and verify its integrity before
+	  modifying disk partitions.</para>
       </warning>
+
+      <para>Resizing &microsoft;&nbsp;Vista partitions can be difficult.
+	A Vista installation CDROM can be useful when attempting such an
+	operation.</para>
 
       <example>
 	<title>Using an Existing Partition</title>
@@ -308,8 +305,8 @@
 	</orderedlist>
       </example>
 
-      <para>Disk partitions with different operating systems make it
-	possible to run any one of those operating systems at a time.
+      <para>Disk partitions containing different operating systems make
+	it possible to run any one of those operating systems at a time.
 	An alternative method that allows running multiple operating
 	systems at the same time is covered in
 	<xref linkend="virtualization">.</para>
