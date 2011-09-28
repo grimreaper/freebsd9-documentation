@@ -1062,7 +1062,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       it.  In order to do this you need to know how FreeBSD expects to find
       information on the disk.</para>
 
-    <sect2 id="install-drive-bios-numbering">
+<!-- <sect2 id="install-drive-bios-numbering"> -->
+    <sect2 id="bsdinstall-drive-bios-numbering">
       <title>BIOS Drive Numbering</title>
 
       <para>Before you install and configure FreeBSD on your system, there is an
@@ -1170,7 +1171,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       </sidebar>
     </sect2>
 
-    <sect2 id="main-fdisk">
+<!-- <sect2 id="main-fdisk"> -->
+    <sect2 id="bsdinstall-main-fdisk">
       <title>Creating Slices Using FDisk</title>
 
       <note>
@@ -1205,7 +1207,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	system with two IDE disks.  They have been called
 	<devicename>ad0</devicename> and <devicename>ad2</devicename>.</para>
 
-      <figure id="sysinstall-fdisk-drive1">
+<!--  <figure id="sysinstall-fdisk-drive1"> -->
+      <figure id="bsdinstall-fdisk-drive1">
 	<title>Select Drive for FDisk</title>
 
 	<mediaobject>
@@ -1270,7 +1273,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       <para>The third section shows the commands that are available in
 	<application>FDisk</application>.</para>
 
-      <figure id="sysinstall-fdisk1">
+<!--  <figure id="sysinstall-fdisk1"> -->
+      <figure id="bsdinstall-fdisk1">
 	<title>Typical Fdisk Partitions before Editing</title>
 
 	<mediaobject>
@@ -1313,7 +1317,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	press <keycap>C</keycap> to create a new slice.  Again, you will be
 	prompted for the size of slice you would like to create.</para>
 
-      <figure id="sysinstall-fdisk2">
+<!--  <figure id="sysinstall-fdisk2"> -->
+      <figure id="bsdinstall-fdisk2">
 	<title>Fdisk Partition Using Entire Disk</title>
 
 	<mediaobject>
@@ -1328,7 +1333,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	written to disk.</para>
     </sect2>
 
-    <sect2 id="bootmgr">
+<!-- <sect2 id="bootmgr"> -->
+    <sect2 id="bsdinstall-bootmgr">
       <title>Install a Boot Manager</title>
 
       <para>You now have the option to install a boot manager.  In general,
@@ -1355,7 +1361,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
       <para>Make your choice and press <keycap>Enter</keycap>.</para>
 
-      <figure id="sysinstall-bootmgr">
+<!--  <figure id="sysinstall-bootmgr"> -->
+      <figure id="bsdinstall-bootmgr-figure">
 	<title>Sysinstall Boot Manager Menu</title>
 
 	<mediaobject>
@@ -1385,7 +1392,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	  both drives.</para>
       </important>
 
-      <figure id="sysinstall-fdisk-drive2">
+<!--  <figure id="sysinstall-fdisk-drive2"> -->
+      <figure id="bsdinstall-fdisk-drive2">
 	<title>Exit Select Drive</title>
 
 	<mediaobject>
@@ -1405,7 +1413,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	to continue with the installation.</para>
     </sect2>
 
-    <sect2 id="bsdlabeleditor">
+<!-- <sect2 id="bsdlabeleditor"> -->
+    <sect2 id="bsdinstall-bsdlabeleditor">
       <title>Creating Partitions Using
 	<application>Disklabel</application></title>
       
@@ -1633,7 +1642,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       <para>The bottom third of the screen shows the keystrokes that are valid
 	in <application>Disklabel</application>.</para>
 
-      <figure id="sysinstall-label">
+<!--  <figure id="sysinstall-label"> -->
+      <figure id="bsdinstall-label">
 	<title>Sysinstall Disklabel Editor</title>
 
 	<mediaobject>
@@ -1659,7 +1669,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	    temporary files.</para>
 	</note>
 
-      <figure id="sysinstall-label2">
+<!--  <figure id="sysinstall-label2"> -->
+      <figure id="bsdinstall-label2">
 	<title>Sysinstall Disklabel Editor with Auto Defaults</title>
 
 	<mediaobject>
@@ -1685,7 +1696,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	<literal>G</literal> for gigabytes, or <literal>C</literal> for
 	cylinders.</para>
 
-      <figure id="sysinstall-label-add">
+<!--  <figure id="sysinstall-label-add"> -->
+      <figure id="bsdinstall-label-add">
 	<title>Free Space for Root Partition</title>
 
 	<mediaobject>
@@ -1703,7 +1715,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	<xref linkend="sysinstall-label-add2">.  Then press
 	&gui.ok;.</para>
       
-      <figure id="sysinstall-label-add2">
+<!--  <figure id="sysinstall-label-add2"> -->
+      <figure id="bsdinstall-label-add2">
 	<title>Edit Root Partition Size</title>
 
 	<mediaobject>
@@ -1720,7 +1733,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	<guimenuitem>FS</guimenuitem> is selected and press
 	<keycap>Enter</keycap>.</para>
 
-      <figure id="sysinstall-label-type">
+<!--  <figure id="sysinstall-label-type"> -->
+      <figure id="bsdinstall-label-type">
 	<title>Choose the Root Partition Type</title>
 	
 	<mediaobject>
@@ -1737,7 +1751,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	point is <filename>/</filename>, so type <userinput>/</userinput>, and
 	then press <keycap>Enter</keycap>.</para>
 
-      <figure id="sysinstall-label-mount">
+<!--  <figure id="sysinstall-label-mount"> -->
+      <figure id="bsdinstall-label-mount">
 	<title>Choose the Root Mount Point</title>
 
 	<mediaobject>
@@ -1759,7 +1774,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	<xref linkend="sysinstall-label4">, although your values chosen may
 	be different.  Press <keycap>Q</keycap> to finish.</para>
 
-      <figure id="sysinstall-label4">
+<!--  <figure id="sysinstall-label4"> -->
+      <figure id="bsdinstall-label4">
 	<title>Sysinstall Disklabel Editor</title>
 	
 	<mediaobject>
@@ -1773,7 +1789,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
   </sect1>
 
 <!-- XXXGA Not done from here down. -->
-  <sect1 id="install-media">
+<!-- <sect1 id="install-media"> -->
+  <sect1 id="bsdinstall-install-media">
     <title>Choosing Your Installation Media</title>
 
     <para>If Installing from a CDROM or DVD, use the arrow keys to highlight 
@@ -1788,7 +1805,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       installation media.  Press <keycap>Enter</keycap> to return
       to the media selection menu.</para>
 
-    <figure id="choose-media">
+<!-- <figure id="choose-media"> -->
+    <figure id="bsdinstall-choose-media">
       <title>Choose Installation Media</title>
 
       <mediaobject>
@@ -2001,7 +2019,8 @@ Retype new password :</screen>
 <!-- Config timezone -->
 <!-- XXXGA Done to here -->
 
-    <sect2 id="inst-network-dev">
+<!-- <sect2 id="inst-network-dev"> -->
+    <sect2 id="bsdinstall-inst-network-dev">
       <title>Network Device Configuration</title>
 
       <para>If you previously configured PPP for an FTP install, this screen
@@ -2022,7 +2041,8 @@ Retype new password :</screen>
 	&gui.yes; and press <keycap>Enter</keycap>.
       Otherwise, select &gui.no; to continue.</para>
 
-      <figure id="ed-config1">
+<!--  <figure id="ed-config1"> -->
+      <figure id="bsdinstall-ed-config1">
 	<title>Selecting an Ethernet Device</title>
 
 	<mediaobject>
@@ -2068,7 +2088,8 @@ Retype new password :</screen>
 	configuration of the Ethernet device for a system that will act
 	as the gateway for a Local Area Network.</para>
 
-      <figure id="ed-config2">
+<!--  <figure id="ed-config2"> -->
+      <figure id="bsdinstall-ed-config2">
 	<title>Set Network Configuration for ed0</title>
 
 	<mediaobject>
@@ -2173,7 +2194,8 @@ Retype new password :</screen>
 	the machine still needs to be rebooted.</para>
     </sect2>
 
-    <sect2 id="inetd-services">
+<!-- <sect2 id="inetd-services"> -->
+    <sect2 id="bsdinstall-inetd-services">
       <title>Configure Internet Services</title>
 
       <screen>                      User Confirmation Requested
@@ -2225,7 +2247,8 @@ use the current settings.
 	services by deleting the <literal>#</literal> at the beginning
 	of a line.</para>
 
-      <figure id="inetd-edit">
+<!--  <figure id="inetd-edit"> -->
+      <figure id="bsdinstall-inetd-edit">
 	<title>Editing <filename>inetd.conf</filename></title>
 
 	<mediaobject>
@@ -2310,7 +2333,8 @@ use the current settings.
 	the post-installation configuration.</para>
     </sect2>
 
-    <sect2 id="ssh-login">
+<!-- <sect2 id="ssh-login"> -->
+    <sect2 id="bsdinstall-ssh-login">
       <title>Enabling SSH login</title>
 
       <indexterm>
@@ -2329,7 +2353,8 @@ use the current settings.
 	linkend="openssh">.</para>
     </sect2>
 
-    <sect2 id="ftpanon">
+<!-- <sect2 id="ftpanon"> -->
+    <sect2 id="bsdinstall-ftpanon">
       <title>Anonymous FTP</title>
 
       <indexterm>
@@ -2342,7 +2367,8 @@ use the current settings.
 
                               Yes    [ No ]</screen>
 
-      <sect3 id="deny-anon">
+<!--  <sect3 id="deny-anon"> -->
+      <sect3 id="bsdinstall-deny-anon">
 	<title>Deny Anonymous FTP</title>
       
 	<para>Selecting the default &gui.no; and pressing
@@ -2350,7 +2376,8 @@ use the current settings.
 	  with passwords to use FTP to access the machine.</para>
       </sect3>
 
-      <sect3 id="ftpallow">
+<!--  <sect3 id="ftpallow"> -->
+      <sect3 id="bsdinstall-ftpallow">
 	<title>Allow Anonymous FTP</title>
 
 	<para>Anyone can access your machine if you elect to allow
@@ -2387,7 +2414,8 @@ use the current settings.
 	  <keycap>Enter</keycap> to continue; the following screen
 	  will display:</para>
 
-	<figure id="anon-ftp2">
+<!--	<figure id="anon-ftp2"> -->
+	<figure id="bsdinstall-anon-ftp2">
 	  <title>Default Anonymous FTP Configuration</title>
 
 	  <mediaobject>
@@ -2466,7 +2494,8 @@ use the current settings.
 	  <keycap>Enter</keycap>, an editor will automatically start
 	  allowing you to edit the message.</para>
 
-	<figure id="anon-ftp4">
+<!--	<figure id="anon-ftp4"> -->
+	<figure id="bsdinstall-anon-ftp4">
 	  <title>Edit the FTP Welcome Message</title>
 
 	  <mediaobject>
@@ -2489,14 +2518,16 @@ use the current settings.
       </sect3>
     </sect2>
 
-    <sect2 id="nfsconf">
+<!-- <sect2 id="nfsconf"> -->
+    <sect2 id="bsdinstall-nfsconf">
       <title>Configure Network File System</title>
 
       <para>Network File System (NFS) allows sharing of files across a
 	network.  A machine can be configured as a server, a client, or
 	both.  Refer to <xref linkend="network-nfs"> for a more information.</para>
 
-      <sect3 id="nsf-server-options">
+<!--  <sect3 id="nsf-server-options"> -->
+      <sect3 id="bsdinstall-nfs-server-options">
 	<title>NFS Server</title>
 
 	<screen>                       User Confirmation Requested
@@ -2523,7 +2554,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	  start allowing the <filename>exports</filename> file to be created
 	  and edited.</para>
 
-	<figure id="nfs-server-edit">
+<!--	<figure id="nfs-server-edit"> -->
+	<figure id="bsdinstall-nfs-server-edit">
 	  <title>Editing <filename>exports</filename></title>
 
 	  <mediaobject>
@@ -2542,7 +2574,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	  <keycap>Enter</keycap> to exit and continue.</para>
       </sect3>
 
-      <sect3 id="nfs-client-options">
+<!--  <sect3 id="nfs-client-options"> -->
+      <sect3 id="bsdinstall-nfs-client-options">
 	<title>NFS Client</title>
 
 	<para>The NFS client allows your machine to access NFS servers.</para>
@@ -2558,7 +2591,8 @@ Press [Enter] now to invoke an editor on /etc/exports
       </sect3>
     </sect2>
 
-    <sect2 id="console">
+<!-- <sect2 id="console"> -->
+    <sect2 id="bsdinstall-console">
       <title>System Console Settings</title>
 
       <para>There are several options available to customize the system
@@ -2573,7 +2607,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	&gui.yes; and press
 	<keycap>Enter</keycap>.</para>
 
-      <figure id="saver-options">
+<!--  <figure id="saver-options"> -->
+      <figure id="bsdinstall-saver-options">
 	<title>System Console Configuration Options</title>
 
 	<mediaobject>
@@ -2587,7 +2622,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	to select <guimenuitem>Saver</guimenuitem> and then press
 	<keycap>Enter</keycap>.</para>
 
-      <figure id="saver-select">
+<!--  <figure id="saver-select"> -->
+      <figure id="bsdinstall-saver-select">
 	<title>Screen Saver Options</title>
 
 	<mediaobject>
@@ -2607,7 +2643,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	using the arrow keys and press <keycap>Enter</keycap>.  A pop-up
 	menu will appear:</para>
 
-      <figure id="saver-timeout">
+<!--  <figure id="saver-timeout"> -->
+      <figure id="bsdinstall-saver-timeout">
 	<title>Screen Saver Timeout</title>
 
 	<mediaobject>
@@ -2621,7 +2658,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	and press <keycap>Enter</keycap> to return to the System Console
 	Configuration menu.</para>
 
-      <figure id="saver-exit">
+<!--  <figure id="saver-exit"> -->
+      <figure id="bsdinstall-saver-exit">
 	<title>System Console Configuration Exit</title>
 
 	<mediaobject>
@@ -2636,7 +2674,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	configurations.</para>
     </sect2>
 
-    <sect2 id="mouse">
+<!-- <sect2 id="mouse"> -->
+    <sect2 id="bsdinstall-mouse">
       <title>Mouse Settings</title>
 
       <para>This option will allow you to cut and paste text in the
@@ -2654,7 +2693,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	&gui.no; for a USB mouse and press
 	<keycap>Enter</keycap>.</para>
 
-      <figure id="mouse-protocol">
+<!--  <figure id="mouse-protocol"> -->
+      <figure id="bsdinstall-mouse-protocol">
 	<title>Select Mouse Protocol Type</title>
 
 	<mediaobject>
@@ -2667,7 +2707,8 @@ Press [Enter] now to invoke an editor on /etc/exports
       <para>Use the arrow keys to select <guimenuitem>Type</guimenuitem> and
 	press <keycap>Enter</keycap>.</para>
 
-      <figure id="set-mouse-protocol">
+<!--  <figure id="set-mouse-protocol"> -->
+      <figure id="bsdinstall-set-mouse-protocol">
 	<title>Set Mouse Protocol</title>
 
 	<mediaobject>
@@ -2682,7 +2723,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	use the arrow keys to select another option.  Ensure that &gui.ok; is
 	highlighted and press <keycap>Enter</keycap> to exit this menu.</para>
 
-      <figure id="config-mouse-port">
+<!--  <figure id="config-mouse-port"> -->
+      <figure id="bsdinstall-config-mouse-port">
 	<title>Configure Mouse Port</title>
 
 	<mediaobject>
@@ -2695,7 +2737,8 @@ Press [Enter] now to invoke an editor on /etc/exports
       <para>Use the arrow keys to select <guimenuitem>Port</guimenuitem> and
 	press <keycap>Enter</keycap>.</para>
 
-      <figure id="set-mouse-port">
+<!--  <figure id="set-mouse-port"> -->
+      <figure id="bsdinstall-set-mouse-port">
 	<title>Setting the Mouse Port</title>
 
 	<mediaobject>
@@ -2709,7 +2752,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	<guimenuitem>PS/2</guimenuitem> was appropriate.  To change the port,
 	use the arrow keys and then press <keycap>Enter</keycap>.</para>
 
-      <figure id="test-daemon">
+<!--  <figure id="test-daemon"> -->
+      <figure id="bsdinstall-test-daemon">
 	<title>Enable the Mouse Daemon</title>
 
 	<mediaobject>
@@ -2725,7 +2769,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	daemon.</para>
 
 
-      <figure id="test-mouse-daemon">
+<!--  <figure id="test-mouse-daemon"> -->
+      <figure id="bsdinstall-test-mouse-daemon">
 	<title>Test the Mouse Daemon</title>
 
 	<mediaobject>
@@ -2747,7 +2792,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	post-installation configuration.</para>
     </sect2>
 
-    <sect2 id="addusers">
+<!-- <sect2 id="addusers"> -->
+    <sect2 id="bsdinstall-addusers">
       <title>Add Users/Groups</title>
 
       <para>You should add at least one user during the installation so
@@ -2767,7 +2813,8 @@ Press [Enter] now to invoke an editor on /etc/exports
       <para>Select &gui.yes; and press
 	<keycap>Enter</keycap> to continue with adding a user.</para>
 
-      <figure id="add-user2">
+<!--  <figure id="add-user2"> -->
+      <figure id="bsdinstall-add-user2">
 	<title>Select User</title>
 
 	<mediaobject>
@@ -2780,7 +2827,8 @@ Press [Enter] now to invoke an editor on /etc/exports
       <para>Select <guimenuitem>User</guimenuitem> with the arrow keys
 	and press <keycap>Enter</keycap>.</para>
 
-      <figure id="add-user3">
+<!--  <figure id="add-user3"> -->
+      <figure id="bsdinstall-add-user3">
 	<title>Add User Information</title>
 
 	<mediaobject>
@@ -2880,7 +2928,8 @@ Press [Enter] now to invoke an editor on /etc/exports
       <para>When you are satisfied, press &gui.ok; and
 	the User and Group Management menu will redisplay:</para>
 
-      <figure id="add-user4">
+<!--  <figure id="add-user4"> -->
+      <figure id="bsdinstall-add-user4">
 	<title>Exit User and Group Management</title>
 
 	<mediaobject>
@@ -2901,7 +2950,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	<keycap>Enter</keycap> to continue the installation.</para>
     </sect2>
 
-    <sect2 id="exit-inst">
+<!-- <sect2 id="exit-inst"> -->
+    <sect2 id="bsdinstall-exit-inst">
       <title>Exiting Install</title>
 
       <para>If you need to configure <link linkend="network-services">additional network services</link> or
@@ -2918,7 +2968,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	and press <keycap>Enter</keycap> to return to the Main
 	Installation Menu.</para>
 
-      <figure id="final-main">
+<!--  <figure id="final-main"> -->
+      <figure id="bsdinstall-final-main">
 	<title>Exit Install</title>
 
 	<mediaobject>
@@ -2956,7 +3007,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	details.</para>
     </sect2>
 
-    <sect2 id="network-services">
+<!-- <sect2 id="network-services"> -->
+    <sect2 id="bsdinstall-network-services">
       <sect2info>
         <authorgroup>
           <author>
@@ -2993,7 +3045,8 @@ Press [Enter] now to invoke an editor on /etc/exports
       <para>Selecting the <guimenu>Networking</guimenu> option will display
 	a menu similar to the one below:</para>
 
-      <figure id="network-configuration">
+<!--  <figure id="network-configuration"> -->
+      <figure id="bsdinstall-network-configuration">
 	<title>Network Configuration Upper-level</title>
 
 	<mediaobject>
@@ -3060,7 +3113,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	default <acronym>MTA</acronym> or Mail Transfer Agent.
 	Selecting this option will bring up the following menu:</para>
 
-      <figure id="mta-selection">
+<!--  <figure id="mta-selection"> -->
+      <figure id="bsdinstall-mta-selection">
 	<title>Select a default MTA</title>
 
 	<mediaobject>
@@ -3114,7 +3168,8 @@ Press [Enter] now to invoke an editor on /etc/exports
 	which deals with time synchronization.  When selected, a menu
 	like the one below shows up:</para>
 
-      <figure id="Ntpdate-config">
+<!--  <figure id="Ntpdate-config"> -->
+      <figure id="bsdinstall-ntpdate-config">
 	<title>Ntpdate Configuration</title>
 
 	<mediaobject>
@@ -3140,7 +3195,8 @@ Press [Enter] now to invoke an editor on /etc/exports
       <para>Now you must scroll down a bit to see the other
 	options:</para>
 
-      <figure id="Network-configuration-cont">
+<!--  <figure id="Network-configuration-cont"> -->
+      <figure id="bsdinstall-network-configuration-cont">
 	<title>Network Configuration Lower-level</title>
 
 	<mediaobject>
@@ -3217,10 +3273,12 @@ Press [Enter] now to invoke an editor on /etc/exports
 
     </sect2>
 
-    <sect2 id="freebsdboot">
+<!-- <sect2 id="freebsdboot"> -->
+    <sect2 id="bsdinstall-freebsdboot">
       <title>&os; Bootup</title>
 
-      <sect3 id="freebsdboot-i386">
+<!--  <sect3 id="freebsdboot-i386"> -->
+      <sect3 id="bsdinstall-freebsdboot-i386">
         <title>&os;/&arch.i386; Bootup</title>
 
       <para>If everything went well, you will see messages scroll
@@ -3378,7 +3436,7 @@ Password:</screen>
       </sect3>
     </sect2>
 
-    <sect2 id="shutdown">
+    <sect2 id="bsdinstall-shutdown">
       <title>FreeBSD Shutdown</title>
 
       <para>It is important to properly shutdown the operating
@@ -3409,7 +3467,8 @@ Please press any key to reboot.</screen>
     </sect2>
   </sect1>
 
-  <sect1 id="install-trouble">
+<!-- <sect1 id="install-trouble"> -->
+  <sect1 id="bsdinstall-install-trouble">
     <title>Troubleshooting</title>
 
     <indexterm>
@@ -3500,7 +3559,8 @@ Please press any key to reboot.</screen>
     </sect2>
   </sect1>
 
-  <sect1 id="install-advanced">
+<!-- <sect1 id="install-advanced"> -->
+  <sect1 id="bsdinstall-install-advanced">
     <sect1info>
       <authorgroup>
 	<author>
@@ -3526,7 +3586,8 @@ Please press any key to reboot.</screen>
     <para>This section describes how to install FreeBSD in exceptional
        cases.</para>
 
-    <sect2 id="headless-install">
+<!-- <sect2 id="headless-install"> -->
+    <sect2 id="bsdinstall-headless-install">
       <title>Installing FreeBSD on a System without a Monitor or
         Keyboard</title>
 
