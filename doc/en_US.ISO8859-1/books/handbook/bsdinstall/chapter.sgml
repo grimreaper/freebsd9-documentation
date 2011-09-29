@@ -1062,8 +1062,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
     <sect2 id="bsdinstall-part-guided">
       <title>Guided Partitioning</title>
 
-      <para>The first step in Guided partitioning is choosing to use the
-	entire disk or just a single partition.  If
+      <para>The first step in Guided partitioning is choosing whether to
+	use the entire disk or just a single partition.  If
 	<guibutton>[&nbsp;Entire Disk&nbsp;]</guibutton> is chosen, a
 	general partition layout is created.  Selecting
 	<guibutton>[&nbsp;Partition&nbsp;]</guibutton>
@@ -1177,16 +1177,16 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 <!-- WB: mention 4K sector alignment, suggested partition minimums here? -->
 
-      <para>More than one filesystem partition can be used, and many
-	people create a traditional layout with separate partitions for
+      <para>Multiple filesystem partitions can be used, and many people
+	create a traditional layout with separate partitions for
 	the <filename>/</filename>, <filename>/var</filename>, and
 	<filename>/usr</filename> filesystems.</para>
 
-      <para>Size may be entered with common abbreviations, like "K" for
+      <para>Size may be entered with common abbreviations: "K" for
 	kilobytes, "M" for megabytes, or "G" for gigabytes.</para>
 
       <para>A mountpoint is needed if this partition will contain a
-	filesystem.  If only a single UFS partition will be used, the
+	filesystem.  If only a single UFS partition will be created, the
 	mountpoint should be <filename>/</filename>.</para>
 
       <para>A <firstterm>label</firstterm> is also requested.  A label
@@ -1204,8 +1204,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
       <tip>
 	<para>Use a unique label on every filesystem to avoid conflicts
-	  between identical labels.  A few letters from the computer's
-	  name, location, or use can be added to the label.  "labroot"
+	  from identical labels.  A few letters from the computer's
+	  name, use, or location can be added to the label.  "labroot"
 	  for the UFS root partition on the lab's computer, for
 	  example.</para>
       </tip>
