@@ -1,5 +1,5 @@
 
-<!-- $FreeBSD: doc/share/pgpkeys/pgpkeys.ent,v 1.250 2011/09/18 19:17:15 rmh Exp $ -->
+<!-- $FreeBSD: doc/share/pgpkeys/pgpkeys.ent,v 1.251 2011/09/28 22:55:06 jceel Exp $ -->
 <!-- PGP keyblocks -->
 <!ENTITY pgpkey.aaron SYSTEM "aaron.key">
 <!ENTITY pgpkey.ache SYSTEM "ache.key">
@@ -142,6 +142,7 @@
 <!ENTITY pgpkey.jadawin SYSTEM "jadawin.key">
 <!ENTITY pgpkey.jamie SYSTEM "jamie.key">
 <!ENTITY pgpkey.jcamou SYSTEM "jcamou.key">
+<!ENTITY pgpkey.jceel SYSTEM "jceel.key">
 <!ENTITY pgpkey.jchandra SYSTEM "jchandra.key">
 <!ENTITY pgpkey.jdp SYSTEM "jdp.key">
 <!ENTITY pgpkey.jedgar SYSTEM "jedgar.key">
