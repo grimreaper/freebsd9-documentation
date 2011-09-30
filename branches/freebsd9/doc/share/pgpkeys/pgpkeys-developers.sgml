@@ -1,7 +1,7 @@
 <!--
      The FreeBSD Documentation Project
 
-     $FreeBSD: doc/share/pgpkeys/pgpkeys-developers.sgml,v 1.161 2011/09/18 19:17:15 rmh Exp $
+     $FreeBSD: doc/share/pgpkeys/pgpkeys-developers.sgml,v 1.162 2011/09/28 22:55:06 jceel Exp $
 -->
 
     <sect2 id="pgpkey-ariff">
@@ -699,6 +699,11 @@
     <sect2 id="pgpkey-zack">
       <title>&a.zack;</title>
       &pgpkey.zack;
+    </sect2>
+
+    <sect2 id="pgpkey-jceel">
+      <title>&a.jceel;</title>
+      &pgpkey.jceel;
     </sect2>
 
     <sect2 id="pgpkey-andreas">
