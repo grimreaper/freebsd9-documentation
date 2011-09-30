@@ -995,6 +995,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</listitem>
 
 	<listitem>
+<!-- WB: latest version of bsdinstall doesn't install ports tree? -->
+<!-- WB: amd64 also has "lib32  32-bit compatibility libraries" -->
 	  <para>ports - Install the &os; Ports Collection</para>
 
 	  <para>The ports
@@ -1062,13 +1064,24 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
     <sect2 id="bsdinstall-part-guided">
       <title>Guided Partitioning</title>
 
-      <para>The first step in Guided partitioning is choosing whether to
-	use the entire disk or just a single partition.  If
-	<guibutton>[&nbsp;Entire Disk&nbsp;]</guibutton> is chosen, a
-	general partition layout is created.  Selecting
-	<guibutton>[&nbsp;Partition&nbsp;]</guibutton>
-	starts the partition editor so the destination partition can be
-	chosen or created.</para>
+      <para>If multiple disks are connected, choose the one where &os;
+	is to be installed.</para>
+
+      <figure id="bsdinstall-partition-guided-disk">
+	<title>Selecting From Multiple Disks</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/part-guided-disk" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>The entire disk can be allocated to &os;, or just a portion
+	of it.  If <guibutton>[&nbsp;Entire Disk&nbsp;]</guibutton> is
+	chosen, a general partition layout filling the whole disk is
+	created.  Selecting
+	<guibutton>[&nbsp;Partition&nbsp;]</guibutton> creates a
+	partition layout in unused space on the disk.</para>
 
       <figure id="bsdinstall-partition-entire-part">
 	<title>Selecting Entire Disk or Partition</title>
@@ -1206,8 +1219,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	<para>Use a unique label on every filesystem to avoid conflicts
 	  from identical labels.  A few letters from the computer's
 	  name, use, or location can be added to the label.  "labroot"
-	  for the UFS root partition on the lab's computer, for
-	  example.</para>
+	  or "rootfs-lab" for the UFS root partition on the lab's
+	  computer, for example.</para>
       </tip>
 
       <para>After the custom partitions have been created, select
