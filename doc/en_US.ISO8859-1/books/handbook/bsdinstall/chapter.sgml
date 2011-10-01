@@ -1097,9 +1097,10 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	<guibutton>[&nbsp;Revert&nbsp;]</guibutton> will reset the
 	partitions as they were previously, or
 	<guibutton>[&nbsp;Auto&nbsp;]</guibutton> will recreate the
-	automatic &os; partitions.  When the partitioning is correct,
-	select <guibutton>[&nbsp;Finish&nbsp;]</guibutton> to continue
-	with the installation.
+	automatic &os; partitions.  Partitions can be manually created,
+	modified, or deleted. When the partitioning is correct, select
+	<guibutton>[&nbsp;Finish&nbsp;]</guibutton> to continue with the
+	installation.
       </para>
 
       <figure id="bsdinstall-part-review">
@@ -1127,10 +1128,11 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>Highlighting a drive like <devicename>ada0</devicename> and
-	selecting <guibutton>[&nbsp;Create&nbsp;]</guibutton> displays
-	a menu for choosing the type of
-	<firstterm>partitioning scheme</firstterm>.</para>
+      <para>Highlighting a drive (<devicename>ada0</devicename> in this
+	example) and selecting
+	<guibutton>[&nbsp;Create&nbsp;]</guibutton> displays a menu for
+	choosing the type of <firstterm>partitioning
+	scheme</firstterm>.</para>
 
       <figure id="bsdinstall-part-manual-partscheme">
 	<title>Manually Create Partitions</title>
@@ -1141,13 +1143,67 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>On newer systems, the default GPT partitioning scheme is
-	probably the most appropriate.  MBR partitioning may be needed
-	for compatibility with older operating systems.</para>
+      <para>GPT partitioning is usually the most appropriate choice for
+	PC-compatible computers.  Older PC operating systems that aren't
+	compatible with GPT may require MBR partitioning instead. The
+	other partitioning schemes are generally used for uncommon or
+	older computer systems.</para>
 
-      <para>After a partitioning scheme has been created, selecting
-	<guibutton>[&nbsp;Create&nbsp;]</guibutton> with the drive
-	highlighted will create new partitions.</para>
+      <table frame="all" rowsep="1" pgwide="1">
+	<title>Partitioning Schemes</title>
+
+	<tgroup cols="2" align="left">
+	  <thead>
+	    <row>
+	      <entry align="left">Abbreviation</entry>
+	      <entry align="left">Description</entry>
+	    </row>
+	  </thead>
+
+	<tbody>
+	  <row>
+	    <entry>APM</entry>
+	    <entry><ulink url="http://support.apple.com/kb/TA21692">Apple
+	      Partition Map, used by older non-x86 Macs.</ulink></entry>
+	  </row>
+
+	  <row>
+	    <entry>BSD</entry>
+	    <entry>BSD Labels without an MBR, sometimes called
+	      "dangerously dedicated mode".  See &man.bsdlabel.8;.</entry>
+	  </row>
+
+	  <row>
+	    <entry>GPT</entry>
+	    <entry><ulink
+	      url="http://en.wikipedia.org/wiki/GUID_Partition_Table">GUID
+	      Partition Table.</ulink></entry>
+	  </row>
+
+	  <row>
+	    <entry>MBR</entry>
+	    <entry><ulink
+	      url="http://en.wikipedia.org/wiki/Master_boot_record">Master
+	      Boot Record.</ulink></entry>
+	  </row>
+
+	  <row>
+	    <entry>PC98</entry>
+	    <entry><ulink url="http://en.wikipedia.org/wiki/Pc9801">MBR
+	      variant, used by NEC PC-98 computers.</ulink></entry>
+	  </row>
+
+	  <row>
+	    <entry>VTOC8</entry>
+	    <entry>Volume Table Of Contents, used by Sun SPARC64 and
+	      UltraSPARC computers.</entry>
+	  </row>
+	</tbody>
+      </table>
+
+      <para>After the partitioning scheme has been selected and created,
+	selecting <guibutton>[&nbsp;Create&nbsp;]</guibutton> again will
+	create new partitions.</para>
 
       <figure id="bsdinstall-part-manual-addpart">
 	<title>Manually Create Partitions</title>
@@ -1163,7 +1219,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
       <variablelist>
 	<varlistentry>
-	  <term>freebsd-boot</term>
+	  <term><emphasis>freebsd-boot</emphasis></term>
 
 	  <listitem>
 	    <para>&os; boot code.  This partition must be at the
@@ -1172,7 +1228,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</varlistentry>
 
 	<varlistentry>
-	  <term>freebsd-ufs</term>
+	  <term><emphasis>freebsd-ufs</emphasis></term>
 
 	  <listitem>
 	    <para>A &os; UFS filesystem.</para>
@@ -1180,7 +1236,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</varlistentry>
 
 	<varlistentry>
-	  <term>freebsd-swap</term>
+	  <term><emphasis>freebsd-swap</emphasis></term>
 
 	  <listitem>
 	    <para>&os; swap space.</para>
@@ -1190,12 +1246,12 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 <!-- WB: mention 4K sector alignment, suggested partition minimums here? -->
 
-      <para>Multiple filesystem partitions can be used, and many people
-	create a traditional layout with separate partitions for
+      <para>Multiple filesystem partitions can be used, and some people
+	may prefer a traditional layout with separate partitions for
 	the <filename>/</filename>, <filename>/var</filename>, and
 	<filename>/usr</filename> filesystems.</para>
 
-      <para>Size may be entered with common abbreviations: "K" for
+      <para>Common abbreviations can be used in the Size field: "K" for
 	kilobytes, "M" for megabytes, or "G" for gigabytes.</para>
 
       <para>A mountpoint is needed if this partition will contain a
