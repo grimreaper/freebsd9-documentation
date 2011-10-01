@@ -1366,7 +1366,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       </mediaobject>
     </figure>
 
-    <para>Select <guibutton>[&nbsp;Commit&nbsp;]</guibutton>" and press 
+    <para>Select <guibutton>[&nbsp;Commit&nbsp;]</guibutton> and press 
       <keycap>Enter</keycap> to proceed.  Alternatively, if changes
       need to be made, <guibutton>[&nbsp;Back&nbsp;]</guibutton> will
       return to the partition editor.  <guibutton>[&nbsp;Revert &amp; Exit&nbsp;]</guibutton>
