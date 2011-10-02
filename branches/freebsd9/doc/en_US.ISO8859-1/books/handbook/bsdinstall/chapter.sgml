@@ -1286,8 +1286,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
   </sect1>
 <!-- WB: end of new partition editor section -->
 
-<!-- XXXGA Not done from here down. -->
-<!-- <sect1 id="install-media"> -->
+<!-- XXX GJB - work in progress for boot-only, otherwise install this
+     section is not relevant
   <sect1 id="bsdinstall-install-media">
     <title>Choosing Your Installation Media</title>
 
@@ -1303,7 +1303,6 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       installation media.  Press <keycap>Enter</keycap> to return
       to the media selection menu.</para>
 
-<!-- <figure id="choose-media"> -->
     <figure id="bsdinstall-choose-media">
       <title>Choose Installation Media</title>
 
@@ -1404,7 +1403,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	installation requests them).</para>
     </note>
   </sect1>
-<!-- XXXGA Not done previous chapter. -->
+  -->
 
   <sect1 id="bsdinstall-final-warning">
     <title>Committing to the Installation</title>
