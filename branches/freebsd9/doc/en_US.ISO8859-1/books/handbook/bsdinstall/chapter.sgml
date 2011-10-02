@@ -1506,9 +1506,9 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 ========================
 
 Please select a password for the system management account (root):
-Changing local passord for root
+Changing local password for root
 New Password:
-Retype new password :</screen>
+Retype new password:</screen>
 
       <para>The installation will continue after the password is
 	successfully entered.</para>
