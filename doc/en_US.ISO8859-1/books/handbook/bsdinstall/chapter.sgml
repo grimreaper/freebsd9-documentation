@@ -1251,8 +1251,9 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	the <filename>/</filename>, <filename>/var</filename>, and
 	<filename>/usr</filename> filesystems.</para>
 
-      <para>Common abbreviations can be used in the Size field: "K" for
-	kilobytes, "M" for megabytes, or "G" for gigabytes.</para>
+      <para>Common abbreviations can be used in the Size field:
+	<emphasis>K</emphasis> for kilobytes, <emphasis>M</emphasis> for
+	megabytes, or <emphasis>G</emphasis> for gigabytes.</para>
 
       <para>A mountpoint is needed if this partition will contain a
 	filesystem.  If only a single UFS partition will be created, the
