@@ -1414,33 +1414,32 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
   <sect1 id="bsdinstall-post">
     <title>Post-installation</title>
 
-    <para>Configuration of various options follows the successful 
-      installation.    An option can be configured by re-entering the
+    <para>Configuration of various options follows a successful
+      installation of &os;.  An option can be configured by re-entering the
       configuration options from the final menu before booting the
       new FreeBSD install.</para>
 
     <sect2 id="bsdinstall-post-root">
-      <title>Setting The <username>root</username> Account Password</title>
+      <title>Setting the <username>root</username> Account Password</title>
 
-      <para>The installer will now prompt for the <username>root</username>
-	password to be set.</para>
+      <para>The <username>root</username> user's password must be
+	set.  Note that while entering the password, the characters
+	being typed are	not displayed to the screen.  After the password
+	has been entered, it must be entered again.  This helps prevent
+	typing errors.</para>
 
-      <para>The password will need to be typed in twice correctly.  Needless to
-	say, make sure you have a way of finding the password if you
-	forget.  Notice that the password you type in is not echoed, nor
-	are asterisks displayed.</para>
+      <figure id="bsdinstall-post-set-root-passwd">
+	<title>Setting the Root Password</title>
 
-      <screen>FreeBSD Installer
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-post-root-passwd" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
 
-========================
-
-Please select a password for the system management account (root):
-Changing local password for root
-New Password:
-Retype new password:</screen>
-
-      <para>The installation will continue after the password is
-	successfully entered.</para>
+      <para>After the password has been successfully entered, the
+	installation will continue.</para>
     </sect2>
 <!-- Config network, if not done earlier -->
 <!-- Config timezone -->
@@ -1449,13 +1448,11 @@ Retype new password:</screen>
     <sect2 id="bsdinstall-config-network-dev">
       <title>Configuring The Network Interface</title>
 
-<!-- WB: net config is either post-install or during install for bootonly -->
-<!-- WB: describe both here so this section can be used either way -->
-      <para>Some &os; installation methods like the
-	<emphasis>bootonly</emphasis> CD don't have local copies of
-	the installation files.  When the installation files are not
-	present, the network interface must be configured so the files
-	can be retrieved via the network.</para>
+      <note>
+	<para>If network configuration has already been done as part of
+	  a <emphasis>bootonly</emphasis> installation,	it will be
+	  skipped during post-installation configuration.</para>
+      </note>
 
       <para>Choose the network interface to be used.</para>
 
@@ -1469,162 +1466,149 @@ Retype new password:</screen>
 	</mediaobject>
       </figure>
 
-      <para>Choose whether IPv4 networking is to be used.  This is the
-	most common type of network connection.</para>
+      <sect3 id="bsdinstall-ipv4">
+	<title>Configuring IPv4 Networking</title>
 
-      <figure id="bsdinstall-configure-net-ipv4">
-	<title>Choose IPv4 Networking</title>
+	  <para>Choose whether IPv4 networking is to be used.  This is
+	    the most common type of network connection.</para>
 
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="bsdinstall/bsdinstall-configure-network-ipv4" format="PNG">
-	  </imageobject>
-	</mediaobject>
-      </figure>
+	  <figure id="bsdinstall-configure-net-ipv4">
+	    <title>Choose IPv4 Networking</title>
 
-      <para>There are two methods of IPv4 configuration.
-	<firstterm>DHCP</firstterm> will automatically configure the
-	network interface correctly, and is the preferred method.
-	<firstterm>Static</firstterm> configuration requires manual
-	entry of the network information.</para>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="bsdinstall/bsdinstall-configure-network-ipv4" format="PNG">
+	      </imageobject>
+	    </mediaobject>
+	  </figure>
 
-      <sect3 id="bsdinstall-net-ipv4-dhcp-config">
-	<title>IPv4 DHCP Network Configuration</title>
+	<para>There are two methods of IPv4 configuration.
+	  <firstterm>DHCP</firstterm> will automatically configure the
+	  network interface correctly, and is the preferred method.
+	  <firstterm>Static</firstterm> configuration requires manual
+	  entry of the network information.</para>
 
-	<para>If a DHCP server is available, select
-	  <guibutton>[&nbsp;Yes&nbsp;]</guibutton> to automatically
-	  configure the network interface.</para>
+	<sect4 id="bsdinstall-net-ipv4-dhcp-config">
+	  <title>IPv4 DHCP Network Configuration</title>
 
-	<figure id="bsdinstall-net-ipv4-dhcp">
-	  <title>Choose IPv4 DHCP Configuration</title>
+	  <para>If a DHCP server is available, select
+	    <guibutton>[&nbsp;Yes&nbsp;]</guibutton> to automatically
+	    configure the network interface.</para>
+
+	  <figure id="bsdinstall-net-ipv4-dhcp">
+	    <title>Choose IPv4 DHCP Configuration</title>
+
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-ipv4-dhcp" format="PNG">
+	      </imageobject>
+	    </mediaobject>
+	  </figure>
+	</sect4>
+
+	<sect4 id="bsdinstall-net-ipv4-static-config">
+	  <title>Static IPv4 Network Configuration</title>
+
+	  <para>Static configuration of the network interface requires
+	    entry of some IPv4 information.</para>
+
+	  <figure id="bsdinstall-net-ipv4-static">
+	    <title>IPv4 Static Configuration</title>
+
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-ipv4-static" format="PNG">
+	      </imageobject>
+	    </mediaobject>
+	  </figure>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term>IP Address</term>
+
+	      <listitem>
+		<para>The manually-assigned IP address given to this
+		  computer.  This address must be unique and not in use
+		  by another piece of network equipment.</para>
+	      </listitem>
+	    </varlistentry>
+
+	    <varlistentry>
+	      <term>Subnet Mask</term>
+
+	      <listitem>
+		<para>The subnet mask used for the local network.
+		  Typically, this is
+		  <literal>255.255.255.0</literal>.</para>
+	      </listitem>
+	    </varlistentry>
+
+	    <varlistentry>
+	      <term>Default Router</term>
+
+	      <listitem>
+		<para>The IP address of the default router on this
+		  network.  Usually this is the address of the router or
+		  other piece of network equipment that connects the
+		  local network to the Internet, sometimes also called
+		  default gateway.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</sect4>
+      </sect3>
+
+      <sect3 id="bsdinstall-ipv6">
+	<title>Configuring IPv6 Networking</title>
+
+	<para>IPv6 is a newer method of network configuration.  If IPv6
+	  is available and desired, choose
+	  <guibutton>[&nbsp;Yes&nbsp;]</guibutton> to select it.</para>
+
+	<figure id="bsdinstall-net-ipv6">
+	  <title>Choose IPv6 Networking</title>
 
 	  <mediaobject>
 	    <imageobject>
-	      <imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-ipv4-dhcp" format="PNG">
+	      <imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-ipv6" format="PNG">
 	    </imageobject>
 	  </mediaobject>
 	</figure>
-      </sect3>
 
-      <sect3>
-	<title>Static IPv4 Network Configuration</title>
+	<para>IPv6 also has two methods of configuration.
+	  <firstterm>SLAAC</firstterm>, or <emphasis>StateLess Address
+	  AutoConfiguration</emphasis>, will automatically configure the
+	  network interface correctly. <firstterm>Static</firstterm>
+	  configuration requires manual entry of the network
+	  information.</para>
 
-	<para>Static configuration of the network interface requires
-	  entry of this information:</para>
+	<sect4 id="bsdinstall-net-ipv6-slaac-config">
+	  <title>IPv6 Stateless Address Autoconfiguration</title>
 
-	<variablelist>
-	  <varlistentry>
-	    <term>Host</term>
+	  <para>SLAAC allows an IPv6 network component to request
+	    autoconfiguration information from a local router.</para>
 
-	    <listitem>
-	      <para>The fully-qualified hostname, such as <hostid
-		role="fqdn">k6-2.example.com</hostid> in this
-		case.</para>
-	    </listitem>
-	  </varlistentry>
+	  <figure id="bsdinstall-net-ipv6-slaac">
+	    <title>Choose IPv6 SLAAC Configuration</title>
 
-	  <varlistentry>
-	    <term>Domain</term>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-slaac" format="PNG">
+	      </imageobject>
+	    </mediaobject>
+	  </figure>
+	</sect4>
 
-	    <listitem>
-	      <para>The name of the domain that your machine is in, such
-		as <hostid role="domainname">example.com</hostid> for
-		this case.</para>
-	    </listitem>
-	  </varlistentry>
+	<sect4 id="bsdinstall-net-ipv6-static-config">
+	  <title>Static IPv6 Network Configuration</title>
 
-	  <varlistentry>
-	    <term>IPv4 Gateway</term>
-
-	    <listitem>
-	      <para>IP address of host forwarding packets to non-local
-		destinations.  You must fill this in if the machine is a
-		node on the network.  <emphasis>Leave this field
-		blank</emphasis> if the machine is the gateway to the
-		Internet for the network.  The IPv4 Gateway is also
-		known as the default gateway or default route.</para>
-	    </listitem>
-	  </varlistentry>
-
-	  <varlistentry>
-	    <term>Name server</term>
-
-	    <listitem>
-	      <para>IP address of your local DNS server.  There is no
-		local DNS server on this private local area network so
-		the IP address of the provider's DNS server (<hostid
-		role="ipaddr">208.163.10.2</hostid>) was used.</para>
-	    </listitem>
-	  </varlistentry>
-
-	  <varlistentry>
-	    <term>IPv4 address</term>
-
-	    <listitem>
-	      <para>The IP address to be used for this interface was
-		<hostid role="ipaddr">192.168.0.1</hostid></para>
-	    </listitem>
-	  </varlistentry>
-
-	  <varlistentry>
-	    <term>Netmask</term>
-
-	    <listitem>
-	      <para>The address block being used for this local area
-		network is <hostid role="ipaddr">192.168.0.0</hostid> -
-		<hostid role="ipaddr">192.168.0.255</hostid> with a
-		netmask of
-		<hostid role="netmask">255.255.255.0</hostid>.</para>
-	    </listitem>
-	  </varlistentry>
-      </variablelist>
-
-      <para>IPv6 is a newer method of network configuration.  If IPv6 is
-	available, choose <guibutton>[&nbsp;Yes&nbsp;]</guibutton> to
-	select it.</para>
-
-      <figure id="bsdinstall-net-ipv6">
-	<title>Choose IPv6 Networking</title>
-
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-ipv6" format="PNG">
-	  </imageobject>
-	</mediaobject>
-      </figure>
-
-      <para>IPv6 also has two methods of configuration.
-	<firstterm>SLAAC</firstterm>, or <emphasis>StateLess Address
-	AutoConfiguration</emphasis>, will automatically
-	configure the network interface correctly.
-	<firstterm>Static</firstterm> configuration requires manual
-	entry of the network information.</para>
-      </sect3>
-
-      <sect3>
-	<title>IPv6 Stateless Address Autoconfiguration</title>
-
-<!-- WB: describe SLAAC briefly -->
-
-	<figure id="bsdinstall-net-ipv6-slaac">
-	  <title>Choose IPv6 SLAAC Configuration</title>
-
-	  <mediaobject>
-	    <imageobject>
-	      <imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-slaac" format="PNG">
-	    </imageobject>
-	  </mediaobject>
-	</figure>
-      </sect3>
-
-      <sect3>
-	<title>Static IPv6 Network Configuration</title>
-
-	<para>Static configuration of the network interface requires
-	  entry of this information:</para>
+	  <para>Static configuration of the network interface requires
+	    entry of the IPv6 configuration information.</para>
 <!-- WB: list of IPv6 network information -->
+	</sect4>
+
+<!-- WB: DNS for both ipv4 and ipv6 -->
       </sect3>
-    </sect2>
 
     <sect2 id="bsdinstall-inetd-services">
       <title>Configure Internet Services</title>
