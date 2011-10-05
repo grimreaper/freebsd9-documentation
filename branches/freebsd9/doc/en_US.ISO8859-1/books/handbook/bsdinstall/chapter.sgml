@@ -935,9 +935,10 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
         <keycap>Enter</keycap>.</para>
 
       <note>
-	<para>If you are unsure of which keyboard mapping to select, the
-	  <guimenuitem>United States of America ISO-8859-1</guimenuitem> keymap is
-	  usually a good choice.</para>
+	<para>Pressing <keycap>Esc</keycap> will use the default keymap.
+	  <guimenuitem>United States of America ISO-8859-1</guimenuitem>
+	  is also a safe option if the choice of keymap is not
+	  clear.</para>
       </note>
     </sect2>
 
@@ -961,7 +962,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
     </sect2>
 
     <sect2 id="bsdinstall-components">
-      <title>Selecting Components To Install</title>
+      <title>Selecting Components to Install</title>
 
       <para>Next, <application>bsdinstall</application> will prompt to select
 	optional components to install.</para>
@@ -980,60 +981,67 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	available.  The &os; Kernel and userland (collectively the
 	<quote>base system</quote>) are always installed.</para>
 
+      <para>Depending on the type of installation, some of these
+	components may not appear.</para>
+
       <itemizedlist>
 	<title>Optional Components include:</title>
 <!-- XXXGA needs better formatting? -->
 	<listitem>
-	  <para>doc - Install additional documentation, mostly of historical
-	    interest.  Documentation provided by the &os; Documentation Project
-	    may be installed later.</para>
+	  <para><literal>doc</literal> - Additional documentation,
+	    mostly of historical interest.  Documentation provided by
+	    the &os; Documentation Project may be installed
+	    later.</para>
 	</listitem>
 
 	<listitem>
-	  <para>games - Install several traditional BSD games, including
-	    <application>fortune</application>, <application>rot13</application> etc.</para>
+	  <para><literal>games</literal> - Several traditional BSD
+	    games, including <application>fortune</application>,
+	    <application>rot13</application>, and others.</para>
 	</listitem>
 
 	<listitem>
-<!-- WB: latest version of bsdinstall doesn't install ports tree? -->
-<!-- WB: amd64 also has "lib32  32-bit compatibility libraries" -->
-	  <para>ports - Install the &os; Ports Collection</para>
+	  <para><literal>lib32</literal> - Compatibility libraries for
+	    running 32-bit applications on a 64-bit version of
+	    &os;.</para>
+	</listitem>
 
-	  <para>The ports
-	    collection is an easy and convenient way to install software.
-	    The Ports Collection does not contain the source code necessary
-	    to compile the software.  Instead, it is a collection of files which
-	    automates the downloading, compiling and installation
-	    of third-party software packages.
+	<listitem>
+	  <para><literal>ports</literal> - The &os; Ports
+	    Collection.</para>
+
+	  <para>The ports collection is an easy and convenient way to
+	    install software.  The Ports Collection does not contain the
+	    source code necessary to compile the software.  Instead, it
+	    is a collection of files which automates the downloading,
+	    compiling and installation of third-party software packages.
 	    <xref linkend="ports"> discusses how to use the ports
 	    collection.</para>
 
 	  <warning>
 	    <para>The installation program does not check to see if you have
 	      adequate space.  Select this option only if you have
-	      adequate hard disk space. As of FreeBSD &rel.current;, the FreeBSD
-	      Ports Collection takes up about &ports.size; of disk space.
-	      You can safely assume a larger value for more recent versions
-	      of FreeBSD.</para>
+	      adequate hard disk space. As of FreeBSD &rel.current;, the
+	      FreeBSD Ports Collection takes up about &ports.size; of disk
+	      space. You can safely assume a larger value for more recent
+	      versions of FreeBSD.</para>
 	  </warning>
 	</listitem>
 
 	<listitem>
-	  <para>src - Install system source code</para>
+	  <para><literal>src</literal> - System source code.</para>
 
-	  <para>&os; comes with full source code for both the kernel and the
-	    userland.  Although not required for the majority of applicatoons,
-	    it may be necessary in order to build certain software supplied as
-	    source (for example, device drivers, etc), or for developing &os;
-	    itself.</para>
+	  <para>&os; comes with full source code for both the kernel and
+	    the userland.  Although not required for the majority of
+	    applications, it may be required to build certain software
+	    supplied as source (for example, device drivers or kernel
+	    modules), or for developing &os; itself.</para>
 
-	  <para>The full source tree requires 1&nbsp;GB of disk space, and
-	    recompiling the entire &os; system requires a further 5&nbsp;GB of
-	    space.</para>
+	  <para>The full source tree requires 1&nbsp;GB of disk space,
+	    and recompiling the entire &os; system requires an
+	    additional 5&nbsp;GB of space.</para>
 	</listitem>
-
       </itemizedlist>
-
     </sect2>
   </sect1>
 
