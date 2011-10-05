@@ -1039,6 +1039,41 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 <!-- XXXGA done to here. -->
 
+<!-- WB: new network install section -->
+  <sect1 id="bsdinstall-netinstall">
+    <title>Installing from the Network</title>
+
+    <para>The <emphasis>bootonly</emphasis> installation media does not
+      hold copies of the installation files.  Instead, the files are
+      retrieved over a network connection as they are needed.</para>
+
+    <figure id="bsdinstall-netinstall-notify">
+      <title>Installing From The Network</title>
+
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="bsdinstall/bsdinstall-netinstall-files" format="PNG">
+	</imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>After the network connection has been configured as shown in
+      <xref linkend="bsdinstall-config-network-dev">, choose a mirror
+      site that is nearest to your location.</para>
+
+    <figure id="bsdinstall-netinstall-mirror">
+      <title>Choosing A Mirror</title>
+
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="bsdinstall/bsdinstall-netinstall-mirrorselect" format="PNG">
+	</imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>The installation will continue as if the installation files
+      were located on local media.</para> </sect1>
+
 <!-- WB: new bsdinstall partitioning section! -->
   <sect1 id="bsdinstall-partitioning">
     <title>Allocating Disk Space</title>
@@ -1520,7 +1555,7 @@ Retype new password:</screen>
 <!-- Config timezone -->
 <!-- XXXGA Done to here -->
 
-    <sect2 id="bsdinstall-inst-network-dev">
+    <sect2 id="bsdinstall-config-network-dev">
       <title>Configuring The Network Interface</title>
 
 <!-- WB: net config is either post-install or during install for bootonly -->
