@@ -1052,8 +1052,10 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
     <title>Installing from the Network</title>
 
     <para>The <emphasis>bootonly</emphasis> installation media does not
-      hold copies of the installation files.  Instead, the files are
-      retrieved over a network connection as they are needed.</para>
+      hold copies of the installation files.  When a
+      <emphasis>bootonly</emphasis> installation method is used, the
+      files must be retrieved over a network connection as they are
+      needed.</para>
 
     <figure id="bsdinstall-netinstall-notify">
       <title>Installing From The Network</title>
