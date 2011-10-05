@@ -1520,182 +1520,186 @@ Retype new password:</screen>
 <!-- Config timezone -->
 <!-- XXXGA Done to here -->
 
-<!-- <sect2 id="inst-network-dev"> -->
     <sect2 id="bsdinstall-inst-network-dev">
-      <title>Network Device Configuration</title>
+      <title>Configuring The Network Interface</title>
 
-      <para>If you previously configured PPP for an FTP install, this screen
-	will not display and can be configured later as described
-	above.</para>
+<!-- WB: net config is either post-install or during install for bootonly -->
+<!-- WB: describe both here so this section can be used either way -->
+      <para>Some &os; installation methods like the
+	<emphasis>bootonly</emphasis> CD don't have local copies of
+	the installation files.  When the installation files are not
+	present, the network interface must be configured so the files
+	can be retrieved via the network.</para>
 
-      <para>For detailed information on Local Area Networks and
-	configuring FreeBSD as a gateway/router refer to the
-	<link linkend="advanced-networking">Advanced Networking</link>
-	chapter.</para>
+      <para>Choose the network interface to be used.</para>
 
-      <screen>                      User Confirmation Requested 
-   Would you like to configure any Ethernet or PPP network devices?
-
-                             [ Yes ]   No</screen>
-
-      <para>To configure a network device, select
-	&gui.yes; and press <keycap>Enter</keycap>.
-      Otherwise, select &gui.no; to continue.</para>
-
-<!--  <figure id="ed-config1"> -->
-      <figure id="bsdinstall-ed-config1">
-	<title>Selecting an Ethernet Device</title>
+      <figure id="bsdinstall-configure-net-interface">
+	<title>Choose a Network Interface</title>
 
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="bsdinstall/bsdinstall-ed-config1" format="PNG">
+	    <imagedata fileref="bsdinstall/bsdinstall-configure-network-interface" format="PNG">
 	  </imageobject>
 	</mediaobject>
       </figure>
 
-      <para>Select the interface to be configured with the arrow keys and press
-	<keycap>Enter</keycap>.</para>
+      <para>Choose whether IPv4 networking is to be used.  This is the
+	most common type of network connection.</para>
 
-      <screen>                      User Confirmation Requested 
-       Do you want to try IPv6 configuration of the interface?
-
-                              Yes   [ No ]</screen>
-
-      <para>In this private local area network, the current Internet
-	type protocol (<acronym>IPv4</acronym>) was sufficient and &gui.no;
-	was selected with the arrow keys and <keycap>Enter</keycap>
-	pressed.</para>
-
-      <para>If you are connected to an existing <acronym>IPv6</acronym> network
-	with an <acronym>RA</acronym> server, then choose
-	&gui.yes; and press <keycap>Enter</keycap>.
-	It will take several seconds to scan for RA servers.</para>
-
-      <screen>                             User Confirmation Requested 
-        Do you want to try DHCP configuration of the interface?
-
-                              Yes   [ No ]</screen>
-
-      <para>If DHCP (Dynamic Host Configuration Protocol) is not required
-	select &gui.no; with the arrow keys and press
-	<keycap>Enter</keycap>.</para>
-
-      <para>Selecting &gui.yes; will execute
-	<application>dhclient</application>, and if successful, will fill
-	in the network configuration information automatically.  Refer to
-	<xref linkend="network-dhcp"> for more information.</para>
-
-      <para>The following Network Configuration screen shows the
-	configuration of the Ethernet device for a system that will act
-	as the gateway for a Local Area Network.</para>
-
-<!--  <figure id="ed-config2"> -->
-      <figure id="bsdinstall-ed-config2">
-	<title>Set Network Configuration for ed0</title>
+      <figure id="bsdinstall-configure-net-ipv4">
+	<title>Choose IPv4 Networking</title>
 
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="bsdinstall/bsdinstall-ed-config2" format="PNG">
+	    <imagedata fileref="bsdinstall/bsdinstall-configure-network-ipv4" format="PNG">
 	  </imageobject>
 	</mediaobject>
       </figure>
 
-      <para>Use <keycap>Tab</keycap> to select the information fields and
-	fill in appropriate information:</para>
+      <para>There are two methods of IPv4 configuration.
+	<firstterm>DHCP</firstterm> will automatically configure the
+	network interface correctly, and is the preferred method.
+	<firstterm>Static</firstterm> configuration requires manual
+	entry of the network information.</para>
 
-      <variablelist>
-	<varlistentry>
-	  <term>Host</term>
+      <sect3 id="bsdinstall-net-ipv4-dhcp-config">
+	<title>IPv4 DHCP Network Configuration</title>
 
-	  <listitem>
-	    <para>The fully-qualified hostname, such as <hostid role="fqdn">k6-2.example.com</hostid> in
-	      this case.</para>
-	  </listitem>
-	</varlistentry>
+	<para>If a DHCP server is available, select
+	  <guibutton>[&nbsp;Yes&nbsp;]</guibutton> to automatically
+	  configure the network interface.</para>
 
-	<varlistentry>
-	  <term>Domain</term>
+	<figure id="bsdinstall-net-ipv4-dhcp">
+	  <title>Choose IPv4 DHCP Configuration</title>
 
-	  <listitem>
-	    <para>The name of the domain that your machine is
-	      in, such as <hostid role="domainname">example.com</hostid> for this case.</para>
-	  </listitem>
-	</varlistentry>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-ipv4-dhcp" format="PNG">
+	    </imageobject>
+	  </mediaobject>
+	</figure>
+      </sect3>
 
-	<varlistentry>
-	  <term>IPv4 Gateway</term>
+      <sect3>
+	<title>Static IPv4 Network Configuration</title>
 
-	  <listitem>
-	    <para>IP address of host forwarding packets to non-local
-	      destinations.  You must fill this in if the machine is a node
-	      on the network.  <emphasis>Leave this field blank</emphasis>
-	      if the machine is the gateway to the Internet for the
-	      network.  The IPv4 Gateway is also known as the default
-	      gateway or default route.</para>
-	  </listitem>
-	</varlistentry>
+	<para>Static configuration of the network interface requires
+	  entry of this information:</para>
 
-	<varlistentry>
-	  <term>Name server</term>
+	<variablelist>
+	  <varlistentry>
+	    <term>Host</term>
 
-	  <listitem>
-	    <para>IP address of your local DNS server.  There is no local
-	      DNS server on this private local area network so the IP
-	      address of the provider's DNS server
-	      (<hostid role="ipaddr">208.163.10.2</hostid>) was used.</para>
-	  </listitem>
-	</varlistentry>
+	    <listitem>
+	      <para>The fully-qualified hostname, such as <hostid
+		role="fqdn">k6-2.example.com</hostid> in this
+		case.</para>
+	    </listitem>
+	  </varlistentry>
 
-	<varlistentry>
-	  <term>IPv4 address</term>
+	  <varlistentry>
+	    <term>Domain</term>
 
-	  <listitem>
-	    <para>The IP address to be used for this interface was
-	      <hostid role="ipaddr">192.168.0.1</hostid></para>
-	  </listitem>
-	</varlistentry>
+	    <listitem>
+	      <para>The name of the domain that your machine is in, such
+		as <hostid role="domainname">example.com</hostid> for
+		this case.</para>
+	    </listitem>
+	  </varlistentry>
 
-	<varlistentry>
-	  <term>Netmask</term>
+	  <varlistentry>
+	    <term>IPv4 Gateway</term>
 
-	  <listitem>
-	    <para>The address block being used for this local area
-	      network is
-	      <hostid role="ipaddr">192.168.0.0</hostid> -
-	      <hostid role="ipaddr">192.168.0.255</hostid>
-	      with a netmask of
-	      <hostid role="netmask">255.255.255.0</hostid>.</para>
-	  </listitem>
-	</varlistentry>
+	    <listitem>
+	      <para>IP address of host forwarding packets to non-local
+		destinations.  You must fill this in if the machine is a
+		node on the network.  <emphasis>Leave this field
+		blank</emphasis> if the machine is the gateway to the
+		Internet for the network.  The IPv4 Gateway is also
+		known as the default gateway or default route.</para>
+	    </listitem>
+	  </varlistentry>
 
-	<varlistentry>
-	  <term>Extra options to ifconfig</term>
+	  <varlistentry>
+	    <term>Name server</term>
 
-	  <listitem>
-	    <para>Any interface-specific options to <command>ifconfig</command>
-	      you would like to add.  There were none in this case.</para>
-	  </listitem>
-	</varlistentry>
+	    <listitem>
+	      <para>IP address of your local DNS server.  There is no
+		local DNS server on this private local area network so
+		the IP address of the provider's DNS server (<hostid
+		role="ipaddr">208.163.10.2</hostid>) was used.</para>
+	    </listitem>
+	  </varlistentry>
 
+	  <varlistentry>
+	    <term>IPv4 address</term>
+
+	    <listitem>
+	      <para>The IP address to be used for this interface was
+		<hostid role="ipaddr">192.168.0.1</hostid></para>
+	    </listitem>
+	  </varlistentry>
+
+	  <varlistentry>
+	    <term>Netmask</term>
+
+	    <listitem>
+	      <para>The address block being used for this local area
+		network is <hostid role="ipaddr">192.168.0.0</hostid> -
+		<hostid role="ipaddr">192.168.0.255</hostid> with a
+		netmask of
+		<hostid role="netmask">255.255.255.0</hostid>.</para>
+	    </listitem>
+	  </varlistentry>
       </variablelist>
 
-      <para>Use <keycap>Tab</keycap> to select &gui.ok;
-	when finished and press <keycap>Enter</keycap>.</para>
+      <para>IPv6 is a newer method of network configuration.  If IPv6 is
+	available, choose <guibutton>[&nbsp;Yes&nbsp;]</guibutton> to
+	select it.</para>
 
+      <figure id="bsdinstall-net-ipv6">
+	<title>Choose IPv6 Networking</title>
 
-      <screen>                      User Confirmation Requested 
-        Would you like to bring the ed0 interface up right now?
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-ipv6" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
 
-                             [ Yes ]   No</screen>
+      <para>IPv6 also has two methods of configuration.
+	<firstterm>SLAAC</firstterm>, or <emphasis>StateLess Address
+	AutoConfiguration</emphasis>, will automatically
+	configure the network interface correctly.
+	<firstterm>Static</firstterm> configuration requires manual
+	entry of the network information.</para>
+      </sect3>
 
-      <para>Choosing &gui.yes; and pressing
-	<keycap>Enter</keycap> will bring
-	the machine up on the network and be ready for use.  However,
-	this does not accomplish much during installation, since
-	the machine still needs to be rebooted.</para>
+      <sect3>
+	<title>IPv6 Stateless Address Autoconfiguration</title>
+
+<!-- WB: describe SLAAC briefly -->
+
+	<figure id="bsdinstall-net-ipv6-slaac">
+	  <title>Choose IPv6 SLAAC Configuration</title>
+
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-slaac" format="PNG">
+	    </imageobject>
+	  </mediaobject>
+	</figure>
+      </sect3>
+
+      <sect3>
+	<title>Static IPv6 Network Configuration</title>
+
+	<para>Static configuration of the network interface requires
+	  entry of this information:</para>
+<!-- WB: list of IPv6 network information -->
+      </sect3>
     </sect2>
 
-<!-- <sect2 id="inetd-services"> -->
     <sect2 id="bsdinstall-inetd-services">
       <title>Configure Internet Services</title>
 
@@ -1834,7 +1838,6 @@ use the current settings.
 	the post-installation configuration.</para>
     </sect2>
 
-<!-- <sect2 id="ssh-login"> -->
     <sect2 id="bsdinstall-ssh-login">
       <title>Enabling SSH login</title>
 
@@ -2293,7 +2296,6 @@ Press [Enter] now to invoke an editor on /etc/exports
 	post-installation configuration.</para>
     </sect2>
 
-<!-- <sect2 id="addusers"> -->
     <sect2 id="bsdinstall-addusers">
       <title>Add Users/Groups</title>
 
