@@ -1265,32 +1265,23 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       <para>A standard &os; GPT installation uses at least three
 	partitions:</para>
 
-      <variablelist>
-	<varlistentry>
-	  <term><emphasis>freebsd-boot</emphasis></term>
+      <itemizedlist>
+	<title>Standard FreeBSD GPT Partitions</title>
+	<listitem>
+	  <para><literal>freebsd-boot</literal> - &os; boot code.  This
+	  partition must be first on the disk.</para>
+	</listitem>
 
-	  <listitem>
-	    <para>&os; boot code.  This partition must be at the
-	    start of the disk.</para>
-	  </listitem>
-	</varlistentry>
+	<listitem>
+	  <para><literal>freebsd-ufs</literal> - A &os; UFS
+	    filesystem.</para>
+	</listitem>
 
-	<varlistentry>
-	  <term><emphasis>freebsd-ufs</emphasis></term>
-
-	  <listitem>
-	    <para>A &os; UFS filesystem.</para>
-	  </listitem>
-	</varlistentry>
-
-	<varlistentry>
-	  <term><emphasis>freebsd-swap</emphasis></term>
-
-	  <listitem>
-	    <para>&os; swap space.</para>
-	  </listitem>
-	</varlistentry>
-      </variablelist>
+	<listitem>
+	  <para><literal>freebsd-swap</literal> - &os; swap
+	    space.</para>
+	</listitem>
+      </itemizedlist>
 
       <para>Multiple filesystem partitions can be used, and some people
 	may prefer a traditional layout with separate partitions for
