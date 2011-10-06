@@ -146,6 +146,19 @@
       </sect3>
 
       <sect3>
+	<title>&os;/&arch.powerpc; &apple; &macintosh;</title>
+
+	<para>All New World &apple; &macintosh; systems with built-in
+	  USB are supported.  SMP is supported on machines with multiple
+	  CPUs.</para>
+
+	<para>Only the first 2GB of RAM can be used with a 32-bit
+	  kernel.  Fan control is not supported on the very first
+	  PowerMac G5 systems (PowerMac 7.2), and &firewire; is not
+	  supported on the Blue & White PowerMac G3.</para>
+      </sect3>
+
+      <sect3>
 	<title>&os;/&arch.sparc64;</title>
 
 	<para>Systems supported by &os;/&arch.sparc64; are listed at
