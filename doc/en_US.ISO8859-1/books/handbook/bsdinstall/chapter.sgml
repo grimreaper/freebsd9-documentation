@@ -80,12 +80,12 @@
 
     <note>
       <para>In general, these installation instructions are written
-        for &i386; (<quote>PC compatible</quote>) architecture
-        computers.  Where applicable, instructions specific to other
-        platforms will be listed.  There may be minor differences
-        between the installer and what is shown here, so use this
-        chapter as a general guide rather than a literal
-        installation manual.</para>
+	for &i386; (<quote>PC compatible</quote>) architecture
+	computers.  Where applicable, instructions specific to other
+	platforms will be listed.  There may be minor differences
+	between the installer and what is shown here, so use this
+	chapter as a general guide rather than as exact literal
+	instructions.</para>
     </note>
 
   </sect1>
