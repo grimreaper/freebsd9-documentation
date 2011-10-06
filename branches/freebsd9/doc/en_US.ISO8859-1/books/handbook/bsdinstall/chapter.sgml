@@ -1753,28 +1753,20 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
     </sect2>
 
     <sect2 id="bsdinstall-addusers">
-      <title>Add Users/Groups</title>
+      <title>Add Users</title>
 
-      <para>You should add at least one user during the installation so
-	that you can use the system without being logged in as
-	<username>root</username>.  The root partition is generally small
-	and running applications as <username>root</username> can quickly
-	fill it.  A bigger danger is noted below:</para>
+      <para>Adding at least one user during the installation allows the
+	system to be used without being logged in as
+	<username>root</username>.  When logged in as
+	<username>root</username>, there are essentially no limits or
+	protection on what can be done.  Logging in as a normal user is
+	safer and more secure.</para>
 
-      <screen>                     User Confirmation Requested
- Would you like to add any initial user accounts to the system? Adding
- at least one account for yourself at this stage is suggested since
- working as the "root" user is dangerous (it is easy to do things which
- adversely affect the entire system). 
+      <para>Select <guibutton>[&nbsp;Yes&nbsp;]</guibutton> to add new
+	users.</para>
 
-                            [ Yes ]   No</screen>
-
-      <para>Select &gui.yes; and press
-	<keycap>Enter</keycap> to continue with adding a user.</para>
-
-<!--  <figure id="add-user2"> -->
-      <figure id="bsdinstall-add-user2">
-	<title>Select User</title>
+      <figure id="bsdinstall-add-user1">
+	<title>Add User Accounts</title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1783,12 +1775,10 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>Select <guimenuitem>User</guimenuitem> with the arrow keys
-	and press <keycap>Enter</keycap>.</para>
+      <para>Enter the information for the user to be added.</para>
 
-<!--  <figure id="add-user3"> -->
-      <figure id="bsdinstall-add-user3">
-	<title>Add User Information</title>
+      <figure id="bsdinstall-add-user2">
+	<title>Enter User Information</title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1797,98 +1787,97 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>The following descriptions will appear in the lower part of
-	the screen as the items are selected with <keycap>Tab</keycap>
-	to assist with entering the required information:</para>
+      <itemizedlist>
+	<title>User Information</title>
 
-      <variablelist>
-	<varlistentry>
-	  <term>Login ID</term>
+	<listitem>
+	  <para><literal>Username</literal> - The name the user will
+	    enter to log in.  Typically the first letter of their
+	    first name combined with their last name.</para>
+	</listitem>
 
-	  <listitem>
-	    <para>The login name of the new user (mandatory).</para>
-	  </listitem>
-	</varlistentry>
+	<listitem>
+	  <para><literal>Full name</literal> - The user's full
+	    name.</para>
+	</listitem>
 
-	<varlistentry>
-	  <term>UID</term>
-	
-	  <listitem>
-	    <para>The numerical ID for this user (leave blank for
-	      automatic choice).</para>
-	  </listitem>
-	</varlistentry>
+	<listitem>
+	  <para><literal>Uid</literal> - User ID.  Typically, this
+	    is left blank so the system will assign a value.</para>
+	</listitem>
 
-	<varlistentry>
-	  <term>Group</term>
+	<listitem>
+	  <para><literal>Login group</literal> - The user's group.
+	    Typically left blank to accept the default.</para>
+	</listitem>
 
-	  <listitem>
-	    <para>The login group name for this user (leave blank for
-	      automatic choice).</para>
-	  </listitem>
-	</varlistentry>
+	<listitem>
+	  <para><literal>Invite <replaceable>user</replaceable> into
+	    other groups?</literal> - Additional groups to which the
+	    user will be added as a member.</para>
+	</listitem>
 
-	<varlistentry>
-	  <term>Password</term>
+	<listitem>
+	  <para><literal>Login class</literal> - Typically left blank
+	    for the default.</para>
+	</listitem>
 
-	  <listitem>
-	    <para>The password for this user (enter this field with
-	      care!).</para>
-	  </listitem>
-	</varlistentry>
+	<listitem>
+	  <para><literal>Shell</literal> - The interactive shell for
+	    this user.  In the example, &man.csh.1; has been
+	    chosen.</para>
+	</listitem>
 
-	<varlistentry>
-	  <term>Full name</term>
+	<listitem>
+	  <para><literal>Home directory</literal> - The user's home
+	    directory.  The default is usually correct.</para>
+	</listitem>
 
-	  <listitem>
-	    <para>The user's full name (comment).</para>
-	  </listitem>
-	</varlistentry>
+	<listitem>
+	  <para><literal>Home directory permissions</literal> -
+	    Permissions on the user's home directory.  The default is
+	    usually correct.</para>
+	</listitem>
 
-	<varlistentry>
-	  <term>Member groups</term>
+	<listitem>
+	  <para><literal>Use password-based authentication?</literal> -
+	    Typically "yes".</para>
+	</listitem>
 
-	  <listitem>
-	    <para>The groups this user belongs to (i.e. gets access
-	      rights for).</para>
-	  </listitem>
-	</varlistentry>
+	<listitem>
+	  <para><literal>Use an empty password?</literal> -
+	  Typically "no".</para>
+	</listitem>
 
-	<varlistentry>
-	  <term>Home directory</term>
+	<listitem>
+	  <para><literal>Use a random password?</literal> - Typically
+	    "no".</para>
+	</listitem>
 
-	  <listitem>
-	    <para>The user's home directory (leave blank for
-	      default).</para>
-	  </listitem>
-	</varlistentry>
+	<listitem>
+	  <para><literal>Enter password</literal> - The actual password
+	    for this user.  Characters typed will not show on the
+	    screen.</para>
+	</listitem>
 
-	<varlistentry>
-	  <term>Login shell</term>
-	  <listitem>
-	    <para>The user's login shell (leave blank for
-	      default, e.g. <filename>/bin/sh</filename>).</para>
-	  </listitem>
-	</varlistentry>
-      </variablelist>
+	<listitem>
+	  <para><literal>Enter password again</literal> - The password
+	    must be typed again for verification.</para>
+	</listitem>
 
-      <para>The login shell was changed from <filename>/bin/sh</filename> to
-	<filename>/usr/local/bin/bash</filename> to use the
-	<application>bash</application> shell that was previously installed as
-	a package.  Do not try to use a shell that does not exist or you will
-	not be able to login.  The most common shell used in the
-	BSD-world is the C shell, which can be indicated as
-	<filename>/bin/tcsh</filename>.</para>
+	<listitem>
+	  <para><literal>Lock out the account after creation?</literal>
+	  - Typically "no".</para>
+	</listitem>
+      </itemizedlist>
 
-      <para>The user was also added to the <groupname>wheel</groupname> group
-	to be able to become a superuser with <username>root</username>
-	privileges.</para>
+      <para>After entering everything, a summary is shown, and the
+	system asks if it is correct.  If a mistake was made during
+	entry, enter <literal>no</literal> and try again.  If everything
+	is correct, enter <literal>yes</literal> to create the new
+	user.</para>
 
-      <para>When you are satisfied, press &gui.ok; and
-	the User and Group Management menu will redisplay:</para>
-
-<!--  <figure id="add-user4"> -->
-      <figure id="bsdinstall-add-user4">
+      <figure id="bsdinstall-add-user3">
 	<title>Exit User and Group Management</title>
 
 	<mediaobject>
@@ -1898,15 +1887,10 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>Groups can also be added at this time if specific needs
-	are known.  Otherwise, this may be accessed through using
-	<command>sysinstall</command>
-	after installation is
-	completed.</para>
-
-      <para>When you are finished adding users, select 
-	<guimenuitem>Exit</guimenuitem> with the arrow keys and press
-	<keycap>Enter</keycap> to continue the installation.</para>
+      <para>If there are more users to add, answer the "Add another
+	user?" question with <literal>yes</literal>.  Enter
+      	<literal>no</literal> to finish adding users and continue the
+      	installation.</para>
     </sect2>
 
 <!-- <sect2 id="exit-inst"> -->
