@@ -362,7 +362,7 @@
 	into the process.  On very rare occasions those bugs affect the
 	installation process.  As these problems are discovered and
 	fixed, they are noted in the <ulink
-	url="http://www.FreeBSD.org/releases/&rel.current;R/errata.html">
+	url="http://www.FreeBSD.org/releases/9.0R/errata.html">
 	FreeBSD Errata</ulink> on the &os; web site.  Check the errata
 	before installing to make sure that there are no late-breaking
 	problems.</para>
@@ -414,14 +414,14 @@
 	    <filename class="directory">ISO-IMAGES/</filename>
 	    directory from
 <!-- XXXGA Path needs updating -->
-	    <literal>ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/<replaceable>arch</replaceable>/ISO-IMAGES/<replaceable>version</replaceable>/&os;-&rel.current;-RELEASE-<replaceable>arch</replaceable>-memstick.img</literal>.
+	    <literal>ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/<replaceable>arch</replaceable>/ISO-IMAGES/<replaceable>version</replaceable>/&os;-9.0-RELEASE-<replaceable>arch</replaceable>-memstick.img</literal>.
 	    Replace <replaceable>arch</replaceable> and
 	    <replaceable>version</replaceable> with the
 	    architecture and the version number which you want to
 	    install, respectively.  For example, the memory stick
-	    images for &os;/&arch.i386;&nbsp;&rel.current;-RELEASE are
+	    images for &os;/&arch.i386;&nbsp;9.0-RELEASE are
 	    available from <ulink
-	    url="ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/&arch.i386;/ISO-IMAGES/&rel.current;/&os;-&rel.current;-RELEASE-&arch.i386;-memstick.img"></ulink>.</para>
+	    url="ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/&arch.i386;/ISO-IMAGES/9.0/&os;-9.0-RELEASE-&arch.i386;-memstick.img"></ulink>.</para>
 
 	  <para>The memory stick image has a <filename>.img</filename>
 	    extension.  The <filename
@@ -467,7 +467,7 @@
 		be copied like a regular file, but must be written
 		directly to the target device with &man.dd.1;:</para>
 
-	      <screen>&prompt.root; <userinput>dd if=&os;-&rel.current;-RELEASE-&arch.i386;-memstick.img of=/dev/<replaceable>da0</replaceable> bs=64k</userinput></screen>
+	      <screen>&prompt.root; <userinput>dd if=&os;-9.0-RELEASE-&arch.i386;-memstick.img of=/dev/<replaceable>da0</replaceable> bs=64k</userinput></screen>
 	    </step>
 	  </procedure>
 
@@ -1025,7 +1025,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	  <warning>
 	    <para>The installation program does not check to see if you have
 	      adequate space.  Select this option only if you have
-	      adequate hard disk space. As of FreeBSD &rel.current;, the
+	      adequate hard disk space. As of FreeBSD 9.0 , the
 	      FreeBSD Ports Collection takes up about &ports.size; of disk
 	      space. You can safely assume a larger value for more recent
 	      versions of FreeBSD.</para>
