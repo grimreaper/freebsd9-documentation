@@ -2238,8 +2238,7 @@ Please press any key to reboot.</screen>
 	<qandaentry>
 	  <question>
 	    <para>My system hangs while probing hardware during boot,
-	      or it behaves strangely during install, or the floppy
-	      drive is not probed.</para>
+	      or it behaves strangely during install.</para>
 	  </question>
 	  <answer>
 	    <para>&os; makes extensive use of the system
