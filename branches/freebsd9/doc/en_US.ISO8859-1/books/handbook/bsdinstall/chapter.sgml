@@ -1586,7 +1586,9 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	  <title>IPv6 Stateless Address Autoconfiguration</title>
 
 	  <para>SLAAC allows an IPv6 network component to request
-	    autoconfiguration information from a local router.</para>
+	    autoconfiguration information from a local router.  See
+	    <ulink url="http://tools.ietf.org/html/rfc4862"RFC4862</ulink>
+	    for more information.</para>
 
 	  <figure id="bsdinstall-net-ipv6-slaac">
 	    <title>Choose IPv6 SLAAC Configuration</title>
@@ -1606,9 +1608,31 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	    entry of the IPv6 configuration information.</para>
 <!-- WB: list of IPv6 network information -->
 	</sect4>
-
-<!-- WB: DNS for both ipv4 and ipv6 -->
       </sect3>
+
+      </sect3 id="bsdinstall-net-dns">
+	<title>Configuring DNS</title>
+
+	<para>The <firstterm>Domain Name System</firstterm> (or
+	  <emphasis>DNS</emphasis>) Resolver converts hostnames to and
+	  from network addresses.  If DHCP or SLAAC was used to
+	  autoconfigure the network interface, the Resolver
+	  Configuration values may already be present.  Otherwise, enter
+	  the local network's domain name in the Search field.  DNS #1
+	  and DNS #2 are the IP addresses for the local DNS
+	  servers.  At least one DNS server is required.</para>
+
+	  <figure id="bsdinstall-net-dns-config">
+	    <title>DNS Configuration</title>
+
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="bsdinstall/bsdinstall-configure-network-ipv4-dns" format="PNG">
+	      </imageobject>
+	    </mediaobject>
+	  </figure>
+      </sect3>
+    </sect2>
 
     <sect2 id="bsdinstall-inetd-services">
       <title>Configure Internet Services</title>
