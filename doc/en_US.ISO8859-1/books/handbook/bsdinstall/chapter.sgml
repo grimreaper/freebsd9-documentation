@@ -1938,7 +1938,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 	<listitem>
 	  <para><literal>Services</literal> - Described in
-	    xref linkend="bsdinstall-sysconf">.</para>
+	    <xref linkend="bsdinstall-sysconf">.</para>
 	</listitem>
 
 	<listitem>
@@ -1955,7 +1955,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	  <para><literal>Shell</literal> - Open a shell to run commands
 	    on the new system.</para>
 	</listitem>
-      </listitem>
+      </itemizedlist>
 
       <para>After any final configuration is complete, select
 	<guibutton>Exit</guibutton> to leave the installation.</para>
