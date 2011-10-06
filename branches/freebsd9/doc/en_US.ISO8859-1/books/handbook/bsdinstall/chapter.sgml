@@ -1696,11 +1696,14 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       <para>The appropriate time zone is selected using the arrow
 	keys and pressing <keycap>Enter</keycap>.</para>
 
-<!-- XXXGA: Use the picture here? -->
-      <screen>                            Confirmation 
-            Does the abbreviation 'EDT' look reasonable?
-
-                            [ Yes ]   No</screen>
+      <figure id="bsdinstall-timezone-confirmation">
+	<title>Confirm Time Zone</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-timezone-confirm" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
 
       <para>Confirm the abbreviation for the time zone is correct.
 	If it looks okay, press <keycap>Enter</keycap> to continue with
