@@ -1587,7 +1587,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 	  <para>SLAAC allows an IPv6 network component to request
 	    autoconfiguration information from a local router.  See
-	    <ulink url="http://tools.ietf.org/html/rfc4862"RFC4862</ulink>
+	    <ulink url="http://tools.ietf.org/html/rfc4862">RFC4862</ulink>
 	    for more information.</para>
 
 	  <figure id="bsdinstall-net-ipv6-slaac">
@@ -1610,7 +1610,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</sect4>
       </sect3>
 
-      </sect3 id="bsdinstall-net-dns">
+      <sect3 id="bsdinstall-net-dns">
 	<title>Configuring DNS</title>
 
 	<para>The <firstterm>Domain Name System</firstterm> (or
