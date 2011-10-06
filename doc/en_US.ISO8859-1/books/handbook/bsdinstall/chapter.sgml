@@ -152,10 +152,9 @@
 	  USB are supported.  SMP is supported on machines with multiple
 	  CPUs.</para>
 
-	<para>Only the first 2GB of RAM can be used with a 32-bit
-	  kernel.  Fan control is not supported on the very first
-	  PowerMac G5 systems (PowerMac 7.2), and &firewire; is not
-	  supported on the Blue & White PowerMac G3.</para>
+	<para>A 32-bit kernel can only use the first 2GB of RAM.
+	  &firewire; is not supported on the Blue & White PowerMac
+	  G3.</para>
       </sect3>
 
       <sect3>
@@ -635,6 +634,24 @@ Loading /boot/defaults/loader.conf
 	</step>
       </procedure>
 
+      </sect3>
+
+      <sect3>
+	<title>Booting for &macintosh; &powerpc;</title>
+
+	<para>On most machines, holding <keycap>C</keycap> on the
+	  keyboard during boot will boot from the CD.  Otherwise, hold
+	  <keycombo action="simul"><keycap>Command</keycap><keycap>Option</keycap><keycap>O</keycap><keycap>F</keycap></keycombo>,
+	  or
+	  <keycombo action="simul"><keycap>Windows</keycap><keycap>Alt</keycap><keycap>O</keycap><keycap>F</keycap></keycombo>
+	  on non-&apple; keyboards.  At the <prompt>0 ></prompt>
+	  prompt, enter
+	  <screen><userinput>boot cd:,\ppc\loader cd:0</userinput></screen></para>
+
+	<para>For Xserves without keyboards, see
+	  <ulink url="http://support.apple.com/kb/TA26930">&apple;'s
+	  support web site</ulink> about booting into Open
+	  Firmware.</para>
       </sect3>
 
       <sect3>
@@ -1195,7 +1212,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	  <row>
 	    <entry>APM</entry>
 	    <entry><ulink url="http://support.apple.com/kb/TA21692">Apple
-	      Partition Map, used by older non-x86 Macs.</ulink></entry>
+	      Partition Map, used by &powerpc; &macintosh;.</ulink></entry>
 	  </row>
 
 	  <row>
