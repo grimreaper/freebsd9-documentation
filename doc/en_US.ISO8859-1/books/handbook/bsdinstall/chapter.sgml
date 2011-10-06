@@ -1024,7 +1024,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	  <warning>
 	    <para>The installation program does not check to see if you have
 	      adequate space.  Select this option only if you have
-	      adequate hard disk space. As of FreeBSD 9.0 , the
+	      adequate hard disk space. As of FreeBSD&nbsp;9.0, the
 	      FreeBSD Ports Collection takes up about &ports.size; of disk
 	      space. You can safely assume a larger value for more recent
 	      versions of FreeBSD.</para>
