@@ -362,52 +362,35 @@
 	url="&url.base;/index.html">&os; web site</ulink>.</para>
     </sect2>
 
-    <sect2>
-      <title>Obtain the &os; Installation Files</title>
-
-      <para>The &os; installation process can install from files
-	located on:</para>
-
-      <itemizedlist>
-	<title>Local Media</title>
-
-	<listitem>
-	  <para>A CDROM or DVD</para>
-	</listitem>
-
-	<listitem>
-	  <para>A USB Memory Stick</para>
-	</listitem>
-
-      </itemizedlist>
-
-      <itemizedlist>
-	<title>Network</title>
-
-	<listitem>
-	  <para>An &os; FTP mirror site</para>
-	</listitem>
-      </itemizedlist>
-
-      <para>If you have a copy of &os; on CD, DVD, or USB memory stick,
-	then you already have everything you need, and should proceed to
-	(<xref linkend="bsdinstall-start">).</para>
-    </sect2>
-
     <sect2 id="bsdinstall-boot-media">
-      <title>Prepare the Boot Media</title>
+      <title>Prepare the Installation Media</title>
 
-      <para>The &os; installation process is started by booting the
-	computer into the &os; installer&mdash;it is not a program run
-	from within another operating system.  A computer normally boots
-	using the operating system installed on the hard disk, but most
-	can also be booted from a CDROM or other removable devices like
-	a USB disk or memory stick.</para>
+      <para>A &os; installation is started by booting the computer with
+	a &os; installation CD, DVD, or USB memory stick.  The installer
+	is not a program that can be run from within another operating
+	system.</para>
+
+      <para>In addition to the standard installation media which
+	contains copies of all the &os; installation files, there is a
+	<emphasis>bootonly</emphasis> variant.  Bootonly install media
+	does not have copies of the installation files, but downloads
+	them from the network during an install.  The bootonly install
+	CD is consequently much smaller, and reduces bandwidth usage
+	during the install by only downloaded required files.</para>
+
+      <para>Copies of &os; installation media are available at the
+	<ulink url="&url.base;/releases/index.html">&os; web
+	site.</ulink></para>
 
       <tip>
 	<para>If you already have a copy of &os; on CDROM, DVD, or USB
 	  memory stick, this section can be skipped.</para>
       </tip>
+
+      <para>&os; CD and DVD images are bootable ISO files.  Only one CD
+	or DVD is needed for an install.  Burn the ISO image to a
+	bootable CD or DVD using the CD recording applications available
+	with your current operating system.</para>
 
       <para>To create a bootable memory stick, follow these
 	steps:</para>
