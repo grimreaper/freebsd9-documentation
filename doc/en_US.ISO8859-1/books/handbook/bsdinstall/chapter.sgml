@@ -541,59 +541,62 @@ commit your changes?</literallayout>
       <title>Booting</title>
 
       <sect3 id="bsdinstall-starting-i386">
-        <title>Booting on &i386; and &arch.amd64;</title>
+	<title>Booting on &i386; and &arch.amd64;</title>
 
-      <procedure>
+	<procedure>
 
-	<step>
-	  <para>If you prepared a <quote>bootable</quote> USB stick, as
-	    described in <xref linkend="bsdinstall-installation-media">,
-	    then plug in your USB stick before turning on the
-	    computer.</para>
+	  <step>
+	    <para>If you prepared a <quote>bootable</quote> USB stick,
+	      as described in
+	      <xref linkend="bsdinstall-installation-media">, then plug
+	      in your USB stick before turning on the computer.</para>
 
-	  <para>If you are booting from CDROM, then you will need to turn on
-	    the computer, and insert the CDROM at the first
-	    opportunity.</para>
-	</step>
+	    <para>If you are booting from CDROM, then you will need to turn on
+	      the computer, and insert the CDROM at the first
+	      opportunity.</para>
+	  </step>
 
-	<step>
-	  <para>Configure your machine to boot from either the CDROM or from
-	    USB, depending on the media being used for the installation.
-	    This can usually either be done from the BIOS setup menu, or often
-	    by pressing F11 or another key (Often called "Boot Selection" or
-	    similar) during the BIOS POST.  
-	</step>
+	  <step>
+	    <para>Configure your machine to boot from either the CDROM
+	      or from USB, depending on the media being used for the
+	      installation. This can usually either be done from the
+	      BIOS setup menu, or often by pressing F11 or another key
+	      (Often called "Boot Selection" or similar) during the BIOS
+	      POST.
+	  </step>
 
-	<step>
-	  <para>If your computer starts up as normal and loads your existing
-	    operating system, then either:</para>
+	  <step>
+	    <para>If your computer starts up as normal and loads your
+	      existing operating system, then either:</para>
 
-	  <orderedlist>
-	    <listitem>
-	      <para>The disks were not inserted early enough in the boot
-		process.  Leave them in, and try restarting your
-		computer.</para>
-	    </listitem>
+	    <orderedlist>
+	      <listitem>
+		<para>The disks were not inserted early enough in the
+		  boot process.  Leave them in, and try restarting your
+		  computer.</para>
+	      </listitem>
 
-	    <listitem>
-	      <para>The BIOS changes earlier did not work correctly.  You
-		should redo that step until you get the right option.</para>
-	    </listitem>
+	      <listitem>
+		<para>The BIOS changes earlier did not work correctly.
+		  You should redo that step until you get the right
+		  option.</para>
+	      </listitem>
 
-	    <listitem>
-	      <para>Your particular BIOS does not support booting from
-		the desired media.  The
-		<ulink url="http://www.plop.at/en/bootmanager.html">Plop
-		Boot Manager</ulink> can be used to boot older computers
-		from CD or USB media.</para>
-	    </listitem>
-	  </orderedlist>
-	</step>
-    
-	<step>
-	  <para>&os; will start to boot.  If you are booting from CDROM you
-	    will see a display similar to this (version information omitted):</para>
-	  
+	      <listitem>
+		<para>Your particular BIOS does not support booting
+		  from the desired media.  The
+		  <ulink url="http://www.plop.at/en/bootmanager.html">Plop
+		  Boot Manager</ulink> can be used to boot older
+		  computers from CD or USB media.</para>
+	      </listitem>
+	    </orderedlist>
+	  </step>
+
+	  <step>
+	    <para>&os; will start to boot.  If you are booting from
+	      CDROM you will see a display similar to this (version
+	      information omitted):</para>
+
 	  <screen>Booting from CD-Rom...
 645MB medium detected
 CD Loader 1.2
@@ -615,25 +618,24 @@ FreeBSD/i386 bootstrap loader, Revision 1.1
 Loading /boot/defaults/loader.conf
 /boot/kernel/kernel text=0x64daa0 data=0xa4e80+0xa9e40 syms=[0x4+0x6cac0+0x4+0x88e9d]
 \</screen>
-	
-	<step>
-	  <para>Whether you booted from CDROM or USB stick, the
-	    boot process will then get to the &os; boot loader
-	    menu:</para>
 
-	  <figure id="bsdinstall-boot-loader-menu">
-	    <title>&os; Boot Loader Menu</title>
-	    <mediaobject>
-	      <imageobject>
-		<imagedata fileref="bsdinstall/bsdinstall-boot-loader-menu" format="PNG">
-	      </imageobject>
-	    </mediaobject>
-	  </figure>
+	  <step>
+	    <para>Whether you booted from CDROM or USB stick, the boot
+	      process will then get to the &os; boot loader menu:</para>
 
-	  <para>Either wait ten seconds, or press <keycap>Enter</keycap>.</para>
-	</step>
-      </procedure>
+	    <figure id="bsdinstall-boot-loader-menu">
+	      <title>&os; Boot Loader Menu</title>
+	      <mediaobject>
+		<imageobject>
+		  <imagedata fileref="bsdinstall/bsdinstall-boot-loader-menu" format="PNG">
+		</imageobject>
+	      </mediaobject>
+	    </figure>
 
+	    <para>Either wait ten seconds, or press
+	      <keycap>Enter</keycap>.</para>
+	  </step>
+	</procedure>
       </sect3>
 
       <sect3>
