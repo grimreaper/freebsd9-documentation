@@ -1550,9 +1550,10 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	      <listitem>
 		<para>The IP address of the default router on this
 		  network.  Usually this is the address of the router or
-		  other piece of network equipment that connects the
-		  local network to the Internet, sometimes also called
-		  default gateway.</para>
+		  other network equipment that connects the local
+		  network to the Internet.  Also known as the
+		  <emphasis>default gateway</emphasis>.
+		  </para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
