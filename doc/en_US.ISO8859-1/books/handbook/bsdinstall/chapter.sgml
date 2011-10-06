@@ -106,17 +106,16 @@
 	linkend="bsdinstall-installation-media">.</para>
 
       <sect3>
-	<title>&os;/&arch.i386; and &os;/&arch.pc98;</title>
+	<title>&os;/&arch.i386;</title>
 <!-- XXXGA: these sizes need checking -->
-	<para>Both &os;/&arch.i386; and &os;/&arch.pc98; require a 486 or
-	  better processor and at least 24&nbsp;MB of RAM.  You will
-	  need at least 300&nbsp;MB of free hard drive space for the
-	  most minimal installation.</para>
+	<para>&os;/&arch.i386; requires a 486 or better processor and at
+	  least 24&nbsp;MB of RAM.  At least 300&nbsp;MB of free hard
+	  drive space is needed for the most minimal installation.</para>
 
 	<note>
-	  <para>On old computers, getting more RAM and hard drive space
-	    is usually more important than
-	    getting a faster processor.</para>
+	  <para>On old computers, increasing RAM and hard drive space
+	    is usually more effective at improving performance than
+	    installing a faster processor.</para>
 	</note>
       </sect3>
 
