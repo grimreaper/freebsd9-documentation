@@ -1292,8 +1292,6 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</varlistentry>
       </variablelist>
 
-<!-- WB: mention 4K sector alignment, suggested partition minimums here? -->
-
       <para>Multiple filesystem partitions can be used, and some people
 	may prefer a traditional layout with separate partitions for
 	the <filename>/</filename>, <filename>/var</filename>, and
@@ -1302,9 +1300,20 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       <para>See &man.gpart.8; for a complete list of available GPT
 	partition types.</para>
 
-      <para>Common abbreviations can be used in the Size field:
+      <para>Size may be entered with common abbreviations:
 	<emphasis>K</emphasis> for kilobytes, <emphasis>M</emphasis> for
 	megabytes, or <emphasis>G</emphasis> for gigabytes.</para>
+
+      <tip>
+	<para>Proper sector alignment provides the best performance, and
+	  making partition sizes even multiples of 4K bytes helps to ensure
+	  alignment on drives with either 512-byte or 4K-byte sectors.
+	  Generally, using partition sizes that are even multiples of 1M
+	  or 1G is the easiest way to make sure every partition starts
+	  at an even multiple of 4K.  One exception: at present, the
+	  <emphasis>freebsd-boot</emphasis> partition should be no
+	  larger than 512K due to a boot code limitation.</para>
+      </tip>
 
       <para>A mountpoint is needed if this partition will contain a
 	filesystem.  If only a single UFS partition will be created, the
