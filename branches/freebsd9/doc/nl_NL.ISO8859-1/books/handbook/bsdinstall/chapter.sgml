@@ -1,0 +1,2762 @@
+<!--
+     The FreeBSD Documentation Project
+
+     $FreeBSD$
+-->
+
+<chapter id="bsdinstall">
+  <chapterinfo>
+    <authorgroup>
+      <author>
+	<firstname>Jim</firstname>
+	<surname>Mock</surname>
+	<contrib>Restructured, reorganized, and parts
+	  rewritten by </contrib>
+      </author>
+    </authorgroup>
+    <authorgroup>
+      <author>
+	<firstname>Randy</firstname>
+	<surname>Pratt</surname>
+	<contrib>The sysinstall walkthrough, screenshots, and general
+	  copy by </contrib>
+      </author>
+    </authorgroup>
+    <authorgroup>
+      <author>
+        <firstname>Gavin</firstname>
+	<surname>Atkinson</surname>
+	<contrib>Updated for bsdinstall by </contrib>
+      </author>
+    </authorgroup>
+  </chapterinfo>
+
+  <title>Installing &os;&nbsp;9.<replaceable>x</replaceable> and Later</title>
+
+  <sect1 id="bsdinstall-synopsis">
+    <title>Synopsis</title>
+
+    <indexterm><primary>installation</primary></indexterm>
+
+    <para>&os; is provided with a text-based, easy to use installation
+      program.  &os;&nbsp;9.0-RELEASE and later use the installation program
+      known as <application>bsdinstall</application>, with releases prior
+      to &os;&nbsp;9.0-RELEASE using <application>sysinstall</application> for
+      installation.  This chapter describes the use of <application>bsdinstall</application>
+      to install &os;.  The use of <application>sysinstall</application>
+      is covered in <xref linkend="install">.</para>
+
+    <para>After reading this chapter, you will know:</para>
+
+    <itemizedlist>
+      <listitem>
+	<para>How to create the &os; installation media.</para>
+      </listitem>
+      
+      <listitem>
+	<!-- WB: verify this, including GPT partition notation (ada0p2) -->
+	<para>How &os; subdivides and refers to hard disks.</para>
+      </listitem>
+
+      <listitem>
+	<para>How to start <application>bsdinstall</application>.</para>
+      </listitem>
+
+      <listitem>
+	<para>The questions <application>bsdinstall</application> will ask
+	  you, what they mean, and how to answer them.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Before reading this chapter, you should:</para>
+
+    <itemizedlist>
+      <listitem>
+	<para>Read the supported hardware list that shipped with the version
+	  of &os; you are installing, and verify that your hardware is
+	  supported.</para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>In general, these installation instructions are written
+        for &i386; (<quote>PC compatible</quote>) architecture
+        computers.  Where applicable, instructions specific to other
+        platforms will be listed.  There may be minor differences
+        between the installer and what is shown here, so use this
+        chapter as a general guide rather than a literal
+        installation manual.</para>
+    </note>
+
+  </sect1>
+
+  <sect1 id="bsdinstall-hardware">
+    <title>Hardware Requirements</title>
+
+    <sect2 id="bsdinstall-hardware-minimal">
+      <title>Minimal Configuration</title>
+
+      <para>The minimal configuration to install &os; varies with the
+	&os; version and the hardware architecture.</para>
+
+      <para>A summary of this information is given in the following sections.
+	Depending on the method you choose to install &os;, you may
+	also need a supported CDROM drive, and in some
+	cases a network adapter.  This will be covered by <xref
+	linkend="bsdinstall-boot-media">.</para>
+
+      <sect3>
+	<title>&os;/&arch.i386; and &os;/&arch.pc98;</title>
+<!-- XXXGA: these sizes need checking -->
+	<para>Both &os;/&arch.i386; and &os;/&arch.pc98; require a 486 or
+	  better processor and at least 24&nbsp;MB of RAM.  You will
+	  need at least 300&nbsp;MB of free hard drive space for the
+	  most minimal installation.</para>
+
+	<note>
+	  <para>On old computers, getting more RAM and hard drive space
+	    is usually more important than
+	    getting a faster processor.</para>
+	</note>
+      </sect3>
+
+      <sect3>
+	<title>&os;/&arch.amd64;</title>
+
+	<para>There are two classes of processors capable of running
+	  &os;/&arch.amd64;.  The first are AMD64 processors,
+	  including the &amd.athlon;64,
+	  &amd.athlon;64-FX, &amd.opteron; or better
+	  processors.</para>
+
+	<para>The second class of processors that can use
+	  &os;/&arch.amd64; includes those using the &intel;&nbsp;EM64T
+	  architecture.  Examples of these processors include the
+	  &intel;&nbsp;&core;&nbsp;2 Duo, Quad, Extreme processor
+	  families, the &intel;&nbsp;&xeon; 3000, 5000, and 7000
+	  sequences of processors, and the &intel;&nbsp;&core;
+	  i3, i5 and i7 processors.</para>
+
+	<para>If you have a machine based on an nVidia nForce3
+	  Pro-150, you <emphasis>must</emphasis> use the BIOS setup to
+	  disable the IO APIC.  If you do not have an option to do
+	  this, you will likely have to disable ACPI instead.  There
+	  are bugs in the Pro-150 chipset for which we have not yet
+	  found a workaround.</para>
+      </sect3>
+
+      <sect3>
+	<title>&os;/&arch.sparc64;</title>
+
+	<para>Systems supported by &os;/&arch.sparc64; are listed at
+	  the <ulink url="http://www.freebsd.org/platforms/sparc.html">
+	  FreeBSD/sparc64</ulink> Project.
+
+	<para>A dedicated disk is required for &os;/&arch.sparc64;.  It
+	  is not possible to share a disk with another operating
+	  system at this time.</para>
+      </sect3>
+    </sect2>
+
+    <sect2 id="bsdinstall-hardware-supported">
+      <title>Supported Hardware</title>
+
+      <para>Hardware architectures and devices supported by a &os;
+	release are listed in the Hardware Notes file.  Usually named
+	<filename>HARDWARE.TXT</filename>, the file is located in the
+	root directory of the release media.  Copies of the supported
+	hardware list are also available on the <ulink
+	url="http://www.FreeBSD.org/releases/index.html">Release
+	Information</ulink> page of the &os; web site.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="bsdinstall-pre">
+    <title>Pre-installation Tasks</title>
+
+    <sect2>
+      <title>Back Up Your Data</title>
+
+      <para>Back up all important data present on the target computer
+	where &os; will be installed.  Test the backups before
+	continuing.  The &os; installer will ask before making changes
+	to the disk, but once the process has started it cannot be
+	undone.</para>
+    </sect2>
+
+    <sect2 id="bsdinstall-where">
+      <title>Decide Where to Install &os;</title>
+
+      <para>If &os; will be the only operating system installed, and
+	will be allowed to use the entire hard disk, the rest of
+	this section can be skipped.  But if &os; will share the disk
+	with other operating systems, an understanding of disk
+	layout is useful during the installation.</para>
+
+      <sect3 id="bsdinstall-where-i386">
+	<title>Disk Layouts for &os;/&arch.i386; and &os;/&arch.amd64;</title>
+
+      <para>Hard disks can be divided into multiple sections.  These
+	sections are called <firstterm>partitions</firstterm>.</para>
+
+      <para>There are two ways of dividing a disk into partitions.
+	A traditional <firstterm>Master Boot Record</firstterm> (MBR)
+	holds a partition table defining up to four <firstterm>primary
+	partitions</firstterm>.  (For historical reasons, &os; calls
+	primary partitions <firstterm>slices</firstterm>.)  A limit of
+	only four partitions was restrictive for large disks, so one of
+	these primary partitions can be made into an <firstterm>extended
+	partition</firstterm>.  Multiple <firstterm>logical
+	partitions</firstterm> may then be created inside the extended
+	partition.  This may sound a little unwieldy, and it is.
+
+      <para>The <firstterm>GUID Partition Table</firstterm> (GPT) is a
+	newer and simpler method of partitioning a disk.  GPT is far
+	more versatile than the traditional MBR partition table.
+	Common GPT implementations allow up to 128 partitions per disk,
+	eliminating the need for inconvenient workarounds like logical
+	partitions.</para>
+
+      <warning>
+	<para>Some older operating systems like &windows;&nbsp;XP are
+	  not compatible with GPT partitioning.  If &os; will be sharing
+	  a disk with such an operating system, MBR partitioning is
+	  required.</para>
+      </warning>
+
+      <para>&os;'s standard boot loader requires either a primary
+	or GPT partition.  (See <xref linkend="boot"> for more
+	information about the &os; booting process.)  If all of the
+	primary or GPT partitions are already in use, one must be freed
+	for &os;.</para>
+
+      <para>A minimal installation of &os; takes as little as 1&nbsp;GB
+	of disk space.  However, that is a <emphasis>very</emphasis>
+	minimal install, leaving almost no free space.  A more realistic
+	minimum is 3&nbsp;GB without a graphical environment, and
+	5&nbsp;GB or more if a graphical user interface will be used.
+	Third-party application software requires more space.</para>
+
+      <para>A variety of <ulink
+	url="http://en.wikipedia.org/wiki/List_of_disk_partitioning_software">
+	free and commercial partition resizing tools</ulink> are
+	available.  <ulink url="http://gparted.sourceforge.net/livecd.php">
+	GParted Live</ulink> is a free Live CD which includes the
+	GParted	partition editor.  GParted is also included with many
+	other Linux Live CD distributions.</para>
+
+      <warning>
+	<para>Disk partition applications can destroy data.  Make a
+	  full backup and verify its integrity before modifying disk
+	  partitions.</para>
+      </warning>
+
+      <para>Resizing &microsoft;&nbsp;Vista partitions can be difficult.
+	A Vista installation CDROM can be useful when attempting such an
+	operation.</para>
+
+      <example>
+	<title>Using an Existing Partition</title>
+
+	<para>A &windows computer has a single 40&nbsp;GB disk that has
+	  been split into two 20&nbsp;GB partitions.  &windows calls them
+	  <devicename>C:</devicename> and <devicename>D:</devicename>.
+	  The <devicename>C:</devicename> partition contains 10&nbsp;GB
+	  of data, and the <devicename>D:</devicename> partition contains
+	  5&nbsp;GB of data.</para>
+
+	<para>Moving the data from <devicename>D:</devicename> to
+	  <devicename>C:</devicename> frees up the second partition to
+	  be used for &os;.</para>
+      </example>
+
+      <example>
+	<title>Shrinking an Existing Partition</title>
+
+	<para>A &windows computer has a single 40&nbsp;GB disk and one
+	  large partition using the whole disk.  &windows shows this
+	  40&nbsp;GB partition as a single <devicename>C:</devicename>.
+	  15&nbsp;GB of space is being used.  The goal is to end up with
+	  &windows; in a 20&nbsp;GB partition, and have another
+	  20&nbsp;GB partition for &os;.
+
+	<para>There are two ways to do this.</para>
+
+	<orderedlist>
+	  <listitem>
+	    <para>Back up your &windows; data.  Then reinstall
+	      &windows;, creating a 20&nbsp;GB partition during the
+	      install.</para>
+	  </listitem>
+
+	  <listitem>
+	    <para>Use a partition resizing tool like
+	      <application>GParted</application> to shrink the &windows;
+	      partition and create a new partition in the freed space
+	      for &os;.</para>
+	  </listitem>
+	</orderedlist>
+      </example>
+
+      <para>Disk partitions containing different operating systems make
+	it possible to run any one of those operating systems at a time.
+	An alternative method that allows running multiple operating
+	systems at the same time is covered in
+	<xref linkend="virtualization">.</para>
+
+      </sect3>
+    </sect2>
+
+    <sect2>
+      <title>Collect Network Information</title>
+
+      <para>Some &os; installation methods need a network connection to
+	download files.  To connect to an Ethernet network (or cable or
+	DSL modem with an Ethernet interface), the installer will request
+	some information about the network.</para>
+
+      <para><firstterm>DHCP</firstterm> is commonly used to provide
+	automatic network configuration.  If DHCP is not available, this
+	network information must be obtained from the local network
+	administrator or service provider:</para>
+
+      <orderedlist>
+	<listitem>
+	  <para>IP address</para>
+	</listitem>
+
+	<listitem>
+	  <para>Subnet mask</para>
+	</listitem>
+
+	<listitem>
+	  <para>Default router IP address</para>
+	</listitem>
+
+	<listitem>
+	  <para>domain name of the local network</para>
+	</listitem>
+
+	<listitem>
+	  <para>DNS server IP addresses</para>
+	</listitem>
+
+      </orderedlist>
+    </sect2>
+    <sect2>
+      <title>Check for &os; Errata</title>
+
+      <para>Although the &os; project strives to ensure that each
+	release	of &os; is as stable as possible, bugs occasionally creep
+	into the process.  On very rare occasions those bugs affect the
+	installation process.  As these problems are discovered and
+	fixed, they are noted in the <ulink
+	url="http://www.FreeBSD.org/releases/&rel.current;R/errata.html">
+	FreeBSD Errata</ulink> on the &os; web site.  Check the errata
+	before installing to make sure that there are no late-breaking
+	problems.</para>
+
+      <para>Information and errata for all the releases can be found on
+	the <ulink url="&url.base;/releases/index.html">release
+	information</ulink> section of the <ulink
+	url="&url.base;/index.html">&os; web site</ulink>.</para>
+    </sect2>
+
+    <sect2>
+      <title>Obtain the &os; Installation Files</title>
+
+      <para>The &os; installation process can install from files
+	located on:</para>
+
+      <itemizedlist>
+	<title>Local Media</title>
+
+	<listitem>
+	  <para>A CDROM or DVD</para>
+	</listitem>
+
+	<listitem>
+	  <para>A USB Memory Stick</para>
+	</listitem>
+
+      </itemizedlist>
+
+      <itemizedlist>
+	<title>Network</title>
+
+	<listitem>
+	  <para>An FTP site, going through a firewall or using an HTTP proxy,
+	    as necessary</para>
+	</listitem>
+
+	<listitem>
+	  <para>An NFS server</para>
+	</listitem>
+
+      </itemizedlist>
+
+      <para>If you have a copy of &os; on CD, DVD, or USB memory stick,
+	then you already have everything you need, and should proceed to
+	(<xref linkend="bsdinstall-start">).</para>
+
+      <para>If you have not obtained the &os; installation files, see
+	<xref linkend="bsdinstall-diff-media">, which explains how
+	to prepare to install &os; from the different media types.
+	After following that section, come back here and continue with
+	<xref linkend="bsdinstall-boot-media">.</para>
+    </sect2>
+
+    <sect2 id="bsdinstall-boot-media">
+      <title>Prepare the Boot Media</title>
+
+      <para>The &os; installation process is started by booting the
+	computer into the &os; installer&mdash;it is not a program run
+	from within another operating system.  A computer normally boots
+	using the operating system installed on the hard disk, but most
+	can also be booted from a CDROM or other removable devices like
+	a USB disk or memory stick.</para>
+
+      <tip>
+	<para>If you already have a copy of &os; on CDROM, DVD, or USB
+	  memory stick, this section can be skipped.</para>
+      </tip>
+
+      <para>To create a bootable memory stick, follow these
+	steps:</para>
+
+      <procedure>
+	<step>
+	  <title>Acquire the Memory Stick Image</title>
+
+	  <para>The memory stick image can be downloaded from the
+	    <filename class="directory">ISO-IMAGES/</filename>
+	    directory from
+<!-- XXXGA Path needs updating -->
+	    <literal>ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/<replaceable>arch</replaceable>/ISO-IMAGES/<replaceable>version</replaceable>/&os;-&rel.current;-RELEASE-<replaceable>arch</replaceable>-memstick.img</literal>.
+	    Replace <replaceable>arch</replaceable> and
+	    <replaceable>version</replaceable> with the
+	    architecture and the version number which you want to
+	    install, respectively.  For example, the memory stick
+	    images for &os;/&arch.i386;&nbsp;&rel.current;-RELEASE are
+	    available from <ulink
+	    url="ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/&arch.i386;/ISO-IMAGES/&rel.current;/&os;-&rel.current;-RELEASE-&arch.i386;-memstick.img"></ulink>.</para>
+
+	  <para>The memory stick image has a <filename>.img</filename>
+	    extension.  The <filename
+	    class="directory">ISO-IMAGES/</filename> directory
+	    contains a number of different images, and the one needed
+	    depends on the version of &os; being installed, and in some
+	    cases, the target hardware.</para>
+
+	  <important>
+	    <para>Before proceeding, <emphasis>back up</emphasis> the
+	      data on the USB stick, as this procedure will
+	      <emphasis>erase</emphasis> it.</para>
+	  </important>
+	</step>
+
+	<step>
+	  <title>Write The Image File to the Memory Stick</title>
+
+	  <procedure>
+	    <title>Using &os; To Write the Image</title>
+
+	    <warning>
+	      <para>The example below shows <filename
+	        class="devicefile">/dev/da0</filename> as the target
+	        device where the image will be written.  Be very careful
+		that the correct device is used as the output target, or
+		you may destroy existing data.</para>
+	    </warning>
+
+	    <step>
+	      <title>Writing the Image with &man.dd.1;</title>
+
+	      <para>Set the <varname>kern.geom.debugflags</varname> sysctl to
+		be able to write a master boot record to the target
+		device.</para>
+
+	      <screen><userinput>&prompt.root; sysctl kern.geom.debugflags=16</userinput></screen>
+
+	      <para>The <filename>.img</filename> file
+		is <emphasis>not</emphasis> a regular file.  It is an
+		<emphasis>image</emphasis> of the complete contents of
+		the memory stick.  It <emphasis>cannot</emphasis> simply
+		be copied like a regular file, but must be written
+		directly to the target device with &man.dd.1;:</para>
+
+	      <screen>&prompt.root; <userinput>dd if=&os;-&rel.current;-RELEASE-&arch.i386;-memstick.img of=/dev/<replaceable>da0</replaceable> bs=64k</userinput></screen>
+	    </step>
+	  </procedure>
+
+	  <procedure>
+	    <title>Using &windows; To Write the Image</title>
+
+	    <warning>
+	      <para>Be sure to give the correct drive letter as the
+		output target, or you may overwrite and destroy
+		existing data.</para>
+	    </warning>
+
+	    <step>
+	      <title>Obtaining <application>Image Writer for Windows</application></title>
+
+	      <para><application>Image Writer for Windows</application> is a
+	        free application that can correctly write an image file to a
+	        memory stick.  Download it from
+	        <ulink url="https://launchpad.net/win32-image-writer/"></ulink>
+	        and extract it into a folder.</para>
+	    </step>
+
+	    <step>
+	      <title>Writing The Image with Image Writer</title>
+
+	      <para>Double-click the
+		<application>Win32DiskImager</application> icon to start
+		the program.  Verify that the drive letter shown under
+		<computeroutput>Device</computeroutput> is the drive
+		with the memory stick.  Click the folder icon and select
+		the image to be written to the memory stick. Click
+		<guibutton>Save</guibutton> to accept the image file
+		name.  Verify that everything is correct, and that no
+		folders on the memory stick are open in other windows.
+		Finally, click <guibutton>Write</guibutton> to write the
+		image file to the memory stick.</para>
+	    </step>
+	  </procedure>
+	</step>
+      </procedure>
+
+      <note>
+	<para>Installation from floppy disks is no longer supported.</para>
+      </note>
+
+      <para>You are now ready to start installing &os;.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="bsdinstall-start">
+    <title>Starting the Installation</title>
+
+    <important>
+      <para>By default, the installation will not make any changes to your
+	disk(s) until you see the following message:</para>
+
+      <literallayout class="monospaced">Your changes will now be written to disk.  If you
+have chosen to overwrite existing data, it will
+be PERMANENTLY ERASED. Are you sure you want to
+commit your changes?</literallayout>
+
+      <para>The install can be exited at any time prior to this
+	warning without changing the contents of the hard drive.  If you are
+	concerned that you have configured something incorrectly you can just
+	turn the computer off before this point, and no damage will be
+	done.</para>
+    </important>
+
+    <sect2 id="bsdinstall-starting">
+      <title>Booting</title>
+
+      <sect3 id="bsdinstall-starting-i386">
+        <title>Booting on &i386; and &arch.amd64;</title>
+
+      <procedure>
+
+	<step>
+	  <para>If you prepared a <quote>bootable</quote> USB stick, as described in
+	    <xref linkend="bsdinstall-boot-media">, then plug in your USB
+	    stick before turning on the computer.</para>
+
+	  <para>If you are booting from CDROM, then you will need to turn on
+	    the computer, and insert the CDROM at the first
+	    opportunity.</para>
+	</step>
+
+	<step>
+	  <para>Configure your machine to boot from either the CDROM or from
+	    USB, depending on the media being used for the installation.
+	    This can usually either be done from the BIOS setup menu, or often
+	    by pressing F11 or another key (Often called "Boot Selection" or
+	    similar) during the BIOS POST.  
+	</step>
+
+	<step>
+	  <para>If your computer starts up as normal and loads your existing
+	    operating system, then either:</para>
+
+	  <orderedlist>
+	    <listitem>
+	      <para>The disks were not inserted early enough in the boot
+		process.  Leave them in, and try restarting your
+		computer.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>The BIOS changes earlier did not work correctly.  You
+		should redo that step until you get the right option.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para>Your particular BIOS does not support booting from
+		the desired media.  The
+		<ulink url="http://www.plop.at/en/bootmanager.html">Plop
+		Boot Manager</ulink> can be used to boot older computers
+		from CD or USB media.</para>
+	    </listitem>
+	  </orderedlist>
+	</step>
+    
+	<step>
+	  <para>&os; will start to boot.  If you are booting from CDROM you
+	    will see a display similar to this (version information omitted):</para>
+	  
+	  <screen>Booting from CD-Rom...
+645MB medium detected
+CD Loader 1.2
+
+Building the boot loader arguments
+Looking up /BOOT/LOADER... Found
+Relocating the loader and the BTX
+Starting the BTX loader
+
+BTX loader 1.00 BTX version is 1.02
+Consoles: internal video/keyboard
+BIOS CD is cd0
+BIOS drive C: is disk0
+BIOS drive D: is disk1
+BIOS 636kB/261056kB available memory
+
+FreeBSD/i386 bootstrap loader, Revision 1.1
+
+Loading /boot/defaults/loader.conf
+/boot/kernel/kernel text=0x64daa0 data=0xa4e80+0xa9e40 syms=[0x4+0x6cac0+0x4+0x88e9d]
+\</screen>
+	
+	<step>
+	  <para>Whether you booted from CDROM or USB stick, the
+	    boot process will then get to the &os; boot loader
+	    menu:</para>
+
+	  <figure id="bsdinstall-boot-loader-menu">
+	    <title>&os; Boot Loader Menu</title>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="bsdinstall/bsdinstall-boot-loader-menu" format="PNG">
+	      </imageobject>
+	    </mediaobject>
+	  </figure>
+
+	  <para>Either wait ten seconds, or press <keycap>Enter</keycap>.</para>
+	</step>
+      </procedure>
+
+      </sect3>
+
+      <sect3>
+	<title>Booting for &sparc64;</title>
+
+	<para>Most &sparc64; systems are set up to boot automatically
+	  from disk.  To install &os;, you need to boot over the
+	  network or from a CDROM, which requires you to break into
+	  the PROM (OpenFirmware).</para>
+
+	<para>To do this, reboot the system, and wait until the boot
+	  message appears.  It depends on the model, but should look
+	  about like:</para>
+
+    <screen>Sun Blade 100 (UltraSPARC-IIe), Keyboard Present
+Copyright 1998-2001 Sun Microsystems, Inc.  All rights reserved.
+OpenBoot 4.2, 128 MB memory installed, Serial #51090132.
+Ethernet address 0:3:ba:b:92:d4, Host ID: 830b92d4.</screen>
+
+	<para>If your system proceeds to boot from disk at this point,
+	  you need to press
+	  <keycombo action="simul"><keycap>L1</keycap><keycap>A</keycap></keycombo>
+	  or
+	  <keycombo action="simul"><keycap>Stop</keycap><keycap>A</keycap></keycombo>
+	  on the keyboard, or send a <command>BREAK</command> over the
+	  serial console (using for example <command>~#</command> in
+	  &man.tip.1; or &man.cu.1;) to get to the PROM prompt.  It
+	  looks like this:</para>
+
+	<screenco>
+	  <areaspec>
+	    <area id="bsdinstall-prompt-single" coords="1 5">
+	    <area id="bsdinstall-prompt-smp" coords="2 5">
+	  </areaspec>
+
+	  <screen><prompt>ok     </prompt>
+<prompt>ok {0} </prompt></screen>
+
+	  <calloutlist>
+	    <callout arearefs="bsdinstall-prompt-single">
+	      <para>This is the prompt used on systems with just one
+		CPU.</para>
+	    </callout>
+
+	    <callout arearefs="bsdinstall-prompt-smp">
+	      <para>This is the prompt used on SMP systems, the digit
+		indicates the number of the active CPU.</para>
+	    </callout>
+	  </calloutlist>
+	</screenco>
+
+	<para>At this point, place the CDROM into your drive, and from
+	  the PROM prompt, type <command>boot cdrom</command>.</para>
+
+      </sect3>
+
+    </sect2>
+
+    <sect2 id="bsdinstall-view-probe">
+      <title>Reviewing the Device Probe Results</title>
+
+      <para>The last few hundred lines that have been displayed on screen are
+	stored and can be reviewed.</para>
+
+      <para>To review the buffer, press <keycap>Scroll Lock</keycap>.  This
+	turns on scrolling in the display.  You can then use the arrow keys, or
+	<keycap>PageUp</keycap> and <keycap>PageDown</keycap> to view the
+	results.  Press <keycap>Scroll Lock</keycap> again to stop
+	scrolling.</para>
+
+      <para>Do this now, to review the text that scrolled off the screen when
+	the kernel was carrying out the device probes.  You will see text
+	similar to <xref linkend="bsdinstall-dev-probe">, although the precise
+	text will differ depending on the devices that you have in your
+	computer.</para>
+
+      <figure id="bsdinstall-dev-probe">
+	<title>Typical Device Probe Results</title>
+
+	<screen>Copyright (c) 1992-2011 The FreeBSD Project.
+Copyright (c) 1979, 1980, 1983, 1986, 1988, 1989, 1991, 1992, 1993, 1994
+        The Regents of the University of California. All rights reserved.
+FreeBSD is a registered trademark of The FreeBSD Foundation.
+FreeBSD 9.0-RELEASE #0 r225473M: Sun Sep 11 16:07:30 BST 2011
+    root@psi:/usr/obj/usr/src/sys/GENERIC amd64
+CPU: Intel(R) Core(TM)2 Duo CPU     T9400  @ 2.53GHz (2527.05-MHz K8-class CPU)
+  Origin = "GenuineIntel"  Id = 0x10676  Family = 6  Model = 17  Stepping = 6
+  Features=0xbfebfbff&lt;FPU,VME,DE,PSE,TSC,MSR,PAE,MCE,CX8,APIC,SEP,MTRR,PGE,MCA,CMOV,PAT,PSE36,CLFLUSH,DTS,ACPI,MMX,FXSR,SSE,SSE2,SS,HTT,TM,PBE&gt;
+  Features2=0x8e3fd&lt;SSE3,DTES64,MON,DS_CPL,VMX,SMX,EST,TM2,SSSE3,CX16,xTPR,PDCM,SSE4.1&gt;
+  AMD Features=0x20100800&lt;SYSCALL,NX,LM&gt;
+  AMD Features2=0x1&lt;LAHF&gt;
+  TSC: P-state invariant, performance statistics
+real memory  = 3221225472 (3072 MB)
+avail memory = 2926649344 (2791 MB)
+Event timer "LAPIC" quality 400
+ACPI APIC Table: &lt;TOSHIB A0064   &gt;
+FreeBSD/SMP: Multiprocessor System Detected: 2 CPUs
+FreeBSD/SMP: 1 package(s) x 2 core(s)
+ cpu0 (BSP): APIC ID:  0
+ cpu1 (AP): APIC ID:  1
+ioapic0: Changing APIC ID to 1
+ioapic0 &lt;Version 2.0&gt; irqs 0-23 on motherboard
+kbd1 at kbdmux0
+acpi0: &lt;TOSHIB A0064&gt; on motherboard
+acpi0: Power Button (fixed)
+acpi0: reservation of 0, a0000 (3) failed
+acpi0: reservation of 100000, b6690000 (3) failed
+Timecounter "ACPI-safe" frequency 3579545 Hz quality 850
+acpi_timer0: &lt;24-bit timer at 3.579545MHz&gt; port 0xd808-0xd80b on acpi0
+cpu0: &lt;ACPI CPU&gt; on acpi0
+ACPI Warning: Incorrect checksum in table [ASF!] - 0xFE, should be 0x9A (20110527/tbutils-282)
+cpu1: &lt;ACPI CPU&gt; on acpi0
+pcib0: &lt;ACPI Host-PCI bridge&gt; port 0xcf8-0xcff on acpi0
+pci0: &lt;ACPI PCI bus&gt; on pcib0
+vgapci0: &lt;VGA-compatible display&gt; port 0xcff8-0xcfff mem 0xff400000-0xff7fffff,0xe0000000-0xefffffff irq 16 at device 2.0 on pci0
+agp0: &lt;Intel GM45 SVGA controller&gt; on vgapci0
+agp0: aperture size is 256M, detected 131068k stolen memory
+vgapci1: &lt;VGA-compatible display&gt; mem 0xffc00000-0xffcfffff at device 2.1 on pci0
+pci0: &lt;simple comms&gt; at device 3.0 (no driver attached)
+em0: &lt;Intel(R) PRO/1000 Network Connection 7.2.3&gt; port 0xcf80-0xcf9f mem 0xff9c0000-0xff9dffff,0xff9fe000-0xff9fefff irq 20 at device 25.0 on pci0
+em0: Using an MSI interrupt
+em0: Ethernet address: 00:1c:7e:6a:ca:b0
+uhci0: &lt;Intel 82801I (ICH9) USB controller&gt; port 0xcf60-0xcf7f irq 16 at device 26.0 on pci0
+usbus0: &lt;Intel 82801I (ICH9) USB controller&gt; on uhci0
+uhci1: &lt;Intel 82801I (ICH9) USB controller&gt; port 0xcf40-0xcf5f irq 21 at device 26.1 on pci0
+usbus1: &lt;Intel 82801I (ICH9) USB controller&gt; on uhci1
+uhci2: &lt;Intel 82801I (ICH9) USB controller&gt; port 0xcf20-0xcf3f irq 19 at device 26.2 on pci0
+usbus2: &lt;Intel 82801I (ICH9) USB controller&gt; on uhci2
+ehci0: &lt;Intel 82801I (ICH9) USB 2.0 controller&gt; mem 0xff9ff800-0xff9ffbff irq 19 at device 26.7 on pci0
+usbus3: EHCI version 1.0
+usbus3: &lt;Intel 82801I (ICH9) USB 2.0 controller&gt; on ehci0
+hdac0: &lt;Intel 82801I High Definition Audio Controller&gt; mem 0xff9f8000-0xff9fbfff irq 22 at device 27.0 on pci0
+pcib1: &lt;ACPI PCI-PCI bridge&gt; irq 17 at device 28.0 on pci0
+pci1: &lt;ACPI PCI bus&gt; on pcib1
+iwn0: &lt;Intel(R) WiFi Link 5100&gt; mem 0xff8fe000-0xff8fffff irq 16 at device 0.0 on pci1
+pcib2: &lt;ACPI PCI-PCI bridge&gt; irq 16 at device 28.1 on pci0
+pci2: &lt;ACPI PCI bus&gt; on pcib2
+pcib3: &lt;ACPI PCI-PCI bridge&gt; irq 18 at device 28.2 on pci0
+pci4: &lt;ACPI PCI bus&gt; on pcib3
+pcib4: &lt;ACPI PCI-PCI bridge&gt; at device 30.0 on pci0
+pci5: &lt;ACPI PCI bus&gt; on pcib4
+cbb0: &lt;RF5C476 PCI-CardBus Bridge&gt; at device 11.0 on pci5
+cardbus0: &lt;CardBus bus&gt; on cbb0
+pccard0: &lt;16-bit PCCard bus&gt; on cbb0
+isab0: &lt;PCI-ISA bridge&gt; at device 31.0 on pci0
+isa0: &lt;ISA bus&gt; on isab0
+ahci0: &lt;Intel ICH9M AHCI SATA controller&gt; port 0x8f58-0x8f5f,0x8f54-0x8f57,0x8f48-0x8f4f,0x8f44-0x8f47,0x8f20-0x8f3f mem 0xff9fd800-0xff9fdfff irq 19 at device 31.2 on pci0
+ahci0: AHCI v1.20 with 4 3Gbps ports, Port Multiplier not supported
+ahcich0: &lt;AHCI channel&gt; at channel 0 on ahci0
+ahcich1: &lt;AHCI channel&gt; at channel 1 on ahci0
+ahcich2: &lt;AHCI channel&gt; at channel 4 on ahci0
+acpi_lid0: &lt;Control Method Lid Switch&gt; on acpi0
+battery0: &lt;ACPI Control Method Battery&gt; on acpi0
+acpi_button0: &lt;Power Button&gt; on acpi0
+acpi_acad0: &lt;AC Adapter&gt; on acpi0
+acpi_toshiba0: &lt;Toshiba HCI Extras&gt; on acpi0
+acpi_tz0: &lt;Thermal Zone&gt; on acpi0
+attimer0: &lt;AT timer&gt; port 0x40-0x43 irq 0 on acpi0
+Timecounter "i8254" frequency 1193182 Hz quality 0
+Event timer "i8254" frequency 1193182 Hz quality 100
+atkbdc0: &lt;Keyboard controller (i8042)&gt; port 0x60,0x64 irq 1 on acpi0
+atkbd0: &lt;AT Keyboard&gt; irq 1 on atkbdc0
+kbd0 at atkbd0
+atkbd0: [GIANT-LOCKED]
+psm0: &lt;PS/2 Mouse&gt; irq 12 on atkbdc0
+psm0: [GIANT-LOCKED]
+psm0: model GlidePoint, device ID 0
+atrtc0: &lt;AT realtime clock&gt; port 0x70-0x71 irq 8 on acpi0
+Event timer "RTC" frequency 32768 Hz quality 0
+hpet0: &lt;High Precision Event Timer&gt; iomem 0xfed00000-0xfed003ff on acpi0
+Timecounter "HPET" frequency 14318180 Hz quality 950
+Event timer "HPET" frequency 14318180 Hz quality 450
+Event timer "HPET1" frequency 14318180 Hz quality 440
+Event timer "HPET2" frequency 14318180 Hz quality 440
+Event timer "HPET3" frequency 14318180 Hz quality 440
+uart0: &lt;16550 or compatible&gt; port 0x3f8-0x3ff irq 4 flags 0x10 on acpi0
+sc0: &lt;System console&gt; at flags 0x100 on isa0
+sc0: VGA &lt;16 virtual consoles, flags=0x300&gt;
+vga0: &lt;Generic ISA VGA&gt; at port 0x3c0-0x3df iomem 0xa0000-0xbffff on isa0
+ppc0: cannot reserve I/O port range
+est0: &lt;Enhanced SpeedStep Frequency Control&gt; on cpu0
+p4tcc0: &lt;CPU Frequency Thermal Control&gt; on cpu0
+est1: &lt;Enhanced SpeedStep Frequency Control&gt; on cpu1
+p4tcc1: &lt;CPU Frequency Thermal Control&gt; on cpu1
+Timecounters tick every 1.000 msec
+hdac0: HDA Codec #0: Realtek ALC268
+hdac0: HDA Codec #1: Lucent/Agere Systems (Unknown)
+pcm0: &lt;HDA Realtek ALC268 PCM #0 Analog&gt; at cad 0 nid 1 on hdac0
+pcm1: &lt;HDA Realtek ALC268 PCM #1 Analog&gt; at cad 0 nid 1 on hdac0
+usbus0: 12Mbps Full Speed USB v1.0
+usbus1: 12Mbps Full Speed USB v1.0
+usbus2: 12Mbps Full Speed USB v1.0
+usbus3: 480Mbps High Speed USB v2.0
+ugen0.1: &lt;Intel&gt; at usbus0
+uhub0: &lt;Intel UHCI root HUB, class 9/0, rev 1.00/1.00, addr 1&gt; on usbus0
+ugen1.1: &lt;Intel&gt; at usbus1
+uhub1: &lt;Intel UHCI root HUB, class 9/0, rev 1.00/1.00, addr 1&gt; on usbus1
+ugen2.1: &lt;Intel&gt; at usbus2
+uhub2: &lt;Intel UHCI root HUB, class 9/0, rev 1.00/1.00, addr 1&gt; on usbus2
+ugen3.1: &lt;Intel&gt; at usbus3
+uhub3: &lt;Intel EHCI root HUB, class 9/0, rev 2.00/1.00, addr 1&gt; on usbus3
+uhub0: 2 ports with 2 removable, self powered
+uhub1: 2 ports with 2 removable, self powered
+uhub2: 2 ports with 2 removable, self powered
+uhub3: 6 ports with 6 removable, self powered
+ugen2.2: &lt;vendor 0x0b97&gt; at usbus2
+uhub8: &lt;vendor 0x0b97 product 0x7761, class 9/0, rev 1.10/1.10, addr 2&gt; on usbus2
+ugen1.2: &lt;Microsoft&gt; at usbus1
+ada0 at ahcich0 bus 0 scbus1 target 0 lun 0
+ada0: &lt;Hitachi HTS543225L9SA00 FBEOC43C&gt; ATA-8 SATA 1.x device
+ada0: 150.000MB/s transfers (SATA 1.x, UDMA6, PIO 8192bytes)
+ada0: Command Queueing enabled
+ada0: 238475MB (488397168 512 byte sectors: 16H 63S/T 16383C)
+ada0: Previously was known as ad4
+ums0: &lt;Microsoft Microsoft 3-Button Mouse with IntelliEyeTM, class 0/0, rev 1.10/3.00, addr 2&gt; on usbus1
+SMP: AP CPU #1 Launched!
+cd0 at ahcich1 bus 0 scbus2 target 0 lun 0
+cd0: &lt;TEAC DV-W28S-RT 7.0C&gt; Removable CD-ROM SCSI-0 device 
+cd0: 150.000MB/s transfers (SATA 1.x, ums0: 3 buttons and [XYZ] coordinates ID=0
+UDMA2, ATAPI 12bytes, PIO 8192bytes)
+cd0: cd present [1 x 2048 byte records]
+ugen0.2: &lt;Microsoft&gt; at usbus0
+ukbd0: &lt;Microsoft Natural Ergonomic Keyboard 4000, class 0/0, rev 2.00/1.73, addr 2&gt; on usbus0
+kbd2 at ukbd0
+uhid0: &lt;Microsoft Natural Ergonomic Keyboard 4000, class 0/0, rev 2.00/1.73, addr 2&gt; on usbus0
+Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
+      </figure>
+
+      <para>Check the probe results carefully to make sure that &os; found
+	all the devices you expected.  If a device was not found, then it will
+	not be listed.  <link linkend="kernelconfig-modules">Kernel modules</link>
+	allows you to add in support for devices which are not in the
+	<filename>GENERIC</filename> kernel.</para>
+
+      <para>After the procedure of device
+	probing, you will see <xref linkend="bsdinstall-choose-mode">.
+	The install media can be used in three ways: to install &os;,
+	as a "live CD", or to simply access a &os; shell.  Use the
+<!-- XXXGA these should be links -->
+	arrow key to choose an option, and <keycap>Enter</keycap> to
+	select.</para>
+
+      <figure id="bsdinstall-choose-mode">
+	<title>Selecting Installation Media Mode</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-choose-mode" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>Selecting "Install" here will enter the installer.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="using-bsdinstall">
+    <title>Introducing BSDinstall</title>
+    <para>The <application>bsdinstall</application> utility is the installation
+      application provided by the &os; Project.  It is console based and is
+      divided into a number of menus and screens that you can use to
+      configure and control the installation process.</para>
+
+    <para>The <application>bsdinstall</application> menu system is controlled
+      by the arrow keys, <keycap>Enter</keycap>, <keycap>Tab</keycap>, <keycap>Space</keycap>, and
+      other keys.</para>
+
+    <sect2 id="bsdinstall-keymap">
+      <title>Selecting the Keymap Menu</title>
+
+      <para>Depending on the system console being used, <application>bsdinstall</application> may initially
+        prompt to select your keyboard layout.</para>
+
+      <figure id="bsdinstall-config-keymap">
+	<title>Selecting Keyboard Menu</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-config-keymap" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>Select the keymap that most closely represents the mapping of the
+        keyboard attached to the system, using the up/down arrow keys and pressing
+        <keycap>Enter</keycap>.</para>
+
+      <note>
+	<para>Pressing <keycap>Esc</keycap> will use the default keymap.
+	  <guimenuitem>United States of America ISO-8859-1</guimenuitem>
+	  is also a safe option if the choice of keymap is not
+	  clear.</para>
+      </note>
+    </sect2>
+
+    <sect2 id="bsdinstall-hostname">
+      <title>Setting the Hostname</title>
+
+      <para>Next, <application>bsdinstall</application> will prompt for the
+	hostname to be given to the newly installed system.</para>
+
+      <figure id="bsdinstall-config-hostname">
+	<title>Setting the Hostname</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-config-hostname" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>The entered hostname should be a fully-qualified hostname, such as
+	<hostid role="fqdn">machine3.example.com</hostid></para>
+    </sect2>
+
+    <sect2 id="bsdinstall-components">
+      <title>Selecting Components to Install</title>
+
+      <para>Next, <application>bsdinstall</application> will prompt to select
+	optional components to install.</para>
+
+      <figure id="bsdinstall-config-components">
+	<title>Selecting Components To Install</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-config-components" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>Deciding which components to install will depend largely
+	on the intended use of the system and the amount of disk space
+	available.  The &os; Kernel and userland (collectively the
+	<quote>base system</quote>) are always installed.</para>
+
+      <para>Depending on the type of installation, some of these
+	components may not appear.</para>
+
+      <itemizedlist>
+	<title>Optional Components include:</title>
+<!-- XXXGA needs better formatting? -->
+	<listitem>
+	  <para><literal>doc</literal> - Additional documentation,
+	    mostly of historical interest.  Documentation provided by
+	    the &os; Documentation Project may be installed
+	    later.</para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>games</literal> - Several traditional BSD
+	    games, including <application>fortune</application>,
+	    <application>rot13</application>, and others.</para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>lib32</literal> - Compatibility libraries for
+	    running 32-bit applications on a 64-bit version of
+	    &os;.</para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>ports</literal> - The &os; Ports
+	    Collection.</para>
+
+	  <para>The ports collection is an easy and convenient way to
+	    install software.  The Ports Collection does not contain the
+	    source code necessary to compile the software.  Instead, it
+	    is a collection of files which automates the downloading,
+	    compiling and installation of third-party software packages.
+	    <xref linkend="ports"> discusses how to use the ports
+	    collection.</para>
+
+	  <warning>
+	    <para>The installation program does not check to see if you have
+	      adequate space.  Select this option only if you have
+	      adequate hard disk space. As of FreeBSD &rel.current;, the
+	      FreeBSD Ports Collection takes up about &ports.size; of disk
+	      space. You can safely assume a larger value for more recent
+	      versions of FreeBSD.</para>
+	  </warning>
+	</listitem>
+
+	<listitem>
+	  <para><literal>src</literal> - System source code.</para>
+
+	  <para>&os; comes with full source code for both the kernel and
+	    the userland.  Although not required for the majority of
+	    applications, it may be required to build certain software
+	    supplied as source (for example, device drivers or kernel
+	    modules), or for developing &os; itself.</para>
+
+	  <para>The full source tree requires 1&nbsp;GB of disk space,
+	    and recompiling the entire &os; system requires an
+	    additional 5&nbsp;GB of space.</para>
+	</listitem>
+      </itemizedlist>
+    </sect2>
+  </sect1>
+
+<!-- XXXGA done to here. -->
+
+<!-- WB: new network install section -->
+  <sect1 id="bsdinstall-netinstall">
+    <title>Installing from the Network</title>
+
+    <para>The <emphasis>bootonly</emphasis> installation media does not
+      hold copies of the installation files.  When a
+      <emphasis>bootonly</emphasis> installation method is used, the
+      files must be retrieved over a network connection as they are
+      needed.</para>
+
+    <figure id="bsdinstall-netinstall-notify">
+      <title>Installing From The Network</title>
+
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="bsdinstall/bsdinstall-netinstall-files" format="PNG">
+	</imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>After the network connection has been configured as shown in
+      <xref linkend="bsdinstall-config-network-dev">, choose a mirror
+      site that is nearest to your location.</para>
+
+    <figure id="bsdinstall-netinstall-mirror">
+      <title>Choosing A Mirror</title>
+
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="bsdinstall/bsdinstall-netinstall-mirrorselect" format="PNG">
+	</imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>The installation will continue as if the installation files
+      were located on local media.</para> </sect1>
+
+<!-- WB: new bsdinstall partitioning section! -->
+  <sect1 id="bsdinstall-partitioning">
+    <title>Allocating Disk Space</title>
+
+    <para>There are three ways to allocate disk space for &os;.
+      <emphasis>Guided</emphasis> partitioning automatically sets up
+      disk partitions, while <emphasis>Manual</emphasis> partitioning
+      allows advanced users to create customized partitions.  Finally,
+      there's the option of starting a shell where command-line programs
+      like &man.gpart.8;, &man.fdisk.8;, and &man.bsdlabel.8; can be
+      used directly.</para>
+      <!-- WB: mention ZFS here? -->
+
+      <figure id="bsdinstall-part-guided-manual">
+	<title>Selecting Guided or Manual Partitioning</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-part-guided-manual" format="PNG">
+	  </imageobject>
+      </mediaobject>
+      </figure>
+
+    <sect2 id="bsdinstall-part-guided">
+      <title>Guided Partitioning</title>
+
+      <para>If multiple disks are connected, choose the one where &os;
+	is to be installed.</para>
+
+      <figure id="bsdinstall-part-guided-disk">
+	<title>Selecting From Multiple Disks</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-part-guided-disk" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>The entire disk can be allocated to &os;, or just a portion
+	of it.  If <guibutton>[&nbsp;Entire Disk&nbsp;]</guibutton> is
+	chosen, a general partition layout filling the whole disk is
+	created.  Selecting
+	<guibutton>[&nbsp;Partition&nbsp;]</guibutton> creates a
+	partition layout in unused space on the disk.</para>
+
+      <figure id="bsdinstall-part-entire-part">
+	<title>Selecting Entire Disk or Partition</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-part-entire-part" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>After the partition layout has been created, review it
+	carefully for accuracy.  If a mistake has been made, selecting
+	<guibutton>[&nbsp;Revert&nbsp;]</guibutton> will reset the
+	partitions as they were previously, or
+	<guibutton>[&nbsp;Auto&nbsp;]</guibutton> will recreate the
+	automatic &os; partitions.  Partitions can be manually created,
+	modified, or deleted. When the partitioning is correct, select
+	<guibutton>[&nbsp;Finish&nbsp;]</guibutton> to continue with the
+	installation.
+      </para>
+
+      <figure id="bsdinstall-part-review">
+	<title>Review Created Partitions</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-part-review" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+    </sect2>
+
+    <sect2 id="bsdinstall-part-manual">
+      <title>Manual Partitioning</title>
+
+      <para>Manual partitioning goes straight to the partition
+	editor.</para>
+
+      <figure id="bsdinstall-part-manual-create">
+	<title>Manually Create Partitions</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-part-manual-create" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>Highlighting a drive (<devicename>ada0</devicename> in this
+	example) and selecting
+	<guibutton>[&nbsp;Create&nbsp;]</guibutton> displays a menu for
+	choosing the type of <firstterm>partitioning
+	scheme</firstterm>.</para>
+
+      <figure id="bsdinstall-part-manual-partscheme">
+	<title>Manually Create Partitions</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-part-manual-partscheme" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>GPT partitioning is usually the most appropriate choice for
+	PC-compatible computers.  Older PC operating systems that aren't
+	compatible with GPT may require MBR partitioning instead. The
+	other partitioning schemes are generally used for uncommon or
+	older computer systems.</para>
+
+      <table frame="all" rowsep="1" pgwide="1">
+	<title>Partitioning Schemes</title>
+
+	<tgroup cols="2" align="left">
+	  <thead>
+	    <row>
+	      <entry align="left">Abbreviation</entry>
+	      <entry align="left">Description</entry>
+	    </row>
+	  </thead>
+
+	<tbody>
+	  <row>
+	    <entry>APM</entry>
+	    <entry><ulink url="http://support.apple.com/kb/TA21692">Apple
+	      Partition Map, used by older non-x86 Macs.</ulink></entry>
+	  </row>
+
+	  <row>
+	    <entry>BSD</entry>
+	    <entry>BSD Labels without an MBR, sometimes called
+	      "dangerously dedicated mode".  See &man.bsdlabel.8;.</entry>
+	  </row>
+
+	  <row>
+	    <entry>GPT</entry>
+	    <entry><ulink
+	      url="http://en.wikipedia.org/wiki/GUID_Partition_Table">GUID
+	      Partition Table.</ulink></entry>
+	  </row>
+
+	  <row>
+	    <entry>MBR</entry>
+	    <entry><ulink
+	      url="http://en.wikipedia.org/wiki/Master_boot_record">Master
+	      Boot Record.</ulink></entry>
+	  </row>
+
+	  <row>
+	    <entry>PC98</entry>
+	    <entry><ulink url="http://en.wikipedia.org/wiki/Pc9801">MBR
+	      variant, used by NEC PC-98 computers.</ulink></entry>
+	  </row>
+
+	  <row>
+	    <entry>VTOC8</entry>
+	    <entry>Volume Table Of Contents, used by Sun SPARC64 and
+	      UltraSPARC computers.</entry>
+	  </row>
+	</tbody>
+      </table>
+
+      <para>After the partitioning scheme has been selected and created,
+	selecting <guibutton>[&nbsp;Create&nbsp;]</guibutton> again will
+	create new partitions.</para>
+
+      <figure id="bsdinstall-part-manual-addpart">
+	<title>Manually Create Partitions</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-part-manual-addpart" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>A standard &os; GPT installation uses at least three
+	partitions:</para>
+
+      <variablelist>
+	<varlistentry>
+	  <term><emphasis>freebsd-boot</emphasis></term>
+
+	  <listitem>
+	    <para>&os; boot code.  This partition must be at the
+	    start of the disk.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><emphasis>freebsd-ufs</emphasis></term>
+
+	  <listitem>
+	    <para>A &os; UFS filesystem.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><emphasis>freebsd-swap</emphasis></term>
+
+	  <listitem>
+	    <para>&os; swap space.</para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+
+<!-- WB: mention 4K sector alignment, suggested partition minimums here? -->
+
+      <para>Multiple filesystem partitions can be used, and some people
+	may prefer a traditional layout with separate partitions for
+	the <filename>/</filename>, <filename>/var</filename>, and
+	<filename>/usr</filename> filesystems.</para>
+
+      <para>See &man.gpart.8; for a complete list of available GPT
+	partition types.</para>
+
+      <para>Common abbreviations can be used in the Size field:
+	<emphasis>K</emphasis> for kilobytes, <emphasis>M</emphasis> for
+	megabytes, or <emphasis>G</emphasis> for gigabytes.</para>
+
+      <para>A mountpoint is needed if this partition will contain a
+	filesystem.  If only a single UFS partition will be created, the
+	mountpoint should be <filename>/</filename>.</para>
+
+      <para>A <firstterm>label</firstterm> is also requested.  A label
+	is a name by which this partition will be known.  Drive
+	names or numbers can change if the drive is connected to
+	a different controller or port, but the partition label does
+	not change.  Referring to labels instead of drive names
+	and partition numbers in files like
+	<filename>/etc/fstab</filename> makes the system more tolerant
+	of changing hardware.  GPT labels appear in
+	<filename>/dev/gpt/</filename> when a disk is attached.
+	Other partitioning schemes have different label
+	capabilities, and their labels appear in different directories
+	in <filename>/dev/</filename>.</para>
+
+      <tip>
+	<para>Use a unique label on every filesystem to avoid conflicts
+	  from identical labels.  A few letters from the computer's
+	  name, use, or location can be added to the label.  "labroot"
+	  or "rootfs-lab" for the UFS root partition on the lab's
+	  computer, for example.</para>
+      </tip>
+
+      <para>After the custom partitions have been created, select
+	<guibutton>[&nbsp;Finish&nbsp;]</guibutton> to continue with the
+	installation.</para>
+    </sect2>
+  </sect1>
+<!-- WB: end of new partition editor section -->
+
+  <sect1 id="bsdinstall-final-warning">
+    <title>Committing to the Installation</title>
+
+    <para>The installation can now proceed if desired.  This is also
+      the last chance for aborting the installation to prevent changes
+      to the hard drive.</para>
+
+    <figure id="bsdinstall-final-confirmation">
+      <title>Final Confirmation</title>
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="bsdinstall/bsdinstall-final-confirmation" format="PNG">
+	</imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>Select <guibutton>[&nbsp;Commit&nbsp;]</guibutton> and press 
+      <keycap>Enter</keycap> to proceed.  Alternatively, if changes
+      need to be made, <guibutton>[&nbsp;Back&nbsp;]</guibutton> will
+      return to the partition editor.  <guibutton>[&nbsp;Revert &amp; Exit&nbsp;]</guibutton>
+      will offer the chance to exit the installer, with no changes
+      being made to the hard drive.</para>
+
+    <para>The installation time will vary according to the distributions
+      chosen, installation media, and the speed of the computer.
+      There will be a series of
+      messages displayed indicating installation progress.</para>
+
+    <para>Firstly, the installer will write the partitions to the
+      disk, and perform a <command>newfs</command> to initialise the
+      partitions.</para>
+
+    <para>If doing a network install, <application>bsdinstall</application>
+      will then proceed to download the required distribution files.</para>
+<!-- XXXGA: What does it do if fetch fails? -->
+
+    <figure id="bsdinstall-distfile-fetching">
+      <title>Fetching Distribution Files</title>
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="bsdinstall/bsdinstall-distfile-fetching" format="PNG">
+	</imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>Next, the integrity of the distribution files is verified, to
+      ensure they have not been corrupted during download or misread
+      from the installation media.</para>
+
+    <figure id="bsdinstall-distfile-verify">
+      <title>Verifying Distribution files</title>
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="bsdinstall/bsdinstall-distfile-verifying" format="PNG">
+	</imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>Finally, the verified distribution files are extracted to
+      the disk.</para>
+
+    <figure id="bsdinstall-distfile-extract">
+      <title>Extracting Distribution files</title>
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="bsdinstall/bsdinstall-distfile-extracting" format="PNG">
+	</imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>Once all requested distribution files have been extracted,
+      <application>bsdinstall</application> will then drop straight
+	into the post-installation configuration tasks
+	(see <xref linkend="bsdinstall-post">).</para>
+  </sect1>
+
+  <sect1 id="bsdinstall-post">
+    <title>Post-installation</title>
+
+    <para>Configuration of various options follows a successful
+      installation of &os;.  An option can be configured by re-entering the
+      configuration options from the final menu before booting the
+      new FreeBSD install.</para>
+
+    <sect2 id="bsdinstall-post-root">
+      <title>Setting the <username>root</username> Account Password</title>
+
+      <para>The <username>root</username> user's password must be
+	set.  Note that while entering the password, the characters
+	being typed are	not displayed to the screen.  After the password
+	has been entered, it must be entered again.  This helps prevent
+	typing errors.</para>
+
+      <figure id="bsdinstall-post-set-root-passwd">
+	<title>Setting the Root Password</title>
+
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-post-root-passwd" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>After the password has been successfully entered, the
+	installation will continue.</para>
+    </sect2>
+<!-- Config network, if not done earlier -->
+<!-- Config timezone -->
+<!-- XXXGA Done to here -->
+
+    <sect2 id="bsdinstall-config-network-dev">
+      <title>Configuring The Network Interface</title>
+
+      <note>
+	<para>If network configuration has already been done as part of
+	  a <emphasis>bootonly</emphasis> installation,	it will be
+	  skipped during post-installation configuration.</para>
+      </note>
+
+      <para>Choose the network interface to be used.</para>
+
+      <figure id="bsdinstall-configure-net-interface">
+	<title>Choose a Network Interface</title>
+
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-configure-network-interface" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <sect3 id="bsdinstall-ipv4">
+	<title>Configuring IPv4 Networking</title>
+
+	  <para>Choose whether IPv4 networking is to be used.  This is
+	    the most common type of network connection.</para>
+
+	  <figure id="bsdinstall-configure-net-ipv4">
+	    <title>Choose IPv4 Networking</title>
+
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-ipv4" format="PNG">
+	      </imageobject>
+	    </mediaobject>
+	  </figure>
+
+	<para>There are two methods of IPv4 configuration.
+	  <firstterm>DHCP</firstterm> will automatically configure the
+	  network interface correctly, and is the preferred method.
+	  <firstterm>Static</firstterm> configuration requires manual
+	  entry of the network information.</para>
+
+	<sect4 id="bsdinstall-net-ipv4-dhcp-config">
+	  <title>IPv4 DHCP Network Configuration</title>
+
+	  <para>If a DHCP server is available, select
+	    <guibutton>[&nbsp;Yes&nbsp;]</guibutton> to automatically
+	    configure the network interface.</para>
+
+	  <figure id="bsdinstall-net-ipv4-dhcp">
+	    <title>Choose IPv4 DHCP Configuration</title>
+
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-ipv4-dhcp" format="PNG">
+	      </imageobject>
+	    </mediaobject>
+	  </figure>
+	</sect4>
+
+	<sect4 id="bsdinstall-net-ipv4-static-config">
+	  <title>Static IPv4 Network Configuration</title>
+
+	  <para>Static configuration of the network interface requires
+	    entry of some IPv4 information.</para>
+
+	  <figure id="bsdinstall-net-ipv4-static">
+	    <title>IPv4 Static Configuration</title>
+
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-ipv4-static" format="PNG">
+	      </imageobject>
+	    </mediaobject>
+	  </figure>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term>IP Address</term>
+
+	      <listitem>
+		<para>The manually-assigned IP address given to this
+		  computer.  This address must be unique and not in use
+		  by another piece of network equipment.</para>
+	      </listitem>
+	    </varlistentry>
+
+	    <varlistentry>
+	      <term>Subnet Mask</term>
+
+	      <listitem>
+		<para>The subnet mask used for the local network.
+		  Typically, this is
+		  <literal>255.255.255.0</literal>.</para>
+	      </listitem>
+	    </varlistentry>
+
+	    <varlistentry>
+	      <term>Default Router</term>
+
+	      <listitem>
+		<para>The IP address of the default router on this
+		  network.  Usually this is the address of the router or
+		  other piece of network equipment that connects the
+		  local network to the Internet, sometimes also called
+		  default gateway.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</sect4>
+      </sect3>
+
+      <sect3 id="bsdinstall-ipv6">
+	<title>Configuring IPv6 Networking</title>
+
+	<para>IPv6 is a newer method of network configuration.  If IPv6
+	  is available and desired, choose
+	  <guibutton>[&nbsp;Yes&nbsp;]</guibutton> to select it.</para>
+
+	<figure id="bsdinstall-net-ipv6">
+	  <title>Choose IPv6 Networking</title>
+
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-ipv6" format="PNG">
+	    </imageobject>
+	  </mediaobject>
+	</figure>
+
+	<para>IPv6 also has two methods of configuration.
+	  <firstterm>SLAAC</firstterm>, or <emphasis>StateLess Address
+	  AutoConfiguration</emphasis>, will automatically configure the
+	  network interface correctly. <firstterm>Static</firstterm>
+	  configuration requires manual entry of the network
+	  information.</para>
+
+	<sect4 id="bsdinstall-net-ipv6-slaac-config">
+	  <title>IPv6 Stateless Address Autoconfiguration</title>
+
+	  <para>SLAAC allows an IPv6 network component to request
+	    autoconfiguration information from a local router.  See
+	    <ulink url="http://tools.ietf.org/html/rfc4862">RFC4862</ulink>
+	    for more information.</para>
+
+	  <figure id="bsdinstall-net-ipv6-slaac">
+	    <title>Choose IPv6 SLAAC Configuration</title>
+
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-slaac" format="PNG">
+	      </imageobject>
+	    </mediaobject>
+	  </figure>
+	</sect4>
+
+	<sect4 id="bsdinstall-net-ipv6-static-config">
+	  <title>Static IPv6 Network Configuration</title>
+
+	  <para>Static configuration of the network interface requires
+	    entry of the IPv6 configuration information.</para>
+<!-- WB: list of IPv6 network information -->
+	</sect4>
+      </sect3>
+
+      <sect3 id="bsdinstall-net-dns">
+	<title>Configuring DNS</title>
+
+	<para>The <firstterm>Domain Name System</firstterm> (or
+	  <emphasis>DNS</emphasis>) Resolver converts hostnames to and
+	  from network addresses.  If DHCP or SLAAC was used to
+	  autoconfigure the network interface, the Resolver
+	  Configuration values may already be present.  Otherwise, enter
+	  the local network's domain name in the Search field.  DNS #1
+	  and DNS #2 are the IP addresses for the local DNS
+	  servers.  At least one DNS server is required.</para>
+
+	  <figure id="bsdinstall-net-dns-config">
+	    <title>DNS Configuration</title>
+
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="bsdinstall/bsdinstall-configure-network-ipv4-dns" format="PNG">
+	      </imageobject>
+	    </mediaobject>
+	  </figure>
+      </sect3>
+    </sect2>
+
+    <sect2 id="bsdinstall-timezone">
+      <title>Setting the Time Zone</title>
+
+      <para>Setting the time zone for your machine will allow it to
+	automatically correct for any regional time changes and perform
+	other time zone related functions properly.</para>
+
+      <para>The example shown is for a machine located in the Eastern
+	time zone of the United States.  Your selections will vary according
+	to your geographical location.</para>
+
+      <figure id="bsdinstall-local-utc">
+	<title>Select Your Region</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-set-clock-local-utc" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>Select <guibutton>[&nbsp;Yes&nbsp;]</guibutton>
+	or <guibutton>[&nbsp;No&nbsp;]</guibutton> according to how the
+	machine's clock is configured and press
+	<keycap>Enter</keycap>.</para>
+
+      <figure id="bsdinstall-timezone-region">
+	<title>Select Your Region</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-timezone-region" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>The appropriate region is selected using the arrow keys
+	and then pressing <keycap>Enter</keycap>.</para>
+
+      <figure id="bsdinstall-timezone-country">
+	<title>Select Your Country</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-timezone-country" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>Select the appropriate country using the arrow keys
+	and press <keycap>Enter</keycap>.</para>
+
+      <figure id="bsdinstall-timezone-zone">
+	<title>Select Your Time Zone</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-timezone-zone" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>The appropriate time zone is selected using the arrow
+	keys and pressing <keycap>Enter</keycap>.</para>
+
+      <figure id="bsdinstall-timezone-confirmation">
+	<title>Confirm Time Zone</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-timezone-confirm" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>Confirm the abbreviation for the time zone is correct.
+	If it looks okay, press <keycap>Enter</keycap> to continue with
+	the post-installation configuration.</para>
+    </sect2>
+
+    <sect2 id="bsdinstall-sysconf">
+      <title>Selecting Services to Enable</title>
+
+      <para>Additional system services which will be started at boot can
+	be enabled.  All of these services are optional.</para>
+
+      <figure id="bsdinstall-config-serv">
+	<title>Selecting Additional Services to Enable</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-config-services" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <itemizedlist>
+	<title>Additional services available:</title>
+	<listitem>
+	  <para><literal>sshd</literal> - Secure Shell Daemon for secure
+	    remote access.</para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>moused</literal> - Provides mouse usage with
+	    the system console.</para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>ntpd</literal> - Network Time Protocol daemon
+	    for automatic clock synchronization.</para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>powerd</literal> - System power control utility
+	    for power control and energy saving.</para>
+	</listitem>
+      </itemizedlist>
+    </sect2>
+
+    <sect2 id="bsdinstall-addusers">
+      <title>Add Users/Groups</title>
+
+      <para>You should add at least one user during the installation so
+	that you can use the system without being logged in as
+	<username>root</username>.  The root partition is generally small
+	and running applications as <username>root</username> can quickly
+	fill it.  A bigger danger is noted below:</para>
+
+      <screen>                     User Confirmation Requested
+ Would you like to add any initial user accounts to the system? Adding
+ at least one account for yourself at this stage is suggested since
+ working as the "root" user is dangerous (it is easy to do things which
+ adversely affect the entire system). 
+
+                            [ Yes ]   No</screen>
+
+      <para>Select &gui.yes; and press
+	<keycap>Enter</keycap> to continue with adding a user.</para>
+
+<!--  <figure id="add-user2"> -->
+      <figure id="bsdinstall-add-user2">
+	<title>Select User</title>
+
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-adduser1" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>Select <guimenuitem>User</guimenuitem> with the arrow keys
+	and press <keycap>Enter</keycap>.</para>
+
+<!--  <figure id="add-user3"> -->
+      <figure id="bsdinstall-add-user3">
+	<title>Add User Information</title>
+
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-adduser2" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>The following descriptions will appear in the lower part of
+	the screen as the items are selected with <keycap>Tab</keycap>
+	to assist with entering the required information:</para>
+
+      <variablelist>
+	<varlistentry>
+	  <term>Login ID</term>
+
+	  <listitem>
+	    <para>The login name of the new user (mandatory).</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>UID</term>
+	
+	  <listitem>
+	    <para>The numerical ID for this user (leave blank for
+	      automatic choice).</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>Group</term>
+
+	  <listitem>
+	    <para>The login group name for this user (leave blank for
+	      automatic choice).</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>Password</term>
+
+	  <listitem>
+	    <para>The password for this user (enter this field with
+	      care!).</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>Full name</term>
+
+	  <listitem>
+	    <para>The user's full name (comment).</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>Member groups</term>
+
+	  <listitem>
+	    <para>The groups this user belongs to (i.e. gets access
+	      rights for).</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>Home directory</term>
+
+	  <listitem>
+	    <para>The user's home directory (leave blank for
+	      default).</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>Login shell</term>
+	  <listitem>
+	    <para>The user's login shell (leave blank for
+	      default, e.g. <filename>/bin/sh</filename>).</para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+
+      <para>The login shell was changed from <filename>/bin/sh</filename> to
+	<filename>/usr/local/bin/bash</filename> to use the
+	<application>bash</application> shell that was previously installed as
+	a package.  Do not try to use a shell that does not exist or you will
+	not be able to login.  The most common shell used in the
+	BSD-world is the C shell, which can be indicated as
+	<filename>/bin/tcsh</filename>.</para>
+
+      <para>The user was also added to the <groupname>wheel</groupname> group
+	to be able to become a superuser with <username>root</username>
+	privileges.</para>
+
+      <para>When you are satisfied, press &gui.ok; and
+	the User and Group Management menu will redisplay:</para>
+
+<!--  <figure id="add-user4"> -->
+      <figure id="bsdinstall-add-user4">
+	<title>Exit User and Group Management</title>
+
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-adduser3" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>Groups can also be added at this time if specific needs
+	are known.  Otherwise, this may be accessed through using
+	<command>sysinstall</command>
+	after installation is
+	completed.</para>
+
+      <para>When you are finished adding users, select 
+	<guimenuitem>Exit</guimenuitem> with the arrow keys and press
+	<keycap>Enter</keycap> to continue the installation.</para>
+    </sect2>
+
+<!-- <sect2 id="exit-inst"> -->
+    <sect2 id="bsdinstall-exit-inst">
+      <title>Exiting Install</title>
+
+      <para>If you need to configure <link linkend="network-services">additional network services</link> or
+	any other configuration, you can do it at this point or
+	after installation with <command>sysinstall</command>.</para>
+
+      <screen>                     User Confirmation Requested
+ Visit the general configuration menu for a chance to set any last
+ options? 
+
+                              Yes   [ No ]</screen>
+
+      <para>Select &gui.no; with the arrow keys
+	and press <keycap>Enter</keycap> to return to the Main
+	Installation Menu.</para>
+
+<!--  <figure id="final-main"> -->
+      <figure id="bsdinstall-final-main">
+	<title>Exit Install</title>
+
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-mainexit" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>Select <guibutton>[X Exit Install]</guibutton> with the arrow
+	keys and press <keycap>Enter</keycap>.  You will be asked to
+	confirm exiting the installation:</para>
+
+      <screen>                     User Confirmation Requested
+ Are you sure you wish to exit? The system will reboot.
+
+                            [ Yes ]   No</screen>
+
+      <para>Select &gui.yes;. If you are booting from the CDROM drive
+	the following message will remind you to remove the
+	disk:</para>
+
+      <screen>                    Message
+ Be sure to remove the media from the drive.
+
+                    [ OK ]
+           [ Press enter or space ]</screen>
+
+      <para>The CDROM drive is locked until the machine
+	starts to reboot then the disk can
+	be removed from drive (quickly).  Press &gui.ok; to reboot.</para>
+
+      <para>The system will reboot so watch for any error messages that
+	may appear, see <xref linkend="freebsdboot"> for more
+	details.</para>
+    </sect2>
+
+<!-- <sect2 id="network-services"> -->
+    <sect2 id="bsdinstall-network-services">
+      <sect2info>
+        <authorgroup>
+          <author>
+            <firstname>Tom</firstname>
+            <surname>Rhodes</surname>
+            <contrib>Contributed by </contrib>
+          </author>
+        </authorgroup>
+      </sect2info>
+      <title>Configure Additional Network Services</title>
+
+      <para>Configuring network services can be a daunting
+	task for new users if they lack previous
+	knowledge in this area.  Networking, including the Internet,
+	is critical to all modern operating systems including &os;;
+	as a result, it is very useful to have some understanding
+	&os;'s extensive networking capabilities.  Doing this
+	during the installation will ensure users have some
+	understanding of the various services available to them.</para>
+
+      <para>Network services are programs that accept input from
+	anywhere on the network.  Every effort is made to make sure
+	these programs will not do anything <quote>harmful</quote>.
+	Unfortunately, programmers are not perfect and through time
+	there have been cases where bugs in network services have been
+	exploited by attackers to do bad things.  It is important that
+	you only enable the network services you know that you need.  If
+	in doubt it is best if you do not enable a network service until
+	you find out that you do need it.  You can always enable it
+	later by re-running <application>sysinstall</application> or by
+	using the features provided by the
+	<filename>/etc/rc.conf</filename> file.</para>
+
+      <para>Selecting the <guimenu>Networking</guimenu> option will display
+	a menu similar to the one below:</para>
+
+<!--  <figure id="network-configuration"> -->
+      <figure id="bsdinstall-network-configuration">
+	<title>Network Configuration Upper-level</title>
+
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-net-config-menu1" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>The first option, <guimenuitem>Interfaces</guimenuitem>, was previously covered during
+	the <xref linkend="inst-network-dev">, thus this option can
+	safely be ignored.</para>
+
+      <para>Selecting the <guimenuitem>AMD</guimenuitem> option adds
+	support for the <acronym>BSD</acronym> automatic mount utility.
+	This is usually used in conjunction with the
+	<acronym>NFS</acronym> protocol (see below)
+	for automatically mounting remote file systems.
+	No special configuration is required here.</para>
+
+      <para>Next in line is the <guimenuitem>AMD Flags</guimenuitem>
+	option.  When selected, a menu will pop up for you
+	to enter specific <acronym>AMD</acronym> flags.
+	The menu already contains a set of default options:</para>
+
+      <screen>-a /.amd_mnt -l syslog /host /etc/amd.map /net /etc/amd.map</screen>
+
+      <para>The <option>-a</option> option sets the default mount
+	location which is specified here as
+	<filename>/.amd_mnt</filename>.  The <option>-l</option>
+	option specifies the default <filename>log</filename> file;
+	however, when <literal>syslogd</literal> is used all log
+	activity will be sent to the system log daemon.  The
+	<filename class="directory">/host</filename> directory is used
+	to mount an exported file system from a remote
+	host, while <filename class="directory">/net</filename>
+	directory is used to mount an exported file system from an
+	<acronym>IP</acronym> address.  The
+	<filename>/etc/amd.map</filename> file defines the default
+	options for <acronym>AMD</acronym> exports.</para>
+
+      <indexterm>
+	<primary>FTP</primary>
+	<secondary>anonymous</secondary>
+      </indexterm>
+
+      <para>The <guimenuitem>Anon FTP</guimenuitem> option permits anonymous
+	<acronym>FTP</acronym> connections.  Select this option to
+	make this machine an anonymous <acronym>FTP</acronym> server.
+	Be aware of the security risks involved with this option.
+	Another menu will be displayed to explain the security risks
+	and configuration in depth.</para>
+
+      <para>The <guimenuitem>Gateway</guimenuitem> configuration menu will set
+	the machine up to be a gateway as explained previously.  This
+	can be used to unset the <guimenuitem>Gateway</guimenuitem> option if you accidentally
+	selected it during the installation process.</para>
+
+      <para>The <guimenuitem>Inetd</guimenuitem> option can be used to configure
+	or completely disable the &man.inetd.8; daemon as discussed
+	above.</para>
+
+      <para>The <guimenuitem>Mail</guimenuitem> option is used to configure the system's
+	default <acronym>MTA</acronym> or Mail Transfer Agent.
+	Selecting this option will bring up the following menu:</para>
+
+<!--  <figure id="mta-selection"> -->
+      <figure id="bsdinstall-mta-selection">
+	<title>Select a default MTA</title>
+
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-mta-main" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>Here you are offered a choice as to which
+	<acronym>MTA</acronym> to install
+	and set as the default.  An <acronym>MTA</acronym> is nothing
+	more than a mail server which delivers email to users on the
+	system or the Internet.</para>
+
+      <para>Selecting <guimenuitem>Sendmail</guimenuitem> will install
+	the popular <application>sendmail</application> server which
+	is the &os; default.  The <guimenuitem>Sendmail local</guimenuitem> option
+	will set <application>sendmail</application> to be the default
+	<acronym>MTA</acronym>, but disable its ability to receive
+	incoming email from the Internet.  The other options here,
+	<guimenuitem>Postfix</guimenuitem> and
+	<guimenuitem>Exim</guimenuitem> act similar to
+	<guimenuitem>Sendmail</guimenuitem>.  They both deliver
+	email; however, some users prefer these alternatives to the
+	<application>sendmail</application>
+	<acronym>MTA</acronym>.</para>
+
+      <para>After selecting an <acronym>MTA</acronym>, or choosing
+	not to select an MTA, the network configuration menu will appear
+	with the next option being <guimenuitem>NFS client</guimenuitem>.</para>
+
+      <para>The <guimenuitem>NFS client</guimenuitem> option will
+	configure the system to communicate with a server via
+	<acronym>NFS</acronym>.  An <acronym>NFS</acronym> server
+	makes file systems available to other machines on the
+	network via the <acronym>NFS</acronym> protocol.  If this is
+	a stand-alone machine, this option can remain unselected.
+	The system may require more configuration later; see
+	<xref linkend="network-nfs"> for more
+	information about client and server configuration.</para>
+
+      <para>Below that option is the <guimenuitem>NFS server</guimenuitem>
+	option, permitting you to set the system up as an
+	<acronym>NFS</acronym> server.  This adds the required
+	information to start up the <acronym>RPC</acronym> remote
+	procedure call services.  <acronym>RPC</acronym> is used to
+	coordinate connections between hosts and programs.</para>
+
+      <para>Next in line is the <guimenuitem>Ntpdate</guimenuitem> option,
+	which deals with time synchronization.  When selected, a menu
+	like the one below shows up:</para>
+
+<!--  <figure id="Ntpdate-config"> -->
+      <figure id="bsdinstall-ntpdate-config">
+	<title>Ntpdate Configuration</title>
+
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-ntp-config" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>From this menu, select the server which is the closest
+	to your location.  Selecting a close one will make the time
+	synchronization more accurate as a server further from your
+	location may have more connection latency.</para>
+
+      <para>The next option is the <acronym>PCNFSD</acronym> selection.
+	This option will install the
+	<filename role="package">net/pcnfsd</filename> package from
+	the Ports Collection.  This is a useful utility which provides
+	<acronym>NFS</acronym> authentication services for systems which
+	are unable to provide their own, such as Microsoft's
+	&ms-dos; operating system.</para>
+
+      <para>Now you must scroll down a bit to see the other
+	options:</para>
+
+<!--  <figure id="Network-configuration-cont"> -->
+      <figure id="bsdinstall-network-configuration-cont">
+	<title>Network Configuration Lower-level</title>
+
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-net-config-menu2" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>The &man.rpcbind.8;, &man.rpc.statd.8;, and
+	&man.rpc.lockd.8; utilities are all used for Remote Procedure
+	Calls (<acronym>RPC</acronym>).
+	The <command>rpcbind</command> utility manages communication
+	between <acronym>NFS</acronym> servers and clients, and is
+	required for <acronym>NFS</acronym> servers to operate
+	correctly.  The <application>rpc.statd</application> daemon interacts
+	with the <application>rpc.statd</application> daemon on other hosts to
+	provide status monitoring.  The reported status is usually held
+	in the <filename>/var/db/statd.status</filename> file.  The
+	next option listed here is the <guimenuitem>rpc.lockd</guimenuitem>
+	option, which, when selected, will provide file locking
+	services.  This is usually used with
+	<application>rpc.statd</application> to monitor what hosts are
+	requesting locks and how frequently they request them.
+	While these last two options are marvelous for debugging, they
+	are not required for <acronym>NFS</acronym> servers and clients
+	to operate correctly.</para>
+
+      <para>As you progress down the list the next item here is
+	<guimenuitem>Routed</guimenuitem>, which is the routing daemon.  The
+	&man.routed.8; utility manages network routing tables,
+	discovers multicast routers, and supplies a copy of the routing
+	tables to any physically connected host on the network upon
+	request.  This is mainly used for machines which act as a
+	gateway for the local network.  When selected, a menu will be
+	presented requesting the default location of the utility.
+	The default location is already defined for you and can be
+	selected with the <keycap>Enter</keycap> key.  You will then
+	be presented with yet another menu, this time asking for the
+	flags you wish to pass on to <application>routed</application>.  The
+	default is <option>-q</option> and it should already appear
+	on the screen.</para>
+
+      <para>Next in line is the <guimenuitem>Rwhod</guimenuitem> option which,
+	when selected, will start the &man.rwhod.8; daemon
+	during system initialization.  The <command>rwhod</command>
+	utility broadcasts system messages across the network
+	periodically, or collects them when in <quote>consumer</quote>
+	mode.  More information can be found in the &man.ruptime.1; and
+	&man.rwho.1; manual pages.</para>
+
+      <para>The next to the last option in the list is for the
+	&man.sshd.8; daemon.  This is the secure shell server for
+	<application>OpenSSH</application> and it is highly recommended
+	over the standard <application>telnet</application> and
+	<acronym>FTP</acronym> servers.  The <application>sshd</application>
+	server is used to create a secure connection from one host to
+	another by using encrypted connections.</para>
+
+      <para>Finally there is the <guimenuitem>TCP Extensions</guimenuitem>
+	option.  This enables the <acronym>TCP</acronym> Extensions
+	defined in <acronym>RFC</acronym>&nbsp;1323 and
+	<acronym>RFC</acronym>&nbsp;1644.  While on many hosts this can
+	speed up connections, it can also cause some connections to be
+	dropped.  It is not recommended for servers, but may be
+	beneficial for stand alone machines.</para>
+
+      <para>Now that you have configured the network services, you can
+	scroll up to the very top item which is <guimenuitem>X Exit</guimenuitem>
+	and continue on to the next configuration item or simply exit
+	<application>sysinstall</application> in selecting
+	<guimenuitem>X Exit</guimenuitem> twice then <guibutton>[X
+	Exit Install]</guibutton>.</para>
+
+    </sect2>
+
+<!-- <sect2 id="freebsdboot"> -->
+    <sect2 id="bsdinstall-freebsdboot">
+      <title>&os; Bootup</title>
+
+<!--  <sect3 id="freebsdboot-i386"> -->
+      <sect3 id="bsdinstall-freebsdboot-i386">
+        <title>&os;/&arch.i386; Bootup</title>
+
+      <para>If everything went well, you will see messages scroll
+	off the screen and you will arrive at a login prompt.  You can view
+	the content of the messages by pressing <keycap>Scroll-Lock</keycap>
+	and using <keycap>PgUp</keycap> and <keycap>PgDn</keycap>.
+	Pressing <keycap>Scroll-Lock</keycap> again will return
+	to the prompt.</para>
+
+      <para>The entire message may not display (buffer limitation) but
+	it can be viewed from the command line after logging in by typing
+	<command>dmesg</command> at the prompt.</para>
+
+      <para>Login using the username/password you set during installation
+	(<username>rpratt</username>, in this example).  Avoid logging in as
+	<username>root</username> except when necessary.</para>
+
+      <para>Typical boot messages (version information omitted):</para>
+
+<screen>Copyright (c) 1992-2002 The FreeBSD Project. 
+Copyright (c) 1979, 1980, 1983, 1986, 1988, 1989, 1991, 1992, 1993, 1994
+        The Regents of the University of California. All rights reserved. 
+
+Timecounter "i8254"  frequency 1193182 Hz
+CPU: AMD-K6(tm) 3D processor (300.68-MHz 586-class CPU)
+  Origin = "AuthenticAMD"  Id = 0x580  Stepping = 0
+  Features=0x8001bf&lt;FPU,VME,DE,PSE,TSC,MSR,MCE,CX8,MMX&gt; 
+  AMD Features=0x80000800&lt;SYSCALL,3DNow!&gt; 
+real memory  = 268435456 (262144K bytes) 
+config&gt; di sn0 
+config&gt; di lnc0 
+config&gt; di le0 
+config&gt; di ie0 
+config&gt; di fe0 
+config&gt; di cs0 
+config&gt; di bt0  
+config&gt; di aic0 
+config&gt; di aha0 
+config&gt; di adv0 
+config&gt; q 
+avail memory = 256311296 (250304K bytes)
+Preloaded elf kernel "kernel" at 0xc0491000. 
+Preloaded userconfig_script "/boot/kernel.conf" at 0xc049109c. 
+md0: Malloc disk 
+Using $PIR table, 4 entries at 0xc00fde60
+npx0: &lt;math processor&gt; on motherboard 
+npx0: INT 16 interface 
+pcib0: &lt;Host to PCI bridge&gt; on motherboard 
+pci0: &lt;PCI bus&gt; on pcib0 
+pcib1: &lt;VIA 82C598MVP (Apollo MVP3) PCI-PCI (AGP) bridge&gt; at device 1.0 on pci0 
+pci1: &lt;PCI bus&gt; on pcib1 
+pci1: &lt;Matrox MGA G200 AGP graphics accelerator&gt; at 0.0 irq 11 
+isab0: &lt;VIA 82C586 PCI-ISA bridge&gt; at device 7.0 on pci0 
+isa0: &lt;ISA bus&gt; on isab0 
+atapci0: &lt;VIA 82C586 ATA33 controller&gt; port 0xe000-0xe00f at device 7.1 on pci0 
+ata0: at 0x1f0 irq 14 on atapci0 
+ata1: at 0x170 irq 15 on atapci0 
+uhci0: &lt;VIA 83C572 USB controller&gt; port 0xe400-0xe41f irq 10 at device 7.2 on pci0 
+usb0: &lt;VIA 83C572 USB controller&gt; on uhci0 
+usb0: USB revision 1.0 
+uhub0: VIA UHCI root hub, class 9/0, rev 1.00/1.00, addr 1 
+uhub0: 2 ports with 2 removable, self powered 
+chip1: &lt;VIA 82C586B ACPI interface&gt; at device 7.3 on pci0 
+ed0: &lt;NE2000 PCI Ethernet (RealTek 8029)&gt; port 0xe800-0xe81f irq 9 at
+device 10.0 on pci0 
+ed0: address 52:54:05:de:73:1b, type NE2000 (16 bit) 
+isa0: too many dependant configs (8) 
+isa0: unexpected small tag 14 
+fdc0: &lt;NEC 72065B or clone&gt; at port 0x3f0-0x3f5,0x3f7 irq 6 drq 2 on isa0
+fdc0: FIFO enabled, 8 bytes threshold 
+fd0: &lt;1440-KB 3.5" drive&gt; on fdc0 drive 0 
+atkbdc0: &lt;keyboard controller (i8042)&gt; at port 0x60-0x64 on isa0 
+atkbd0: &lt;AT Keyboard&gt; flags 0x1 irq 1 on atkbdc0 
+kbd0 at atkbd0 
+psm0: &lt;PS/2 Mouse&gt; irq 12 on atkbdc0 
+psm0: model Generic PS/2 mouse, device ID 0 
+vga0: &lt;Generic ISA VGA&gt; at port 0x3c0-0x3df iomem 0xa0000-0xbffff on isa0
+sc0: &lt;System console&gt; at flags 0x1 on isa0 
+sc0: VGA &lt;16 virtual consoles, flags=0x300&gt; 
+sio0 at port 0x3f8-0x3ff irq 4 flags 0x10 on isa0 
+sio0: type 16550A 
+sio1 at port 0x2f8-0x2ff irq 3 on isa0 
+sio1: type 16550A 
+ppc0: &lt;Parallel port&gt; at port 0x378-0x37f irq 7 on isa0 
+ppc0: SMC-like chipset (ECP/EPP/PS2/NIBBLE) in COMPATIBLE mode 
+ppc0: FIFO with 16/16/15 bytes threshold 
+ppbus0: IEEE1284 device found /NIBBLE
+Probing for PnP devices on ppbus0: 
+plip0: &lt;PLIP network interface&gt; on ppbus0 
+lpt0: &lt;Printer&gt; on ppbus0 
+lpt0: Interrupt-driven port 
+ppi0: &lt;Parallel I/O&gt; on ppbus0
+ad0: 8063MB &lt;IBM-DHEA-38451&gt; [16383/16/63] at ata0-master using UDMA33 
+ad2: 8063MB &lt;IBM-DHEA-38451&gt; [16383/16/63] at ata1-master using UDMA33 
+acd0: CDROM &lt;DELTA OTC-H101/ST3 F/W by OIPD&gt; at ata0-slave using PIO4 
+Mounting root from ufs:/dev/ad0s1a 
+swapon: adding /dev/ad0s1b as swap device 
+Automatic boot in progress... 
+/dev/ad0s1a: FILESYSTEM CLEAN; SKIPPING CHECKS 
+/dev/ad0s1a: clean, 48752 free (552 frags, 6025 blocks, 0.9% fragmentation)
+/dev/ad0s1f: FILESYSTEM CLEAN; SKIPPING CHECKS 
+/dev/ad0s1f: clean, 128997 free (21 frags, 16122 blocks, 0.0% fragmentation)
+/dev/ad0s1g: FILESYSTEM CLEAN; SKIPPING CHECKS
+/dev/ad0s1g: clean, 3036299 free (43175 frags, 374073 blocks, 1.3% fragmentation)
+/dev/ad0s1e: filesystem CLEAN; SKIPPING CHECKS 
+/dev/ad0s1e: clean, 128193 free (17 frags, 16022 blocks, 0.0% fragmentation)
+Doing initial network setup: hostname. 
+ed0: flags=8843&lt;UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+        inet 192.168.0.1 netmask 0xffffff00 broadcast 192.168.0.255
+        inet6 fe80::5054::5ff::fede:731b%ed0 prefixlen 64 tentative scopeid 0x1
+        ether 52:54:05:de:73:1b
+lo0: flags=8049&lt;UP,LOOPBACK,RUNNING,MULTICAST&gt; mtu 16384 
+        inet6 fe80::1%lo0 prefixlen 64 scopeid 0x8 
+        inet6 ::1 prefixlen 128 
+        inet 127.0.0.1 netmask 0xff000000 
+Additional routing options: IP gateway=YES TCP keepalive=YES
+routing daemons:. 
+additional daemons: syslogd. 
+Doing additional network setup:. 
+Starting final network daemons: creating ssh RSA host key 
+Generating public/private rsa1 key pair.
+Your identification has been saved in /etc/ssh/ssh_host_key. 
+Your public key has been saved in /etc/ssh/ssh_host_key.pub. 
+The key fingerprint is: 
+cd:76:89:16:69:0e:d0:6e:f8:66:d0:07:26:3c:7e:2d root@k6-2.example.com
+ creating ssh DSA host key 
+Generating public/private dsa key pair.
+Your identification has been saved in /etc/ssh/ssh_host_dsa_key. 
+Your public key has been saved in /etc/ssh/ssh_host_dsa_key.pub. 
+The key fingerprint is: 
+f9:a1:a9:47:c4:ad:f9:8d:52:b8:b8:ff:8c:ad:2d:e6 root@k6-2.example.com.
+setting ELF ldconfig path: /usr/lib /usr/lib/compat /usr/X11R6/lib
+/usr/local/lib 
+a.out ldconfig path: /usr/lib/aout /usr/lib/compat/aout /usr/X11R6/lib/aout 
+starting standard daemons: inetd cron sshd usbd sendmail.
+Initial rc.i386 initialization:. 
+rc.i386 configuring syscons: blank_time screensaver moused. 
+Additional ABI support: linux. 
+Local package initialization:. 
+Additional TCP options:. 
+
+FreeBSD/i386 (k6-2.example.com) (ttyv0)
+
+login: rpratt 
+Password:</screen>
+
+      <para>Generating the RSA and DSA keys may take some time on slower
+	machines.  This happens only on the initial boot-up of a new
+	installation.  Subsequent boots will be faster.</para>
+
+      <para>If the X server has been configured and a Default Desktop
+	chosen, it can be started by typing <command>startx</command> at
+	the command line.</para>
+
+      </sect3>
+    </sect2>
+
+    <sect2 id="bsdinstall-shutdown">
+      <title>FreeBSD Shutdown</title>
+
+      <para>It is important to properly shutdown the operating
+	system.  Do not just turn off power.  First, become a superuser by
+	typing <command>su</command> at the command line and entering the
+	<username>root</username> password.  This will work only if the user
+	is a member of the <groupname>wheel</groupname> group.
+	Otherwise, login as <username>root</username> and use
+	<command>shutdown -h now</command>.</para>
+
+      <screen>The operating system has halted. 
+Please press any key to reboot.</screen>
+
+      <para>It is safe to turn off the power after the shutdown command
+	has been issued and the message <quote>Please press any key to reboot</quote>
+	appears.  If any key is pressed instead of turning off the power
+	switch, the system will reboot.</para>
+
+      <para>You could also use the
+        <keycombo action="simul">
+	  <keycap>Ctrl</keycap>
+	  <keycap>Alt</keycap>
+	  <keycap>Del</keycap>
+	</keycombo>
+	key combination to reboot the system, however this is not recommended
+	during normal operation.</para>
+
+    </sect2>
+  </sect1>
+
+<!-- <sect1 id="install-trouble"> -->
+  <sect1 id="bsdinstall-install-trouble">
+    <title>Troubleshooting</title>
+
+    <indexterm>
+      <primary>installation</primary>
+      <secondary>troubleshooting</secondary>
+    </indexterm>
+    <para>The following section covers basic installation troubleshooting,
+      such as common problems people have reported.  There are also a few
+      questions and answers for people wishing to dual-boot FreeBSD with
+      &ms-dos; or &windows;.</para>
+
+    <sect2>
+      <title>What to Do If Something Goes Wrong</title>
+
+      <para>Due to various limitations of the PC architecture, it is
+        impossible for probing to be 100% reliable, however, there are a
+        few things you can do if it fails.</para>
+
+      <para>Check the <ulink
+	url="http://www.FreeBSD.org/releases/index.html">Hardware Notes
+	</ulink> document for your version of &os; to make sure your
+	hardware is supported.</para>
+
+      <para>If your hardware is supported and you still experience
+        lock-ups or other problems, you will need to build a <link
+	linkend="kernelconfig">custom kernel</link>.  This will
+        allow you to add in support for devices which are not present in the
+	<filename>GENERIC</filename> kernel.  The kernel on the boot disks
+	is configured assuming that most hardware devices are in their
+	factory default configuration in terms of IRQs, IO addresses, and
+	DMA channels.  If your hardware has been reconfigured, you will most
+	likely need to edit the kernel configuration and recompile to tell
+	&os; where to find things.</para>
+
+      <para>It is also possible that a probe for a device not present will
+        cause a later probe for another device that is present to fail.  In
+        that case, the probes for the conflicting driver(s) should be
+        disabled.</para>
+
+      <note>
+        <para>Some installation problems can be avoided or alleviated
+          by updating the firmware on various hardware components, most notably
+          the motherboard.  Motherboard firmware is usually referred to
+          as the <acronym>BIOS</acronym>.  Most motherboard and computer
+          manufacturers have a website for upgrades and upgrade
+          information.</para>
+
+        <para>Manufacturers generally advise against upgrading the motherboard
+          <acronym>BIOS</acronym> unless there is a good reason for doing so,
+          like a critical update.  The upgrade process
+          <emphasis>can</emphasis> go wrong, leaving the <acronym>BIOS</acronym>
+          incomplete and the computer inoperative.</para>
+        </note>
+    </sect2>
+    
+    <sect2>
+      <title>Troubleshooting Questions and Answers</title>
+
+      <qandaset>
+	<qandaentry>
+	  <question>
+	    <para>My system hangs while probing hardware during boot,
+	      or it behaves strangely during install, or the floppy
+	      drive is not probed.</para>
+	  </question>
+	  <answer>
+	    <para>&os; makes extensive use of the system
+	      ACPI service on the i386, amd64, and ia64 platforms to
+	      aid in system configuration if it is detected during
+	      boot.  Unfortunately, some bugs still exist in both the
+	      ACPI driver and within system motherboards and BIOS
+	      firmware.  ACPI can be disabled by setting
+	      the <literal>hint.acpi.0.disabled</literal> hint in the
+	      third stage boot loader:</para>
+
+	    <screen><userinput>set hint.acpi.0.disabled="1"</userinput></screen>
+
+	    <para>This is reset each time the system is booted, so it
+	      is necessary to
+	      add <literal>hint.acpi.0.disabled="1"</literal> to the
+	      file
+	      <filename>/boot/loader.conf</filename>.  More
+	      information about the boot loader can be found
+	      in <xref linkend="boot-synopsis">.</para>
+	  </answer>
+	</qandaentry>
+      </qandaset>
+    </sect2>
+  </sect1>
+
+<!-- <sect1 id="install-advanced"> -->
+  <sect1 id="bsdinstall-install-advanced">
+    <sect1info>
+      <authorgroup>
+	<author>
+	  <firstname>Valentino</firstname>
+	  <surname>Vaschetto</surname>
+	  <contrib>Contributed by </contrib>
+	</author>
+	<!-- May 2001 -->
+      </authorgroup>
+
+      <authorgroup>
+	<author>
+	  <firstname>Marc</firstname>
+	  <surname>Fonvieille</surname>
+	  <contrib>Updated by </contrib>
+	</author>
+      </authorgroup>
+      <!-- August 2010 -->
+    </sect1info>
+
+    <title>Advanced Installation Guide</title>
+
+    <para>This section describes how to install FreeBSD in exceptional
+       cases.</para>
+
+<!-- <sect2 id="headless-install"> -->
+    <sect2 id="bsdinstall-headless-install">
+      <title>Installing FreeBSD on a System without a Monitor or
+        Keyboard</title>
+
+      <indexterm>
+        <primary>installation</primary>
+        <secondary>headless (serial console)</secondary>
+      </indexterm>
+      <indexterm><primary>serial console</primary></indexterm>
+      <para>This type of installation is called a <quote>headless
+	install</quote>, because the machine that you are trying to install
+	FreeBSD on either does not have a monitor attached to it, or does not
+	even have a VGA output.  How is this possible you ask? Using a
+        serial console.  A serial console is basically using another
+        machine to act as the main display and keyboard for a
+        system.  To do this, just follow the steps to create
+        an installation USB memstick, explained in <xref
+	linkend="install-boot-media"> or download the correct
+	installation ISO image, see <xref
+	linkend="install-cdrom">.</para>
+
+
+      <para>To modify these media to boot into a serial console, follow
+	these steps (If you want to use a CDROM you can skip the first
+	step):</para>
+
+      <procedure>
+	<step>
+	  <title>Enabling the Installation USB Stick to Boot into a
+	    Serial Console</title>
+  	    <indexterm>
+	      <primary><command>mount</command></primary>
+	    </indexterm>
+	    <para>If you were to boot into the USB stick that you just
+	      made, FreeBSD would boot into its normal install mode.  We
+	      want FreeBSD to boot into a serial console for our
+	      install.  To do this, you have to mount the
+	      USB disk onto your &os;
+	      system using the &man.mount.8; command.</para>
+
+            <screen>&prompt.root; <userinput>mount /dev/<replaceable>da0a</replaceable> <replaceable>/mnt</replaceable></userinput></screen>
+
+	    <note>
+	      <para>Adapt the device node and the mount point to your
+		situation.</para>
+	    </note>
+
+	    <para>Now that you have the stick mounted, you must set
+	      the USB stick to boot into a serial console.  You have
+	      to add to the <filename>loader.conf</filename> file of
+	      the USB stick file system a line setting the serial
+	      console as the system console:</para>
+
+	    <screen>&prompt.root; <userinput>echo 'console="comconsole"' &gt;&gt; <replaceable>/mnt</replaceable>/boot/loader.conf</userinput></screen>
+
+	    <para>Now that you have your USB stick configured correctly,
+	      you must unmount the disk using the &man.umount.8;
+	      command:</para>
+
+            <screen>&prompt.root; <userinput>umount <replaceable>/mnt</replaceable></userinput></screen>
+
+	    <para>Now you can unplug the USB stick and jump directly
+	      to the third step of this procedure.</para>
+	  </step>
+
+	<step>
+	  <title>Enabling the Installation CD to Boot into a
+	    Serial Console</title>
+  	    <indexterm>
+	      <primary><command>mount</command></primary>
+	    </indexterm>
+	    <para>If you were to boot into the CD that you just
+	      made from the installation ISO image (see <xref
+	      linkend="install-cdrom">), &os; would boot into its
+	      normal install mode.  We want &os; to boot into a serial
+	      console for our install.  To do this, you have to
+	      extract, modify and regenerate the ISO image before
+	      burning it on a CD-R media.</para>
+
+	    <para>From the &os; system where is saved the installation
+	      ISO image, for example
+	      <filename>&os;-<replaceable>&rel.current;</replaceable>-RELEASE-<replaceable>i386</replaceable>-disc1.iso</filename>,
+	      use the &man.tar.1; utility to extract all the files:</para>
+
+	    <screen>&prompt.root; <userinput>mkdir <replaceable>/path/to/headless-iso</replaceable></userinput>
+&prompt.root; <userinput>tar -C <replaceable>/path/to/headless-iso</replaceable> -pxvf &os;-<replaceable>&rel.current;</replaceable>-RELEASE-<replaceable>i386</replaceable>-disc1.iso</userinput></screen>
+
+	    <para>Now you must set the installation media to boot into a
+	      serial console.  You have to add to the
+	      <filename>loader.conf</filename> file from the extracted
+	      ISO image a line setting the serial console as the
+	      system console:</para>
+
+	    <screen>&prompt.root; <userinput>echo 'console="comconsole"' &gt;&gt; <replaceable>/path/to/headless-iso</replaceable>/boot/loader.conf</userinput></screen>
+
+	    <para>Then we can create a new ISO image from the modified
+	      tree.  The &man.mkisofs.8; tool from the <filename
+	      role="package">sysutils/cdrtools</filename> port is
+	      used:</para>
+
+	    <screen>&prompt.root; <userinput>mkisofs -v -b boot/cdboot -no-emul-boot -r -J -V "<replaceable>Headless_install</replaceable>" \
+	    -o <replaceable>Headless-</replaceable>&os;-<replaceable>&rel.current;</replaceable>-RELEASE-<replaceable>i386</replaceable>-disc1.iso <replaceable>/path/to/headless-iso</replaceable></userinput></screen>
+
+	    <para>Now that you have your ISO image configured correctly,
+	      you can burn it on a CD-R with your favorite burning
+	      application.</para>
+	  </step>
+
+	  <step>
+	    <title>Connecting Your Null-modem Cable</title>
+
+  	    <indexterm><primary>null-modem cable</primary></indexterm>
+	    <para>You now need to connect a
+	      <link linkend="term-cables-null">null-modem cable</link> between
+	      the two machines.  Just connect the cable to the serial
+	      ports of the 2 machines.  <emphasis>A normal serial cable
+	      will not work here</emphasis>, you need a null-modem
+	      cable because it has some of the wires inside crossed
+	      over.</para>
+	  </step>
+
+	  <step>
+	    <title>Booting Up for the Install</title>
+
+	    <para>It is now time to go ahead and start the install.  Plug in
+	      the USB memstick on
+	      the machine you are doing the headless install
+	      on, and power on the machine.  If you are using a
+	      prepared CDROM, power on the machine and insert the disk
+	      to boot on.</para>
+	  </step>
+
+	  <step>
+	    <title>Connecting to Your Headless Machine</title>
+	    <indexterm>
+	      <primary><command>cu</command></primary>
+	    </indexterm>
+	    <para>Now you have to connect to that machine with
+	      &man.cu.1;:</para> 
+
+	    <screen>&prompt.root; <userinput>cu -l /dev/cuau0</userinput></screen>
+
+	    <para>On &os;&nbsp;7.<replaceable>X</replaceable> use the following command
+	      instead:</para>
+
+	    <screen>&prompt.root; <userinput>cu -l /dev/cuad0</userinput></screen>
+
+	  </step>
+      </procedure>
+
+      <para>That's it! You should now be able to control the headless machine
+	through your <command>cu</command> session.  It will load the kernel
+	and then it will come up
+	with a selection of what kind of terminal to use.  Select the
+	FreeBSD color console and proceed with your install!</para>
+
+    </sect2>
+  </sect1>
+
+  <sect1 id="bsdinstall-diff-media">
+    <title>Preparing Your Own Installation Media</title>
+
+    <note>
+      <para>To prevent repetition, <quote>FreeBSD disc</quote> in this context
+	means a FreeBSD CDROM or DVD that you have purchased or produced
+	yourself.</para>
+    </note>
+
+    <para>There may be some situations in which you need to create your own
+      FreeBSD installation media and/or source.  This might be physical media,
+      such as a tape, or a source that <application>sysinstall</application>
+      can use to retrieve the files, such as a local FTP site, or an &ms-dos;
+      partition.</para>
+
+    <para>For example:</para>
+
+    <itemizedlist>
+      <listitem>
+	<para>You have many machines connected to your local network, and one
+	  FreeBSD disc.  You want to create a local FTP site using the
+	  contents of the FreeBSD disc, and then have your machines use this
+	  local FTP site instead of needing to connect to the Internet.</para>
+      </listitem>
+
+      <listitem>
+	<para>You have a FreeBSD disc, and FreeBSD does not recognize your CD/DVD
+	  drive, but &ms-dos;/&windows; does.  You want to copy the FreeBSD
+	  installation files to a DOS partition on the same computer, and
+	  then install FreeBSD using those files.</para>
+      </listitem>
+
+      <listitem>
+	<para>The computer you want to install on does not have a CD/DVD
+	  drive or a network card, but you can connect a
+	  <quote>Laplink-style</quote> serial or parallel cable to a computer
+	  that does.</para>
+      </listitem>
+
+      <listitem>
+	<para>You want to create a tape that can be used to install
+	  FreeBSD.</para>
+      </listitem>
+    </itemizedlist>
+
+  </sect1>
+</chapter>
+
+<!-- 
+     Local Variables:
+     mode: sgml
+     sgml-declaration: "../chapter.decl"
+     sgml-indent-data: t
+     sgml-omittag: nil
+     sgml-always-quote-attributes: t
+     sgml-parent-document: ("../book.sgml" "part" "chapter")
+     End:
+-->
