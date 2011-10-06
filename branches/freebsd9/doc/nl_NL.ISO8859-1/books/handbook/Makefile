@@ -1,42 +1,39 @@
 #
-# $FreeBSD: doc/nl_NL.ISO8859-1/books/handbook/Makefile,v 1.16 2010/08/22 20:25:17 rene Exp $
+# $FreeBSD: doc/en_US.ISO8859-1/books/handbook/Makefile,v 1.113 2010/08/18 20:23:36 blackend Exp $
 #
-# %SOURCE%	en_US.ISO8859-1/books/handbook/Makefile
-# %SRCID%	1.113
-#
-# Bouw het Nederlandse FreeBSD Handboek.
+# Build the FreeBSD Handbook.
 #
 
 # ------------------------------------------------------------------------
 #
-# Handboekspecifieke variabelen
+# Handbook-specific variables
 #
-#	WITH_PGPKEYS	De gedrukte verie van het handboek geeft standaard
-#			alleen PGP vingerafdrukken weer.  Als het gewenst
-#			is dat de complete sleutel wordt weergegeven dan
-#			dient deze variabele insteld te worden.  De optie
-#			heeft geen invloed op de HTML formaten.
+#	WITH_PGPKEYS	The print version of the handbook only prints PGP
+#			fingerprints by default.  If you would like for the
+#			entire key to be displayed, then set this variable.
+#			This option has no affect on the HTML formats.
 #
-# Handboekspecifieke doelen
+# Handbook-specific targets
 #
-#       pgpkeyring      Dit doel leest de inhoud van pgpkeys/chapter.sgml
-#			en schrijft dan alle PGP sleutels naar stdout.
-#			De uitvoer kan omgeleid worden naar een bestand
-#			en verspreid worden als een publieke sleutelring
-#			van FreeBSD ontwikkelaars die eenvoudig in
-#			PGP/GPG ingelezen kan worden.
+#       pgpkeyring      This target will read the contents of
+#                       pgpkeys/chapter.sgml and will extract all of
+#                       the pgpkeys to standard out.  This output can then
+#                       be redirected into a file and distributed as a
+#                       public keyring of FreeBSD developers that can
+#                       easily be imported into PGP/GPG.
 #
 # ------------------------------------------------------------------------
-# Om een nieuw hoofdstuk aan het Handboek toe te voegen:
 #
-# - Werk deze Makefile, chapters.ent en book.sgml bij
-# - Voeg een beschrijving voor het nieuwe hoofdstuk toe aan preface/preface.sgml
+# To add a new chapter to the Handbook:
+#
+# - Update this Makefile, chapters.ent and book.sgml
+# - Add a descriptive entry for the new chapter in preface/preface.sgml
 #
 # ------------------------------------------------------------------------
 
 .PATH: ${.CURDIR}/../../share/sgml/glossary
 
-MAINTAINER=	remko@FreeBSD.org
+MAINTAINER=	doc@FreeBSD.org
 
 DOC?= book
 
@@ -53,6 +50,46 @@ IMAGES_EN+= advanced-networking/isdn-twisted-pair.eps
 IMAGES_EN+= advanced-networking/natd.eps
 IMAGES_EN+= advanced-networking/net-routing.pic
 IMAGES_EN+= advanced-networking/static-routes.pic
+IMAGES_EN+= bsdinstall/bsdinstall-adduser1.png
+IMAGES_EN+= bsdinstall/bsdinstall-adduser2.png
+IMAGES_EN+= bsdinstall/bsdinstall-adduser3.png
+IMAGES_EN+= bsdinstall/bsdinstall-boot-loader-menu.png
+IMAGES_EN+= bsdinstall/bsdinstall-choose-mode.png
+IMAGES_EN+= bsdinstall/bsdinstall-config-components.png
+IMAGES_EN+= bsdinstall/bsdinstall-config-hostname.png
+IMAGES_EN+= bsdinstall/bsdinstall-config-keymap.png
+IMAGES_EN+= bsdinstall/bsdinstall-config-services.png
+IMAGES_EN+= bsdinstall/bsdinstall-configure-network-interface-ipv4-dhcp.png
+IMAGES_EN+= bsdinstall/bsdinstall-configure-network-interface-ipv4.png
+IMAGES_EN+= bsdinstall/bsdinstall-configure-network-interface-ipv4-static.png
+IMAGES_EN+= bsdinstall/bsdinstall-configure-network-interface-ipv6.png
+IMAGES_EN+= bsdinstall/bsdinstall-configure-network-interface-slaac.png
+IMAGES_EN+= bsdinstall/bsdinstall-configure-network-interface.png
+IMAGES_EN+= bsdinstall/bsdinstall-configure-network-ipv4-dns.png
+IMAGES_EN+= bsdinstall/bsdinstall-distfile-extracting.png
+IMAGES_EN+= bsdinstall/bsdinstall-distfile-fetching.png
+IMAGES_EN+= bsdinstall/bsdinstall-distfile-verifying.png
+IMAGES_EN+= bsdinstall/bsdinstall-final-confirmation.png
+IMAGES_EN+= bsdinstall/bsdinstall-mainexit.png
+IMAGES_EN+= bsdinstall/bsdinstall-mta-main.png
+IMAGES_EN+= bsdinstall/bsdinstall-net-config-menu1.png
+IMAGES_EN+= bsdinstall/bsdinstall-net-config-menu2.png
+IMAGES_EN+= bsdinstall/bsdinstall-netinstall-files.png
+IMAGES_EN+= bsdinstall/bsdinstall-netinstall-mirrorselect.png
+IMAGES_EN+= bsdinstall/bsdinstall-ntp-config.png
+IMAGES_EN+= bsdinstall/bsdinstall-part-entire-part.png
+IMAGES_EN+= bsdinstall/bsdinstall-part-guided-disk.png
+IMAGES_EN+= bsdinstall/bsdinstall-part-guided-manual.png
+IMAGES_EN+= bsdinstall/bsdinstall-part-manual-addpart.png
+IMAGES_EN+= bsdinstall/bsdinstall-part-manual-create.png
+IMAGES_EN+= bsdinstall/bsdinstall-part-manual-partscheme.png
+IMAGES_EN+= bsdinstall/bsdinstall-part-review.png
+IMAGES_EN+= bsdinstall/bsdinstall-post-root-passwd.png
+IMAGES_EN+= bsdinstall/bsdinstall-set-clock-local-utc.png
+IMAGES_EN+= bsdinstall/bsdinstall-timezone-confirm.png
+IMAGES_EN+= bsdinstall/bsdinstall-timezone-country.png
+IMAGES_EN+= bsdinstall/bsdinstall-timezone-region.png
+IMAGES_EN+= bsdinstall/bsdinstall-timezone-zone.png
 IMAGES_EN+= geom/striping.pic
 IMAGES_EN+= install/adduser1.scr
 IMAGES_EN+= install/adduser2.scr
@@ -208,6 +245,7 @@ IMAGES_LIB+= callouts/15.png
 # SGML content
 SRCS+= audit/chapter.sgml
 SRCS+= book.sgml
+SRCS+= bsdinstall/chapter.sgml
 SRCS+= colophon.sgml
 SRCS+= dtrace/chapter.sgml
 SRCS+= freebsd-glossary.sgml
