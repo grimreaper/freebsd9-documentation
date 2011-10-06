@@ -915,14 +915,15 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       configure and control the installation process.</para>
 
     <para>The <application>bsdinstall</application> menu system is controlled
-      by the arrow keys, <keycap>Enter</keycap>, <keycap>Tab</keycap>, <keycap>Space</keycap>, and
-      other keys.</para>
+      by the arrow keys, <keycap>Enter</keycap>, <keycap>Tab</keycap>,
+      <keycap>Space</keycap>, and other keys.</para>
 
     <sect2 id="bsdinstall-keymap">
       <title>Selecting the Keymap Menu</title>
 
-      <para>Depending on the system console being used, <application>bsdinstall</application> may initially
-        prompt to select your keyboard layout.</para>
+      <para>Depending on the system console being used,
+	<application>bsdinstall</application> may initially prompt to select
+	your keyboard layout.</para>
 
       <figure id="bsdinstall-config-keymap">
 	<title>Selecting Keyboard Menu</title>
@@ -2191,8 +2192,8 @@ Please press any key to reboot.</screen>
       <title>What to Do If Something Goes Wrong</title>
 
       <para>Due to various limitations of the PC architecture, it is
-        impossible for probing to be 100% reliable, however, there are a
-        few things you can do if it fails.</para>
+	impossible for probing to be 100% reliable, however, there are a
+	few things you can do if it fails.</para>
 
       <para>Check the <ulink
 	url="http://www.FreeBSD.org/releases/index.html">Hardware Notes
@@ -2200,9 +2201,9 @@ Please press any key to reboot.</screen>
 	hardware is supported.</para>
 
       <para>If your hardware is supported and you still experience
-        lock-ups or other problems, you will need to build a <link
+	lock-ups or other problems, you will need to build a <link
 	linkend="kernelconfig">custom kernel</link>.  This will
-        allow you to add in support for devices which are not present in the
+	allow you to add in support for devices which are not present in the
 	<filename>GENERIC</filename> kernel.  The kernel on the boot disks
 	is configured assuming that most hardware devices are in their
 	factory default configuration in terms of IRQs, IO addresses, and
@@ -2211,26 +2212,26 @@ Please press any key to reboot.</screen>
 	&os; where to find things.</para>
 
       <para>It is also possible that a probe for a device not present will
-        cause a later probe for another device that is present to fail.  In
-        that case, the probes for the conflicting driver(s) should be
-        disabled.</para>
+	cause a later probe for another device that is present to fail.  In
+	that case, the probes for the conflicting driver(s) should be
+	disabled.</para>
 
       <note>
-        <para>Some installation problems can be avoided or alleviated
-          by updating the firmware on various hardware components, most notably
-          the motherboard.  Motherboard firmware is usually referred to
-          as the <acronym>BIOS</acronym>.  Most motherboard and computer
-          manufacturers have a website for upgrades and upgrade
-          information.</para>
+	<para>Some installation problems can be avoided or alleviated
+	  by updating the firmware on various hardware components, most notably
+	  the motherboard.  Motherboard firmware is usually referred to
+	  as the <acronym>BIOS</acronym>.  Most motherboard and computer
+	  manufacturers have a website for upgrades and upgrade
+	  information.</para>
 
-        <para>Manufacturers generally advise against upgrading the motherboard
-          <acronym>BIOS</acronym> unless there is a good reason for doing so,
-          like a critical update.  The upgrade process
-          <emphasis>can</emphasis> go wrong, leaving the <acronym>BIOS</acronym>
-          incomplete and the computer inoperative.</para>
-        </note>
+	<para>Manufacturers generally advise against upgrading the motherboard
+	  <acronym>BIOS</acronym> unless there is a good reason for doing so,
+	  like a critical update.  The upgrade process
+	  <emphasis>can</emphasis> go wrong, leaving the <acronym>BIOS</acronym>
+	  incomplete and the computer inoperative.</para>
+      </note>
     </sect2>
-    
+
     <sect2>
       <title>Troubleshooting Questions and Answers</title>
 
