@@ -4,10 +4,10 @@
 
   The FreeBSD Greek Documentation Project
 
-  $FreeBSD: doc/el_GR.ISO8859-7/books/handbook/eresources/chapter.sgml,v 1.16 2011/09/25 14:18:25 manolis Exp $
+  $FreeBSD: doc/el_GR.ISO8859-7/books/handbook/eresources/chapter.sgml,v 1.18 2011/10/05 18:40:39 manolis Exp $
 
   %SOURCE%	en_US.ISO8859-1/books/handbook/eresources/chapter.sgml
-  %SRCID%	1.211
+  %SRCID%	1.213
 
 -->
 
@@ -584,6 +584,12 @@
 	      <entry>Συζήτηση για τη μεταφορά του &os; στο &xen; &mdash;
 		υλοποίηση και χρήση</entry>
 	    </row>
+
+	    <row>
+	      <entry>&a.xfce.name;</entry>
+	      <entry><application>XFCE</application> στο &os; &mdash;
+		Μεταφορά και συντήρηση</entry>
+	    </row>
 	  </tbody>
 	</tgroup>
       </informaltable>
@@ -766,6 +772,14 @@
 	      <entry><filename>/usr/src</filename></entry>
 	      <entry>Όλες οι αλλαγές στον κλάδο πηγαίου κώδικα
 		<filename>stable/8</filename> του Subversion
+		repository</entry>
+	    </row>
+
+	    <row>
+	      <entry>&a.svn-src-stable-9.name;</entry>
+	      <entry><filename>/usr/src</filename></entry>
+	      <entry>Όλες οι αλλαγές στον κλάδο πηγαίου κώδικα
+		<filename>stable/9</filename> του Subversion
 		repository</entry>
 	    </row>
 
@@ -1847,6 +1861,22 @@
 	      και έτσι θα χρησιμοποιηθεί τόσο για τεχνικές συζητήσεις σχετικά
 	      με το σχεδιασμό και την υλοποίηση, όσο και με προβλήματα
 	      εγκατάστασης και διαχείρισης.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>&a.xfce.name;</term>
+
+	  <listitem>
+	    <para><emphasis>XFCE</emphasis></para>
+
+	    <para>Συζήτηση για τη μεταφορά του
+	      <application>XFCE</application> στο &os;.  Πρόκειται για μια
+	      λίστα τεχνικών συζητήσεων.  Προορίζεται για όσους ασχολούνται
+	      ενεργά με τη μεταφορά του <application>XFCE</application> στο
+	      &os; ώστε να συζητούν προβλήματα και εναλλακτικές λύσεις.
+	      Η λίστα είναι επίσης ανοικτή σε όσους ενδιαφέρονται για
+	      τεχνική συζήτηση αυτού του είδους.</para>
 	  </listitem>
 	</varlistentry>
       </variablelist>
