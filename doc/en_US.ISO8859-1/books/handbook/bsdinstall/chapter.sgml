@@ -103,7 +103,7 @@
 	Depending on the method you choose to install &os;, you may
 	also need a supported CDROM drive, and in some
 	cases a network adapter.  This will be covered by <xref
-	linkend="bsdinstall-boot-media">.</para>
+	linkend="bsdinstall-installation-media">.</para>
 
       <sect3>
 	<title>&os;/&arch.i386; and &os;/&arch.pc98;</title>
@@ -362,7 +362,7 @@
 	url="&url.base;/index.html">&os; web site</ulink>.</para>
     </sect2>
 
-    <sect2 id="bsdinstall-boot-media">
+    <sect2 id="bsdinstall-installation-media">
       <title>Prepare the Installation Media</title>
 
       <para>A &os; installation is started by booting the computer with
@@ -534,9 +534,10 @@ commit your changes?</literallayout>
       <procedure>
 
 	<step>
-	  <para>If you prepared a <quote>bootable</quote> USB stick, as described in
-	    <xref linkend="bsdinstall-boot-media">, then plug in your USB
-	    stick before turning on the computer.</para>
+	  <para>If you prepared a <quote>bootable</quote> USB stick, as
+	    described in <xref linkend="bsdinstall-installation-media">,
+	    then plug in your USB stick before turning on the
+	    computer.</para>
 
 	  <para>If you are booting from CDROM, then you will need to turn on
 	    the computer, and insert the CDROM at the first
