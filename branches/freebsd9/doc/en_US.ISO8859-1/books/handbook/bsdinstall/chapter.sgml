@@ -385,25 +385,13 @@
 	<title>Network</title>
 
 	<listitem>
-	  <para>An FTP site, going through a firewall or using an HTTP proxy,
-	    as necessary</para>
+	  <para>An &os; FTP mirror site</para>
 	</listitem>
-
-	<listitem>
-	  <para>An NFS server</para>
-	</listitem>
-
       </itemizedlist>
 
       <para>If you have a copy of &os; on CD, DVD, or USB memory stick,
 	then you already have everything you need, and should proceed to
 	(<xref linkend="bsdinstall-start">).</para>
-
-      <para>If you have not obtained the &os; installation files, see
-	<xref linkend="bsdinstall-diff-media">, which explains how
-	to prepare to install &os; from the different media types.
-	After following that section, come back here and continue with
-	<xref linkend="bsdinstall-boot-media">.</para>
     </sect2>
 
     <sect2 id="bsdinstall-boot-media">
@@ -2435,53 +2423,6 @@ Please press any key to reboot.</screen>
 	FreeBSD color console and proceed with your install!</para>
 
     </sect2>
-  </sect1>
-
-  <sect1 id="bsdinstall-diff-media">
-    <title>Preparing Your Own Installation Media</title>
-
-    <note>
-      <para>To prevent repetition, <quote>FreeBSD disc</quote> in this context
-	means a FreeBSD CDROM or DVD that you have purchased or produced
-	yourself.</para>
-    </note>
-
-    <para>There may be some situations in which you need to create your own
-      FreeBSD installation media and/or source.  This might be physical media,
-      such as a tape, or a source that <application>sysinstall</application>
-      can use to retrieve the files, such as a local FTP site, or an &ms-dos;
-      partition.</para>
-
-    <para>For example:</para>
-
-    <itemizedlist>
-      <listitem>
-	<para>You have many machines connected to your local network, and one
-	  FreeBSD disc.  You want to create a local FTP site using the
-	  contents of the FreeBSD disc, and then have your machines use this
-	  local FTP site instead of needing to connect to the Internet.</para>
-      </listitem>
-
-      <listitem>
-	<para>You have a FreeBSD disc, and FreeBSD does not recognize your CD/DVD
-	  drive, but &ms-dos;/&windows; does.  You want to copy the FreeBSD
-	  installation files to a DOS partition on the same computer, and
-	  then install FreeBSD using those files.</para>
-      </listitem>
-
-      <listitem>
-	<para>The computer you want to install on does not have a CD/DVD
-	  drive or a network card, but you can connect a
-	  <quote>Laplink-style</quote> serial or parallel cable to a computer
-	  that does.</para>
-      </listitem>
-
-      <listitem>
-	<para>You want to create a tape that can be used to install
-	  FreeBSD.</para>
-      </listitem>
-    </itemizedlist>
-
   </sect1>
 </chapter>
 
