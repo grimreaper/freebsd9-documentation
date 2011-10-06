@@ -1893,6 +1893,25 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       	installation.</para>
     </sect2>
 
+    <sect2 id="bsdinstall-final-conf">
+      <title>Final Configuration</title>
+
+      <para>After everything has been installed and configured, a final
+	chance is provided to modify settings.</para>
+
+      <figure id="bsdinstall-final-config">
+	<title>Final Configuration</title>
+
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="bsdinstall/bsdinstall-finalconfiguration" format="PNG">
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>Use this menu to make any changes or do any additional
+	configuration.</para>
+
 <!-- <sect2 id="exit-inst"> -->
     <sect2 id="bsdinstall-exit-inst">
       <title>Exiting Install</title>
