@@ -1911,29 +1911,57 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       </figure>
 
       <para>Use this menu to make any changes or do any additional
-	configuration.</para>
+	configuration before completing the installation.</para>
 
-<!-- <sect2 id="exit-inst"> -->
-    <sect2 id="bsdinstall-exit-inst">
-      <title>Exiting Install</title>
+      <itemizedlist>
+	<title>Final Configuration Options</title>
 
-      <para>If you need to configure <link linkend="network-services">additional network services</link> or
-	any other configuration, you can do it at this point or
-	after installation with <command>sysinstall</command>.</para>
+	<listitem>
+	  <para><literal>Add User</literal> - Described in
+	    <xref linkend="bsdinstall-addusers">.</para>
+	</listitem>
 
-      <screen>                     User Confirmation Requested
- Visit the general configuration menu for a chance to set any last
- options? 
+	<listitem>
+	  <para><literal>Root Password</literal> - Described in
+	    <xref linkend="bsdinstall-post-root">.</para>
+	</listitem>
 
-                              Yes   [ No ]</screen>
+	<listitem>
+	  <para><literal>Hostname</literal> - Described in
+	    <xref linkend="bsdinstall-hostname">.</para>
+	</listitem>
 
-      <para>Select &gui.no; with the arrow keys
-	and press <keycap>Enter</keycap> to return to the Main
-	Installation Menu.</para>
+	<listitem>
+	  <para><literal>Network</literal> - Described in
+	    <xref linkend="bsdinstall-config-network-dev">.</para>
+	</listitem>
 
-<!--  <figure id="final-main"> -->
+	<listitem>
+	  <para><literal>Services</literal> - Described in
+	    xref linkend="bsdinstall-sysconf">.</para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>Time Zone</literal> - Described in
+	    <xref linkend="bsdinstall-timezone">.</para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>Handbook</literal> - Download and install the
+	    &os; Handbook.</para>
+	</listitem>
+
+	<listitem>
+	  <para><literal>Shell</literal> - Open a shell to run commands
+	    on the new system.</para>
+	</listitem>
+      </listitem>
+
+      <para>After any final configuration is complete, select
+	<guibutton>Exit</guibutton> to leave the installation.</para>
+
       <figure id="bsdinstall-final-main">
-	<title>Exit Install</title>
+	<title>Complete the Installation</title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1942,32 +1970,15 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>Select <guibutton>[X Exit Install]</guibutton> with the arrow
-	keys and press <keycap>Enter</keycap>.  You will be asked to
-	confirm exiting the installation:</para>
+      <para>If further configuration or special setup is needed,
+	selecting <guibutton>[&nbsp;Live CD&nbsp;]</guibutton> will boot
+	the install media into Live CD mode.</para>
 
-      <screen>                     User Confirmation Requested
- Are you sure you wish to exit? The system will reboot.
-
-                            [ Yes ]   No</screen>
-
-      <para>Select &gui.yes;. If you are booting from the CDROM drive
-	the following message will remind you to remove the
-	disk:</para>
-
-      <screen>                    Message
- Be sure to remove the media from the drive.
-
-                    [ OK ]
-           [ Press enter or space ]</screen>
-
-      <para>The CDROM drive is locked until the machine
-	starts to reboot then the disk can
-	be removed from drive (quickly).  Press &gui.ok; to reboot.</para>
-
-      <para>The system will reboot so watch for any error messages that
-	may appear, see <xref linkend="freebsdboot"> for more
-	details.</para>
+      <para>When the installation is complete, select
+	<guibutton>[&nbsp;Reboot&nbsp]</guibutton> to reboot the
+	computer and start the new &os; system.  Don't forget to
+	remove the &os; install CD, DVD, or USB memory stick, or the
+	computer may boot from it again.</para>
     </sect2>
 
 <!-- <sect2 id="freebsdboot"> -->
