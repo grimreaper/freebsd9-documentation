@@ -5,10 +5,10 @@
 
   The FreeBSD Greek Documentation Project
 
-  $FreeBSD: doc/el_GR.ISO8859-7/share/sgml/mailing-lists.ent,v 1.22 2011/09/25 14:18:25 manolis Exp $
+  $FreeBSD: doc/el_GR.ISO8859-7/share/sgml/mailing-lists.ent,v 1.24 2011/10/05 18:40:39 manolis Exp $
 
   %SOURCE%	en_US.ISO8859-1/share/sgml/mailing-lists.ent
-  %SRCID%	1.83
+  %SRCID%	1.85
 
 -->
 
@@ -455,6 +455,10 @@
 <!ENTITY a.svn-src-stable-8 "<ulink url='&a.svn-src-stable-8.url;'>ηλεκτρονική λίστα μηνυμάτων SVN commit μόνο για το δέντρο πηγαίου κώδικα 8-stable</ulink>">
 <!ENTITY a.svn-src-stable-8.name "<ulink url='&a.svn-src-stable-8.url;'>svn-src-stable-8</ulink>">
 
+<!ENTITY a.svn-src-stable-9.url "&a.mailman.listinfo;/svn-src-stable-9">
+<!ENTITY a.svn-src-stable-9 "<ulink url='&a.svn-src-stable-9.url;'>ηλεκτρονική λίστα μηνυμάτων SVN commit μόνο για το δέντρο πηγαίου κώδικα 9-stable</ulink>">
+<!ENTITY a.svn-src-stable-9.name "<ulink url='&a.svn-src-stable-9.url;'>svn-src-stable-9</ulink>">
+
 <!ENTITY a.svn-src-stable-other.url "&a.mailman.listinfo;/svn-src-stable-other">
 <!ENTITY a.svn-src-stable-other "<ulink url='&a.svn-src-stable-other.url;'>ηλεκτρονική λίστα μηνυμάτων SVN commit για τα παλιά stable δέντρα πηγαίου κώδικα</ulink>">
 <!ENTITY a.svn-src-stable-other.name "<ulink url='&a.svn-src-stable-other.url;'>svn-src-stable-other</ulink>">
@@ -538,6 +542,10 @@
 <!ENTITY a.xen.url "&a.mailman.listinfo;/freebsd-xen">
 <!ENTITY a.xen "<ulink url='&a.xen.url;'>ηλεκτρονική λίστα συζητήσεων για τη μεταφορά του FreeBSD στο Xen</ulink>">
 <!ENTITY a.xen.name "<ulink url='&a.xen.url;'>freebsd-xen</ulink>">
+
+<!ENTITY a.xfce.url "&a.mailman.listinfo;/freebsd-xfce">
+<!ENTITY a.xfce "<ulink url='&a.xfce.url;'>ηλεκτρονική λίστα συζητήσεων για τη μεταφορά του XFCE στο FreeBSD</ulink>">
+<!ENTITY a.xfce.name "<ulink url='&a.xfce.url;'>freebsd-xfce</ulink>">
 
 <!-- Τα παρακάτω entities δεν είναι πραγματικές mailing lists -->
 
