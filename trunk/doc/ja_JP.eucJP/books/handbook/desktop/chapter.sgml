@@ -2,8 +2,8 @@
      The FreeBSD Documentation Project
      The FreeBSD Japanese Documentation Project
 
-     Original revision: 1.114
-     $FreeBSD: doc/ja_JP.eucJP/books/handbook/desktop/chapter.sgml,v 1.37 2011/09/04 13:10:52 ryusuke Exp $
+     Original revision: 1.115
+     $FreeBSD: doc/ja_JP.eucJP/books/handbook/desktop/chapter.sgml,v 1.38 2011/10/06 10:19:23 ryusuke Exp $
 -->
 
 <chapter id="desktop">
@@ -196,7 +196,7 @@
 
       <screen>&prompt.root; <userinput>pkg_add -r firefox</userinput></screen>
 
-      <para>上の例では、<application>Firefox</application> 6.0
+      <para>上の例では、<application>Firefox</application> 7.0
 	がインストールされます。
 	<application>Firefox</application> 3.6 を利用したい場合には、
 	かわりに以下のように入力してください。</para>

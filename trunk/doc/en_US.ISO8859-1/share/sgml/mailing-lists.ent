@@ -1,7 +1,7 @@
 <!--
      Names of FreeBSD mailing lists and related software.
 
-     $FreeBSD: doc/en_US.ISO8859-1/share/sgml/mailing-lists.ent,v 1.83 2011/09/08 18:09:59 delphij Exp $
+     $FreeBSD: doc/en_US.ISO8859-1/share/sgml/mailing-lists.ent,v 1.85 2011/10/04 14:40:37 gjb Exp $
 -->
 
 <!ENTITY a.mailman.listinfo "http://lists.FreeBSD.org/mailman/listinfo">
@@ -447,6 +447,10 @@
 <!ENTITY a.svn-src-stable-8 "<ulink url='&a.svn-src-stable-8.url;'>SVN commit messages for only the 8-stable src tree</ulink>">
 <!ENTITY a.svn-src-stable-8.name "<ulink url='&a.svn-src-stable-8.url;'>svn-src-stable-8</ulink>">
 
+<!ENTITY a.svn-src-stable-9.url "&a.mailman.listinfo;/svn-src-stable-9">
+<!ENTITY a.svn-src-stable-9 "<ulink url='&a.svn-src-stable-9.url;'>SVN commit messages for only the 9-stable src tree</ulink>">
+<!ENTITY a.svn-src-stable-9.name "<ulink url='&a.svn-src-stable-9.url;'>svn-src-stable-9</ulink>">
+
 <!ENTITY a.svn-src-stable-other.url "&a.mailman.listinfo;/svn-src-stable-other">
 <!ENTITY a.svn-src-stable-other "<ulink url='&a.svn-src-stable-other.url;'>SVN commit messages for the old stable src trees</ulink>">
 <!ENTITY a.svn-src-stable-other.name "<ulink url='&a.svn-src-stable-other.url;'>svn-src-stable-other</ulink>">
@@ -531,6 +535,10 @@ infrastructure</ulink>">
 <!ENTITY a.xen.url "&a.mailman.listinfo;/freebsd-xen">
 <!ENTITY a.xen "<ulink url='&a.xen.url;'>FreeBSD port to Xen mailing list</ulink>">
 <!ENTITY a.xen.name "<ulink url='&a.xen.url;'>freebsd-xen</ulink>">
+
+<!ENTITY a.xfce.url "&a.mailman.listinfo;/freebsd-xfce">
+<!ENTITY a.xfce "<ulink url='&a.xfce.url;'>XFCE for FreeBSD mailing list</ulink>">
+<!ENTITY a.xfce.name "<ulink url='&a.xfce.url;'>freebsd-xfce</ulink>">
 
 <!-- Not really proper mailing lists -->
 

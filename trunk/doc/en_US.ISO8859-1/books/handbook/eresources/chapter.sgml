@@ -1,7 +1,7 @@
 <!--
      The FreeBSD Documentation Project
 
-     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/eresources/chapter.sgml,v 1.211 2011/09/07 08:23:02 jkois Exp $
+     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/eresources/chapter.sgml,v 1.213 2011/10/04 14:40:37 gjb Exp $
 -->
 
 <appendix id="eresources">
@@ -550,6 +550,11 @@
 	      <entry>&a.xen.name;</entry>
 	      <entry>Discussion of the &os; port to &xen; &mdash; implementation and usage</entry>
 	    </row>
+
+	    <row>
+	      <entry>&a.xfce.name;</entry>
+	      <entry><application>XFCE</application> for &os; &mdash; porting and maintaining</entry>
+	    </row>
 	  </tbody>
 	</tgroup>
       </informaltable>
@@ -721,6 +726,13 @@
 	      <entry>&a.svn-src-stable-8.name;</entry>
 	      <entry><filename>/usr/src</filename></entry>
 	      <entry>All changes to the <filename>stable/8</filename>
+		branch of the src Subversion repository</entry>
+	    </row>
+
+	    <row>
+	      <entry>&a.svn-src-stable-9.name;</entry>
+	      <entry><filename>/usr/src</filename></entry>
+	      <entry>All changes to the <filename>stable/9</filename>
 		branch of the src Subversion repository</entry>
 	    </row>
 
@@ -1769,6 +1781,22 @@
 	      intended as a forum for both technical discussions of
 	      the implementation and design details as well as
 	      administrative deployment issues.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>&a.xfce.name;</term>
+
+	  <listitem>
+	    <para><emphasis>XFCE</emphasis></para>
+
+	    <para>This is a forum for discussions related to bring the
+	      <application>XFCE</application> environment to &os;.  This
+	      is a technical mailing list.  It is for individuals actively
+	      working on porting <application>XFCE</application> to &os;,
+	      to bring up problems or discuss alternative solutions.
+	      Individuals interested in following the technical discussion
+	      are also welcome.</para>
 	  </listitem>
 	</varlistentry>
       </variablelist>
