@@ -24,9 +24,14 @@
     </authorgroup>
     <authorgroup>
       <author>
-        <firstname>Gavin</firstname>
+	<firstname>Gavin</firstname>
 	<surname>Atkinson</surname>
 	<contrib>Updated for bsdinstall by </contrib>
+      </author>
+
+      <author>
+	<firstname>Warren</firstname>
+	<surname>Block</surname>
       </author>
     </authorgroup>
   </chapterinfo>
@@ -498,10 +503,11 @@
 		<computeroutput>Device</computeroutput> is the drive
 		with the memory stick.  Click the folder icon and select
 		the image to be written to the memory stick. Click
-		<guibutton>Save</guibutton> to accept the image file
-		name.  Verify that everything is correct, and that no
-		folders on the memory stick are open in other windows.
-		Finally, click <guibutton>Write</guibutton> to write the
+		<guibutton>[&nbsp;Save&nbsp;</guibutton> to accept the
+		image file name.  Verify that everything is correct, and
+		that no folders on the memory stick are open in other
+		windows. When everything is ready, click
+		<guibutton>[&nbsp;Write&nbsp;]</guibutton> to write the
 		image file to the memory stick.</para>
 	    </step>
 	  </procedure>
@@ -641,9 +647,19 @@ Loading /boot/defaults/loader.conf
 
 	<para>On most machines, holding <keycap>C</keycap> on the
 	  keyboard during boot will boot from the CD.  Otherwise, hold
-	  <keycombo action="simul"><keycap>Command</keycap><keycap>Option</keycap><keycap>O</keycap><keycap>F</keycap></keycombo>,
+	  <keycombo action="simul">
+	    <keycap>Command</keycap>
+	    <keycap>Option</keycap>
+	    <keycap>O</keycap>
+	    <keycap>F</keycap>
+	  </keycombo>,
 	  or
-	  <keycombo action="simul"><keycap>Windows</keycap><keycap>Alt</keycap><keycap>O</keycap><keycap>F</keycap></keycombo>
+	  <keycombo action="simul">
+	    <keycap>Windows</keycap>
+	    <keycap>Alt</keycap>
+	    <keycap>O</keycap>
+	    <keycap>F</keycap>
+	  </keycombo>
 	  on non-&apple; keyboards.  At the <prompt>0 ></prompt>
 	  prompt, enter
 	  <screen><userinput>boot cd:,\ppc\loader cd:0</userinput></screen></para>
@@ -869,7 +885,7 @@ ada0: Previously was known as ad4
 ums0: &lt;Microsoft Microsoft 3-Button Mouse with IntelliEyeTM, class 0/0, rev 1.10/3.00, addr 2&gt; on usbus1
 SMP: AP CPU #1 Launched!
 cd0 at ahcich1 bus 0 scbus2 target 0 lun 0
-cd0: &lt;TEAC DV-W28S-RT 7.0C&gt; Removable CD-ROM SCSI-0 device 
+cd0: &lt;TEAC DV-W28S-RT 7.0C&gt; Removable CD-ROM SCSI-0 device
 cd0: 150.000MB/s transfers (SATA 1.x, ums0: 3 buttons and [XYZ] coordinates ID=0
 UDMA2, ATAPI 12bytes, PIO 8192bytes)
 cd0: cd present [1 x 2048 byte records]
@@ -903,7 +919,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>Selecting "Install" here will enter the installer.</para>
+      <para>Selecting <guibutton>[&nbsp;Install&nbsp;]</guibutton> here
+	will enter the installer.</para>
     </sect2>
   </sect1>
 
@@ -1051,7 +1068,6 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 <!-- XXXGA done to here. -->
 
-<!-- WB: new network install section -->
   <sect1 id="bsdinstall-netinstall">
     <title>Installing from the Network</title>
 
@@ -1088,7 +1104,6 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
     <para>The installation will continue as if the installation files
       were located on local media.</para> </sect1>
 
-<!-- WB: new bsdinstall partitioning section! -->
   <sect1 id="bsdinstall-partitioning">
     <title>Allocating Disk Space</title>
 
@@ -1337,7 +1352,6 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	installation.</para>
     </sect2>
   </sect1>
-<!-- WB: end of new partition editor section -->
 
   <sect1 id="bsdinstall-final-warning">
     <title>Committing to the Installation</title>
@@ -1355,7 +1369,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       </mediaobject>
     </figure>
 
-    <para>Select <guibutton>[&nbsp;Commit&nbsp;]</guibutton> and press 
+    <para>Select <guibutton>[&nbsp;Commit&nbsp;]</guibutton> and press
       <keycap>Enter</keycap> to proceed.  Alternatively, if changes
       need to be made, <guibutton>[&nbsp;Back&nbsp;]</guibutton> will
       return to the partition editor.  <guibutton>[&nbsp;Revert &amp; Exit&nbsp;]</guibutton>
@@ -1526,40 +1540,30 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	    </mediaobject>
 	  </figure>
 
-	  <variablelist>
-	    <varlistentry>
-	      <term>IP Address</term>
+	  <itemizedlist>
+	    <listitem>
+	      <para><literal>IP Address</literal> - The
+		manually-assigned IPv4 address to be assigned to this
+		computer.  This address must be unique and not already
+		in use by another piece of equipment on the local
+		network.</para>
+	    </listitem>
 
-	      <listitem>
-		<para>The manually-assigned IP address given to this
-		  computer.  This address must be unique and not in use
-		  by another piece of network equipment.</para>
-	      </listitem>
-	    </varlistentry>
+	    <listitem>
+	      <para><literal>Subnet Mask</literal> - The subnet mask
+		used for the local network.  Typically, this is
+		<literal>255.255.255.0</literal>.</para>
+	    </listitem>
 
-	    <varlistentry>
-	      <term>Subnet Mask</term>
-
-	      <listitem>
-		<para>The subnet mask used for the local network.
-		  Typically, this is
-		  <literal>255.255.255.0</literal>.</para>
-	      </listitem>
-	    </varlistentry>
-
-	    <varlistentry>
-	      <term>Default Router</term>
-
-	      <listitem>
-		<para>The IP address of the default router on this
-		  network.  Usually this is the address of the router or
-		  other network equipment that connects the local
-		  network to the Internet.  Also known as the
-		  <emphasis>default gateway</emphasis>.
-		  </para>
-	      </listitem>
-	    </varlistentry>
-	  </variablelist>
+	    <listitem>
+	      <para><literal>Default Router</literal> - The IP address
+		of the default router on this network.  Usually this is
+		the address of the router or other network equipment
+		that connects the local network to the Internet.  Also
+		known as the <emphasis>default
+		gateway</emphasis>.</para>
+	    </listitem>
+	  </itemizedlist>
 	</sect4>
       </sect3>
 
@@ -1611,7 +1615,35 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 	  <para>Static configuration of the network interface requires
 	    entry of the IPv6 configuration information.</para>
-<!-- WB: list of IPv6 network information -->
+
+	  <figure id="bsdinstall-net-ipv6-static">
+	    <title>IPv6 Static Configuration</title>
+
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="bsdinstall/bsdinstall-configure-network-interface-ipv6-static" format="PNG">
+	      </imageobject>
+	    </mediaobject>
+	  </figure>
+
+	  <itemizedlist>
+	    <listitem>
+	      <para><literal>IPv6 Address</literal> - The
+		manually-assigned IP address to be assigned to this
+		computer.  This address must be unique and not already
+		in use by another piece of equipment on the local
+		network.</para>
+	    </listitem>
+
+	    <listitem>
+	      <para><literal>Default Router</literal> - The IPv6 address
+		of the default router on this network.  Usually this is
+		the address of the router or other network equipment
+		that connects the local network to the Internet.  Also
+		known as the <emphasis>default
+		gateway</emphasis>.</para>
+	    </listitem>
+	  </itemizedlist>
 	</sect4>
       </sect3>
 
@@ -2163,40 +2195,6 @@ The key's randomart image is:
 |    . .  o .     |
 |      .o. .      |
 +-----------------+
-Generating public/private rsa key pair.
-Your identification has been saved in /etc/ssh/ssh_host_rsa_key.
-Your public key has been saved in /etc/ssh/ssh_host_rsa_key.pub.
-The key fingerprint is:
-00:da:0b:9a:fa:68:a3:5c:06:f9:e1:65:d5:72:46:ef root@machine3.example.com
-The key's randomart image is:
-+--[ RSA 2048]----+
-|    .    .       |
-|   o .  o .      |
-|  o . .o + .     |
-| o.. ...+ .      |
-|oo ..o  S  E     |
-|. + +            |
-|.  =             |
-|.=o              |
-|=.o              |
-+-----------------+
-Generating public/private ecdsa key pair.
-Your identification has been saved in /etc/ssh/ssh_host_ecdsa_key.
-Your public key has been saved in /etc/ssh/ssh_host_ecdsa_key.pub.
-The key fingerprint is:
-4b:29:50:75:54:2c:f1:c4:00:e1:f9:dd:69:95:da:c3 root@machine3.example.com
-The key's randomart image is:
-+--[ECDSA  256]---+
-|      ..++=*o    |
-|     . . o.oo   .|
-|    .   o  ..  ..|
-|     .   o . .+o |
-|      . S . ..+E |
-|       o .   .  .|
-|        .        |
-|                 |
-|                 |
-+-----------------+
 Starting sshd.
 Starting cron.
 Starting background file system checks in 60 seconds.
@@ -2334,7 +2332,7 @@ login:</screen>
   </sect1>
 </chapter>
 
-<!-- 
+<!--
      Local Variables:
      mode: sgml
      sgml-declaration: "../chapter.decl"
