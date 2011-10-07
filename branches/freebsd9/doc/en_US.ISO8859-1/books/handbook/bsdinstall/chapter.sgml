@@ -52,7 +52,7 @@
       <listitem>
 	<para>How to create the &os; installation media.</para>
       </listitem>
-      
+
       <listitem>
 	<!-- WB: verify this, including GPT partition notation (ada0p2) -->
 	<para>How &os; subdivides and refers to hard disks.</para>
@@ -444,8 +444,8 @@
 
 	    <warning>
 	      <para>The example below shows <filename
-	        class="devicefile">/dev/da0</filename> as the target
-	        device where the image will be written.  Be very careful
+		class="devicefile">/dev/da0</filename> as the target
+		device where the image will be written.  Be very careful
 		that the correct device is used as the output target, or
 		you may destroy existing data.</para>
 	    </warning>
@@ -483,10 +483,10 @@
 	      <title>Obtaining <application>Image Writer for Windows</application></title>
 
 	      <para><application>Image Writer for Windows</application> is a
-	        free application that can correctly write an image file to a
-	        memory stick.  Download it from
-	        <ulink url="https://launchpad.net/win32-image-writer/"></ulink>
-	        and extract it into a folder.</para>
+		free application that can correctly write an image file to a
+		memory stick.  Download it from
+		<ulink url="https://launchpad.net/win32-image-writer/"></ulink>
+		and extract it into a folder.</para>
 	    </step>
 
 	    <step>
@@ -935,8 +935,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       </figure>
 
       <para>Select the keymap that most closely represents the mapping of the
-        keyboard attached to the system, using the up/down arrow keys and pressing
-        <keycap>Enter</keycap>.</para>
+	keyboard attached to the system, using the up/down arrow keys and pressing
+	<keycap>Enter</keycap>.</para>
 
       <note>
 	<para>Pressing <keycap>Esc</keycap> will use the default keymap.
@@ -1890,8 +1890,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
       <para>If there are more users to add, answer the "Add another
 	user?" question with <literal>yes</literal>.  Enter
-      	<literal>no</literal> to finish adding users and continue the
-      	installation.</para>
+	<literal>no</literal> to finish adding users and continue the
+	installation.</para>
     </sect2>
 
     <sect2 id="bsdinstall-final-conf">
@@ -2164,7 +2164,7 @@ Please press any key to reboot.</screen>
 	switch, the system will reboot.</para>
 
       <para>You could also use the
-        <keycombo action="simul">
+	<keycombo action="simul">
 	  <keycap>Ctrl</keycap>
 	  <keycap>Alt</keycap>
 	  <keycap>Del</keycap>
