@@ -1981,28 +1981,34 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	computer may boot from it again.</para>
     </sect2>
 
-<!-- <sect2 id="freebsdboot"> -->
     <sect2 id="bsdinstall-freebsdboot">
-      <title>&os; Bootup</title>
+      <title>&os; Booting and Shutdown</title>
 
-<!--  <sect3 id="freebsdboot-i386"> -->
       <sect3 id="bsdinstall-freebsdboot-i386">
-        <title>&os;/&arch.i386; Bootup</title>
+	<title>&os;/&arch.i386; Booting</title>
 
-      <para>If everything went well, you will see messages scroll
-	off the screen and you will arrive at a login prompt.  You can view
-	the content of the messages by pressing <keycap>Scroll-Lock</keycap>
-	and using <keycap>PgUp</keycap> and <keycap>PgDn</keycap>.
-	Pressing <keycap>Scroll-Lock</keycap> again will return
-	to the prompt.</para>
+      <para>As &os; boots, many informational messages are displayed.
+	Most will scroll off the screen; this is normal.  After the
+	system finishes booting, a login prompt is displayed.  Messages
+	that scrolled off the screen can be reviewed by pressing
+	<keycap>Scroll-Lock</keycap> to turn on the
+	<emphasis>scroll-back buffer</emphasis>.  The
+	<keycap>PgUp</keycap>, <keycap>PgDn</keycap>, and
+	arrow keys can be used to scroll back through the messages.
+	Pressing <keycap>Scroll-Lock</keycap> again unlocks the display
+	and returns to the normal screen.</para>
 
-      <para>The entire message may not display (buffer limitation) but
-	it can be viewed from the command line after logging in by typing
-	<command>dmesg</command> at the prompt.</para>
+      <para>At the <prompt>login:</prompt> prompt, enter the username
+	added during the installation, <username>asample</username> in
+	the example.  Avoid logging in as <username>root</username>
+	except when necessary.<para>
 
-      <para>Login using the username/password you set during installation
-	(<username>rpratt</username>, in this example).  Avoid logging in as
-	<username>root</username> except when necessary.</para>
+      <para>The scroll-back buffer examined above is limited in size, so
+	not all of the messages may have been visible.  After logging
+	in, most of them can be seen from the command line by typing
+	<command>dmesg | less</command> at the prompt.  Press
+	<keycap>q</keycap> to return to the command line after
+	viewing.</para>
 
       <para>Typical boot messages (version information omitted):</para>
 
