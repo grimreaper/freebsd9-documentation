@@ -188,7 +188,7 @@
     <sect2>
       <title>Back Up Your Data</title>
 
-      <para>Back up all important data present on the target computer
+      <para>Back up all important data on the target computer
 	where &os; will be installed.  Test the backups before
 	continuing.  The &os; installer will ask before making changes
 	to the disk, but once the process has started it cannot be
