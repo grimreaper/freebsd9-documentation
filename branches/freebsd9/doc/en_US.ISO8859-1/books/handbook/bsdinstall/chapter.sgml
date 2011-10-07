@@ -188,7 +188,7 @@
   </sect1>
 
   <sect1 id="bsdinstall-pre">
-    <title>Pre-installation Tasks</title>
+    <title>Pre-Installation Tasks</title>
 
     <sect2>
       <title>Back Up Your Data</title>
@@ -445,7 +445,7 @@
 	  <title>Write The Image File to the Memory Stick</title>
 
 	  <procedure>
-	    <title>Using &os; To Write the Image</title>
+	    <title>Using &os; to Write the Image</title>
 
 	    <warning>
 	      <para>The example below shows <filename
@@ -476,7 +476,7 @@
 	  </procedure>
 
 	  <procedure>
-	    <title>Using &windows; To Write the Image</title>
+	    <title>Using &windows; to Write the Image</title>
 
 	    <warning>
 	      <para>Be sure to give the correct drive letter as the
@@ -495,7 +495,7 @@
 	    </step>
 
 	    <step>
-	      <title>Writing The Image with Image Writer</title>
+	      <title>Writing the Image with Image Writer</title>
 
 	      <para>Double-click the
 		<application>Win32DiskImager</application> icon to start
@@ -989,7 +989,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	optional components to install.</para>
 
       <figure id="bsdinstall-config-components">
-	<title>Selecting Components To Install</title>
+	<title>Selecting Components to Install</title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="bsdinstall/bsdinstall-config-components" format="PNG">
@@ -1006,7 +1006,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	components may not appear.</para>
 
       <itemizedlist>
-	<title>Optional Components include:</title>
+	<title>Optional Components</title>
 <!-- XXXGA needs better formatting? -->
 	<listitem>
 	  <para><literal>doc</literal> - Additional documentation,
@@ -1078,7 +1078,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       needed.</para>
 
     <figure id="bsdinstall-netinstall-notify">
-      <title>Installing From The Network</title>
+      <title>Installing from the Network</title>
 
       <mediaobject>
 	<imageobject>
@@ -1092,7 +1092,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       site that is nearest to your location.</para>
 
     <figure id="bsdinstall-netinstall-mirror">
-      <title>Choosing A Mirror</title>
+      <title>Choosing a Mirror</title>
 
       <mediaobject>
 	<imageobject>
@@ -1132,7 +1132,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	is to be installed.</para>
 
       <figure id="bsdinstall-part-guided-disk">
-	<title>Selecting From Multiple Disks</title>
+	<title>Selecting from Multiple Disks</title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="bsdinstall/bsdinstall-part-guided-disk" format="PNG">
@@ -1403,7 +1403,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       from the installation media.</para>
 
     <figure id="bsdinstall-distfile-verify">
-      <title>Verifying Distribution files</title>
+      <title>Verifying Distribution Files</title>
       <mediaobject>
 	<imageobject>
 	  <imagedata fileref="bsdinstall/bsdinstall-distfile-verifying" format="PNG">
@@ -1415,7 +1415,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       the disk.</para>
 
     <figure id="bsdinstall-distfile-extract">
-      <title>Extracting Distribution files</title>
+      <title>Extracting Distribution Files</title>
       <mediaobject>
 	<imageobject>
 	  <imagedata fileref="bsdinstall/bsdinstall-distfile-extracting" format="PNG">
@@ -1430,7 +1430,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
   </sect1>
 
   <sect1 id="bsdinstall-post">
-    <title>Post-installation</title>
+    <title>Post-Installation</title>
 
     <para>Configuration of various options follows a successful
       installation of &os;.  An option can be configured by re-entering the
@@ -1438,7 +1438,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       new FreeBSD install.</para>
 
     <sect2 id="bsdinstall-post-root">
-      <title>Setting the <username>root</username> Account Password</title>
+      <title>Setting the <username>root</username> Password</title>
 
       <para>The <username>root</username> user's password must be
 	set.  Note that while entering the password, the characters
@@ -1447,7 +1447,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	typing errors.</para>
 
       <figure id="bsdinstall-post-set-root-passwd">
-	<title>Setting the Root Password</title>
+	<title>Setting the <username>root</username> Password</title>
 
 	<mediaobject>
 	  <imageobject>
@@ -1464,7 +1464,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 <!-- XXXGA Done to here -->
 
     <sect2 id="bsdinstall-config-network-dev">
-      <title>Configuring The Network Interface</title>
+      <title>Configuring Network Interfaces</title>
 
       <note>
 	<para>If network configuration has already been done as part of
@@ -1525,7 +1525,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</sect4>
 
 	<sect4 id="bsdinstall-net-ipv4-static-config">
-	  <title>Static IPv4 Network Configuration</title>
+	  <title>IPv4 Static Network Configuration</title>
 
 	  <para>Static configuration of the network interface requires
 	    entry of some IPv4 information.</para>
@@ -1611,7 +1611,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</sect4>
 
 	<sect4 id="bsdinstall-net-ipv6-static-config">
-	  <title>Static IPv6 Network Configuration</title>
+	  <title>IPv6 Static Network Configuration</title>
 
 	  <para>Static configuration of the network interface requires
 	    entry of the IPv6 configuration information.</para>
@@ -1683,7 +1683,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	to your geographical location.</para>
 
       <figure id="bsdinstall-local-utc">
-	<title>Select Your Region</title>
+	<title>Select Local or UTC Clock</title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="bsdinstall/bsdinstall-set-clock-local-utc" format="PNG">
@@ -1697,7 +1697,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	<keycap>Enter</keycap>.</para>
 
       <figure id="bsdinstall-timezone-region">
-	<title>Select Your Region</title>
+	<title>Select a Region</title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="bsdinstall/bsdinstall-timezone-region" format="PNG">
@@ -1709,7 +1709,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	and then pressing <keycap>Enter</keycap>.</para>
 
       <figure id="bsdinstall-timezone-country">
-	<title>Select Your Country</title>
+	<title>Select a Country</title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="bsdinstall/bsdinstall-timezone-country" format="PNG">
@@ -1721,7 +1721,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	and press <keycap>Enter</keycap>.</para>
 
       <figure id="bsdinstall-timezone-zone">
-	<title>Select Your Time Zone</title>
+	<title>Select a Time Zone</title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="bsdinstall/bsdinstall-timezone-zone" format="PNG">
@@ -1762,7 +1762,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       </figure>
 
       <itemizedlist>
-	<title>Additional services available:</title>
+	<title>Additional Services</title>
 	<listitem>
 	  <para><literal>sshd</literal> - Secure Shell Daemon for secure
 	    remote access.</para>
@@ -2240,7 +2240,6 @@ login:</screen>
     </sect2>
   </sect1>
 
-<!-- <sect1 id="install-trouble"> -->
   <sect1 id="bsdinstall-install-trouble">
     <title>Troubleshooting</title>
 
