@@ -2230,13 +2230,13 @@ login:</screen>
 	use <command>shutdown -p now</command>.  The system will
 	close down cleanly and turn itself off.</para>
 
-      <para>You could also use the
+      <para>The
 	<keycombo action="simul">
 	  <keycap>Ctrl</keycap>
 	  <keycap>Alt</keycap>
 	  <keycap>Del</keycap>
 	</keycombo>
-	key combination to reboot the system, but this is not
+	key combination can be used to reboot the system, but is not
 	recommended during normal operation.</para>
 
     </sect2>
