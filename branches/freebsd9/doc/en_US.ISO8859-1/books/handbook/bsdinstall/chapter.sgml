@@ -458,12 +458,6 @@
 	    <step>
 	      <title>Writing the Image with &man.dd.1;</title>
 
-	      <para>Set the <varname>kern.geom.debugflags</varname> sysctl to
-		be able to write a master boot record to the target
-		device.</para>
-
-	      <screen><userinput>&prompt.root; sysctl kern.geom.debugflags=16</userinput></screen>
-
 	      <para>The <filename>.img</filename> file
 		is <emphasis>not</emphasis> a regular file.  It is an
 		<emphasis>image</emphasis> of the complete contents of
