@@ -2129,6 +2129,74 @@ No core dumps found.
 Clearing /tmp (X related).
 Updating motd:.
 Configuring syscons: blanktime.
+Generating public/private rsa1 key pair.
+Your identification has been saved in /etc/ssh/ssh_host_key.
+Your public key has been saved in /etc/ssh/ssh_host_key.pub.
+The key fingerprint is:
+10:a0:f5:af:93:ae:a3:1a:b2:bb:3c:35:d9:5a:b3:f3 root@machine3.example.com
+The key's randomart image is:
++--[RSA1 1024]----+
+|    o..          |
+|   o . .         |
+|  .   o          |
+|       o         |
+|    o   S        |
+|   + + o         |
+|o . + *          |
+|o+ ..+ .         |
+|==o..o+E         |
++-----------------+
+Generating public/private dsa key pair.
+Your identification has been saved in /etc/ssh/ssh_host_dsa_key.
+Your public key has been saved in /etc/ssh/ssh_host_dsa_key.pub.
+The key fingerprint is:
+7e:1c:ce:dc:8a:3a:18:13:5b:34:b5:cf:d9:d1:47:b2 root@machine3.example.com
+The key's randomart image is:
++--[ DSA 1024]----+
+|       ..     . .|
+|      o  .   . + |
+|     . ..   . E .|
+|    . .  o o . . |
+|     +  S = .    |
+|    +  . = o     |
+|     +  . * .    |
+|    . .  o .     |
+|      .o. .      |
++-----------------+
+Generating public/private rsa key pair.
+Your identification has been saved in /etc/ssh/ssh_host_rsa_key.
+Your public key has been saved in /etc/ssh/ssh_host_rsa_key.pub.
+The key fingerprint is:
+00:da:0b:9a:fa:68:a3:5c:06:f9:e1:65:d5:72:46:ef root@machine3.example.com
+The key's randomart image is:
++--[ RSA 2048]----+
+|    .    .       |
+|   o .  o .      |
+|  o . .o + .     |
+| o.. ...+ .      |
+|oo ..o  S  E     |
+|. + +            |
+|.  =             |
+|.=o              |
+|=.o              |
++-----------------+
+Generating public/private ecdsa key pair.
+Your identification has been saved in /etc/ssh/ssh_host_ecdsa_key.
+Your public key has been saved in /etc/ssh/ssh_host_ecdsa_key.pub.
+The key fingerprint is:
+4b:29:50:75:54:2c:f1:c4:00:e1:f9:dd:69:95:da:c3 root@machine3.example.com
+The key's randomart image is:
++--[ECDSA  256]---+
+|      ..++=*o    |
+|     . . o.oo   .|
+|    .   o  ..  ..|
+|     .   o . .+o |
+|      . S . ..+E |
+|       o .   .  .|
+|        .        |
+|                 |
+|                 |
++-----------------+
 Starting sshd.
 Starting cron.
 Starting background file system checks in 60 seconds.
@@ -2143,31 +2211,24 @@ login:</screen>
 	machines.  This happens only on the initial boot-up of a new
 	installation.  Subsequent boots will be faster.</para>
 
-      <para>If the X server has been configured and a Default Desktop
-	chosen, it can be started by typing <command>startx</command> at
-	the command line.</para>
+      <para>&os; does not install graphical environments by default, but
+	many are available.  See <xref linkend="x11"> for more
+	information.</para>
 
       </sect3>
     </sect2>
 
     <sect2 id="bsdinstall-shutdown">
-      <title>FreeBSD Shutdown</title>
+      <title>&os; Shutdown</title>
 
-      <para>It is important to properly shutdown the operating
-	system.  Do not just turn off power.  First, become a superuser by
-	typing <command>su</command> at the command line and entering the
-	<username>root</username> password.  This will work only if the user
-	is a member of the <groupname>wheel</groupname> group.
-	Otherwise, login as <username>root</username> and use
-	<command>shutdown -h now</command>.</para>
-
-      <screen>The operating system has halted. 
-Please press any key to reboot.</screen>
-
-      <para>It is safe to turn off the power after the shutdown command
-	has been issued and the message <quote>Please press any key to reboot</quote>
-	appears.  If any key is pressed instead of turning off the power
-	switch, the system will reboot.</para>
+      <para>Proper shutdown of a &os; computer helps protect data and
+	even hardware from damage.  Do not just turn off the power. If
+	the user is a member of the <groupname>wheel</groupname> group,
+	become the superuser by typing <command>su</command> at the
+	command line and entering the <username>root</username>
+	password.  Otherwise, log in as <username>root</username> and
+	use <command>shutdown -p now</command>.  The system will
+	close down cleanly and turn itself off.</para>
 
       <para>You could also use the
 	<keycombo action="simul">
@@ -2175,8 +2236,8 @@ Please press any key to reboot.</screen>
 	  <keycap>Alt</keycap>
 	  <keycap>Del</keycap>
 	</keycombo>
-	key combination to reboot the system, however this is not recommended
-	during normal operation.</para>
+	key combination to reboot the system, but this is not
+	recommended during normal operation.</para>
 
     </sect2>
   </sect1>
