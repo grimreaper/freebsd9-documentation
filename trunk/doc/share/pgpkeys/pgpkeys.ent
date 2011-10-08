@@ -1,5 +1,5 @@
 
-<!-- $FreeBSD: doc/share/pgpkeys/pgpkeys.ent,v 1.251 2011/09/28 22:55:06 jceel Exp $ -->
+<!-- $FreeBSD: doc/share/pgpkeys/pgpkeys.ent,v 1.252 2011/10/06 14:02:25 melifaro Exp $ -->
 <!-- PGP keyblocks -->
 <!ENTITY pgpkey.aaron SYSTEM "aaron.key">
 <!ENTITY pgpkey.ache SYSTEM "ache.key">
@@ -218,6 +218,7 @@
 <!ENTITY pgpkey.max SYSTEM "max.key">
 <!ENTITY pgpkey.maxim SYSTEM "maxim.key">
 <!ENTITY pgpkey.mbr SYSTEM "mbr.key">
+<!ENTITY pgpkey.melifaro SYSTEM "melifaro.key">
 <!ENTITY pgpkey.metal SYSTEM "metal.key">
 <!ENTITY pgpkey.mheinen SYSTEM "mheinen.key">
 <!ENTITY pgpkey.mi SYSTEM "mi.key">

@@ -1,10 +1,10 @@
 <!--
      The FreeBSD Dutch Documentation Project
 
-     $FreeBSD: doc/nl_NL.ISO8859-1/books/handbook/desktop/chapter.sgml,v 1.33 2011/09/07 21:06:51 rene Exp $
+     $FreeBSD: doc/nl_NL.ISO8859-1/books/handbook/desktop/chapter.sgml,v 1.34 2011/10/06 22:55:11 rene Exp $
 
      %SOURCE%	en_US.ISO8859-1/books/handbook/desktop/chapter.sgml
-     %SRCID%	1.114
+     %SRCID%	1.115
 -->
 
 <chapter id="desktop">
@@ -207,7 +207,7 @@
 
       <screen>&prompt.root; <userinput>pkg_add -r firefox</userinput></screen>
 
-      <para>Dit zal <application>Firefox</application> 6.0 installeren,
+      <para>Dit zal <application>Firefox</application> 7.0 installeren,
 	als u in plaats hiervan <application>Firefox</application> 3.6
 	wilt draaien, gebruik dan:</para>
 
