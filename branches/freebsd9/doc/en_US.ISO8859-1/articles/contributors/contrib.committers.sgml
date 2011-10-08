@@ -1,4 +1,4 @@
-<!-- $FreeBSD: doc/en_US.ISO8859-1/articles/contributors/contrib.committers.sgml,v 1.338 2011/09/28 22:55:05 jceel Exp $ -->
+<!-- $FreeBSD: doc/en_US.ISO8859-1/articles/contributors/contrib.committers.sgml,v 1.339 2011/10/06 14:02:25 melifaro Exp $ -->
 <!--
 	NOTE TO NEW COMMITTERS: Core and committers lists are sorted in
 	alphabetical order by last name. Please keep in mind that fact while
@@ -272,6 +272,10 @@
 
     <listitem>
       <para>&a.ache;</para>
+    </listitem>
+
+    <listitem>
+      <para>&a.melifaro;</para>
     </listitem>
 
     <listitem>

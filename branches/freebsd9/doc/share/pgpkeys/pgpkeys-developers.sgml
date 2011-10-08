@@ -1,7 +1,7 @@
 <!--
      The FreeBSD Documentation Project
 
-     $FreeBSD: doc/share/pgpkeys/pgpkeys-developers.sgml,v 1.162 2011/09/28 22:55:06 jceel Exp $
+     $FreeBSD: doc/share/pgpkeys/pgpkeys-developers.sgml,v 1.163 2011/10/06 14:02:25 melifaro Exp $
 -->
 
     <sect2 id="pgpkey-ariff">
@@ -274,6 +274,11 @@
     <sect2 id="pgpkey-ache">
       <title>&a.ache;</title>
       &pgpkey.ache;
+    </sect2>
+
+    <sect2 id="pgpkey-melifaro">
+      <title>&a.melifaro;</title>
+      &pgpkey.melifaro;
     </sect2>
 
     <sect2 id="pgpkey-seanc">
