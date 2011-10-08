@@ -900,7 +900,6 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	probing, you will see <xref linkend="bsdinstall-choose-mode">.
 	The install media can be used in three ways: to install &os;,
 	as a "live CD", or to simply access a &os; shell.  Use the
-<!-- XXXGA these should be links -->
 	arrow key to choose an option, and <keycap>Enter</keycap> to
 	select.</para>
 
@@ -1001,7 +1000,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
       <itemizedlist>
 	<title>Optional Components</title>
-<!-- XXXGA needs better formatting? -->
+
 	<listitem>
 	  <para><literal>doc</literal> - Additional documentation,
 	    mostly of historical interest.  Documentation provided by
@@ -1059,8 +1058,6 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       </itemizedlist>
     </sect2>
   </sect1>
-
-<!-- XXXGA done to here. -->
 
   <sect1 id="bsdinstall-netinstall">
     <title>Installing from the Network</title>
@@ -1453,9 +1450,6 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       <para>After the password has been successfully entered, the
 	installation will continue.</para>
     </sect2>
-<!-- Config network, if not done earlier -->
-<!-- Config timezone -->
-<!-- XXXGA Done to here -->
 
     <sect2 id="bsdinstall-config-network-dev">
       <title>Configuring Network Interfaces</title>
