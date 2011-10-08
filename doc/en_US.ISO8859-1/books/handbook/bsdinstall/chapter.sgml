@@ -43,12 +43,12 @@
 
     <indexterm><primary>installation</primary></indexterm>
 
-    <para>&os; is provided with a text-based, easy to use installation
-      program.  &os;&nbsp;9.0-RELEASE and later use the installation program
-      known as <application>bsdinstall</application>, with releases prior
+    <para>&os; comes with a text-based, easy to use installation
+      program.  &os;&nbsp;9.0-RELEASE and later use an installation program
+      called <application>bsdinstall</application>, while releases prior
       to &os;&nbsp;9.0-RELEASE using <application>sysinstall</application> for
-      installation.  This chapter describes the use of <application>bsdinstall</application>
-      to install &os;.  The use of <application>sysinstall</application>
+      installation.  This chapter describes the use of <application>bsdinstall</application>.
+      The use of <application>sysinstall</application>
       is covered in <xref linkend="install">.</para>
 
     <para>After reading this chapter, you will know:</para>
@@ -119,7 +119,7 @@
 
 	<note>
 	  <para>On old computers, increasing RAM and hard drive space
-	    is usually more effective at improving performance than
+	    is usually more effective to improving performance than
 	    installing a faster processor.</para>
 	</note>
       </sect3>
@@ -216,35 +216,39 @@
 	sections are called <firstterm>partitions</firstterm>.</para>
 
       <para>There are two ways of dividing a disk into partitions.
-	A traditional <firstterm>Master Boot Record</firstterm> (MBR)
+	A traditional <firstterm>Master Boot Record</firstterm>
+	(<acronym role="Master Boot Record">MBR</acronym>)
 	holds a partition table defining up to four <firstterm>primary
 	partitions</firstterm>.  (For historical reasons, &os; calls
 	primary partitions <firstterm>slices</firstterm>.)  A limit of
-	only four partitions was restrictive for large disks, so one of
+	only four partitions is restrictive for large disks, so one of
 	these primary partitions can be made into an <firstterm>extended
 	partition</firstterm>.  Multiple <firstterm>logical
 	partitions</firstterm> may then be created inside the extended
 	partition.  This may sound a little unwieldy, and it is.
 
-      <para>The <firstterm>GUID Partition Table</firstterm> (GPT) is a
-	newer and simpler method of partitioning a disk.  GPT is far
+      <para>The <firstterm>GUID Partition Table</firstterm> (
+	<acronym role="GUID Partition Table">GPT</acronym>) is a
+	newer and simpler method of partitioning a disk.
+	<acronym role="GUID Partition Table">GPT</acronym> is far
 	more versatile than the traditional MBR partition table.
-	Common GPT implementations allow up to 128 partitions per disk,
-	eliminating the need for inconvenient workarounds like logical
-	partitions.</para>
+	Common <acronym>GPT</acronym> implementations allow up to 128
+	partitions per disk, eliminating the need for inconvenient
+	workarounds like logical partitions.</para>
 
       <warning>
 	<para>Some older operating systems like &windows;&nbsp;XP are
-	  not compatible with GPT partitioning.  If &os; will be sharing
-	  a disk with such an operating system, MBR partitioning is
-	  required.</para>
+	  not compatible with the <acronym>GPT</acronym> partition scheme.
+	  If &os; will be sharing a disk with such an operating system, 
+	  <acronym role="Master Boot Record">MBR</acronym> partitioning
+	  is required.</para>
       </warning>
 
       <para>&os;'s standard boot loader requires either a primary
-	or GPT partition.  (See <xref linkend="boot"> for more
-	information about the &os; booting process.)  If all of the
-	primary or GPT partitions are already in use, one must be freed
-	for &os;.</para>
+	or <acronym>GPT</acronym> partition.  (See <xref linkend="boot"> for
+	more information about the &os; booting process.)  If all of the
+	primary or <acronym>GPT</acronym> partitions are already in use, one
+	must be freed for &os;.</para>
 
       <para>A minimal installation of &os; takes as little as 1&nbsp;GB
 	of disk space.  However, that is a <emphasis>very</emphasis>
@@ -331,14 +335,15 @@
 	DSL modem with an Ethernet interface), the installer will request
 	some information about the network.</para>
 
-      <para><firstterm>DHCP</firstterm> is commonly used to provide
-	automatic network configuration.  If DHCP is not available, this
+      <para><firstterm><acronym role="Dynamic Host Configuration Protocol">DHCP
+	</acronym></firstterm> is commonly used to provide automatic network
+	configuration.  If <acronym>DHCP</acronym> is not available, this
 	network information must be obtained from the local network
 	administrator or service provider:</para>
 
       <orderedlist>
 	<listitem>
-	  <para>IP address</para>
+	  <para><acronym role="Internet Protocol">IP</acronym> address</para>
 	</listitem>
 
 	<listitem>
@@ -346,7 +351,7 @@
 	</listitem>
 
 	<listitem>
-	  <para>Default router IP address</para>
+	  <para>Default router <acronym>IP</acronym> address</para>
 	</listitem>
 
 	<listitem>
@@ -354,7 +359,8 @@
 	</listitem>
 
 	<listitem>
-	  <para>DNS server IP addresses</para>
+	  <para><acronym role="Domain Name System">DNS</acronym> server
+	  <acronym>IP</acronym> address(es)</para>
 	</listitem>
 
       </orderedlist>
@@ -367,10 +373,10 @@
 	into the process.  On very rare occasions those bugs affect the
 	installation process.  As these problems are discovered and
 	fixed, they are noted in the <ulink
-	url="http://www.FreeBSD.org/releases/9.0R/errata.html">
+	url="&url.base;/releases/9.0R/errata.html">
 	FreeBSD Errata</ulink> on the &os; web site.  Check the errata
-	before installing to make sure that there are no late-breaking
-	problems.</para>
+	before installing to make sure that there are no issues with
+	the installation.</para>
 
       <para>Information and errata for all the releases can be found on
 	the <ulink url="&url.base;/releases/index.html">release
@@ -418,8 +424,11 @@
 	  <para>The memory stick image can be downloaded from the
 	    <filename class="directory">ISO-IMAGES/</filename>
 	    directory from
-	    <literal>ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/<replaceable>arch</replaceable>/<replaceable>arch</replaceable>/ISO-IMAGES/<replaceable>version</replaceable>/&os;-9.0-RELEASE-<replaceable>arch</replaceable>-memstick.img</literal>.
-	    Replace <replaceable>arch</replaceable> and
+	    <literal>ftp://ftp.FreeBSD.org/pub/FreeBSD/releases/<replaceable>
+	    arch</replaceable>/<replaceable>arch</replaceable>/ISO-IMAGES/
+	    <replaceable>version</replaceable>/&os;-9.0-RELEASE-<replaceable>
+	    arch</replaceable>-memstick.img</literal>. Replace
+	    <replaceable>arch</replaceable> and
 	    <replaceable>version</replaceable> with the
 	    architecture and the version number which you want to
 	    install, respectively.  For example, the memory stick
@@ -558,9 +567,11 @@ commit your changes?</literallayout>
 	    <para>Configure your machine to boot from either the CDROM
 	      or from USB, depending on the media being used for the
 	      installation. This can usually either be done from the
-	      BIOS setup menu, or often by pressing F11 or another key
-	      (Often called "Boot Selection" or similar) during the BIOS
-	      POST.
+	      <acronym role="Basic Input/Output System">BIOS</acronym> setup
+	      menu, or often by pressing F11 or another key (Often called
+	      "Boot Selection" or similar) during the
+	      <acronym role="Basic Input/Output System">BIOS</acronym>
+	      <acronym role="Power-On Self Test">POST</acronym>.
 	  </step>
 
 	  <step>
@@ -575,14 +586,14 @@ commit your changes?</literallayout>
 	      </listitem>
 
 	      <listitem>
-		<para>The BIOS changes earlier did not work correctly.
-		  You should redo that step until you get the right
+		<para>The <acronym>BIOS</acronym> changes earlier did not work
+		  correctly. You should redo that step until you get the right
 		  option.</para>
 	      </listitem>
 
 	      <listitem>
-		<para>Your particular BIOS does not support booting
-		  from the desired media.  The
+		<para>Your particular <acronym>BIOS</acronym> does not support
+		  booting from the desired media.  The
 		  <ulink url="http://www.plop.at/en/bootmanager.html">Plop
 		  Boot Manager</ulink> can be used to boot older
 		  computers from CD or USB media.</para>
@@ -595,7 +606,7 @@ commit your changes?</literallayout>
 	      CDROM you will see a display similar to this (version
 	      information omitted):</para>
 
-	  <screen>Booting from CD-Rom...
+	  <screen>Booting from CD-ROM...
 645MB medium detected
 CD Loader 1.2
 
@@ -618,8 +629,9 @@ Loading /boot/defaults/loader.conf
 \</screen>
 
 	  <step>
-	    <para>Whether you booted from CDROM or USB stick, the boot
-	      process will then get to the &os; boot loader menu:</para>
+	    <para>Regrdless of wether the system was booted from CDROM or USB
+	      stick, the boot process will then get to the &os; boot loader
+	      menu:</para>
 
 	    <figure id="bsdinstall-boot-loader-menu">
 	      <title>&os; Boot Loader Menu</title>
@@ -670,7 +682,8 @@ Loading /boot/defaults/loader.conf
 	<para>Most &sparc64; systems are set up to boot automatically
 	  from disk.  To install &os;, you need to boot over the
 	  network or from a CDROM, which requires you to break into
-	  the PROM (OpenFirmware).</para>
+	  the <acronym role="Programmable Read Only Memory">PROM</acronym>
+	  (OpenFirmware).</para>
 
 	<para>To do this, reboot the system, and wait until the boot
 	  message appears.  It depends on the model, but should look
@@ -688,7 +701,8 @@ Ethernet address 0:3:ba:b:92:d4, Host ID: 830b92d4.</screen>
 	  <keycombo action="simul"><keycap>Stop</keycap><keycap>A</keycap></keycombo>
 	  on the keyboard, or send a <command>BREAK</command> over the
 	  serial console (using for example <command>~#</command> in
-	  &man.tip.1; or &man.cu.1;) to get to the PROM prompt.  It
+	  &man.tip.1; or &man.cu.1;) to get to the
+	  <acronym role="Programmable Read Only Memory">PROM</acronym> prompt.  It
 	  looks like this:</para>
 
 	<screenco>
@@ -714,7 +728,8 @@ Ethernet address 0:3:ba:b:92:d4, Host ID: 830b92d4.</screen>
 	</screenco>
 
 	<para>At this point, place the CDROM into your drive, and from
-	  the PROM prompt, type <command>boot cdrom</command>.</para>
+	  the <acronym>PROM</acronym> prompt, type
+	  <command>boot cdrom</command>.</para>
 
       </sect3>
 
@@ -920,7 +935,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
   <sect1 id="using-bsdinstall">
     <title>Introducing BSDinstall</title>
     <para>The <application>bsdinstall</application> utility is the installation
-      application provided by the &os; Project.  It is console based and is
+      application provided by the &os; Project.  It is text based and is
       divided into a number of menus and screens that you can use to
       configure and control the installation process.</para>
 
@@ -1080,7 +1095,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
     <para>After the network connection has been configured as shown in
       <xref linkend="bsdinstall-config-network-dev">, choose a mirror
-      site that is nearest to your location.</para>
+      site that is close to your location.</para>
 
     <figure id="bsdinstall-netinstall-mirror">
       <title>Choosing a Mirror</title>
@@ -1198,9 +1213,10 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>GPT partitioning is usually the most appropriate choice for
-	PC-compatible computers.  Older PC operating systems that aren't
-	compatible with GPT may require MBR partitioning instead. The
+      <para><acronym>GPT</acronym> partitioning is usually the most
+	appropriate choice for PC-compatible computers.  Older PC operating
+	systems that are not compatible with <acronym>GPT</acronym> may
+	require <acronym>MBR</acronym> partitioning instead. The
 	other partitioning schemes are generally used for uncommon or
 	older computer systems.</para>
 
@@ -1269,11 +1285,11 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</mediaobject>
       </figure>
 
-      <para>A standard &os; GPT installation uses at least three
-	partitions:</para>
+      <para>A standard &os; <acronym>GPT</acronym> installation uses at least
+	three partitions:</para>
 
       <itemizedlist>
-	<title>Standard FreeBSD GPT Partitions</title>
+	<title>Standard FreeBSD <acronym>GPT</acronym> Partitions</title>
 	<listitem>
 	  <para><literal>freebsd-boot</literal> - &os; boot code.  This
 	  partition must be first on the disk.</para>
@@ -1295,8 +1311,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	the <filename>/</filename>, <filename>/var</filename>, and
 	<filename>/usr</filename> filesystems.</para>
 
-      <para>See &man.gpart.8; for a complete list of available GPT
-	partition types.</para>
+      <para>See &man.gpart.8; for a complete list of available
+	<acronym>GPT</acronym> partition types.</para>
 
       <para>Size may be entered with common abbreviations:
 	<emphasis>K</emphasis> for kilobytes, <emphasis>M</emphasis> for
@@ -1310,7 +1326,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	  or 1G is the easiest way to make sure every partition starts
 	  at an even multiple of 4K.  One exception: at present, the
 	  <emphasis>freebsd-boot</emphasis> partition should be no
-	  larger than 512K due to a boot code limitation.</para>
+	  larger than 512K due to boot code limitations.</para>
       </tip>
 
       <para>A mountpoint is needed if this partition will contain a
@@ -1362,12 +1378,13 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
     <para>Select <guibutton>[&nbsp;Commit&nbsp;]</guibutton> and press
       <keycap>Enter</keycap> to proceed.  Alternatively, if changes
-      need to be made, <guibutton>[&nbsp;Back&nbsp;]</guibutton> will
-      return to the partition editor.  <guibutton>[&nbsp;Revert &amp; Exit&nbsp;]</guibutton>
+      need to be made, the <guibutton>[&nbsp;Back&nbsp;]</guibutton> will
+      return you to the partition editor.
+      <guibutton>[&nbsp;Revert &amp; Exit&nbsp;]</guibutton>
       will offer the chance to exit the installer, with no changes
       being made to the hard drive.</para>
 
-    <para>The installation time will vary according to the distributions
+    <para>The installation time will vary depending on the distributions
       chosen, installation media, and the speed of the computer.
       There will be a series of
       messages displayed indicating installation progress.</para>
@@ -1425,15 +1442,15 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
     <para>Configuration of various options follows a successful
       installation of &os;.  An option can be configured by re-entering the
-      configuration options from the final menu before booting the
-      new FreeBSD install.</para>
+      configuration options from the final menu before restarting into
+      the newly installed &os; system.</para>
 
     <sect2 id="bsdinstall-post-root">
       <title>Setting the <username>root</username> Password</title>
 
-      <para>The <username>root</username> user's password must be
+      <para>The <username>root</username> password must be
 	set.  Note that while entering the password, the characters
-	being typed are	not displayed to the screen.  After the password
+	being typed are	not displayed on the screen.  After the password
 	has been entered, it must be entered again.  This helps prevent
 	typing errors.</para>
 
@@ -1455,7 +1472,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       <title>Configuring Network Interfaces</title>
 
       <note>
-	<para>If network configuration has already been done as part of
+	<para>If the network configuration has already been done as part of
 	  a <emphasis>bootonly</emphasis> installation,	it will be
 	  skipped during post-installation configuration.</para>
       </note>
@@ -1489,10 +1506,17 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	  </figure>
 
 	<para>There are two methods of IPv4 configuration.
-	  <firstterm>DHCP</firstterm> will automatically configure the
+	  <firstterm><acronym role="Dynamic Host Configuration Protocol">DHCP</acronym>
+	  </firstterm> will automatically configure the
 	  network interface correctly, and is the preferred method.
 	  <firstterm>Static</firstterm> configuration requires manual
 	  entry of the network information.</para>
+
+	<note>
+	  <para>Do not enter random network information, as it will not work.
+	     Your network administrator or service provider should provide
+	     you with the network information needed.</para>
+	</note>
 
 	<sect4 id="bsdinstall-net-ipv4-dhcp-config">
 	  <title>IPv4 DHCP Network Configuration</title>
@@ -1548,8 +1572,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 		of the default router on this network.  Usually this is
 		the address of the router or other network equipment
 		that connects the local network to the Internet.  Also
-		known as the <emphasis>default
-		gateway</emphasis>.</para>
+		known as the <emphasis>default gateway</emphasis>.</para>
 	    </listitem>
 	  </itemizedlist>
 	</sect4>
@@ -1573,16 +1596,16 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	</figure>
 
 	<para>IPv6 also has two methods of configuration.
-	  <firstterm>SLAAC</firstterm>, or <emphasis>StateLess Address
-	  AutoConfiguration</emphasis>, will automatically configure the
-	  network interface correctly. <firstterm>Static</firstterm>
-	  configuration requires manual entry of the network
-	  information.</para>
+	  <firstterm><acronym role="StateLess Address AutoConfiguration">SLAAC</acronym>
+	  </firstterm>, or <emphasis>StateLess Address AutoConfiguration</emphasis>,
+	  will automatically configure the network interface correctly.
+	  <firstterm>Static</firstterm> configuration requires manual entry of
+	  the network information.</para>
 
 	<sect4 id="bsdinstall-net-ipv6-slaac-config">
 	  <title>IPv6 Stateless Address Autoconfiguration</title>
 
-	  <para>SLAAC allows an IPv6 network component to request
+	  <para><acronym>SLAAC</acronym> allows an IPv6 network component to request
 	    autoconfiguration information from a local router.  See
 	    <ulink url="http://tools.ietf.org/html/rfc4862">RFC4862</ulink>
 	    for more information.</para>
@@ -1616,8 +1639,8 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 	  <itemizedlist>
 	    <listitem>
-	      <para><literal>IPv6 Address</literal> - The
-		manually-assigned IP address to be assigned to this
+	      <para><literal>IPv6 Address</literal> - The manually-assigned
+		<acronym>IP</acronym> address to be assigned to this
 		computer.  This address must be unique and not already
 		in use by another piece of equipment on the local
 		network.</para>
@@ -1628,24 +1651,26 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 		of the default router on this network.  Usually this is
 		the address of the router or other network equipment
 		that connects the local network to the Internet.  Also
-		known as the <emphasis>default
-		gateway</emphasis>.</para>
+		known as the <emphasis>default gateway</emphasis>.</para>
 	    </listitem>
 	  </itemizedlist>
 	</sect4>
       </sect3>
 
       <sect3 id="bsdinstall-net-dns">
-	<title>Configuring DNS</title>
+	<title>Configuring <acronym role="Domain Name System">DNS</acronym></title>
 
 	<para>The <firstterm>Domain Name System</firstterm> (or
-	  <emphasis>DNS</emphasis>) Resolver converts hostnames to and
-	  from network addresses.  If DHCP or SLAAC was used to
-	  autoconfigure the network interface, the Resolver
-	  Configuration values may already be present.  Otherwise, enter
-	  the local network's domain name in the Search field.  DNS #1
-	  and DNS #2 are the IP addresses for the local DNS
-	  servers.  At least one DNS server is required.</para>
+	  <emphasis><acronym role="Domain Name System">DNS</acronym></emphasis>)
+	  Resolver converts hostnames to and
+	  from network addresses.  If <acronym>DHCP</acronym> or
+	  <acronym>SLAAC</acronym> was used to autoconfigure the network
+	  interface, the Resolver Configuration values may already be present.
+	  Otherwise, enter the local network's domain name in the Search field.
+	  <acronym>DNS</acronym> #1 and <acronym>DNS</acronym> #2 are the
+	  <acronym>IP</acronym> addresses for the local <acronym>DNS</acronym>
+	  servers.  At least one <acronym>DNS</acronym> server is required.
+	</para>
 
 	  <figure id="bsdinstall-net-dns-config">
 	    <title>DNS Configuration</title>
@@ -1681,8 +1706,10 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
       <para>Select <guibutton>[&nbsp;Yes&nbsp;]</guibutton>
 	or <guibutton>[&nbsp;No&nbsp;]</guibutton> according to how the
-	machine's clock is configured and press
-	<keycap>Enter</keycap>.</para>
+	machine's clock is configured and press <keycap>Enter</keycap>.
+	If you are unsure on what to select, select
+	<guibutton>[&nbsp;No&nbsp;]</guibutton> since that is most common.
+      </para>
 
       <figure id="bsdinstall-timezone-region">
 	<title>Select a Region</title>
@@ -1752,17 +1779,19 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
       <itemizedlist>
 	<title>Additional Services</title>
 	<listitem>
-	  <para><literal>sshd</literal> - Secure Shell Daemon for secure
+	  <para><literal>sshd</literal> - Secure Shell
+	    (<acronym role=Secure Shell">SSH</acronym>)Daemon for secure
 	    remote access.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>moused</literal> - Provides mouse usage with
+	  <para><literal>moused</literal> - Provides mouse usage within
 	    the system console.</para>
 	</listitem>
 
 	<listitem>
-	  <para><literal>ntpd</literal> - Network Time Protocol daemon
+	  <para><literal>ntpd</literal> - Network Time Protocol
+	    (<acronym role="Network Time Protocol">NTP</acronym>) daemon
 	    for automatic clock synchronization.</para>
 	</listitem>
 
@@ -1912,6 +1941,9 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	user?" question with <literal>yes</literal>.  Enter
 	<literal>no</literal> to finish adding users and continue the
 	installation.</para>
+
+      <para>For more information on how to add users and user management,
+	<xref linkend="users"> contains more detailed information.</para>
     </sect2>
 
     <sect2 id="bsdinstall-final-conf">
@@ -1968,7 +2000,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 
 	<listitem>
 	  <para><literal>Handbook</literal> - Download and install the
-	    &os; Handbook.</para>
+	    &os; Handbook (which is what you are reading now).</para>
 	</listitem>
 
 	<listitem>
@@ -1995,7 +2027,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	the install media into Live CD mode.</para>
 
       <para>When the installation is complete, select
-	<guibutton>[&nbsp;Reboot&nbsp]</guibutton> to reboot the
+	<guibutton>[&nbsp;Reboot&nbsp;]</guibutton> to reboot the
 	computer and start the new &os; system.  Don't forget to
 	remove the &os; install CD, DVD, or USB memory stick, or the
 	computer may boot from it again.</para>
@@ -2195,7 +2227,8 @@ login:</screen>
 
       <para>Generating the RSA and DSA keys may take some time on slower
 	machines.  This happens only on the initial boot-up of a new
-	installation.  Subsequent boots will be faster.</para>
+	installation if <application>sshd</application> is set up to start.
+	Subsequent boots will be faster.</para>
 
       <para>&os; does not install graphical environments by default, but
 	many are available.  See <xref linkend="x11"> for more
@@ -2237,7 +2270,7 @@ login:</screen>
     </indexterm>
     <para>The following section covers basic installation troubleshooting,
       such as common problems people have reported.  There are also a few
-      questions and answers for people wishing to dual-boot FreeBSD with
+      questions and answers for people wishing to dual-boot &os; with
       &ms-dos; or &windows;.</para>
 
     <sect2>
@@ -2298,7 +2331,8 @@ login:</screen>
 	      ACPI service on the i386, amd64, and ia64 platforms to
 	      aid in system configuration if it is detected during
 	      boot.  Unfortunately, some bugs still exist in both the
-	      ACPI driver and within system motherboards and BIOS
+	      ACPI driver and within system motherboards and 
+	      <acronym>BIOS</acronym>
 	      firmware.  ACPI can be disabled by setting
 	      the <literal>hint.acpi.0.disabled</literal> hint in the
 	      third stage boot loader:</para>
