@@ -6,7 +6,7 @@
    
      Chapters should be listed in the order in which they are referenced.
  
-     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/chapters.ent,v 1.39 2008/12/23 18:59:03 trhodes Exp $
+     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/chapters.ent,v 1.40 2011/10/08 15:51:47 gjb Exp $
 -->
 
 <!ENTITY chap.preface			SYSTEM "preface/preface.sgml">
