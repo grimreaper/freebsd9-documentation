@@ -1,7 +1,7 @@
 <!--
      The FreeBSD Documentation Project
 
-     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/book.sgml,v 1.177 2011/01/10 19:02:37 blackend Exp $
+     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/book.sgml,v 1.178 2011/10/08 16:13:07 gjb Exp $
 -->
 
 <!DOCTYPE BOOK PUBLIC "-//FreeBSD//DTD DocBook V4.1-Based Extension//EN" [
@@ -16,6 +16,7 @@
 
 <!ENTITY % chap.introduction "IGNORE">
 <!ENTITY % chap.install "IGNORE">
+<!ENTITY % chap.bsdinstall "IGNORE">
 <!ENTITY % chap.basics "IGNORE">
 <!ENTITY % chap.ports "IGNORE">
 <!ENTITY % chap.config "IGNORE">
@@ -195,6 +196,7 @@
 
     <![ %chap.introduction;             [ &chap.introduction;         ]]>
     <![ %chap.install;                  [ &chap.install;              ]]>
+    <![ %chap.bsdinstall;               [ &chap.bsdinstall;           ]]>
     <![ %chap.basics;                   [ &chap.basics;               ]]>
     <![ %chap.ports;                    [ &chap.ports;                ]]>
     <![ %chap.x11;                      [ &chap.x11;                  ]]>
