@@ -1780,7 +1780,7 @@ Trying to mount root from cd9660:/dev/iso9660/FREEBSD_INSTALL [ro]...</screen>
 	<title>Additional Services</title>
 	<listitem>
 	  <para><literal>sshd</literal> - Secure Shell
-	    (<acronym role=Secure Shell">SSH</acronym>)Daemon for secure
+	    (<acronym role="Secure Shell">SSH</acronym>)Daemon for secure
 	    remote access.</para>
 	</listitem>
 
