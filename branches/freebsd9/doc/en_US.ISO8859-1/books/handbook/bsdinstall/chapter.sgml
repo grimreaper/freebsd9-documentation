@@ -112,9 +112,9 @@
 
       <sect3>
 	<title>&os;/&arch.i386;</title>
-<!-- XXXGA: these sizes need checking -->
+
 	<para>&os;/&arch.i386; requires a 486 or better processor and at
-	  least 24&nbsp;MB of RAM.  At least 300&nbsp;MB of free hard
+	  least 64&nbsp;MB of RAM.  At least 1.1&nbsp;GB of free hard
 	  drive space is needed for the most minimal installation.</para>
 
 	<note>
