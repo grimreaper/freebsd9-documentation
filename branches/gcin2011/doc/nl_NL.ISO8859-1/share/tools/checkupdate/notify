@@ -1,0 +1,6 @@
+# $FreeBSD: doc/nl_NL.ISO8859-1/share/tools/checkupdate/notify,v 1.2 2008/12/21 15:55:28 remko Exp $
+#
+# Add your address (relative to FreeBSD.org) here if you want to receive
+# periodic translation checks for this language
+rene
+remko

@@ -1,0 +1,14 @@
+/*
+ * FreeBSD Global Style - Large Text Version
+ *
+ * The FreeBSD Simplified Chinese Project
+ * Original Revision: 1.3
+ *
+ * $FreeBSD: www/zh_CN/layout/css/fixed_large.css,v 1.1 2006/07/11 15:27:48 delphij Exp $
+ */
+
+@import url("fixed.css");
+
+body {
+  font-size: 93%;
+}

@@ -1,0 +1,17 @@
+<!-- -*- sgml -*-
+     DocBook Language Specific Entities for Localization (nl).
+
+     $FreeBSD: doc/nl_NL.ISO8859-1/share/sgml/l10n.ent,v 1.2 2008/12/28 12:23:36 rene Exp $
+     $FreeBSDnl$
+
+     %SOURCE%	en_US.ISO8859-1/share/sgml/l10n.ent
+     %SRCID%	1.2
+-->
+
+<!-- docformat navi -->
+<!ENTITY docnavi.single-html "Enkel HTML bestand">
+<!ENTITY docnavi.split-html  "Opgedeeld HTML bestand">
+
+<!ENTITY doc.langcode.nl "nl_NL.ISO8859-1">
+<!ENTITY doc.langcode    "&doc.langcode.nl;">
+

@@ -1,0 +1,22 @@
+<!--
+     The FreeBSD Russian Documentation Project
+
+     $FreeBSD: doc/ru_RU.KOI8-R/share/sgml/l10n.ent,v 1.3 2004/11/07 16:26:09 hrs Exp $
+     $FreeBSDru: frdp/doc/ru_RU.KOI8-R/share/sgml/l10n.ent,v 1.3 2004/08/05 11:19:13 den Exp $
+
+     Original revision: 1.2
+-->
+
+<!-- -*- sgml -*-
+     DocBook Language Specific Entities for Localization (ru).
+-->
+
+<!-- docformat navi -->
+<!ENTITY docnavi.single-html "Одним файлом">
+<!ENTITY docnavi.split-html  "По разделам">
+
+<!ENTITY doc.langcode.ru "ru_RU.KOI8-R">
+<!ENTITY doc.langcode    "&doc.langcode.ru;">
+
+<!-- charset for HTML output -->
+<!ENTITY doc.html.charset "koi8-r">

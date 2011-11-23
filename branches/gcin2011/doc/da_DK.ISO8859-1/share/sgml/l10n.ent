@@ -1,0 +1,9 @@
+<!-- -*- sgml -*-
+     DocBook Language Specific Entities for Localization (da).
+
+     $FreeBSD: doc/da_DK.ISO8859-1/share/sgml/l10n.ent,v 1.1 2003/06/23 10:34:04 blackend Exp $
+-->
+
+<!-- docformat navi -->
+<!ENTITY docnavi.single-html "Samlet">
+<!ENTITY docnavi.split-html  "Opdelt">

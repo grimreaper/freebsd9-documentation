@@ -1,0 +1,15 @@
+<!-- -*- sgml -*-
+     DocBook Language Specific Entities for Localization (ja).
+
+     $FreeBSD: doc/ja_JP.eucJP/share/sgml/l10n.ent,v 1.3 2004/11/07 16:26:09 hrs Exp $
+-->
+
+<!-- docformat navi -->
+<!ENTITY docnavi.single-html "単一版">
+<!ENTITY docnavi.split-html  "分割版">
+
+<!ENTITY doc.langcode.ja "ja_JP.eucJP">
+<!ENTITY doc.langcode    "&doc.langcode.ja;">
+
+<!-- charset for HTML output -->
+<!ENTITY doc.html.charset "euc-jp">

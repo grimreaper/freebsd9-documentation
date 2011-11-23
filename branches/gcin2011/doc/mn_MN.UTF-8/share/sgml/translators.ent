@@ -1,0 +1,10 @@
+<!--
+     The FreeBSD Mongolian Documentation Project
+
+     $FreeBSD: doc/mn_MN.UTF-8/share/sgml/translators.ent,v 1.1 2007/04/11 10:51:20 keramida Exp $
+-->
+
+<!ENTITY a.mn.baynaa "Лодойсамбын Баянзул <email>baynaa@yahoo.com</email>">
+<!ENTITY a.mn.ganbold "Цагаанхүүгийн Ганболд <email>ganbold@micom.mng.net</email>">
+<!ENTITY a.mn.natsag "Шагдарын Нацагдорж <email>natsag2000@yahoo.com</email>">
+

@@ -1,0 +1,7 @@
+<!--
+      The FreeBSD Hungarian Documentation Project
+
+      $FreeBSD: doc/hu_HU.ISO8859-2/share/sgml/translators.ent,v 1.4 2010/11/28 19:23:08 pgj Exp $
+-->
+
+<!ENTITY a.hu.gabor "K&ouml;vesd&aacute;n G&aacute;bor <email>gabor@FreeBSD.org</email>">

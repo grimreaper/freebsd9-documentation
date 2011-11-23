@@ -1,0 +1,10 @@
+<!--
+     Navne på FreeBSD nyhedsgrupper
+
+     $FreeBSD: doc/da_DK.ISO8859-1/share/sgml/newsgroups.ent,v 1.1 2003/03/09 21:25:19 blackend Exp $
+-->
+
+<!ENTITY ng.misc "
+ <ulink url='news:comp.unix.bsd.freebsd.misc'>comp.unix.bsd.freebsd.misc</ulink>
+ nyhedsgruppen">
+

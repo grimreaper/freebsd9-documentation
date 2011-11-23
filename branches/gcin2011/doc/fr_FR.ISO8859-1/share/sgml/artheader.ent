@@ -1,0 +1,14 @@
+<!--
+     The FreeBSD Documentation Project
+     The FreeBSD French Documentation Project
+
+     Références vers d'autres fichiers qui peuvent être inclus à l'intérieur
+     d'un élément ArtHeader. Les noms des éléments sont de la forme 
+     "artheader.<element>", où <element> est le texte de la partie visible de 
+     l'entité. Exemple : "artheader.legalnotice" et "artheader.preface".
+
+     $FreeBSD: doc/fr_FR.ISO8859-1/share/sgml/artheader.ent,v 1.1 1999/11/10 21:29:12 nik Exp $
+     Original revision: N/A
+-->
+
+<!ENTITY artheader.copyright SYSTEM "copyright.sgml">
