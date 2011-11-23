@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//FreeBSD//DTD HTML 4.01 Transitional-Based Extension//EN" [
 <!ENTITY base CDATA "..">
-<!ENTITY date "$FreeBSD: www/ja/smp/index.sgml,v 1.10 2011/08/10 13:03:42 ryusuke Exp $">
+<!ENTITY date "$FreeBSD: www/ja/smp/index.sgml,v 1.14 2011/11/19 16:25:31 ryusuke Exp $">
 <!ENTITY title "FreeBSD SMP プロジェクト">
 <!ENTITY email 'freebsd-smp'>
 <!ENTITY % navinclude.developers "INCLUDE">
@@ -13,25 +13,14 @@
 <!ENTITY status.resolved "<font color=green>Resolved</font>">
 <!ENTITY status.unresolved "<font color=red>Unresolved</font>">
 
-<!-- Contributors -->
-<!ENTITY alfred "Alfred Perlstein">
-<!ENTITY bmilekic "Bosko Milekic">
-<!ENTITY cp "Chuck Paterson">
-<!ENTITY dfr "Doug Rabson">
-<!ENTITY dillon "Matt Dillon">
-<!ENTITY gallatin "Andrew Gallatin">
-<!ENTITY green "Brian Feldman">
-<!ENTITY grog "Greg Lehey">
-<!ENTITY jake "Jake Burkholder">
-<!ENTITY jasone "Jason Evans">
-<!ENTITY jhb "John Baldwin">
-<!ENTITY jlemon "Jonathan Lemon">
-<!ENTITY markm "Mark Murray">
-<!ENTITY peter "Peter Wemm">
-<!ENTITY tanimura "Seigo Tanimura">
+<!-- The list of contributors was moved to a separate file so that it can
+  be used by other documents in the FreeBSD web site. -->
+
+<!ENTITY % developers SYSTEM "../../en/developers.sgml"> %developers;
+
 ]>
 <!-- The FreeBSD Japanese Documentation Project -->
-<!-- Original revision: 1.14 -->
+<!-- Original revision: 1.127 -->
 
 <html>
   &header;
@@ -41,7 +30,8 @@
       <li><a href="#goal">プロジェクトの目標</a></li>
       <li><a href="#plan">プロジェクトの計画</a></li>
       <li><a href="#resources">情報源とリンク</a></li>
-      <li><a href="#status">ステータス</a></li>
+      <li><a href="#subsystems">サブシステムとスタッフ</a></li>
+      <li><a href="#status">タスク</a></li>
       <li><a href="#issues">既知の問題点</a></li>
       <li><a href="#news">ニュース</a></li>
     </ul>
@@ -49,23 +39,15 @@
     <a name="goal"></a>
     <h2>プロジェクトの目標</h2>
 
-    <p>FreeBSD SMP プロジェクト (しばしば SMPng (次世代 SMP) と
-      呼ばれます) は FreeBSD 5.0 カーネル (2002年11月を予定)
-      向けの fine-grained な SMP サポートを実装することに集中
-      しています。
-      FreeBSD の歴史のため、これは丸い穴に四角いくさびを打ち込むような
-      作業であり、途中経過はあまり美しいものとはいえません。;
+    <p>FreeBSD SMP プロジェクト (しばしば SMPng (次世代 SMP)
+      と呼ばれます) は FreeBSD カーネル向けの fine-grained な
+      SMP サポートを実装することに集中しています。
+      これは、2003 年 1 月の 5.0-RELEASE においてデビューしました。
+      FreeBSD の歴史のため、これは丸い穴に四角いくさびを打ち込むような作業であり、
+      途中経過はあまり美しいものとはいえません。
       私たちはカーネルを一から書き直そうとはしていませんし、
-      今のカーネルにある問題点の全てを修正しようとしている
-      わけでもありません。
-      実際、私たちは FreeBSD 5.0 がリリースされるときに、
-      構造上の問題点の痕跡が、様々な形でそれとわかるように残しておく
-      つもりです。
-      これは理論的なプロジェクトというよりは、実際的なものであり、
-      この一年間カーネルがうまく働き、安定して動作するようにしておく
-      必要があります。
-      なので、時間的制約からも私たちはいつ何をしなければならないのか
-      について現実的でなければなりません。</p>
+      今のカーネルにある問題点のすべてを修正しようとしているわけでもありません。
+      これは理論的なプロジェクトというよりは、実際的なプロジェクトです。</p>
 
     <a name="plan"></a>
     <h2>プロジェクトの計画</h2>
@@ -84,20 +66,44 @@
       そして、それらは -current ができるかぎりちゃんと働き続ける
       ようにして行われなければなりません。</p>
 
+    <p>以下のタスクリストは、完全なものを目指したものではありません。
+      全体の仕事に関連したり重要な要素をまとめたものです。
+      "Responsible" フィールドは、
+      そのタスクを達成するのに責任を持ちたいという意思を示した開発者を記載したものであり、
+      このタスクを他のメンバーが行うことを除外するものではありません。
+      このフィールドは、担当グループとの調整を行うことで、
+      必要のない重複した作業を避け、最大限に開発が進むことができるようにすることを意図しています。
+      もし、新しい領域の作業がかなり大きかったり、
+      まだ、求められていないようであれば、何かしらの進展がないかどうか、
+      FreeBSD SMP メーリングリストへメールを送信する価値があります。</p>
+
+    <p>日付フィールドの持つ意味は、タスクのステータスに依存します。
+      完了したタスクについては、そのタスクが完了した日、
+      または完了が報告された日です。
+      現在進行中のタスクに関しては、エントリを最後にアップデートした日付を表します。
+      停止したタスクについては、タスクが停止したことを宣言した日、
+      新しいタスクについては、タスクが一覧に追加された日を意味します。</p>
+      
+    <p>個々のデバイスドライバのロックの状況については、
+      <a href="http://www.FreeBSD.org/projects/busdma">the busdma and
+      SMPng driver conversion webpage</a> において公開されています。</p>
+
+    <p>タスクはステータス、日付の順に並んでいます。</p>
+
     <a name="resources"></a>
     <h2>情報源とリンク</h2>
 
     <ul>
       <li><p>
-	  <a href="http://people.FreeBSD.org/~jasone/smp/smp_synch_rules.html">
-	  SMP kernel synchronization rules.</a></p></li>
+	  <a href="http://storm.uk.FreeBSD.org/~hiten/smp_synch_rules.html">
+	  SMP kernel synchronization rules</a>.</p></li>
 
       <li><p>SMP に関連した議論は
 	  <a href="mailto:freebsd-smp@FreeBSD.org">freebsd-smp</a>
 	  メーリングリストにおいて行われています。
-	  <a href="../handbook/index.html">FreeBSD ハンドブック</a>
+	  <a href="../../doc/ja_JP.eucJP/books/handbook/index.html">FreeBSD ハンドブック</a>
 	  の
-	  <a href="../handbook/eresources.html#ERESOURCES-MAIL">
+	  <a href="../../doc/ja_JP.eucJP/books/handbook/eresources.html#ERESOURCES-MAIL">
 	  インターネット上のリソース</a>
 	  にメーリングリストに関する詳しい情報が載っています。</p></li>
 
@@ -107,19 +113,175 @@
 	  プロジェクトページ</a>
 	  を管理しています。</p></li>
 
-      <li><p>&dillon; は彼が SMP プロジェクトで何をしているのか
-	  についての
+      <li><p>&a.dillon; は彼が SMP プロジェクトで何をしているのかについての
 	  <a href="http://apollo.backplane.com/FreeBSDSmp/">
 	    ウェブページ</a>
 	  を管理しています。</p></li>
+
+      <li>
+	<p>&a.jhb; による
+	  <a href="http://www.usenix.org/events/bsdcon02/full_papers/baldwin/baldwin_html/index.html">
+	  "Locking in the Multithreaded FreeBSD Kernel" USENIX paper</a>。
+      </p>
+      </li>
+
+       <li>
+ 	<p>
+ 	  &a.hsu; による <a href="http://www.usenix.org/publications/library/proceedings/bsdcon03/tech/hsu.html">
+ 	"Reasoning about SMP in FreeBSD" BSDCon'03 paper</a>。
+ 	</p>
+       </li>
+ 
+       <li>
+ 	<p>&a.jeff; による
+ 	  <a href="http://www.usenix.org/publications/library/proceedings/bsdcon03/tech/roberson.html">
+ 	"ULE: A Modern Scheduler for FreeBSD" BSDCon'03 paper</a>。
+ 	</p>
+       </li>
     </ul>
 
+    <a name="subsystems"></a>
+    <h2>サブシステムとスタッフ</h2>
+
+    <p>以下はまだ未完成のハイレベルのカーネルサブシステムと、現在、
+      SMP アーキテクチャと安定性について作業している活動的なスタッフの一覧です。</p>
+
+    <table border=3>
+      <tr>
+	<th> サブシステム </th>
+	<th> ステータス </th>
+	<th> 最終更新 </th>
+	<th> スタッフ </th>
+      </tr>
+
+      <tr>
+	<td> Newbus </td>
+	<td> &status.wip; </td>
+	<td> 5 October 2003 </td>
+	<td> &a.imp;</td>
+      </tr>
+
+      <tr>
+	<td> VM </td>
+	<td> &status.wip; </td>
+	<td> 4 October 2003 </td>
+	<td> &a.alc;</td>
+      </tr>
+
+      <tr>
+	<td> Buffer cache </td>
+	<td> &status.wip; </td>
+	<td> 4 October 2003 </td>
+	<td> &a.jeff;, &a.phk; </td>
+      </tr>
+
+      <tr>
+	<td> VFS </td>
+	<td> &status.wip; </td>
+	<td> 4 October 2003</td>
+	<td> &a.jeff; </td>
+      </tr>
+
+      <tr>
+	<td> Processes and thread operations </td>
+	<td> &status.wip; </td>
+	<td> 5 May 2003 </td>
+	<td> &a.jhb; </td>
+      </tr>
+
+      <tr>
+	<td> Scheduler </td>
+	<td> &status.wip; </td>
+	<td> 23 April 2004 </td>
+	<td> &a.jhb;, &a.jeff; </td>
+      </tr>
+
+      <tr>
+	<td> GEOM </td>
+	<td> &status.done; </td>
+	<td> 5 February 2003 </td>
+	<td> &a.phk; </td>
+      </tr>
+
+      <tr>
+	<td> File descriptors </td>
+	<td> &status.done; </td>
+	<td> 5 February 2003 </td>
+	<td> &a.alfred;, &a.tanimura; </td>
+      </tr>
+
+      <tr>
+	<td> TTY subsystem </td>
+	<td> &status.new; </td>
+	<td> 31 May 2004 </td>
+	<td> &nbsp; </td>
+      </tr>
+
+      <tr>
+	<td> Pipe IPC </td>
+	<td> &status.done; </td>
+	<td> 4 October 2003 </td>
+	<td> &a.alfred; </td>
+      </tr>
+
+      <tr>
+	<td> Socket structures and system calls </td>
+	<td> &status.wip; </td>
+	<td> 4 October 2003 </td>
+	<td> &a.tanimura;, &a.hsu;, &a.sam; &a.rwatson; </td>
+      </tr>
+
+      <tr>
+	<td> KQueue </td>
+	<td> &status.wip; </td>
+	<td> 23 April 2004 </td>
+	<td> &a.jmg;, &a.green; </td>
+      </tr>
+
+      <tr>
+	<td> IPv4, IPv6 </td>
+	<td> &status.wip; </td>
+	<td> 23 April 2004 </td>
+	<td> &a.hsu;, &a.jennifer;, &a.sam;, &a.rwatson; </td>
+      </tr>
+
+      <tr>
+	<td> IPX/SPX </td>
+	<td> &status.wip; </td>
+	<td> 23 April 2004 </td>
+	<td> &a.rik;, &a.rwatson; </td>
+      </tr>
+
+      <tr>
+	<td> netatalk </td>
+	<td> &status.wip; </td>
+	<td> 23 April 2004 </td>
+	<td> &a.rwatson; </td>
+      </tr>
+
+      <tr>
+	<td> Network stack infrastructure </td>
+	<td> &status.wip; </td>
+	<td> 4 October 2003 </td>
+	<td> &a.hsu;, &a.sam; &a.rwatson; &a.mlaier;, &a.luigi;, Maurycy Pawlowski-Wieronski &lt;maurycy@fouk.org&gt;, &a.brooks;,
+	  &a.rik; </td>
+      </tr>
+
+      <tr>
+	<td> NFS Client, Server </td>
+	<td> &status.wip; </td>
+	<td> 23 April 2004 </td>
+	<td> &a.rwatson;, Rick Macklem (rick at snowhite.cis.uoguelph.ca)</td>
+      </tr>
+
+    </table>
+
     <a name="status"></a>
-    <h2>ステータス</h2>
+    <h2>タスク</h2>
 
     <p>この一般タスクリストは完全ではありません。</p>
 
-    <table class="tblbasic">
+    <table border=3>
       <tr>
 	<th> タスク </th>
 	<th> 担当者 </th>
@@ -130,28 +292,28 @@
       <tr>
 	<td> Convert the giant lock from spinning to blocking, add the
 	  scheduler lock, add per-CPU idle processes. </td>
-	<td> &dillon; </td>
+	<td> &a.dillon; </td>
 	<td> 25 June 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Port the BSD/OS locking primitives (i386). </td>
-	<td> &jake; </td>
+	<td> &a.jake; </td>
 	<td> 3 July 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Implement heavy-weight interrupt threads (i386). </td>
-	<td> &grog; </td>
+	<td> &a.grog; </td>
 	<td> 3 August 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Rewrite the low level interrupt code (i386 UP). </td>
-	<td> &grog; </td>
+	<td> &a.grog; </td>
 	<td> 3 August 2000 </td>
 	<td> &status.done; </td>
       </tr>
@@ -166,28 +328,28 @@
 
       <tr>
 	<td> Port the BSD/OS locking primitives (alpha). </td>
-	<td> &dfr; </td>
+	<td> &a.dfr; </td>
 	<td> 24 August 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Stub out (disable) spl()s. </td>
-	<td> &grog; </td>
+	<td> &a.grog; </td>
 	<td> 30 August 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Port the BSD/OS ktr code. </td>
-	<td> &grog;, &jhb; </td>
+	<td> &a.grog;, &a.jhb; </td>
 	<td> 30 August 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Rewrite the low level interrupt code (i386 SMP). </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 1 September 2000 </td>
 	<td> &status.done; </td>
       </tr>
@@ -210,119 +372,119 @@
 
       <tr>
 	<td> Make malloc and friends thread-safe. </td>
-	<td> &jasone; </td>
+	<td> &a.jasone; </td>
 	<td> 10 September 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Implement msleep(), make tsleep() an msleep() wrapper. </td>
-	<td> &jake; </td>
+	<td> &a.jake; </td>
 	<td> 11 September 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Make fxp driver thread-safe. </td>
-	<td> &cp; </td>
+	<td> &a.cp; </td>
 	<td> 17 September 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Make mbuf's thread-safe. </td>
-	<td> &bmilekic; </td>
+	<td> &a.bmilekic; </td>
 	<td> 29 September 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Lock manager re-work. </td>
-	<td> &jasone; </td>
+	<td> &a.jasone; </td>
 	<td> 3 October 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Implement heavy-weight interrupt threads (alpha). </td>
-	<td> &jhb;, &dfr; </td>
+	<td> &a.jhb;, &a.dfr; </td>
 	<td> 5 October 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Rewrite the low level interrupt code (alpha). </td>
-	<td> &dfr;, &jhb; </td>
+	<td> &a.dfr;, &a.jhb; </td>
 	<td> 5 October 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Process accounting. </td>
-	<td> Tor Egge, &jhb; </td>
+	<td> &a.tegge;, &a.jhb; </td>
 	<td> 5 October 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Make ethernet drivers thread-safe. </td>
-	<td> Bill Paul </td>
+	<td> &a.wpaul; </td>
 	<td> 15 October 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Make the mutex headers mostly machine-independent. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 20 October 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Rename SMP_DEBUG to MUTEX_DEBUG. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 20 October 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Give each soft interrupt its own thread. </td>
-	<td> &cp; </td>
+	<td> &a.cp; </td>
 	<td> 25 October 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Make sf_bufs (sendfile(2)) thread-safe. </td>
-	<td> &bmilekic; </td>
+	<td> &a.bmilekic; </td>
 	<td> 5 November 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Make the witness code work correctly. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 18 November 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Split the ktr-specific code out of db_interface.c. </td>
-	<td> &jhb;  </td>
+	<td> &a.jhb;  </td>
 	<td> 15 December 2000 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Convert the sio driver to using a spin mutex. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 18 December 2000 </td>
 	<td> &status.done; </td>
       </tr>
   	
       <tr>
 	<td> Implement condition variables. </td>
-	<td> &jake;, &jasone; </td>
+	<td> &a.jake;, &a.jasone; </td>
 	<td> 15 January 2001 </td>
 	<td> &status.done; </td>
       </tr>
@@ -330,42 +492,42 @@
       <tr>
 	<td> Add a flag to mtx_init() (MTX_RECURSE) that denotes
 	  whether a mutex is allowed to recurse. </td>
-	<td> &bmilekic; </td>
+	<td> &a.bmilekic; </td>
 	<td> 19 January 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Make the zone allocator thread-safe. </td>
-	<td> Dag-Erling Smorgrav </td>
+	<td> &a.des; </td>
 	<td> 21 January 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Convert simplelocks to mutexes. </td>
-	<td> &jasone; </td>
+	<td> &a.jasone; </td>
 	<td> 24 January 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Make kernel preemptive with respect to interrupts. </td>
-	<td> &jake; </td>
+	<td> &a.jake; </td>
 	<td> 31 January 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Cleanup of mutex API. </td>
-	<td> &bmilekic; </td>
+	<td> &a.bmilekic; </td>
 	<td> 8 February 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Remove COM_LOCK. </td>
-	<td> &markm; </td>
+	<td> &a.markm; </td>
 	<td> 11 February 2001 </td>
 	<td> &status.done; </td>
       </tr>
@@ -373,14 +535,14 @@
       <tr>
 	<td> Merge various scheduling classes into one run queue.
 	  Modify scheduler to support preemptable kernel. </td>
-	<td> &jake; </td>
+	<td> &a.jake; </td>
 	<td> 11 February 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Make priority propagation work correctly. </td>
-	<td> &jake; </td>
+	<td> &a.jake; </td>
 	<td> 11 February 2001 </td>
 	<td> &status.done; </td>
       </tr>
@@ -388,14 +550,21 @@
       <tr>
 	<td> Make most of the interrupt thread code MI and shared
 	  between hardware and software interrupts. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 18 February 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
+	<td> Add protection to struct jail and jail-related functionality. </td>
+	<td> &a.rwatson; </td>
+	<td> 20 February 2001 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
 	<td> Implement sx (shared/exclusive) locks. </td>
-	<td> &jasone; </td>
+	<td> &a.jasone; </td>
 	<td> 5 March 2001 </td>
 	<td> &status.done; </td>
       </tr>
@@ -403,7 +572,7 @@
       <tr>
 	<td> Generalize/improve witness to handle more complex locking
 	  primitives (mtx, sx). </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 28 March 2001 </td>
 	<td> &status.done; </td>
       </tr>
@@ -411,7 +580,7 @@
       <tr>
 	<td> Convert the allproc and proctree locks from lockmgr locks
 	  to sx locks. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 28 March 2001 </td>
 	<td> &status.done; </td>
       </tr>
@@ -419,7 +588,7 @@
       <tr>
 	<td> Make mbuf system use condition variables instead of
 	  msleep()/wakeup(). </td>
-	<td> &bmilekic; </td>
+	<td> &a.bmilekic; </td>
 	<td> 2 April 2001 </td>
 	<td> &status.done; </td>
       </tr>
@@ -428,7 +597,7 @@
 	<td> Remove &lt;sys/mutex.h&gt; includes from other kernel
 	  headers such as &lt;vm/vm_zone.h&gt;, &lt;sys/resourcevar.h&gt;,
 	  &lt;sys/ucred.h&gt;, and &lt;sys/mbuf.h&gt;. </td>
-	<td> &markm; </td>
+	<td> &a.markm; </td>
 	<td> 15 May 2001 </td>
 	<td> &status.done; </td>
       </tr>
@@ -436,70 +605,70 @@
       <tr>
 	<td> Cleanup the various mp_machdep.c's, unify various SMP
 	  API's such as IPI delivery, etc. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 15 May 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Make most of the forward_* and forwarded_* functions MI. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 15 May 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Complete the MD support for SMP on the Alpha platform.</td>
-	<td> &gallatin;, &dfr;, &jhb; </td>
+	<td> &a.gallatin;, &a.dfr;, &a.jhb; </td>
 	<td> 15 May 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Convert select() to use condition variables. </td>
-	<td> &tanimura; </td>
+	<td> &a.tanimura; </td>
 	<td> 15 May 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Add a "giant" lock around the VM subsystem. </td>
-	<td> &alfred; </td>
+	<td> &a.alfred; </td>
 	<td> 13 June 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Introduce a modified slab allocator for the mbuf subsystem. </td>
-	<td> &bmilekic; </td>
+	<td> &a.bmilekic; </td>
 	<td> 21 June 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Add a witness_assert() function to handle lock assertions. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 27 June 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Extend sx locks to support try lock operations. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 27 June 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Document KTR. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 28 June 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Make fork_return, fork_exit, ast, and userret MI. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 29 June 2001 </td>
 	<td> &status.done; </td>
       </tr>
@@ -507,79 +676,70 @@
       <tr>
 	<td> Make sched_lock's savecrit a per-process property saved
 	  and restored in mi_switch and initialized in fork_exit. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 30 June 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Make ast() loop. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 10 August 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Add upgrade/downgrade sx lock operations. </td>
-	<td> Alexander Kabaev, &jasone; </td>
+	<td> Alexander Kabaev, &a.jasone; </td>
 	<td> 13 August 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Implement semaphores. </td>
-	<td> &jasone; </td>
+	<td> &a.jasone; </td>
 	<td> 14 August 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Add support for upgrade/downgrades in witness. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 23 August 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
-	<td> Remove the MP safe syscall flag from the syscall table
-	  and add explicit mtx_lock/unlock's of Giant to all
-	  syscalls. </td>
-	<td> &dillon; </td>
-	<td> 7 September 2001 </td>
-	<td> &status.done; </td>
-      </tr>
-
-      <tr>
 	<td> Make most of cpu_wait() and cpu_exit() MI. </td>
-	<td> &peter; </td>
+	<td> &a.peter; </td>
 	<td> 9 September 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Split NFS into client and server. </td>
-	<td> &peter; </td>
+	<td> &a.peter; </td>
 	<td> 18 Oct 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Lock taskqueues. </td>
-	<td> Andrew Reiter, &jhb; </td>
+	<td> &a.arr;, &a.jhb; </td>
 	<td> 25 October 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Add a per-thread ucred reference. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 25 October 2001 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Make most of the per-CPU stuff MI. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 11 December 2001 </td>
 	<td> &status.done; </td>
       </tr>
@@ -587,7 +747,7 @@
       <tr>
 	<td> Make critical section saved state per-thread instead of per-lock
 	  so that interlocking spin locks work properly. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 17 December 2001 </td>
 	<td> &status.done; </td>
       </tr>
@@ -596,7 +756,7 @@
 	<td> Replace the APIC-specific imen_mtx with a MI-named icu_lock to
 	  protect interrupt controllers and associated data within the kernel
 	  for both i386 and alpha. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 20 December 2001 </td>
 	<td> &status.done; </td>
       </tr>
@@ -605,107 +765,599 @@
 	<td> Use the per-thread critical section nesting level in the mutex
 	    and interrupt thread code to automatically determine when to not
 	    preempt.  This makes the MTX_NOSWITCH, SWI_SWITCH, and
-	    SWI_NOSWITCH flags obslete as the kernel will be able to figure
+	    SWI_NOSWITCH flags obsolete as the kernel will be able to figure
 	    out the proper behavior on its own. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 5 January 2002 </td>
 	<td> &status.done; </td>
       </tr>
 
       <tr>
 	<td> Lock struct filedesc and struct file. </td>
-	<td> &tanimura;, &alfred; </td>
+	<td> &a.tanimura;, &a.alfred; </td>
 	<td> 12 January 2002 </td>
 	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock struct pgrp, struct session, and struct sigio. </td>
+	<td> &a.tanimura; </td>
+	<td> 23 February 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock pipe implementation, but not sigio/fown, VM interactions </td>
+	<td> &a.alfred; </td>
+	<td> 27 February 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Move to explicit reference counting for soft vnode references.
+	  </td>
+	<td> &a.phk; </td>
+	<td> 8 March 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Initialize mutex pools early enough that sx locks can be used
+	  for VM. </td>
+	<td> &a.green; </td>
+	<td> 14 March 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+        <td> Place a global lock (sellock) around selinfo structures to fix a
+          variety of lock order reversals, and make select() MP-safe. </td>
+        <td> &a.alfred;, &a.davidc; </td>
+        <td> 14 March 2002 </td>
+        <td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Push down Giant on read, write, pread, pwrite system calls,
+	  acquiring Giant in the per-subsystem fileop layer for sockets, VFS,
+	  etc.</td>
+	<td> &a.alfred; </td>
+	<td> 15 March 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock down kernel module structures. </td>
+	<td> &a.arr; </td>
+	<td> 18 March 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock down kernel linker globals.</td>
+	<td> &a.arr; </td>
+	<td> 18 March 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Rewrite kernel memory allocator to be a slab allocator that
+	  uses per-cpu caches. </td>
+	<td> &a.jeff; </td>
+	<td> 21 March 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Replace incorrect use of MD critical section API to disable
+	  interrupts with a specific interrupt disable API. </td>
+	<td> &a.imp;, &a.dfr;, &a.benno;, &a.jhb; </td>
+	<td> 21 March 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock down access to the shared p_args "process arguments"
+	  structure through appropriate protection of that structure and
+	  references to it. </td>
+	<td> &a.mini; </td>
+	<td> 31 March 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Move from flags/tsleep lock to sx locks to protect sysctl
+	  tree from updates during sysctl operations. </td>
+	<td> &a.mini; </td>
+	<td> 1 April 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Create/port userland tool to manage KTR event dumps. </td>
+	<td> &a.jake; </td>
+	<td> 1 April 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Create MTX_SYSINIT and SX_SYSINIT macros that allow for
+	  initializing locks that are subsystem independent. </td>
+	<td> &a.arr; </td>
+	<td> 2 April 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+ 	<td> Lock down the global securelevel variable. </td>
+	<td> &a.arr; </td>
+	<td> 2 April 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Make grow_stack() MI.  Possibly even a macro or inline. </td>
+	<td> &a.alc; </td>
+	<td> 6 April 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock use of p_fd, which otherwise can result in corrupted
+	  p_fd panics during heavy operation.  Start with a global,
+	  and move to per-proc locking. </td>
+	<td> &a.alfred;, &a.tanimura; </td>
+	<td> 8 April 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock struct pargs. </td>
+	<td> &a.mini; </td>
+	<td> 9 April 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Make {o,}sigreturn() MPSAFE. </td>
+	<td> &a.alc; </td>
+	<td> 11 April 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Rewrite kernel memory allocator so that Giant is not required
+	  for malloc() or free(). </td>
+	<td> &a.jeff; </td>
+	<td> 2 May 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Replace complex shared/exclusive locking scheme in the VM
+	  system with a purely exclusive lockmgr locking scheme, simplifying
+	  locking and removing potential livelock/deadlock scenarios. </td>
+	<td> &a.green;, &a.alc; </td>
+	<td> 3 May 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Push down Giant into readv/writev system calls in style of
+	  read/write/pread/pwrite once malloc no longer requires Giant in
+	  the handling of iovec structures for uio. </td>
+	<td> &a.alc; </td>
+	<td> 9 May 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Push down Giant in mprotect(), minherit(), and madvise() so
+	  that it is no longer acquired and released directly. </td>
+	<td> &a.alc; </td>
+	<td> 18 May 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Update suser() and p_can*() APIs to accept threads instead of
+	  processes. </td>
+	<td> &a.jhb; </td>
+	<td> 18 May 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Broadly transition to td_ucred from p_ucred once KSE dependencies
+	  are in place. </td>
+	<td> &a.jhb; </td>
+	<td> 18 May 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Add a witness_sleep() check to uma_zalloc() to catch code
+	  calling malloc() or uma_zalloc() while holding non-sleepable
+	  locks. </td>
+	<td> &a.jhb; </td>
+	<td> 20 May 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Optimize UP support by changing spin locks to only perform
+	  critical section enter and exits. </td>
+	<td> &a.jhb; </td>
+	<td> 21 May 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Make sleep mutexes spin if the current lock holder is
+	    executing on another CPU. </td>
+	<td> &a.jhb; </td>
+	<td> 21 May 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Add support for the IA32 pause instruction to spin loops in
+	  locks. </td>
+	<td> &a.jhb; </td>
+	<td> 21 May 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Make KTRACE write into tracefiles asynchronously. </td>
+	<td> &a.jhb; </td>
+	<td> 7 June 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+        <td> Remove Giant from modnext(2), modfnext(2),
+          modstat(2),and modfind(2).</td>
+        <td> &a.arr; </td>
+        <td> 25 June 2002 </td>
+        <td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Fix synchronization of TLB flushes and invlpg() on x86 SMP. </td>
+	<td> &a.peter; </td>
+	<td> 12 July 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Make cpu_coredump MI. </td>
+	<td> &a.peter; </td>
+	<td> 7 September 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Add a subsystem lock to the accounting code. </td>
+	<td> &a.arr; </td>
+	<td> 11 September 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Fix SIGXPU and other #if 0'd things in mi_switch(). </td>
+	<td> &a.jhb; </td>
+	<td> 30 September 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock down TrustedBSD MAC implementation. </td>
+	<td> &a.rwatson; </td>
+	<td> 11 November 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock eventhandlers. </td>
+	<td> &a.msmith;, &a.mini;, &a.jhb; </td>
+	<td> 11 March 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Fix PHOLD() so that it blocks to guarantee PS_INMEM. </td>
+	<td> &a.jhb; </td>
+	<td> 22 April 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Fix various procfs_machdep.c to not use sched_lock. </td>
+	<td> &a.jhb; </td>
+	<td> 22 April 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock all references to process credentials and remove Giant
+	  from process credential-related system calls. </td>
+	<td> &a.jhb; </td>
+	<td> 1 May 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Merge the procsig and sigacts structures, move the new sigacts
+	  structure out of the U-area and add appropriate locking. </td>
+	<td> &a.jhb; </td>
+        <td> 13 May 2003 </td>
+        <td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Remove Giant from the kill() and killpg() system calls. </td>
+	<td> &a.jhb; </td>
+        <td> 13 May 2003 </td>
+        <td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Enhance the mutex pool implementation to allow creation and
+	  use of multiple, dynamically allocated pools with adjustable pool
+	  sizes and mutex options. </td>
+	<td> &a.truckman; </td>
+        <td> 16 July 2003 </td>
+        <td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Create mutex profiling tool for the kernel so as to measure
+	  contention and behavior of kernel mutexes. </td>
+	<td> &a.eivind;, &a.des; </td>
+	<td> 31 March 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock pipe implementation: VM optimizations. </td>
+	<td> &nbsp; </td>
+	<td> 4 October 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+        <td> Reimplement i386 interrupt and SMP code so that SMP kernels
+	  work on UP boxes and SMP can be enabled in GENERIC. </td>
+        <td> &a.jhb; </td>
+        <td> 3 November 2003 </td>
+        <td> &status.done; </td>
+      </tr>
+
+      <tr>
+        <td> Implement generic turnstiles to use when blocking on non-sleepable
+	  locks. </td>
+        <td> &a.jhb; </td>
+        <td> 11 November 2003 </td>
+        <td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Split witness_lock() into witness_checkorder() and
+	  witness_lock().  witness_checkorder() would be called before
+	  acquiring a lock to increase the changes of detecting and warning
+	  about a reversal prior to deadlocking.  witness_lock() would
+	  simply update witness' internal state to note that a lock has
+	  been acquired. </td>
+	<td> &a.jhb; </td>
+	<td> 24 January 2004 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock per-process resource limits. </td>
+	<td> &a.mtm;, &a.jhb; </td>
+	<td> 4 February 2004 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+        <td> Implement a sleep queue abstraction to be used by both msleep()
+	  and condition variables.  This new abstraction should use a hash
+	  table of sleep queues with a spin lock on each sleep queue chain
+	  similar to turnstile chain locks to make sched_lock finger
+	  grained.</td>
+        <td> &a.jhb; </td>
+        <td> 27 February 2004 </td>
+        <td> &status.done; </td>
+      </tr>
+
+      <tr>
+        <td> Remove Giant from jail(2). </td>
+        <td> &a.arr; &a.rwatson; </td>
+        <td> 23 April 2004 </td>
+        <td> &status.done; </td>
       </tr>
 
       <!-- WIP -->
 
       <tr>
 	<td> Lock struct proc. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 20 February 2001 </td>
 	<td> &status.wip; </td>
       </tr>
 
       <tr>
-	<td> Lock struct pgrp, struct session, and struct sigio. </td>
-	<td> &tanimura; </td>
-	<td> 13 June 2001 </td>
-	<td> &status.wip; </td>
-      </tr>
-
-      <tr>
-	<td> Make KTRACE write into tracefiles asynchronously. </td>
-	<td> &jhb; </td>
-	<td> 6 September 2001 </td>
-	<td> &status.wip; </td>
-      </tr>
-
-      <tr>
 	<td> Make the kernel fully preemptive. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 7 September 2001 </td>
 	<td> &status.wip; </td>
       </tr>
 
       <tr>
-	<td> Convert vm_map locks to sx locks. </td>
-	<td> &green; </td>
-	<td> 18 October 2001 </td>
-	<td> &status.wip; </td>
-      </tr>
-
-      <tr>
 	<td> Lock down the tty subsystem. </td>
-	<td> Dick Garner, Jeremy Scofield </td>
-	<td> 16 November 2001 </td>
+	<td> Dick Garner, Jeremy Scofield, &a.tmm; </td>
+	<td> 2 April 2002 </td>
 	<td> &status.wip; </td>
       </tr>
 
       <tr>
 	<td> Fix clock locking to be the same on all platforms. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 16 November 2001 </td>
 	<td> &status.wip; </td>
       </tr>
 
       <tr>
-	<td> Make sleep mutexes spin if the current lock holder is
-	    executing on another CPU. </td>
-	<td> &jhb; </td>
-	<td> 16 November 2001 </td>
+	<td> Lock pipe implementation: sigio/fown-related evil </td>
+	<td> &a.alfred; </td>
+	<td> 27 February 2002 </td>
 	<td> &status.wip; </td>
       </tr>
 
       <tr>
-	<td> Add support for the IA32 pause instruction to spin loops in
-	  locks. </td>
-	<td> &jhb; </td>
-	<td> 16 November 2001 </td>
+	<td> Make use of process locking and process reference counting
+	  to protect debugging interfaces (and procfs). </td>
+	<td> &a.jhb; </td>
+	<td> 27 February 2002 </td>
 	<td> &status.wip; </td>
       </tr>
 
       <tr>
-	<td> Optimize UP support by changing spin locks to only perform
-	  critical section enter and exits. </td>
-	<td> &jhb; </td>
-	<td> 20 December 2001 </td>
+	<td> Make use of process locking to protect process monitoring
+	  sysctls, including those employed by 'ps' and related tools.
+	<td> &a.jhb; </td>
+	<td> 27 February 2002 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Lock down newbus infrastructure to support driver
+	  fine-graining. </td>
+	<td> &a.imp; </td>
+	<td> 28 February 2002 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+        <td> Remove the MP safe syscall flag from the syscall table
+          and add explicit mtx_lock/unlock's of Giant to all
+          syscalls. </td>
+        <td> &a.dillon;, &a.mux; </td>
+        <td> 28 February 2002 </td>
+        <td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> SMPng architecture document. </td>
+	<td> &a.jhb;, &a.rwatson; </td>
+	<td> 28 February 2002 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Move to shared lock for VOP_GETATTR() to reduce blocking during
+	  frequent lightweight VFS operations.  Modify namei() to provide
+	  a LOOKUP_SHARED flag to indicate when the lock required may be
+	  shared instead of exclusive. </td>
+	<td> &a.jeff; </td>
+	<td> 11 March 2002 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Lock sysctl hierarchy and access methods. </td>
+	<td> &a.mini; </td>
+	<td> 9 April 2002 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Document existing vm_map locking and verify it's correctness. </td>
+	<td> &a.alc; </td>
+	<td> 18 May 2002 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Document existing vm_object locking and verify it's
+	  correctness. </td>
+	<td> &a.alc; </td>
+	<td> 4 May 2002 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Lock down linker_file_t structures in the kernel linker.</td>
+	<td> &a.arr; </td>
+	<td> 19 June 2002 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+       <td> Lock down the SysV IPC code. </td>
+	<td> &a.alfred; </td>
+	<td> 13 August 2002 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Review locking strategy and correctness of VFS operations
+	  and fix up various failure modes associated with enabling
+	  VFS locking assertions. </td>
+	<td> &a.jeff; </td>
+	<td> 10 December 2002 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Document in-vnode locking strategy, clean it up, remove
+	  interlock, switch to sx locks. </td>
+	<td> &a.jeff; </td>
+	<td> 10 December 2002 </td>
 	<td> &status.wip; </td>
       </tr>
 
       <tr>
 	<td> Implement lazy interrupt thread switching (context
 	  stealing) on i386. </td>
-	<td> &bmilekic; </td>
-	<td> 4 January 2002 </td>
+	<td> &a.bmilekic;, &a.kan; </td>
+	<td> 10 December 2002 </td>
 	<td> &status.wip; </td>
       </tr>
 
       <tr>
-	<td> Fix synchronization of TLB flushes and invlpg() on x86 SMP. </td>
-	<td> &peter; </td>
-	<td> 4 January 2002 </td>
+	<td> Implement lazy interrupt thread switching (context
+	  stealing) on sparc64. </td>
+	<td> &a.jake; </td>
+	<td> 10 December 2002 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Switch from using lockmgr in VM to using a mutex or exclusive
+	  sxlock.  Push down Giant on all VM except for vm_object/VFS and
+	  vm_page/pmap components. </td>
+	<td> &a.alc; </td>
+	<td> 10 December 2002 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Modify device driver API to permit drivers to more easily
+	  split "in interrupt context" and "in interrupt thread"
+	  code so as to acknowledge interrupts faster.  This will permit
+	  lower latency in interrupt handling. </td>
+	<td> &a.peter; </td>
+	<td> 4 October 2003 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Add locking to NFS. </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
 	<td> &status.wip; </td>
       </tr>
 
@@ -714,7 +1366,7 @@
       <tr>
 	<td> Create mechanism in cdevsw structure to protect
 	  thread-unsafe drivers. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 15 May 2001 </td>
 	<td> &status.stalled; </td>
       </tr>
@@ -722,34 +1374,12 @@
       <tr>
 	<td> Make printf() safe to call in almost any situation to avoid
 	  deadlocks. </td>
-	<td> &cp; </td>
-	<td> 15 May 2001 </td>
-	<td> &status.stalled; </td>
-      </tr>
-
-      <tr>
-	<td> Implement trap handler for cmpxchgl on 80386 to support
-	  generic userland atomic operations. </td>
-	<td> &jake; </td>
+	<td> &a.cp; </td>
 	<td> 15 May 2001 </td>
 	<td> &status.stalled; </td>
       </tr>
 
       <!-- Not Started -->
-
-      <tr>
-	<td> Add locking to NFS. </td>
-	<td> &nbsp; </td>
-	<td> 15 May 2001 </td>
-	<td> &status.new; </td>
-      </tr>
-
-   	<tr>
-	<td> Use per-CPU buffers for ktr to reduce synchronization. </td>
-	<td> &nbsp; </td>
-	<td> 5 September 2000 </td>
-	<td> &status.new; </td>
-      </tr>
 
       <tr>
 	<td> Remove priority argument from tsleep(), msleep(),
@@ -761,7 +1391,7 @@
 
       <tr>
 	<td> Reimplement kqueue using condition variables. </td>
-	<td> &jlemon; </td>
+	<td> &a.jlemon; </td>
 	<td> 15 March 2001 </td>
 	<td> &status.new; </td>
       </tr>
@@ -769,7 +1399,7 @@
       <tr>
 	<td> Conditionalize atomic ops in the SMP code that are used
 	  for debugging statistics. </td>
-	<td> &peter; </td>
+	<td> &a.peter; </td>
 	<td> 15 March 2001 </td>
 	<td> &status.new; </td>
       </tr>
@@ -777,22 +1407,8 @@
       <tr>
 	<td> Add a new witness check for exiting processes to verify that
 	  an exiting process holds no locks. </td>
-	<td> &jhb; </td>
+	<td> &a.jhb; </td>
 	<td> 13 June 2001 </td>
-	<td> &status.new; </td>
-      </tr>
-
-      <tr>
-	<td> Make cpu_core MI. </td>
-	<td> &nbsp; </td>
-	<td> 13 June 2001 </td>
-	<td> &status.new; </td>
-      </tr>
-
-      <tr>
-	<td> Lock struct pargs. </td>
-	<td> &nbsp; </td>
-	<td> 20 June 2001 </td>
 	<td> &status.new; </td>
       </tr>
 
@@ -805,29 +1421,8 @@
       </tr>
 
       <tr>
-	<td> Fix SIGXPU and other #if 0'd things in mi_switch(). </td>
-	<td> &nbsp; </td>
-	<td> 7 September 2001 </td>
-	<td> &status.new; </td>
-      </tr>
-
-      <tr>
-	<td> Axe schedpu() in favor of event driven priority updates as
+	<td> Axe schedcpu() in favor of event driven priority updates as
 	  much as possible. </td>
-	<td> &nbsp; </td>
-	<td> 7 September 2001 </td>
-	<td> &status.new; </td>
-      </tr>
-
-      <tr>
-	<td> Fix PHOLD() so that it blocks to guarantee PS_INMEM. </td>
-	<td> &nbsp; </td>
-	<td> 7 September 2001 </td>
-	<td> &status.new; </td>
-      </tr>
-
-      <tr>
-	<td> Make grow_stack() MI.  Possibly even a macro or inline. </td>
 	<td> &nbsp; </td>
 	<td> 7 September 2001 </td>
 	<td> &status.new; </td>
@@ -841,20 +1436,6 @@
       </tr>
 
       <tr>
-	<td> Fix various procfs_machdep.c to use PHOLD, not sched_lock. </td>
-	<td> &nbsp; </td>
-	<td> 7 September 2001 </td>
-	<td> &status.new; </td>
-      </tr>
-
-      <tr>
-	<td> Convert eventhandlers to sx locks. </td>
-	<td> &nbsp; </td>
-	<td> 7 September 2001 </td>
-	<td> &status.new; </td>
-      </tr>
-
-      <tr>
 	<td> Add witness checking for lockmgr locks. </td>
 	<td> &nbsp; </td>
 	<td> 7 September 2001 </td>
@@ -862,16 +1443,97 @@
       </tr>
 
       <tr>
-	<td> Add ICU spin locks on ia64 and sparc64. </td>
+	<td> Add ICU spin locks on ia64. </td>
 	<td> &nbsp; </td>
 	<td> 4 January 2002 </td>
+	<td> &status.new; </td>
+      </tr>
+
+      <tr>
+	<td> Fast-path push-down of Giant for VOP_READ() and VOP_WRITE(). </td>
+	<td> &nbsp; </td>
+	<td> 25 February 2002 </td>
+	<td> &status.new; </td>
+      </tr>
+
+      <tr>
+	<td> Lock contention measurement tool to measure heat of various
+	  locks, including Giant, and permit more directed performance and
+	  locking strategy optimization. </td>
+	<td> &nbsp; </td>
+	<td> 25 February 2002 </td>
+	<td> &status.new; </td>
+      </tr>
+
+      <tr>
+	<td> Push the grabbing of Giant into Linux i386 ABI system calls.</td>
+	<td> &nbsp; </td>
+	<td> 25 February 2002 </td>
+	<td> &status.new; </td>
+      </tr>
+
+      <tr>
+	<td> Push the grabbing of Giant into Linux AXP ABI system calls.</td>
+	<td> &nbsp; </td>
+	<td> 25 February 2002 </td>
+	<td> &status.new; </td>
+      </tr>
+
+      <tr>
+	<td> Push the grabbing of Giant into SVR4 i386 ABI system calls.</td>
+	<td> &nbsp; </td>
+	<td> 25 February 2002 </td>
+	<td> &status.new; </td>
+      </tr>
+
+      <tr>
+	<td> Push the grabbing of Giant into OSF/1 AXP ABI system calls.</td>
+	<td> &nbsp; </td>
+	<td> 25 February 2002 </td>
+	<td> &status.new; </td>
+      </tr>
+
+      <tr>
+	<td> Push the grabbing of Giant into IBCS i386 ABI system calls.</td>
+	<td> &nbsp; </td>
+	<td> 25 February 2002 </td>
+	<td> &status.new; </td>
+      </tr>
+
+      <tr>
+	<td> Expand mutex profiling tool to also profile sx locks. </td>
+	<td> &a.eivind;, &a.des; </td>
+	<td> 1 April 2002 </td>
+	<td> &status.new; </td>
+      </tr>
+
+      <tr>
+        <td> Implement atomic_fetchadd() for int's and long's with acq and rel
+	  versions. </td>
+        <td> &nbsp; </td>
+        <td> 23 May 2002 </td>
+        <td> &status.new; </td>
+      </tr>
+
+      <tr>
+        <td> Implement a simple reference count API using atomic operations and
+	  use this to replace locks that just protect a reference count. </td>
+        <td> &nbsp; </td>
+        <td> 23 May 2002 </td>
+        <td> &status.new; </td>
+      </tr>
+
+      <tr>
+	<td> Add a witness_sleep() check to copyin/out() and s/fuword(). </td>
+	<td> &a.jhb; </td>
+	<td> 7 June 2002 </td>
 	<td> &status.new; </td>
       </tr>
 
 <!--
       <tr>
         <td>  </td>
-        <td>  </td>
+        <td> &nbsp; </td>
         <td> D M 2002 </td>
         <td> &status.new; </td>
       </tr>
@@ -882,7 +1544,7 @@
     <p>以下のテーブルは、ネットワークスタックのマルチスレッド化に関するサブタスクの
       TODO リストです。</p>
 
-    <table class="tblbasic">
+    <table border=3>
       <tr>
 	<th> タスク </th>
 	<th> 担当者 </th>
@@ -892,27 +1554,364 @@
 
       <tr>
 	<td> Protect network interface queues. </td>
-	<td> &jlemon; </td>
+	<td> &a.jlemon; </td>
 	<td> 24 November 2000 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock up IP. </td>
+	<td> &a.jennifer;, &a.hsu; </td>
+	<td> 10 June 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock up TCP. </td>
+	<td> &a.jennifer;, &a.hsu; </td>
+	<td> 10 June 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock up UDP. </td>
+	<td> &a.jennifer;, &a.hsu; </td>
+	<td> 10 June 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock ifaddr reference counts. </td>
+	<td> &a.hsu; </td>
+	<td> 18 December 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock up ifnet list. </td>
+	<td> &a.hsu; </td>
+	<td> 21 December 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock radix trees. </td>
+	<td> &a.hsu; </td>
+	<td> 23 December 2002 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock up ARP. </td>
+	<td> &a.hsu; </td>
+	<td> 16 January 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock up raw IP. </td>
+	<td> &a.sam; </td>
+	<td> 4 October 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock divert sockets. </td>
+	<td> &a.sam; </td>
+	<td> 4 October 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock ipfw2. </td>
+	<td> &a.sam; </td>
+	<td> 4 October 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock DUMMYNET. </td>
+	<td> &a.sam; </td>
+	<td> 4 October 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock ethernet bridge. </td>
+	<td> &a.sam; </td>
+	<td> 4 October 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock IP fragment queues. </td>
+	<td> &a.rwatson; </td>
+	<td> 4 October 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock routing entries. </td>
+	<td> &a.sam; </td>
+	<td> 4 October 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock FAST_IPSEC. </td>
+	<td> &a.sam; </td>
+	<td> 4 October 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Permit parallel entry into isr processing. </td>
+	<td> &a.rwatson;, &a.sam; </td>
+	<td> 11 October 2003 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock if_disc "discard interface". </td>
+	<td> &a.rwatson; </td>
+	<td> 9 March 2004 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock if_faith "IPv6-to-IPv4 TCP relay interface. " </td>
+	<td> &a.sam;, &a.rwatson; </td>
+	<td> 9 March 2004 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock if_gif "generic tunnel interface". </td>
+	<td> &a.rwatson; </td>
+	<td> 9 March 2004 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Review ECN tunnel support (ip_ecn.c). </td>
+	<td> &a.rwatson; </td>
+	<td> 9 March 2004 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> if_tap global and softc locking. </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> if_tun global and softc locking. </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> netatalk/aarp.c locking. </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Cache socket MAC label in inpcb label for IPv4 sockets so that
+	  the label can be used safely at the inet layer without socket
+	  locks. </tD>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> IP encapsulation subroutines (ip_encap.c). </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Lock globals in loopback interface (if_loop.c). </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.done; </td>
+      </tr>
+
+      <tr>
+	<td> Use m_tags in if_gif to limit looping configurations, rather
+	  than a non-MPSAFE static coutner. </td>
+	<td> &a.ru; </td>
+	<td> 23 April 2004 </td>
 	<td> &status.done; </td>
       </tr>
 
       <!-- WIP -->
 
-      <!-- Not Started -->
+      <tr>
+	<td> Lock up syncache. </td>
+	<td> &a.hsu;, &a.sam; </td>
+	<td> 10 November 2003 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Lock IPv6. </td>
+	<td> &a.sam;, &a.rwatson;, &a.ume;, &a.mlaier; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Permit IP forwarding path to run Giant-free. </td>
+	<td> &a.sam; </td>
+	<td> 10 October 2003 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Lock interface cloning meta-data. </td>
+	<td> &a.brooks; </td>
+	<td> 9 March 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Lock &unix; domain protocols, fifofs. </td>
+	<td> &a.hsu;, &a.sam, &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Lock socket layer. </td>
+	<td> &a.tanimura;, &a.sam, &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Giant lock over NFS server to protect against so_upcall() w/o Giant </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> if_ppp global, per-softc locking </td>
+	<td> &a.rwatson;, Maurycy Pawlowski-Wieronski &lt;maurycy@fouk.org&gt; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Apply combination of socket and socket buffer locks, label caching
+	  to MAC labels on sockets so that they can be used safely without
+	  Giant. </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip </td>
+      </tr>
 
       <tr>
 	<td> Lock struct ifnet. </td>
-	<td> &nbsp; </td>
-	<td> 19 January 2001 </td>
+	<td> &a.mlaier;, &a.luigi; Maurycy Pawlowski-Wieronski &lt;maurycy@fouk.org&gt; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Lock IPv4 and IPv6 interface address lists. </td>
+	<td> &a.mlaier; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Lock consumers of BSD compress (bsd_comp.c) code to protect
+	  compression state. </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Lock global and softc state for six-to-four converter (if_stf.c). </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Lock down global and softc state for SLIP (if_sl.c). </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> Lock global and softc state for SPPP (if_sppsubr.c). </td>
+	<td> &a.rik;, &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> netatalk DDP PCB locking. </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <tr>
+	<td> IGMP locking. </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.wip; </td>
+      </tr>
+
+      <!-- Not Started -->
+
+      <tr>
+	<td> Reduce contention upon locking a socket buffer by replacing
+	     tsleep() and wakeup() with a condvar. </td>
+	<td> &a.tanimura; </td>
+	<td> 21 April 2002 </td>
 	<td> &status.new; </td>
-      </tr> 
+      </tr>
+
+      <tr>
+	<td> Lock if_ef "ethernet frame" driver. </td>
+	<td> &nbsp; </td>
+	<td> 9 March 2004 </td>
+	<td> &status.new; </td>
+      </tr>
+
+      <tr>
+	<td> Review TCP timer code. </td>
+	<td> &nbsp; </td>
+	<td> 9 March 2004 </td>
+	<td> &status.new; </td>
+      </tr>
+
+      <tr>
+	<td> IP ID locking. </td>
+	<td> &a.rwatson; </td>
+	<td> 23 April 2004 </td>
+	<td> &status.new; </td>
+      </tr>
+
     </table>
 
     <a name="issues"></a>
     <h2>既知の問題点</h2>
 
-    <table class="tblbasic">
+    <table border=3>
       <tr>
 	<th> 問題点 </th>
 	<th> 最終更新 </th>
@@ -973,24 +1972,38 @@
 	<td> &status.resolved; </td>
       </tr>
 
-      <!-- unresolved -->
-
       <tr>
 	<td> Serial gdb does not work if boot_ddb and boot_gdb options
 	  are specified. </td>
-	<td> 5 September 2000 </td>
-	<td> &status.unresolved; </td>
+	<td> 14 July 2002 </td>
+	<td> &status.resolved; </td>
       </tr>
 
       <tr>
 	<td> Serial gdb does not work at 115200 baud. </td>
-	<td> 5 September 2000 </td>
-	<td> &status.unresolved; </td>
+	<td> 14 July 2002 </td>
+	<td> &status.resolved; </td>
       </tr>
+
+      <tr>
+	<td> Serial gdb never regains control once 'cont' has been
+	  entered. </td>
+	<td> 14 July 2002 </td>
+	<td> &status.resolved; </td>
+      </tr>
+
+      <!-- unresolved -->
 
       <tr>
 	<td> Profiling is broken. </td>
 	<td> 20 February 2001 </td>
+	<td> &status.unresolved; </td>
+      </tr>
+
+      <tr>
+	<td> jail_sysvipc_allowed is checked in an unsafe manner in
+	    the SYSV IPC syscalls. </td>
+	<td> 5 March 2002 </td>
 	<td> &status.unresolved; </td>
       </tr>
 
@@ -1015,11 +2028,33 @@
 	<li> <p>  </p> </li>
 </ul>
 -->
+    <b>30 October 2003</b>
+    <ul>
+      <li>
+      <p>&a.grog; submitted a
+        <a href="http://www.lemis.com/grog/SMPng/Singapore/">FreeBSD SMPng paper</a> 
+       	to the <a href="http://www.aeosc.org/">Asian Enterprise Open Source
+        Conference</a> in Singapore.  The paper presents a historical view of
+        SMPng development through 2001, but omits discussion of more recent
+        progress on the SMPng project, such as substantial performance enhancements
+        resulting from extensive lock pushdown in the storage subsystem, VM
+        subsystem, and major IPC subsystems.</p>
+      </li>
+    </ul>
+
+    <b>13 January 2002</b>
+    <ul>
+      <li>
+      <p>A <a href =
+        "http://docs.FreeBSD.org/cgi/getmsg.cgi?fetch=122646+0+archive/2002/freebsd-smp/20020113.freebsd-smp">
+        status report</a> was sent to the -smp mailing list.</p>
+      </li>
+    </ul>
 
     <b>15 May 2001</b>
     <ul>
       <li>
-	<p>&grog; has made his <a href =
+	<p>&a.grog; has made his <a href =
 	  "http://www.lemis.com/~grog/SMPng/USENIX/">USENIX paper</a> available,
 	  which he will present in Boston at the end of June.</p>
       </li>
@@ -1029,7 +2064,7 @@
     <ul>
 	<li>
 	<p>A <a href =
-	  "http://docs.freebsd.org/cgi/getmsg.cgi?fetch=41302+0+archive/2001/freebsd-smp/20010325.freebsd-smp">
+	  "http://docs.FreeBSD.org/cgi/getmsg.cgi?fetch=41302+0+archive/2001/freebsd-smp/20010325.freebsd-smp">
 	  status report</a> was sent to the -smp mailing list.</p>
       </li>
     </ul>
@@ -1038,7 +2073,7 @@
     <ul>
       <li>
 	<p>A <a href =
-	  "http://docs.freebsd.org/cgi/getmsg.cgi?fetch=0+0+archive/2001/freebsd-smp/20010311.freebsd-smp">
+	  "http://docs.FreeBSD.org/cgi/getmsg.cgi?fetch=0+0+archive/2001/freebsd-smp/20010311.freebsd-smp">
 	  status report</a> was sent to the -smp mailing list.</p>
       </li>
     </ul>
@@ -1047,7 +2082,7 @@
     <ul>
       <li>
 	<p>A <a href =
-	  "http://docs.freebsd.org/cgi/getmsg.cgi?fetch=38125+0+archive/2001/freebsd-smp/20010128.freebsd-smp">
+	  "http://docs.FreeBSD.org/cgi/getmsg.cgi?fetch=38125+0+archive/2001/freebsd-smp/20010128.freebsd-smp">
 	  status report</a> was sent to the -smp mailing list.</p>
       </li>
     </ul>
@@ -1064,8 +2099,8 @@
     <b>11 October 2000</b>
     <ul>
       <li>
-	<p>&jhb; and &cp; came up with a preliminary list of
-	  <a href="http://people.freebsd.org/~jasone/smp/smp_synch_rules.html">rules
+	<p>&a.jhb; and &a.cp; came up with a preliminary list of
+	  <a href="http://storm.uk.FreeBSD.org/~hiten/smp_synch_rules.html">rules
 	  </a> that should be followed when working on kernel
 	  synchronization.</p>
       </li>
@@ -1075,7 +2110,7 @@
     <ul>
       <li>
 	<p>Here's a copy of an <a
-	  href="http://people.freebsd.org/~jasone/smp/smp_article">article</a>
+	  href="http://people.FreeBSD.org/~jasone/smp/smp_article">article</a>
 	  sent to <a href="http://www.bsdtoday.com/">BSDtoday</a> and linked at
 	  <a href="http://daily.daemonnews.org/">Daemon News</a>.</p>
       </li>
@@ -1090,8 +2125,8 @@
 
       <li>
 	<p>An updated <a
-	  href="http://people.freebsd.org/~jasone/smp/smpng_patch_9.7">patch</a>
-	  is available for download.  This patch is proably what will
+	  href="http://people.FreeBSD.org/~jasone/smp/smpng_patch_9.7">patch</a>
+	  is available for download.  This patch is probably what will
 	  actually get committed.</p>
       </li>
     </ul>
@@ -1100,7 +2135,7 @@
     <ul>
       <li>
 	<p>An updated <a
-	  href="http://people.freebsd.org/~jasone/smp/smpng_patch_9.1">patch</a>
+	  href="http://people.FreeBSD.org/~jasone/smp/smpng_patch_9.1">patch</a>
 	  is available for download.  This patch makes rtc a fast
 	  interrupt, uses locked instructions for mutexes in MP kernels,
 	  and corrects mtx_*() linkage within modules.</p>
@@ -1120,7 +2155,7 @@
     <ul>
       <li>
 	<p>Updated patches for i386 and alpha are available <a href =
-	  "http://people.freebsd.org/~jasone/smp/smpng_patch8.6">here</a>.</p>
+	  "http://people.FreeBSD.org/~jasone/smp/smpng_patch8.6">here</a>.</p>
       </li>
     </ul>
 
@@ -1128,7 +2163,7 @@
     <ul>
       <li>
 	<p>Updated patches for i386 are available <a href =
-	  "http://www.freebsd.org/~jhb/patches/smpng.patch6">here</a>.
+	  "http://www.FreeBSD.org/~jhb/patches/smpng.patch6">here</a>.
 	  Process accounting still doesn't work correctly, but a number
 	  of other improvements have been made.</p>
       </li>
@@ -1139,7 +2174,7 @@
       <li>
 	<p>Patches with functional heavy-weight threads for the i386
 	  platform are available <a href =
-	  "http://people.freebsd.org/~grog/patches4.gz">here</a>.
+	  "http://people.FreeBSD.org/~grog/patches4.gz">here</a>.
 	  There are a couple of minor issues with this patch set.
 	  Specifically, process accounting doesn't work correctly.</p>
       </li>
@@ -1150,36 +2185,36 @@
       <li>
 	<p>Sheldon Hearn has prepared a mutex(9) man page based on the
 	  BSD/OS one, which is available <a href =
-	  "http://people.freebsd.org/~jake/mutex.9">here</a>.</p>
+	  "http://people.FreeBSD.org/~jake/mutex.9">here</a>.</p>
       </li>
     </ul>
 
     <b>5 July 2000</b>
     <ul>
       <li>
-	<p>&jake; put an updated patch <a href =
-	  "http://people.freebsd.org/~jake/smpng.diff">here</a>.</p>
+	<p>&a.jake; put an updated patch <a href =
+	  "http://people.FreeBSD.org/~jake/smpng.diff">here</a>.</p>
       </li>
     </ul>
 
     <b>3 July 2000</b>
     <ul>
       <li>
-	<p>&jake; has the BSD/OS lock code working now, and has
-	  incorporated the pertinent portions of &dillon;'s patches
+	<p>&a.jake; has the BSD/OS lock code working now, and has
+	  incorporated the pertinent portions of &a.dillon;'s patches
 	  (idle processes, some of the schedlock changes, etc.).
 	  His patch set is available <a href =
-	  "http://people.freebsd.org/~jake/smpng2.tar">here</a>.</p>
+	  "http://people.FreeBSD.org/~jake/smpng2.tar">here</a>.</p>
       </li>
     </ul>
 
     <b>26 June 2000</b>
     <ul>
       <li>
-	<p>&cp; has provided the PostScript versions of his
+	<p>&a.cp; has provided the PostScript versions of his
 	  presentation slides for the
-	  <a href="smp_meeting_slides_1.ps">first day</a> and
-	  <a href="smp_meeting_slides_2.ps">second day</a> of the
+	  <a href="http://people.FreeBSD.org/~jasone/smp/smp_meeting_slides_1.ps">first day</a> and
+	  <a href="http://people.FreeBSD.org/~jasone/smp/smp_meeting_slides_2.ps">second day</a> of the
 	  SMP meeting.</p>
       </li>
     </ul>
@@ -1188,7 +2223,7 @@
     <ul>
       <li>
 	<p>Here's a copy of the
-	  <a href="smp_meeting_summary.txt">SMP meeting summary</a>
+	  <a href="http://docs.FreeBSD.org/cgi/getmsg.cgi?fetch=226208+0+archive/2000/freebsd-smp/20000625.freebsd-smp">SMP meeting summary</a>
 	  that was posted to the -smp mailing list.</p>
       </li>
     </ul>
@@ -1197,7 +2232,7 @@
     <ul>
       <li>
 	<p>Here's a copy of the
-	  <a href="smp_project_announcement.txt">SMP project announcement</a>
+	  <a href="http://docs.FreeBSD.org/cgi/getmsg.cgi?fetch=154884+0+archive/2000/freebsd-current/20000625.freebsd-current">SMP project announcement</a>
 	  that was posted to the -current mailing list.</p>
       </li>
     </ul>

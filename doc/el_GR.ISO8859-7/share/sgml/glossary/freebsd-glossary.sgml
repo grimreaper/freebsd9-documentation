@@ -4,10 +4,10 @@
 
   The FreeBSD Greek Documentation Project
 
-  $FreeBSD: doc/el_GR.ISO8859-7/share/sgml/glossary/freebsd-glossary.sgml,v 1.9 2010/05/23 21:15:45 manolis Exp $
+  $FreeBSD: doc/el_GR.ISO8859-7/share/sgml/glossary/freebsd-glossary.sgml,v 1.10 2011/10/17 16:53:19 manolis Exp $
 
   %SOURCE%	en_US.ISO8859-1/share/sgml/glossary/freebsd-glossary.sgml
-  %SRCID%	1.36
+  %SRCID%	1.37
 
   Γλωσσάρι του FreeBSD.
 

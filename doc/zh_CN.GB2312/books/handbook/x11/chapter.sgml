@@ -2,8 +2,8 @@
      The FreeBSD Documentation Project
      The FreeBSD Simplified Chinese Project
 
-     Original Revision: 1.206
-     $FreeBSD: doc/zh_CN.GB2312/books/handbook/x11/chapter.sgml,v 1.29 2011/09/10 11:10:41 delphij Exp $
+     Original Revision: 1.207
+     $FreeBSD: doc/zh_CN.GB2312/books/handbook/x11/chapter.sgml,v 1.30 2011/10/14 20:49:59 delphij Exp $
 -->
 
 <chapter id="x11">
@@ -1271,7 +1271,7 @@ DisplayManager.requestPort:     0</screen>
         <programlisting>proc           /proc       procfs  rw  0   0</programlisting>
 
         <para>到 <filename>/etc/fstab</filename> 以便在系统启动时自动挂载
-          <filename>/procfs</filename>。</para>
+          &man.procfs.5。</para>
 
         <para>一旦装好了 <application>GNOME</application>，
           就必须告诉 X server 启动

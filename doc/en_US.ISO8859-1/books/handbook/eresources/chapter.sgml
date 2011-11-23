@@ -1,7 +1,7 @@
 <!--
      The FreeBSD Documentation Project
 
-     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/eresources/chapter.sgml,v 1.213 2011/10/04 14:40:37 gjb Exp $
+     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/eresources/chapter.sgml,v 1.215 2011/10/21 17:57:41 gjb Exp $
 -->
 
 <appendix id="eresources">
@@ -245,6 +245,11 @@
 	      <entry>&a.database.name;</entry>
 	      <entry>Discussing database use and development under
 		FreeBSD</entry>
+	    </row>
+
+	    <row>
+	      <entry>&a.desktop.name;</entry>
+	      <entry>Using and improving &os; on the desktop</entry>
 	    </row>
 
 	    <row>
@@ -1080,6 +1085,19 @@
 
 	    <para>Technical discussions about use, development and maintenance
 	      of FreeBSD-CVSweb.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>&a.desktop.name;</term>
+
+	  <listitem>
+	    <para><emphasis>Using and improving &os; on the desktop</emphasis></para>
+
+	    <para>This is a forum for discussion of &os; on the
+	      desktop.  It is primarily a place for desktop porters
+	      and users to discuss issues and improve &os;'s desktop
+	      support.</para>
 	  </listitem>
 	</varlistentry>
 

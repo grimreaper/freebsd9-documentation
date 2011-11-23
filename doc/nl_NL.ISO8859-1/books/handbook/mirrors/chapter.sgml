@@ -1,11 +1,11 @@
 <!--
      The FreeBSD Dutch Documentation Project
 
-     $FreeBSD: doc/nl_NL.ISO8859-1/books/handbook/mirrors/chapter.sgml,v 1.46 2011/09/27 20:23:17 rene Exp $
+     $FreeBSD: doc/nl_NL.ISO8859-1/books/handbook/mirrors/chapter.sgml,v 1.47 2011/10/18 21:14:07 rene Exp $
      Vertaald door: Siebrand Mazeland / Rene Ladan
 
      %SOURCE%	en_US.ISO8859-1/books/handbook/mirrors/chapter.sgml
-     %SRCID%	1.500
+     %SRCID%	1.502
 -->
 
 <appendix id="mirrors">
@@ -2508,6 +2508,15 @@ doc/zh_*</screen>
 		update van CURRENT broncode op een STABLE machine te
 		doen, tenzij dat expliciet de bedoeling is.</para>
 	    </note>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>RELENG_9</term>
+
+	  <listitem>
+	    <para>De ontwikkellijn voor &os;-9.X, ook bekend als
+	      &os;&nbsp;9-STABLE.</para>
 	  </listitem>
 	</varlistentry>
 

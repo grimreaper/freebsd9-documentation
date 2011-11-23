@@ -1,7 +1,7 @@
 <!-- -*- sgml -*-
      DocBook Miscellaneous FreeBSD Entities.
 
-     $FreeBSD: doc/share/sgml/freebsd.ent,v 1.136 2011/09/09 19:40:48 blackend Exp $
+     $FreeBSD: doc/share/sgml/freebsd.ent,v 1.138 2011/10/14 18:16:25 blackend Exp $
 
 This file is now valid XML as well as SGML.  Please do not add CDATA
 attributes or anything else that will prevent this file from being

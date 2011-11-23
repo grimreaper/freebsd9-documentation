@@ -1,5 +1,5 @@
 <!--
-     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/preface/preface.sgml,v 1.48 2010/12/24 18:08:59 ryusuke Exp $
+     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/preface/preface.sgml,v 1.50 2011/10/11 23:15:41 gjb Exp $
 -->
 
 <preface id="book-preface">
@@ -56,6 +56,14 @@
         <para><xref linkend="virtualization">, Virtualization, has
           been added with information about installing &os; on
           virtualization software.</para>
+      </listitem>
+
+      <listitem>
+	<para><xref linkend="bsdinstall">, Installing
+	  &os;&nbsp;9.<replaceable>x</replaceable> and Later, has been
+	  added to cover installation of &os; using the new
+	  installation utility,
+	  <application>bsdinstall</application>.</para>
       </listitem>
   </itemizedlist>
 
@@ -274,11 +282,23 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><emphasis><xref linkend="install">, Installation</emphasis></term>
+      <term><emphasis><xref linkend="install">, Installation of
+	&os;&nbsp;8.<replaceable>x</replaceable> and Earlier</emphasis></term>
       <listitem>
-	<para>Walks a user through the entire installation process.
-	Some advanced installation topics, such as installing through
-	a serial console, are also covered.</para>
+	<para>Walks a user through the entire installation process of
+	  &os;&nbsp;8.<replaceable>x</replaceable> and earlier using
+	  <application>sysinstall</application>.  Some advanced installation
+	  topics, such as installing through a serial console, are also
+	  covered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><emphasis><xref linkend="bsdinstall">, Installation of
+	&os;&nbsp;9.<replaceable>x</replaceable> and Later</emphasis></term>
+      <listitem>
+	<para>Walks a user through the entire installation process of
+	  &os;&nbsp;9.<replaceable>x</replaceable> and later using
+	  <application>bsdinstall</application>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

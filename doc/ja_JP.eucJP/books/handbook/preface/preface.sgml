@@ -3,7 +3,7 @@
      The FreeBSD Japanese Documentation Project
 
      Original revision: 1.20
-     $FreeBSD: doc/ja_JP.eucJP/books/handbook/preface/preface.sgml,v 1.2 2006/03/14 14:51:22 rushani Exp $
+     $FreeBSD: doc/ja_JP.eucJP/books/handbook/preface/preface.sgml,v 1.3 2011/10/15 14:20:00 ryusuke Exp $
 -->
 
 <preface id="book-preface">
@@ -49,7 +49,7 @@
       <listitem>
 	<para><xref linkend="install"> (<quote>FreeBSD のインストール
 	</quote>) は新規ユーザーが文章の内容を理解しやすいように多くの
-	スクリーンショットを入れて完全に書き直されました (訳注: 日本語版は作業中です)。</para>
+	スクリーンショットを入れて完全に書き直されました。</para>
       </listitem>
       <listitem>
 	<para><xref linkend="basics"> (<quote>&unix; の基礎知識	</quote>) には、

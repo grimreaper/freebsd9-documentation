@@ -19,13 +19,13 @@
      synopses of this information (e.g., for syndication using RDF files), 
      the contents of <title> will be preferred over <p>.
 
-     $FreeBSD: www/ja/share/sgml/news.xml,v 1.79 2011/10/06 15:08:09 ryusuke Exp $
-     Original revision: 1.401
+     $FreeBSD: www/ja/share/sgml/news.xml,v 1.85 2011/11/19 15:49:13 ryusuke Exp $
+     Original revision: 1.407
 -->
 <news>
   <cvs:keywords xmlns:cvs="http://www.FreeBSD.org/XML/CVS" version="1.0">
     <cvs:keyword name="freebsd">
-      $FreeBSD: www/ja/share/sgml/news.xml,v 1.79 2011/10/06 15:08:09 ryusuke Exp $
+      $FreeBSD: www/ja/share/sgml/news.xml,v 1.85 2011/11/19 15:49:13 ryusuke Exp $
     </cvs:keyword>
   </cvs:keywords>
 
@@ -33,7 +33,93 @@
     <name>2011</name>
 
     <month>
+      <name>11</name>
+
+      <day>
+	<name>17</name>
+
+	<event>
+	  <title>&os; 9.0-RC2 公開</title>
+
+	  <p>&os;-9.0 リリースサイクルの 2 回目のリリース候補版が公開されました。
+	    amd64, i386, ia64, powerpc, powerpc64 および sparc64
+	    アーキテクチャの ISO イメージが、<a
+	    href="&url.doc.base;/books/handbook/mirrors-ftp.html">&os;
+	    ミラーサイト</a>
+	    から <a
+	    href="&lists.stable;/2011-November/064609.html">入手</a>
+	    できます。
+	    9.0 で追加されるたくさんの新しい機能のひとつである新インストーラの試験が必要です。
+	    ぜひ、テスト環境で新しいインストーラを試してください。
+	    あるいは freebsd-update(8) ユーティリティを利用して、
+	    現在のシステムからアップグレードしてください。</p>
+	</event>
+      </day>
+     
+      <day>
+        <name>12</name>
+
+        <event>
+          <p>新コミッタ就任:
+            <a href="mailto:scheidell@FreeBSD.org">Michael Scheidell</a> (ports)</p>
+        </event>
+      </day>
+
+      <day>
+        <name>11</name>
+
+        <event>
+          <p>新コミッタ就任:
+            <a href="mailto:theraven@FreeBSD.org">David Chisnall</a> (src)</p>
+        </event>
+      </day>
+
+      <day>
+        <name>9</name>
+
+        <event>
+          <p>新コミッタ就任:
+            <a href="mailto:rm@FreeBSD.org">Ruslan Mahmatkhanov</a> (ports)</p>
+        </event>
+      </day>
+
+      <day>
+	<name>8</name>
+
+	<event>
+	  <title>開発進捗レポート (2011 年 7 月 - 9 月) 公開</title>
+
+	  <p>2011 年 7 月 から 9 月の開発進捗レポート (28 エントリ) が <a
+	    href="&enbase;/news/status/report-2011-07-2011-09.html">公開</a>
+	    されました。</p>
+	</event>
+      </day>
+    </month>
+
+    <month>
       <name>10</name>
+
+      <day>
+	<name>23</name>
+
+	<event>
+	  <title>&os; 9.0-RC1 公開</title>
+
+	  <p>&os;-9.0 リリースサイクルの最初のリリース候補版が公開されました。
+	    amd64, i386, ia64, powerpc, powerpc64 および sparc64
+	    アーキテクチャの ISO イメージは、ほとんどの <a
+	    href="&url.doc.base;/books/handbook/mirrors-ftp.html">&os;
+	    ミラーサイト</a>
+	    から <a
+	    href="&lists.stable;/2011-October/064321.html">入手</a>
+	    できます。
+	    9.0 で追加されるたくさんの新しい機能のうち、
+	    新しく導入されるインストーラのテストが特に必要です。
+	    ぜひ、テスト環境で新しいインストーラを試してください。
+	    あるいは freebsd-update(8) ユーティリティを利用して、
+	    現在のシステムからアップグレードしてください。</p>
+	</event>
+      </day>
 
       <day>
 	<name>6</name>

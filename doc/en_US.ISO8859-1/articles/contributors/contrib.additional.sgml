@@ -1,4 +1,4 @@
-<!-- $FreeBSD: doc/en_US.ISO8859-1/articles/contributors/contrib.additional.sgml,v 1.1025 2011/10/03 19:40:57 pawel Exp $ -->
+<!-- $FreeBSD: doc/en_US.ISO8859-1/articles/contributors/contrib.additional.sgml,v 1.1034 2011/11/16 17:51:46 crees Exp $ -->
 <!--
 	NOTE TO COMMITTERS: Contributors lists are sorted in alphabetical
 	order by first name.
@@ -536,6 +536,11 @@
     <listitem>
       <para>Amy Baron
 	<email>amee@beer.org</email></para>
+    </listitem>
+
+    <listitem>
+      <para>Anthony Garcia
+	<email>agarcia@experts-exchange.com</email></para>
     </listitem>
 
     <listitem>
@@ -4392,6 +4397,11 @@
     </listitem>
 
     <listitem>
+      <para>Jeffrey Leung
+	<email>zenoss@experts-exchange.com</email></para>
+    </listitem>
+
+    <listitem>
       <para>Jeff Molofee
 	<email>nehe@cruzinternet.com</email></para>
     </listitem>
@@ -6663,11 +6673,6 @@
     </listitem>
 
     <listitem>
-      <para>Michael Scheidell
-	<email>scheidell@secnap.net</email></para>
-    </listitem>
-
-    <listitem>
       <para>Michael Schout
 	<email>mschout@gkg.net</email></para>
     </listitem>
@@ -8242,6 +8247,11 @@
     </listitem>
 
     <listitem>
+      <para>Rafal Lesniak
+	<email>fbsd@grid.einherjar.de</email></para>
+    </listitem>
+
+    <listitem>
       <para>Raffaele De Lorenzo
 	<email>raffaele.delorenzo@libero.it</email></para>
     </listitem>
@@ -8647,11 +8657,6 @@
     <listitem>
       <para>Ruslan Belkin
 	<email>rus@home2.UA.net</email></para>
-    </listitem>
-
-    <listitem>
-      <para>Ruslan Mahmatkhanov
-	<email>cvs-src@yandex.ru</email></para>
     </listitem>
 
     <listitem>
@@ -9821,6 +9826,11 @@
     </listitem>
 
     <listitem>
+      <para>Tim Niemueller
+	<email>tim@niemueller.de</email></para>
+    </listitem>
+
+    <listitem>
       <para>Tim Pozar
 	<email>pozar@lns.com</email></para>
     </listitem>
@@ -9848,6 +9858,11 @@
     <listitem>
       <para>Timofeev Vladimir
 	<email>vovkasm@gmail.com</email></para>
+    </listitem>
+
+    <listitem>
+      <para>Timothy Beyer
+	<email>beyert@cs.ucr.edu</email></para>
     </listitem>
 
     <listitem>
@@ -10193,6 +10208,11 @@
     <listitem>
       <para>Valentin Zahariev
 	<email>curly@e-card.bg</email></para>
+    </listitem>
+
+    <listitem>
+      <para>Valery Komarov
+	<email>komarov@valerka.net</email></para>
     </listitem>
 
     <listitem>
@@ -10783,6 +10803,11 @@
     <listitem>
       <para>ayunyan
 	<email>ayunyan@gmail.com</email></para>
+    </listitem>
+
+    <listitem>
+      <para>Bartoletti
+	<email>coder@tuxfamily.org</email></para>
     </listitem>
 
     <listitem>

@@ -6,7 +6,7 @@ allows multiple documents to use the abbreviated entities, and allows
 us to update author names, or the representation of those names (such
 as adding email addresses), by just editing a single file.
 
-$FreeBSD: www/en/developers.sgml,v 1.299 2011/10/06 14:04:35 melifaro Exp $
+$FreeBSD: www/en/developers.sgml,v 1.302 2011/11/12 16:49:42 scheidell Exp $
 
 -->
 
@@ -500,6 +500,7 @@ $FreeBSD: www/en/developers.sgml,v 1.299 2011/10/06 14:04:35 melifaro Exp $
 <!ENTITY a.rich "Rich Murphey">
 <!ENTITY a.rik "Roman Kurakin">
 <!ENTITY a.rink "Rink Springer">
+<!ENTITY a.rm "Ruslan Mahmatkhanov">
 <!ENTITY a.rmacklem "Rick Macklem">
 <!ENTITY a.rmh "Robert Millan">
 <!ENTITY a.rnoland "Robert Noland">
@@ -530,6 +531,7 @@ $FreeBSD: www/en/developers.sgml,v 1.299 2011/10/06 14:04:35 melifaro Exp $
 <!ENTITY a.sat "Andrew Pantyukhin">
 <!ENTITY a.sbz "Sofian Brabez">
 <!ENTITY a.scf "Sean C. Farley">
+<!ENTITY a.scheidell "Michael Scheidell">
 <!ENTITY a.schweikh "Jens Schweikhardt">
 <!ENTITY a.scop "Ville Skytt&auml;">
 <!ENTITY a.scottl "Scott Long">
@@ -589,6 +591,7 @@ $FreeBSD: www/en/developers.sgml,v 1.299 2011/10/06 14:04:35 melifaro Exp $
 <!ENTITY a.tegge "Tor Egge">
 <!ENTITY a.tg "Thomas Gellekum">
 <!ENTITY a.thepish "Peter Hawkins">
+<!ENTITY a.theraven "David Chisnall">
 <!ENTITY a.thierry "Thierry Thomas">
 <!ENTITY a.thomas "Thomas Quinot">
 <!ENTITY a.thompsa "Andrew Thompson">

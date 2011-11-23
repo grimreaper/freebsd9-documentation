@@ -1,7 +1,7 @@
 <!--
      The FreeBSD Documentation Project
 
-     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/mirrors/chapter.sgml,v 1.500 2011/09/10 01:33:20 gjb Exp $
+     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/mirrors/chapter.sgml,v 1.502 2011/10/14 18:16:25 blackend Exp $
 -->
 
 <appendix id="mirrors">
@@ -2398,6 +2398,15 @@ doc/zh_*</screen>
 	      a good idea to checkout or update to CURRENT sources
 	      on a STABLE machine, unless that is your intent.</para>
 	  </note>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term>RELENG_9</term>
+
+	<listitem>
+	  <para>The line of development for &os;-9.X, also known
+	    as &os; 9-STABLE</para>
 	</listitem>
       </varlistentry>
 

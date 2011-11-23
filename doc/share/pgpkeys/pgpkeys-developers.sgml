@@ -1,7 +1,7 @@
 <!--
      The FreeBSD Documentation Project
 
-     $FreeBSD: doc/share/pgpkeys/pgpkeys-developers.sgml,v 1.163 2011/10/06 14:02:25 melifaro Exp $
+     $FreeBSD: doc/share/pgpkeys/pgpkeys-developers.sgml,v 1.167 2011/11/19 16:40:29 scheidell Exp $
 -->
 
     <sect2 id="pgpkey-ariff">
@@ -951,6 +951,11 @@
       &pgpkey.bmah;
     </sect2>
 
+    <sect2 id="pgpkey-rm">
+      <title>&a.rm;</title>
+      &pgpkey.rm;
+    </sect2>
+
     <sect2 id="pgpkey-mtm">
       <title>&a.mtm;</title>
       &pgpkey.mtm;
@@ -1324,6 +1329,11 @@
     <sect2 id="pgpkey-das">
       <title>&a.das;</title>
       &pgpkey.das;
+    </sect2>
+
+    <sect2 id="pgpkey-scheidell">
+      <title>&a.scheidell;</title>
+      &pgpkey.scheidell;
     </sect2>
 
     <sect2 id="pgpkey-schweikh">

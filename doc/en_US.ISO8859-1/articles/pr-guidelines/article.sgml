@@ -15,7 +15,7 @@
   <articleinfo>
     <title>Problem Report Handling Guidelines</title>
 
-    <pubdate>$FreeBSD: doc/en_US.ISO8859-1/articles/pr-guidelines/article.sgml,v 1.38 2011/09/01 16:35:16 ryusuke Exp $</pubdate>
+    <pubdate>$FreeBSD: doc/en_US.ISO8859-1/articles/pr-guidelines/article.sgml,v 1.39 2011/11/03 20:56:02 manolis Exp $</pubdate>
 
     <legalnotice id="trademarks" role="trademarks">
       &tm-attrib.freebsd;
@@ -1039,6 +1039,10 @@ This was misfiled because the subject did not have the format:
 
 	  <listitem>
 	    <para>Set Confidential to <literal>no</literal>.</para>
+	  </listitem>
+
+	  <listitem>
+	    <para>Set Responsible to <literal>gnats-admin</literal>.</para>
 	  </listitem>
 
 	  <listitem>

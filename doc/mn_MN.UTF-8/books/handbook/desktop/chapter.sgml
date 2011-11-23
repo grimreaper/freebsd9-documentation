@@ -1,9 +1,9 @@
 <!--
      The FreeBSD Mongolian Documentation Project
 
-     Original revision 1.115
+     Original revision 1.116
 
-     $FreeBSD: doc/mn_MN.UTF-8/books/handbook/desktop/chapter.sgml,v 1.30 2011/10/05 14:08:01 ganbold Exp $
+     $FreeBSD: doc/mn_MN.UTF-8/books/handbook/desktop/chapter.sgml,v 1.31 2011/11/20 13:20:05 ganbold Exp $
 -->
 
 <chapter id="desktop">
@@ -194,7 +194,7 @@
 
       <screen>&prompt.root; <userinput>pkg_add -r firefox</userinput></screen>
 
-      <para>Энэ нь <application>Firefox</application> 7.0-г суулгах бөгөөд та 
+      <para>Энэ нь <application>Firefox</application> 8.0-г суулгах бөгөөд та 
 	хэрэв <application>Firefox</application> 3.6-г ашиглахыг хүсэж байвал
 	доорхийг ажиллуулаарай:</para>
 

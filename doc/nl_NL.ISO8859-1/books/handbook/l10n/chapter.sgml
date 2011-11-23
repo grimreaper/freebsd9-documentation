@@ -1,10 +1,10 @@
 <!--
       The FreeBSD Dutch Documentation Project
 
-      $FreeBSD: doc/nl_NL.ISO8859-1/books/handbook/l10n/chapter.sgml,v 1.18 2011/02/02 08:58:23 remko Exp $
+      $FreeBSD: doc/nl_NL.ISO8859-1/books/handbook/l10n/chapter.sgml,v 1.19 2011/10/21 22:11:27 rene Exp $
 
       %SOURCE%	en_US.ISO8859-1/books/handbook/l10n/chapter.sgml
-      %SRCID%	1.134
+      %SRCID%	1.135
 -->
 
 <chapter id="l10n">

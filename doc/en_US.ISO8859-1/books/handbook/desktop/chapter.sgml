@@ -1,6 +1,6 @@
 <!--
      The FreeBSD Documentation Project
-     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/desktop/chapter.sgml,v 1.115 2011/10/04 09:21:26 ryusuke Exp $
+     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/desktop/chapter.sgml,v 1.116 2011/11/14 13:58:19 ryusuke Exp $
 -->
 
 <chapter id="desktop">
@@ -181,7 +181,7 @@
 
       <screen>&prompt.root; <userinput>pkg_add -r firefox</userinput></screen>
 
-      <para>This will install <application>Firefox</application> 7.0,
+      <para>This will install <application>Firefox</application> 8.0,
         if you want to run <application>Firefox</application> 3.6,
         use instead:</para>
 
