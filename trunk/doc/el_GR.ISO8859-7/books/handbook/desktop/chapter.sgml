@@ -4,10 +4,10 @@
 
   The FreeBSD Documentation Project
 
-  $FreeBSD: doc/el_GR.ISO8859-7/books/handbook/desktop/chapter.sgml,v 1.19 2011/10/05 18:40:38 manolis Exp $
+  $FreeBSD: doc/el_GR.ISO8859-7/books/handbook/desktop/chapter.sgml,v 1.20 2011/11/15 19:29:16 manolis Exp $
 
   %SOURCE%	en_US.ISO8859-1/books/handbook/desktop/chapter.sgml
-  %SRCID%	1.115
+  %SRCID%	1.116
 
 -->
 
@@ -199,7 +199,7 @@
       <screen>&prompt.root; <userinput>pkg_add -r firefox</userinput></screen>
 
       <para>Η παραπάνω εντολή θα εγκαταστήσει τον
-	<application>Firefox</application> 7.0  Αν θέλετε να εγκαταστήσετε
+	<application>Firefox</application> 8.0  Αν θέλετε να εγκαταστήσετε
 	τον <application>Firefox</application> 3.6, γράψτε:</para>
 
       <screen>&prompt.root; <userinput>pkg_add -r firefox36</userinput></screen>

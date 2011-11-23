@@ -1,9 +1,9 @@
 <!--
      The FreeBSD Mongolian Documentation Project
 
-     Original revision 1.292
+     Original revision 1.293
 
-     $FreeBSD: doc/mn_MN.UTF-8/books/handbook/ports/chapter.sgml,v 1.24 2011/06/19 13:48:01 ganbold Exp $
+     $FreeBSD: doc/mn_MN.UTF-8/books/handbook/ports/chapter.sgml,v 1.25 2011/10/20 15:10:20 ganbold Exp $
 -->
 
 <chapter id="ports">
@@ -968,7 +968,7 @@ ftp://ftp.FreeBSD.org/pub/FreeBSD/ports/distfiles/ fetch</userinput></screen>
 	  шаардлагагүй гэж үзэх тохиолдолд, эсвэл аюулгүйн нууцлалын 
 	  шалтгаанаар ч юм уу өөрчлөлт хийх боломж (эсвэл шаарддаг)
 	  өгдөг. 
-	  <filename role="package">www/mozilla</filename>, <filename
+	  <filename role="package">www/firefox</filename>, <filename
 	  role="package">security/gpgme</filename>, мөн <filename
 	  role="package">mail/sylpheed-claws</filename> зэргүүдийг жишээ
 	  болгож болох юм. Иймэрхүү мэдэгдлүүд байвал тухайн үед танд 

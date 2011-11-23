@@ -1,7 +1,7 @@
 <!--
      The FreeBSD Documentation Project
 
-     $FreeBSD: doc/en_US.ISO8859-1/books/developers-handbook/policies/chapter.sgml,v 1.37 2010/05/07 06:33:09 keramida Exp $
+     $FreeBSD: doc/en_US.ISO8859-1/books/developers-handbook/policies/chapter.sgml,v 1.38 2011/10/17 18:10:51 bcr Exp $
 -->
 
 <chapter id="policies">
@@ -24,6 +24,16 @@
   
   <para>This chapter documents various guidelines and policies in force for
     the FreeBSD source tree.</para>
+
+  <sect1 id="policies-style">
+    <title>Style Guidelines</title>
+    <indexterm><primary>style</primary></indexterm>
+
+    <para>Consistent coding style is extremely important, particularly
+      with large projects like &os;.  Code should follow the &os; coding
+      styles described in &man.style.9; and
+      &man.style.Makefile.5;.</para>
+  </sect1>
   
   <sect1 id="policies-maintainer">
     <title><makevar>MAINTAINER</makevar> on Makefiles</title>

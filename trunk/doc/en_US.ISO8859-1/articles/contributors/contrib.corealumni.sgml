@@ -1,4 +1,4 @@
-<!-- $FreeBSD: doc/en_US.ISO8859-1/articles/contributors/contrib.corealumni.sgml,v 1.9 2010/07/14 14:40:47 pav Exp $ -->
+<!-- $FreeBSD: doc/en_US.ISO8859-1/articles/contributors/contrib.corealumni.sgml,v 1.10 2011/11/14 10:27:24 pav Exp $ -->
 
   <itemizedlist>
     <listitem>
@@ -39,9 +39,11 @@
       <para>&a.kuriyama; (2002 - 2006)</para>
     </listitem>
 
+    <!--
     <listitem>
       <para>&a.jhb; (2002 - 2006)</para>
     </listitem>
+    -->
 
     <listitem>
       <para>&a.scottl; (2004 - 2005)</para>

@@ -1,7 +1,7 @@
 <!--
      The FreeBSD Documentation Project
 
-     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/ports/chapter.sgml,v 1.292 2011/06/17 23:37:39 ryusuke Exp $
+     $FreeBSD: doc/en_US.ISO8859-1/books/handbook/ports/chapter.sgml,v 1.293 2011/10/18 00:46:30 gjb Exp $
 -->
 
 <chapter id="ports">
@@ -1058,7 +1058,7 @@ ftp://ftp.FreeBSD.org/pub/FreeBSD/ports/distfiles/ fetch</userinput></screen>
 	  build options which can enable/disable parts of the
 	  application which are unneeded, certain security options,
 	  and other customizations.  A few which come to mind are
-	  <filename role="package">www/mozilla</filename>, <filename
+	  <filename role="package">www/firefox</filename>, <filename
 	  role="package">security/gpgme</filename>, and <filename
 	  role="package">mail/sylpheed-claws</filename>.  A message
 	  will be displayed when options such as these are

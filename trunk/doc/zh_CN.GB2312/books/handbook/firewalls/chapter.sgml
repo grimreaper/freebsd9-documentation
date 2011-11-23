@@ -2,8 +2,8 @@
      The FreeBSD Documentation Project
      The FreeBSD Simplified Chinese Project
 
-     Original Revision: 1.95
-     $FreeBSD: doc/zh_CN.GB2312/books/handbook/firewalls/chapter.sgml,v 1.22 2011/01/02 10:45:20 delphij Exp $
+     Original Revision: 1.96
+     $FreeBSD: doc/zh_CN.GB2312/books/handbook/firewalls/chapter.sgml,v 1.23 2011/10/14 20:49:58 delphij Exp $
 -->
 
 <chapter id="firewalls">
@@ -2177,7 +2177,7 @@ add deny out</programlisting>
 	<sect4>
 	  <title>RULE_NUMBER</title>
 
-	  <para>每一个规则都必须包含一个规则编号。</para>
+	  <para>每一条规则都与一个范围在 1 到 65535 之间的规则编号相关联。</para>
 	</sect4>
 
 	<sect4>

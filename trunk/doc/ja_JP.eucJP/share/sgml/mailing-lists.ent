@@ -2,8 +2,8 @@
      The FreeBSD Documentation Project
      The FreeBSD Japanese Documentation Project
 
-     Original revision: 1.85
-     $FreeBSD: doc/ja_JP.eucJP/share/sgml/mailing-lists.ent,v 1.17 2011/10/06 10:19:23 ryusuke Exp $
+     Original revision: 1.86
+     $FreeBSD: doc/ja_JP.eucJP/share/sgml/mailing-lists.ent,v 1.18 2011/10/22 14:20:13 ryusuke Exp $
 -->
 
 <!-- hrs:2003/07/11 - need more reasonable translation -->
@@ -161,6 +161,10 @@
 <!ENTITY a.database.url "&a.mailman.listinfo;/freebsd-database">
 <!ENTITY a.database "<ulink url='&a.database.url;'>FreeBSD based Databases メーリングリスト</ulink>">
 <!ENTITY a.database.name "<ulink url='&a.database.url;'>freebsd-database</ulink>">
+
+<!ENTITY a.desktop.url "&a.mailman.listinfo;/freebsd-desktop">
+<!ENTITY a.desktop "<ulink url='&a.desktop.url;'>デスクトップでの &os; の利用と改良</ulink>">
+<!ENTITY a.desktop.name "<ulink url='&a.desktop.url;'>freebsd-desktop</ulink>">
 
 <!ENTITY a.developers "FreeBSD developers メーリングリスト">
 <!ENTITY a.developers.name "freebsd-developers">

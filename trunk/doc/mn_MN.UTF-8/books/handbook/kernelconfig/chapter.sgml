@@ -1,9 +1,9 @@
 <!--
      The FreeBSD Mongolian Documentation Project
 
-     Original revision 1.199
+     Original revision 1.200
 
-     $FreeBSD: doc/mn_MN.UTF-8/books/handbook/kernelconfig/chapter.sgml,v 1.24 2011/09/10 07:31:32 ganbold Exp $
+     $FreeBSD: doc/mn_MN.UTF-8/books/handbook/kernelconfig/chapter.sgml,v 1.25 2011/10/28 15:55:12 ganbold Exp $
 -->
 
 <chapter id="kernelconfig">
@@ -307,7 +307,7 @@ ath_hal(4)               - Atheros Hardware Access Layer (HAL)</programlisting>
 	Хэрэв энэ нь байхгүй бол та <filename>/usr/src/sys/</filename> 
 	рүү заасан симболын холбоос үүсгэж өгөх ёстой:</para>
 
-      <screen>&prompt.root; <userinput>ln -s /usr/src/sys/ /sys/</userinput></screen>
+      <screen>&prompt.root; <userinput>ln -s /usr/src/sys /sys</userinput></screen>
     </note>
 
     <para>Дараа нь <filename><replaceable>arch</replaceable>/conf</filename>

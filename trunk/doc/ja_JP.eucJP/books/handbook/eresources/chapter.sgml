@@ -2,8 +2,8 @@
      The FreeBSD Documentation Project
      The FreeBSD Japanese Documentation Project
 
-     Original revision: 1.71
-     $FreeBSD: doc/ja_JP.eucJP/books/handbook/eresources/chapter.sgml,v 1.29 2011/10/06 10:19:23 ryusuke Exp $
+     Original revision: 1.73
+     $FreeBSD: doc/ja_JP.eucJP/books/handbook/eresources/chapter.sgml,v 1.31 2011/10/23 02:31:18 ryusuke Exp $
 -->
 
 <appendix id="eresources">
@@ -54,7 +54,7 @@
       事実上のコミュニケーションの手段になってしまうでしょう。</para>
 
     <para>メーリングリストはいずれもアーカイブされており、それらは
-      <ulink url="../search.html">FreeBSD World Wide Web
+      <ulink url="../../../../ja/search.html">FreeBSD World Wide Web
 	server</ulink> で検索することができます。
       キーワード検索可能なアーカイブの提供は、
       良くある質問に対する回答を見つけるすぐれた方法ですから、
@@ -215,6 +215,11 @@
 	      <entry>freebsd-database</entry>
 	      <entry>FreeBSD
 		上でのデータベースの利用や開発に関する議論</entry>
+	    </row>
+
+	    <row>
+	      <entry>&a.desktop.name;</entry>
+	      <entry>デスクトップでの &os; の利用や改良について</entry>
 	    </row>
 
 	    <row>
@@ -406,7 +411,7 @@
 
 	    <row>
 	      <entry>freebsd-www</entry>
-	      <entry><ulink url="http://www.FreeBSD.org">www.freebsd.org
+	      <entry><ulink url="../../../../ja/index.html">www.FreeBSD.org
 		</ulink> の管理者</entry>
 	    </row>
 	  </tbody>
@@ -552,7 +557,7 @@ subscribe freebsd-announce
       </para>
 
       <screen>&prompt.user; <userinput>mail majordomo@FreeBSD.org</userinput>
-subscribe freebsd-announce local-announce@somesite.com
+subscribe freebsd-announce local-announce@example.com
 ^D</screen>
 
       <para>最後に、majordomo に対して
@@ -734,7 +739,7 @@ help
               これは、その修正パッチにあるバグがシステムの完全性に悪い影響を与える
               可能性があるような箇所を扱う場合は特に必要になります。</para>
 
-<!-- I can't actually find a charter for this, but there's this email: http://www.freebsd.org/cgi/getmsg.cgi?fetch=223347+225804+/usr/local/www/db/text/2000/cvs-all/20001210.cvs-all -->
+<!-- I can't actually find a charter for this, but there's this email: http://www.FreeBSD.org/cgi/getmsg.cgi?fetch=223347+225804+/usr/local/www/db/text/2000/cvs-all/20001210.cvs-all -->
 	  </listitem>
 	</varlistentry>
 
@@ -761,7 +766,7 @@ help
 	      のバグレポートのためのメーリングリストです。可能である
 	      場合はいつでも、バグは &man.send-pr.1;
 	      を使うか、<ulink
-		url="http://www.FreeBSD.org/ja/send-pr.html">WEB
+		url="../../../../ja/send-pr.html">WEB
 		interface</ulink>を用い
 	      て送られる必要があります。</para>
 	  </listitem>
@@ -818,7 +823,7 @@ help
 
 	<varlistentry><term>FREEBSD-CURRENT-DIGEST</term>
 	  <listitem>
-	    <para><emphasis>FreeBSD-currentの使用に関する議論
+	    <para><emphasis>FreeBSD-current の使用に関する議論
 	      </emphasis></para>
 	    <para>freebsd-current
 	      メーリングリストのダイジェスト版です。
@@ -829,6 +834,18 @@ help
 	      メールを送るような事はしないでください。</para>
 	  </listitem>
 	</varlistentry>
+
+	<varlistentry>
+	  <term>&a.desktop.name;</term>
+
+	  <listitem>
+	    <para><emphasis>デスクトップでの &os; の利用や改良について</emphasis></para>
+
+	    <para>デスクトップでの &os; について議論を行うためのフォーラムです。
+	      主として、デスクトップの移植者やユーザが &os;
+	      のデスクトップサポートに関する問題点や改良について議論する場です。</para>
+ 	  </listitem>
+ 	</varlistentry>
 
 	<varlistentry><term>FREEBSD-DOC</term>
 	  <listitem>

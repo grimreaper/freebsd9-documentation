@@ -1,5 +1,5 @@
 #
-# $FreeBSD: doc/en_US.ISO8859-1/books/handbook/Makefile,v 1.114 2011/10/08 15:20:28 gjb Exp $
+# $FreeBSD: doc/en_US.ISO8859-1/books/handbook/Makefile,v 1.118 2011/10/22 16:57:21 gjb Exp $
 #
 # Build the FreeBSD Handbook.
 #
@@ -63,20 +63,22 @@ IMAGES_EN+= bsdinstall/bsdinstall-configure-network-interface-ipv4-dhcp.png
 IMAGES_EN+= bsdinstall/bsdinstall-configure-network-interface-ipv4.png
 IMAGES_EN+= bsdinstall/bsdinstall-configure-network-interface-ipv4-static.png
 IMAGES_EN+= bsdinstall/bsdinstall-configure-network-interface-ipv6.png
+IMAGES_EN+= bsdinstall/bsdinstall-configure-network-interface-ipv6-static.png
 IMAGES_EN+= bsdinstall/bsdinstall-configure-network-interface-slaac.png
 IMAGES_EN+= bsdinstall/bsdinstall-configure-network-interface.png
 IMAGES_EN+= bsdinstall/bsdinstall-configure-network-ipv4-dns.png
+IMAGES_EN+= bsdinstall/bsdinstall-configure-wireless-accesspoints.png
+IMAGES_EN+= bsdinstall/bsdinstall-configure-wireless-scan.png
+IMAGES_EN+= bsdinstall/bsdinstall-configure-wireless-wpa2setup.png
 IMAGES_EN+= bsdinstall/bsdinstall-distfile-extracting.png
 IMAGES_EN+= bsdinstall/bsdinstall-distfile-fetching.png
 IMAGES_EN+= bsdinstall/bsdinstall-distfile-verifying.png
 IMAGES_EN+= bsdinstall/bsdinstall-final-confirmation.png
+IMAGES_EN+= bsdinstall/bsdinstall-finalconfiguration.png
+IMAGES_EN+= bsdinstall/bsdinstall-keymap-select-default.png
 IMAGES_EN+= bsdinstall/bsdinstall-mainexit.png
-IMAGES_EN+= bsdinstall/bsdinstall-mta-main.png
-IMAGES_EN+= bsdinstall/bsdinstall-net-config-menu1.png
-IMAGES_EN+= bsdinstall/bsdinstall-net-config-menu2.png
 IMAGES_EN+= bsdinstall/bsdinstall-netinstall-files.png
 IMAGES_EN+= bsdinstall/bsdinstall-netinstall-mirrorselect.png
-IMAGES_EN+= bsdinstall/bsdinstall-ntp-config.png
 IMAGES_EN+= bsdinstall/bsdinstall-part-entire-part.png
 IMAGES_EN+= bsdinstall/bsdinstall-part-guided-disk.png
 IMAGES_EN+= bsdinstall/bsdinstall-part-guided-manual.png

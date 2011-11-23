@@ -4,10 +4,10 @@
 
   The FreeBSD Greek Documentation Project
 
-  $FreeBSD: doc/el_GR.ISO8859-7/books/handbook/ports/chapter.sgml,v 1.13 2011/09/25 14:18:24 manolis Exp $
+  $FreeBSD: doc/el_GR.ISO8859-7/books/handbook/ports/chapter.sgml,v 1.14 2011/10/19 07:05:15 manolis Exp $
 
   %SOURCE%	en_US.ISO8859-1/books/handbook/ports/chapter.sgml
-  %SRCID%	1.292
+  %SRCID%	1.293
 
 -->
 
@@ -1105,7 +1105,7 @@ ftp://ftp.FreeBSD.org/pub/FreeBSD/ports/distfiles/ fetch</userinput></screen>
 	  μεταγλώττισης που μπορούν να ενεργοποιήσουν/απενεργοποιήσουν
 	  τμήματα της εφαρμογής που είναι αχρείαστα, συγκεκριμένες επιλογές
 	  ασφαλείας, και άλλες τροποποιήσεις.  Κοινά παραδείγματα τέτοιων
-	  ports είναι τα <filename role="package">www/mozilla</filename>,
+	  ports είναι τα <filename role="package">www/firefox</filename>,
 	  <filename role="package">security/gpgme</filename>, και το
 	  <filename role="package">mail/sylpheed-claws</filename>.  Όταν
 	  υπάρχουν διαθέσιμες τέτοιες επιλογές, θα εμφανιστεί στην οθόνη

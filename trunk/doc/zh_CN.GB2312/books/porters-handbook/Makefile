@@ -1,8 +1,9 @@
 #
 # The FreeBSD Simplified Chinese Project
 #
-# Original Revision: 1.7 
-# $FreeBSD: doc/zh_CN.GB2312/books/porters-handbook/Makefile,v 1.1 2005/07/18 15:47:52 delphij Exp $
+# Original Revision: 1.9
+# 
+# $FreeBSD: doc/zh_CN.GB2312/books/porters-handbook/Makefile,v 1.2 2011/10/14 20:47:56 delphij Exp $
 #
 # Build the FreeBSD Porter's Handbook.
 #
@@ -39,6 +40,17 @@ IMAGES_LIB+=	callouts/7.png
 IMAGES_LIB+=	callouts/8.png
 IMAGES_LIB+=	callouts/9.png
 IMAGES_LIB+=	callouts/10.png
+IMAGES_LIB+=	callouts/11.png
+IMAGES_LIB+=	callouts/12.png
+IMAGES_LIB+=	callouts/13.png
+IMAGES_LIB+=	callouts/14.png
+IMAGES_LIB+=	callouts/15.png
+IMAGES_LIB+=	callouts/16.png
+IMAGES_LIB+=	callouts/17.png
+IMAGES_LIB+=	callouts/18.png
+IMAGES_LIB+=	callouts/19.png
+IMAGES_LIB+=	callouts/20.png
+IMAGES_LIB+=	callouts/21.png
 
 URL_RELPREFIX?=	../../../..
 DOC_PREFIX?= ${.CURDIR}/../../..

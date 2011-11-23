@@ -1,5 +1,5 @@
 
-<!-- $FreeBSD: doc/share/pgpkeys/pgpkeys.ent,v 1.252 2011/10/06 14:02:25 melifaro Exp $ -->
+<!-- $FreeBSD: doc/share/pgpkeys/pgpkeys.ent,v 1.258 2011/11/19 16:40:30 scheidell Exp $ -->
 <!-- PGP keyblocks -->
 <!ENTITY pgpkey.aaron SYSTEM "aaron.key">
 <!ENTITY pgpkey.ache SYSTEM "ache.key">
@@ -281,6 +281,7 @@
 <!ENTITY pgpkey.rich SYSTEM "rich.key">
 <!ENTITY pgpkey.rik SYSTEM "rik.key">
 <!ENTITY pgpkey.rink SYSTEM "rink.key">
+<!ENTITY pgpkey.rm SYSTEM "rm.key">
 <!ENTITY pgpkey.rmacklem SYSTEM "rmacklem.key">
 <!ENTITY pgpkey.rmh SYSTEM "rmh.key">
 <!ENTITY pgpkey.rnoland SYSTEM "rnoland.key">
@@ -298,7 +299,9 @@
 <!ENTITY pgpkey.sam SYSTEM "sam.key">
 <!ENTITY pgpkey.sanpei SYSTEM "sanpei.key">
 <!ENTITY pgpkey.sat SYSTEM "sat.key">
+<!ENTITY pgpkey.sbruno SYSTEM "sbruno.key">
 <!ENTITY pgpkey.sbz SYSTEM "sbz.key">
+<!ENTITY pgpkey.scheidell SYSTEM "scheidell.key">
 <!ENTITY pgpkey.schweikh SYSTEM "schweikh.key">
 <!ENTITY pgpkey.scop SYSTEM "scop.key">
 <!ENTITY pgpkey.scottl SYSTEM "scottl.key">
@@ -328,6 +331,7 @@
 <!ENTITY pgpkey.tabthorpe SYSTEM "tabthorpe.key">
 <!ENTITY pgpkey.taras SYSTEM "taras.key">
 <!ENTITY pgpkey.tdb SYSTEM "tdb.key">
+<!ENTITY pgpkey.theraven SYSTEM "theraven.key">
 <!ENTITY pgpkey.thierry SYSTEM "thierry.key">
 <!ENTITY pgpkey.thomas SYSTEM "thomas.key">
 <!ENTITY pgpkey.thompsa SYSTEM "thompsa.key">

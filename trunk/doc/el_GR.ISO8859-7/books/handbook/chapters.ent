@@ -9,10 +9,10 @@
      Τα κεφάλαια εδώ είναι καλό να έχουν την ίδια σειρά με την οποία
      εμφανίζονται στο τελικό βιβλίο.
 
-     $FreeBSD: doc/el_GR.ISO8859-7/books/handbook/chapters.ent,v 1.7 2009/10/26 12:31:47 keramida Exp $
+     $FreeBSD: doc/el_GR.ISO8859-7/books/handbook/chapters.ent,v 1.8 2011/10/14 06:06:03 manolis Exp $
 
      %SOURCE%	en_US.ISO8859-1/books/handbook/chapters.ent
-     %SRCID%	1.39
+     %SRCID%	1.40
 
 -->
 
@@ -21,6 +21,7 @@
 <!-- Part one -->
 <!ENTITY chap.introduction		SYSTEM "introduction/chapter.sgml">
 <!ENTITY chap.install			SYSTEM "install/chapter.sgml">
+<!ENTITY chap.bsdinstall		SYSTEM "bsdinstall/chapter.sgml">
 <!ENTITY chap.basics			SYSTEM "basics/chapter.sgml">
 <!ENTITY chap.ports			SYSTEM "ports/chapter.sgml">
 <!ENTITY chap.x11			SYSTEM "x11/chapter.sgml">
